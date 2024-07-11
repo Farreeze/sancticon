@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MainChurch\AddEventRequest;
+use App\Models\ChurchEvent;
+use Dotenv\Repository\RepositoryInterface;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -26,9 +29,15 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddEventRequest $request)
     {
-        //
+        try {
+            $event_data = $request->validated();
+            ChurchEvent::create($event_data);
+            return response()->json(['message' => 'event added'], 201);
+        }catch (\Exception $e) {
+            return response()->json(['message' => 'something went wrong', 'error' => $e->getMessage()], 500);
+        }
     }
 
     /**

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('desc');
             $table->date('date');
-            $table->time('time');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->string('photo_id');
             $table->timestamps();
 

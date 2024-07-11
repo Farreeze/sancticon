@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainChurch\ChurchController;
+use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +26,6 @@ require __DIR__.'/auth.php';
 Route::get('/csrf-token', function () {
     return csrf_token();
 });
-
+//MainChurch Temporary Routes
 Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');
+Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
