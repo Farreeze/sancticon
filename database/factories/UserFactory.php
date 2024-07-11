@@ -30,6 +30,7 @@ class UserFactory extends Factory
             'sub_church' => 0,
             'user' => 0,
             'church_name' => 'main church',
+            'address' => 'test address only',
             'email' => 'main_church@example.com',
             'password' => 'main',
             'remember_token' => Str::random(10),

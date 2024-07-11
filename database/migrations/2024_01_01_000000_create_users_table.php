@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->unsignedBigInteger('suffix_name')->nullable();
             $table->unsignedBigInteger('gender')->nullable();
+            $table->text('address');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
