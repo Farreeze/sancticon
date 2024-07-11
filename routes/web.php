@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+//TEMPORARY ROUTES
+
+Route::get('/csrf-token', function () {
+    return csrf_token();
+});
+
+Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');

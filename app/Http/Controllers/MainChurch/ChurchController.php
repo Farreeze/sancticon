@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MainChurch\AddChurchRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ChurchController extends Controller
@@ -26,9 +28,11 @@ class ChurchController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddChurchRequest $request)
     {
-        //
+        $church_data = $request->validated();
+        User::create($church_data);
+        return response()->json(['message' => 'Church added successfully']);
     }
 
     /**
