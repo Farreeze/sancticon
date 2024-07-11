@@ -28,4 +28,5 @@ Route::get('/csrf-token', function () {
 });
 //MainChurch Temporary Routes
 Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');
+Route::delete('/delete-church/{id}', [ChurchController::class, 'destroy'])->name('delete-church');
 Route::post('/add-event', [EventController::class, 'store'])->name('add-event');

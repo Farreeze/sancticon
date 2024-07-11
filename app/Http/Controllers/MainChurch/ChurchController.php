@@ -64,6 +64,10 @@ class ChurchController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $church = User::findOrFail($id);
+
+        $church->delete();
+
+        return response()->json(['message' => 'church deleted']);
     }
 }
