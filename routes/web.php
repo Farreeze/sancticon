@@ -34,3 +34,4 @@ Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
 
 //user Temporary Routes
 Route::post('/add-reservation', [ReservationController::class, 'store'])->name('add-sacramental-reservation');
+Route::delete('/delete-reservation/{id}', [ReservationController::class, 'destroy'])->name('cancel-reservation');

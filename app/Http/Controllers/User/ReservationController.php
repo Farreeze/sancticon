@@ -64,6 +64,10 @@ class ReservationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $reservation = SacramentalReservation::findOrFail($id);
+
+        $reservation->delete();
+
+        return response()->json(['message' => 'reservation canceled']);
     }
 }
