@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_certificate_requests', function (Blueprint $table) {
+        Schema::create('sacramental_reservations', function (Blueprint $table) {
             $table->ulid('id')->primary();
+            $table->ulid('event_id');
             $table->ulid('user_id');
-            $table->foreignUlid('event_id');
-            $table->boolean('status')->default(0); // 0 == pending
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('event_id')->references('id')->on('church_events');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_certificate_requests');
+        Schema::dropIfExists('sacramental_reservations');
     }
 };

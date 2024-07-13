@@ -3,6 +3,7 @@
 use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,3 +31,6 @@ Route::get('/csrf-token', function () {
 Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');
 Route::delete('/delete-church/{id}', [ChurchController::class, 'destroy'])->name('delete-church');
 Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
+
+//user Temporary Routes
+Route::post('/add-reservation', [ReservationController::class, 'store'])->name('add-sacramental-reservation');

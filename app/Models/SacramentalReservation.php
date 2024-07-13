@@ -6,19 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\Uid\Ulid;
 
-class ChurchEvent extends Model
+class SacramentalReservation extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'sacrament_id',
-        'church_id',
-        'title',
-        'desc',
-        'date',
-        'start_time',
-        'end_time',
-        'photo_id'
+        'event_id',
+        'user_id'
     ];
 
     protected static function boot()

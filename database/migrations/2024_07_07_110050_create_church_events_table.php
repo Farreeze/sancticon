@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('church_events', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
+            $table->unsignedBigInteger('sacrament_id');
             $table->ulid('church_id');
             $table->string('title');
             $table->string('desc');
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->string('photo_id');
             $table->timestamps();
 
+            $table->foreign('sacrament_id')->references('id')->on('lib_sacraments');
             $table->foreign('church_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

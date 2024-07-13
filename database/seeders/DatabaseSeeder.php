@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         User::factory()->create();
         $this->call([
             GenderSeeder::class,
-            SuffixNameSeeder::class
+            SuffixNameSeeder::class,
+            SacramentSeeder::class
         ]);
     }
 }

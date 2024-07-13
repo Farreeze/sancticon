@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\libSuffixName;
+use App\Models\LibSuffixName;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,7 +13,7 @@ class SuffixNameSeeder extends Seeder
      */
     public function run(): void
     {
-        libSuffixName::upsert([
+        LibSuffixName::upsert([
             ['id' => '1',     'desc' => 'Jr.'],
             ['id' => '2',     'desc' => 'Sr.'],
             ['id' => '3',     'desc' => 'II'],
