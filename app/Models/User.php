@@ -24,6 +24,7 @@ class User extends Authenticatable
         'church_name',
         'address',
         'email',
+        'mobile_number',
         'password',
     ];
 

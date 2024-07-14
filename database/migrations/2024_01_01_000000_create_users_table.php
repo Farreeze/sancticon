@@ -24,6 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('gender')->nullable();
             $table->text('address');
             $table->string('email')->unique();
+            $table->string('mobile_number');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

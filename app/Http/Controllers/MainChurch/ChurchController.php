@@ -30,8 +30,24 @@ class ChurchController extends Controller
      */
     public function store(AddChurchRequest $request)
     {
-        $church_data = $request->validated();
-        User::create($church_data);
+        // $church_data = $request->validated();
+        // User::create($church_data);
+        // return response()->json(['message' => 'Church added successfully']);
+
+        $church = new User();
+
+        $church->main_church = $request->main_church;
+        $church->sub_church = $request->sub_church;
+        $church->user = $request->user;
+        $church->church_name = $request->church_name;
+        $church->address = $request->address;
+        $church->mobile_number = $request->mobile_number;
+        $church->email = $request->email;
+        $church->mobile_number = $request->mobile_number;
+        $church->password = $request->password;
+
+        $church->save();
+
         return response()->json(['message' => 'Church added successfully']);
     }
 
