@@ -32,6 +32,6 @@ Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church
 Route::delete('/delete-church/{id}', [ChurchController::class, 'destroy'])->name('delete-church');
 Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
 
-//user Temporary Routes
+//User (parishioner) Temporary Routes
 Route::post('/add-reservation', [ReservationController::class, 'store'])->name('add-sacramental-reservation');
 Route::delete('/delete-reservation/{id}', [ReservationController::class, 'destroy'])->name('cancel-reservation');
