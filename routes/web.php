@@ -18,6 +18,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::middleware(['MainChurch'])->group(function(){
+        Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');
+        Route::delete('/delete-church/{id}', [ChurchController::class, 'destroy'])->name('delete-church');
+        Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
+    });
+
+    Route::middleware(['SubChurch'])->group(function(){
+
+    });
+
+    Route::middleware(['User'])->group(function(){
+        Route::post('/add-reservation', [ReservationController::class, 'store'])->name('add-sacramental-reservation');
+        Route::delete('/delete-reservation/{id}', [ReservationController::class, 'destroy'])->name('cancel-reservation');
+    });
+
 });
 
 require __DIR__.'/auth.php';
@@ -27,11 +43,3 @@ require __DIR__.'/auth.php';
 Route::get('/csrf-token', function () {
     return csrf_token();
 });
-//MainChurch Temporary Routes
-Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');
-Route::delete('/delete-church/{id}', [ChurchController::class, 'destroy'])->name('delete-church');
-Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
-
-//User (parishioner) Temporary Routes
-Route::post('/add-reservation', [ReservationController::class, 'store'])->name('add-sacramental-reservation');
-Route::delete('/delete-reservation/{id}', [ReservationController::class, 'destroy'])->name('cancel-reservation');
