@@ -25,14 +25,13 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => (string) new Ulid(),
             'main_church' => 1,
             'sub_church' => 0,
             'user' => 0,
             'church_name' => 'main church',
             'address' => 'test address only',
             'email' => 'main_church@example.com',
-            'mobile_number' => '09123123123',
+            'mobile_number' => "09123123123",
             'password' => 'main',
             'remember_token' => Str::random(10),
         ];

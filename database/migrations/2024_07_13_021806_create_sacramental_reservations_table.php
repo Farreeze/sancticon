@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('sacramental_reservations', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->ulid('event_id');
-            $table->ulid('user_id');
+            $table->foreignUlid('event_id');
+            $table->foreignId('user_id');
             $table->timestamps();
 
             $table->foreign('event_id')->references('id')->on('church_events');

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->ulid('id')->primary();
+            $table->id();
             $table->boolean('main_church');
             $table->boolean('sub_church');
             $table->boolean('user');

@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('church_certificate_requests', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->ulid('church_id');
+            $table->foreignId('church_id');
             $table->foreignUlid('event_id');
             $table->string('cert_name');
             $table->boolean('status');

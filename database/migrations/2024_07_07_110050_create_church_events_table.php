@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('church_events', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->unsignedBigInteger('sacrament_id');
-            $table->ulid('church_id');
+            $table->foreignId('church_id');
             $table->string('title');
             $table->string('desc');
             $table->date('date');

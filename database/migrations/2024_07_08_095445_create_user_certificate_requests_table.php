@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_certificate_requests', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->ulid('user_id');
+            $table->foreignId('user_id');
             $table->foreignUlid('event_id');
             $table->boolean('status')->default(0); // 0 == pending
             $table->timestamps();
