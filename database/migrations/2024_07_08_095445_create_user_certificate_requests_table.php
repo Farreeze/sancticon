@@ -15,11 +15,13 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->foreignId('user_id');
             $table->foreignUlid('event_id');
+            $table->foreignId('sacrament_id');
             $table->boolean('status')->default(0); // 0 == pending
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('event_id')->references('id')->on('church_events');
+            $table->foreign('sacrament_id')->references('id')->on('lib_sacraments');
         });
     }
 
