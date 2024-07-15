@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::middleware(['main-church'])->group(function(){
+        Route::get('/add-church-form', [ChurchController::class, 'create'])->name('add-church-form.show');
         Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');
         Route::delete('/delete-church/{id}', [ChurchController::class, 'destroy'])->name('delete-church');
         Route::post('/add-event', [EventController::class, 'store'])->name('add-event');

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignUlid('event_id');
             $table->foreignId('sacrament_id');
-            $table->boolean('status')->default(0); // 0 == pending
+            $table->boolean('status')->nullable(); // 0 == pending
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

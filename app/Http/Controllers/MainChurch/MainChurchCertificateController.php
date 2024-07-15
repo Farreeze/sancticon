@@ -5,7 +5,7 @@ namespace App\Http\Controllers\MainChurch;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CertificateController extends Controller
+class MainChurchCertificateController extends Controller
 {
     /**
      * Display a listing of the resource.

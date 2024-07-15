@@ -22,7 +22,7 @@ class ChurchController extends Controller
      */
     public function create()
     {
-        //
+        return view('MainChurch.add-church-form');
     }
 
     /**

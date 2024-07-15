@@ -15,6 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if (Auth::user()->main_church)
+                        <x-nav-link :href="route('add-church-form.show')" :active="request()->routeIs('add-church-form.show')">
+                            {{ __('Add Church') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -69,6 +74,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('add-church-form.show')" :active="request()->routeIs('add-church-form.show')">
+                {{ __('Add Church') }}
             </x-responsive-nav-link>
         </div>
 
