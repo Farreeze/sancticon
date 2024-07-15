@@ -20,6 +20,6 @@ class CheckSubChurch
         {
             return $next($request);
         }
-        return redirect('dashboard')->with('error', 'Unauthorized access.');
+        return response()->json(['message'=>'You do not have permission to use this']);
     }
 }

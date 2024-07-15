@@ -15,9 +15,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias(['MainChurch' => CheckMainChurch::class]);
-        $middleware->alias(['SubChurch' => CheckSubChurch::class]);
-        $middleware->alias(['User' => CheckUser::class]);
+        $middleware->alias([
+            'main-church' => CheckMainChurch::class,
+            'sub-church' => CheckSubChurch::class,
+            'user' => CheckUser::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

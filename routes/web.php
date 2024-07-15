@@ -19,17 +19,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::middleware(['MainChurch'])->group(function(){
+    Route::middleware(['main-church'])->group(function(){
         Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');
         Route::delete('/delete-church/{id}', [ChurchController::class, 'destroy'])->name('delete-church');
         Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
     });
 
-    Route::middleware(['SubChurch'])->group(function(){
+    Route::middleware(['sub-church'])->group(function(){
 
     });
 
-    Route::middleware(['User'])->group(function(){
+    Route::middleware(['user'])->group(function(){
         Route::post('/add-reservation', [ReservationController::class, 'store'])->name('add-sacramental-reservation');
         Route::delete('/delete-reservation/{id}', [ReservationController::class, 'destroy'])->name('cancel-reservation');
     });
