@@ -4,6 +4,7 @@ use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\ReservationController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,6 +12,12 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+    $user = auth()->user();
+    if($user->main_church)
+    {
+        $churches = User::where('sub_church', 1)->get();
+        return view('dashboard', ['churches' => $churches]);
+    }
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
