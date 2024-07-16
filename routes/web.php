@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['main-church'])->group(function(){
         Route::get('/add-church-form', [ChurchController::class, 'create'])->name('add-church-form.show');
         Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');
+        Route::get('/church-profile/{id}', [ChurchController::class, 'show'])->name('church-profile.show');
         Route::delete('/delete-church/{id}', [ChurchController::class, 'destroy'])->name('delete-church');
         Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
     });

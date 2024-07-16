@@ -41,7 +41,9 @@ class ChurchController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $church = User::findOrFail($id);
+
+        return view('MainChurch.church-profile', ['church' => $church]);
     }
 
     /**
