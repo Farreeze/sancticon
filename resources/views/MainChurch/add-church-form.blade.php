@@ -1,4 +1,18 @@
 <x-app-layout>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @if (Session::has('message'))
+
+    <script>
+        swal("SUCCESS", "{{ Session::get('message') }}", 'success',
+        {
+            button:true,
+            button:"OK",
+        });
+    </script>
+
+    @endif
+
     <div class="py-12">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -33,7 +47,7 @@
                                 <input name="password" class="rounded-lg border-gray-300 w-full mt-2" type="password">
                             </div>
                             <div class="w-full mt-5">
-                                <button class="w-full bg-gray-400 text-white rounded-lg px-3 py-2 hover:bg-gray-500" type="submit">Add Church</button>
+                                <button class="w-full bg-gray-500 text-white rounded-lg px-3 py-2 hover:bg-gray-700" type="submit">Add Church</button>
                             </div>
                         </form>
                     </div>

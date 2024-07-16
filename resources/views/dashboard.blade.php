@@ -30,6 +30,7 @@
                                 <tr class="hover:bg-gray-50">
                                     <td class="text-start p-3 border-b border-gray-300">{{$church->church_name}}</td>
                                     <td class="text-start p-3 border-b border-gray-300">
+                                        <a class="bg-gray-500 hover:bg-gray-700 px-2 py-1 rounded-lg text-white" href="">View</a>
                                         <a class="bg-blue-500 hover:bg-blue-700 px-2 py-1 rounded-lg text-white" href="">Edit</a>
                                         <a class="bg-red-500 hover:bg-red-700 px-2 py-1 rounded-lg text-white" href="">Delete</a>
                                     </td>

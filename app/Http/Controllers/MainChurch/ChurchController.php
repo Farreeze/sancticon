@@ -33,9 +33,7 @@ class ChurchController extends Controller
         $church_data = $request->validated();
         User::create($church_data);
 
-        $churches = User::where('sub_church', 1)->get();
-
-        return view('dashboard', ['churches' => $churches]);
+        return back()->with('message', 'Church added successfully!');
     }
 
     /**
