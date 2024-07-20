@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/church-profile/{id}', [ChurchController::class, 'show'])->name('church-profile.show');
         Route::delete('/delete-church/{id}', [ChurchController::class, 'destroy'])->name('delete-church');
         Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
+
+        //events
+        Route::get('/events', [EventController::class, 'index'])->name('church-events.show');
     });
 
     Route::middleware(['sub-church'])->group(function(){
