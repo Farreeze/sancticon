@@ -15,7 +15,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('MainChurch.events');
+        $events = ChurchEvent::whereNull('status')->get();
+        return view('MainChurch.events', ['events' => $events]);
     }
 
     /**

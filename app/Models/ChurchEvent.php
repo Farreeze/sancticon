@@ -21,6 +21,11 @@ class ChurchEvent extends Model
         'photo_id'
     ];
 
+    public function sacrament()
+    {
+        return $this->belongsTo(LibSacrament::class, 'sacrament_id', 'id');
+    }
+
     protected static function boot()
     {
         parent::boot();
