@@ -27,14 +27,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::middleware(['main-church'])->group(function(){
+        //churches
         Route::get('/add-church-form', [ChurchController::class, 'create'])->name('add-church-form.show');
         Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');
-        Route::get('/church-profile/{id}', [ChurchController::class, 'show'])->name('church-profile.show');
         Route::delete('/delete-church/{id}', [ChurchController::class, 'destroy'])->name('delete-church');
-        Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
-
+        Route::get('/church-profile/{id}', [ChurchController::class, 'show'])->name('church-profile.show');
         //events
         Route::get('/events', [EventController::class, 'index'])->name('church-events.show');
+        Route::get('/add-event-form', [EventController::class, 'create'])->name('add-event-form.show');
+        Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
     });
 
     Route::middleware(['sub-church'])->group(function(){

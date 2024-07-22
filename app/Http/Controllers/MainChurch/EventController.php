@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MainChurch;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\AddEventRequest;
 use App\Models\ChurchEvent;
+use App\Models\LibSacrament;
 use Dotenv\Repository\RepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = ChurchEvent::whereNull('status')->get();
+        $events = ChurchEvent::where('status', 1)->get();
         return view('MainChurch.events', ['events' => $events]);
     }
 
@@ -24,7 +25,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        $sacraments = LibSacrament::all();
+        return view('MainChurch.add-event-form', ['sacraments' => $sacraments]);
     }
 
     /**
@@ -35,7 +37,7 @@ class EventController extends Controller
         try {
             $event_data = $request->validated();
             ChurchEvent::create($event_data);
-            return response()->json(['message' => 'event added'], 201);
+            return back()->with('message', 'Event added successfully!');
         }catch (\Exception $e) {
             return response()->json(['message' => 'something went wrong', 'error' => $e->getMessage()], 500);
         }

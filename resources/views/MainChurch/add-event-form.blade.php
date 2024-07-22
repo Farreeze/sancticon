@@ -1,0 +1,69 @@
+<x-app-layout>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @if (Session::has('message'))
+
+    <script>
+        swal("SUCCESS", "{{ Session::get('message') }}", 'success',
+        {
+            button:true,
+            button:"OK",
+        });
+    </script>
+
+    @endif
+
+    <div class="py-12">
+        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-600">
+                    <h1 class="font-bold text-2xl">Add Event</h1>
+                    <div class="w-full">
+                        <form action="{{ route('add-event') }}" method="POST">
+                            @csrf
+                            {{-- form requirements --}}
+                            <input type="hidden" name="church_id" id="" value="{{Auth::user()->id}}">
+                            {{-- form input --}}
+                            <div class="flex-col items-center mt-5">
+                                <label class="font-bold" for="church_name">Event Title:</label>
+                                <input name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text">
+                            </div>
+                            <div class="flex-col items-center mt-3">
+                                <label class="font-bold" for="church_name">Event Description:</label>
+                                <input name="desc" class="rounded-lg border-gray-300 w-full mt-2" type="text">
+                            </div>
+                            <div class="flex-col items-center mt-3">
+                                <label class="font-bold" for="church_name">Sacrament:</label>
+                                <Select class="w-full rounded-lg border border-gray-300" name="sacrament_id">
+                                    <option value="" selected disabled>Select Sacrament</option>
+                                    @foreach ($sacraments as $sacrament)
+                                    <option value="{{$sacrament->id}}">{{$sacrament->desc}}</option>
+                                    @endforeach
+                                </Select>
+                            </div>
+                            <div class="flex-col items-center mt-3">
+                                <label class="font-bold" for="church_name">Event Date:</label>
+                                <input name="date" class="rounded-lg border-gray-300 w-full mt-2" type="date">
+                            </div>
+                            <div class="flex-col items-center mt-3">
+                                <label class="font-bold" for="church_name">Start Time:</label>
+                                <input name="start_time" class="rounded-lg border-gray-300 w-full mt-2" type="time">
+                            </div>
+                            <div class="flex-col items-center mt-3">
+                                <label class="font-bold" for="church_name">End Time:</label>
+                                <input name="end_time" class="rounded-lg border-gray-300 w-full mt-2" type="time">
+                            </div>
+                            <div class="flex-col items-center mt-3">
+                                <label class="font-bold" for="church_name">Event Photo:</label>
+                                <input name="photo_id" class="border-gray-300 w-full mt-2" type="file">
+                            </div>
+                            <div class="w-full mt-5">
+                                <button class="w-full bg-gray-500 text-white rounded-lg px-3 py-2 hover:bg-gray-700" type="submit">Add Event</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>

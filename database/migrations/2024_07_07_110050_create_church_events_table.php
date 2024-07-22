@@ -20,8 +20,8 @@ return new class extends Migration
             $table->date('date');
             $table->time('start_time');
             $table->time('end_time');
-            $table->boolean('status')->nullable(); // null == pending
-            $table->string('photo_id');
+            $table->boolean('status')->default(1); // 1 == active
+            $table->string('photo_id')->nullable();
             $table->timestamps();
 
             $table->foreign('sacrament_id')->references('id')->on('lib_sacraments');
