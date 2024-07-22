@@ -18,7 +18,7 @@ class ChurchEvent extends Model
         'date',
         'start_time',
         'end_time',
-        'photo_id'
+        'location'
     ];
 
     public function sacrament()

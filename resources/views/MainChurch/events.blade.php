@@ -20,18 +20,12 @@
                     <div class="w-full mt-5">
                         <div class="flex flex-col md:flex-row lg:flex-row flex-wrap">
                             @foreach ($events as $event)
-                            <div class="bg-gray-200 rounded-lg p-5 w-full md:w-[30%] mt-5 lg:w-[30%] md:m-5 lg:m-5">
-                                <div class="w-full flex justify-center">
-                                    <img class="w-[70%] h-auto border border-gray-300 rounded-lg" src="/images/church-default-dp.png" alt="">
+                                <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5">
+                                    <div class="w-full">
+                                        <h1 class="text-gray-700 font-bold text-lg">{{ $event->title }}</h1>
+                                    </div>
                                 </div>
-                                <div class="flex justify-center">
-                                    <h1 class="font-bold text-xl text-gray-700">{{$event->title}}</h1>
-                                </div>
-                                <div class="border border-gray-300 rounded-lg p-3">
-                                    <span>test</span>
-                                </div>
-                            </div>
-                        @endforeach
+                            @endforeach
                         </div>
                     </div>
                 </div>

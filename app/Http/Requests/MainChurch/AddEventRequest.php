@@ -29,7 +29,7 @@ class AddEventRequest extends FormRequest
             'date' => 'required',
             'start_time' => 'required',
             'end_time' => 'required',
-            'photo_id' => 'nullable|string|max:255'
+            'location' => 'required|string|max:255'
         ];
     }
 }

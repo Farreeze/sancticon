@@ -33,6 +33,10 @@
                                 <textarea class="rounded-lg border-gray-300 w-full mt-2" name="desc" id="" cols="30" rows="3"></textarea>
                             </div>
                             <div class="flex-col items-center mt-1">
+                                <label class="font-bold" for="church_name">Event Location:</label>
+                                <input name="location" class="rounded-lg border-gray-300 w-full mt-2" type="text">
+                            </div>
+                            <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Sacrament:</label>
                                 <Select class="mt-2 w-full rounded-lg border border-gray-300" name="sacrament_id">
                                     <option value="" selected disabled>Select Sacrament</option>
@@ -52,10 +56,6 @@
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">End Time:</label>
                                 <input name="end_time" class="rounded-lg border-gray-300 w-full mt-2" type="time">
-                            </div>
-                            <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Event Photo:</label>
-                                <input name="photo_id" class="border-gray-300 w-full mt-2" type="file">
                             </div>
                             <div class="w-full mt-5">
                                 <button class="w-full bg-gray-500 text-white rounded-lg px-3 py-2 hover:bg-gray-700" type="submit">Add Event</button>

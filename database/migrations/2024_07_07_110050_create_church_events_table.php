@@ -21,7 +21,7 @@ return new class extends Migration
             $table->time('start_time');
             $table->time('end_time');
             $table->boolean('status')->default(1); // 1 == active
-            $table->string('photo_id')->nullable();
+            $table->string('location');
             $table->timestamps();
 
             $table->foreign('sacrament_id')->references('id')->on('lib_sacraments');
