@@ -15,7 +15,7 @@
 
     <div class="py-12">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-600">
                     <h1 class="font-bold text-2xl">Add Event</h1>
                     <div class="w-full">
@@ -30,11 +30,11 @@
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Event Description:</label>
-                                <input name="desc" class="rounded-lg border-gray-300 w-full mt-2" type="text">
+                                <textarea class="rounded-lg border-gray-300 w-full mt-2" name="desc" id="" cols="30" rows="3"></textarea>
                             </div>
-                            <div class="flex-col items-center mt-3">
+                            <div class="flex-col items-center mt-1">
                                 <label class="font-bold" for="church_name">Sacrament:</label>
-                                <Select class="w-full rounded-lg border border-gray-300" name="sacrament_id">
+                                <Select class="mt-2 w-full rounded-lg border border-gray-300" name="sacrament_id">
                                     <option value="" selected disabled>Select Sacrament</option>
                                     @foreach ($sacraments as $sacrament)
                                     <option value="{{$sacrament->id}}">{{$sacrament->desc}}</option>
