@@ -14,6 +14,12 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'positive_btn': '#32a852',
+                'positive_btn_hover': '#26733b',
+                'negative_btn': '#b03525',
+                'negative_btn_hover': '#80261b',
+            },
         },
     },
 

@@ -20,9 +20,33 @@
                     <div class="w-full mt-5">
                         <div class="flex flex-col md:flex-row lg:flex-row flex-wrap">
                             @foreach ($events as $event)
-                                <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5">
+                                <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mb-3">
                                     <div class="w-full">
-                                        <h1 class="text-gray-700 font-bold text-lg">{{ $event->title }}</h1>
+                                        <div class="mb-1 flex justify-between">
+                                            <h1 class="text-gray-700 font-bold text-2xl">{{ $event->title }}</h1>
+                                            <div class="flex">
+                                                <a class="mr-3 px-4 py-1 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg" href="">Cancel Event</a>
+                                                <a class="px-4 py-1 bg-positive_btn hover:bg-positive_btn_hover text-white rounded-lg" href="">Finish Event</a>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <div class="flex">
+                                                <span class="text-gray-700 font-bold">Date:</span>
+                                                <span class="text-gray-700 ml-1">{{$event->date}}</span>
+                                            </div>
+                                            <div class="flex">
+                                                <span class="text-gray-700 font-bold">Time:</span>
+                                                <span class="text-gray-700 ml-1">{{$event->start_time}} - {{$event->end_time}}</span>
+                                            </div>
+                                            <div class="flex">
+                                                <span class="text-gray-700 font-bold">Location:</span>
+                                                <span class="text-gray-700 ml-1">{{$event->location}}</span>
+                                            </div>
+                                            <div class="flex">
+                                                <span class="text-gray-700 font-bold">Description:</span>
+                                                <span class="text-gray-700 ml-1">{{$event->desc}}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach
