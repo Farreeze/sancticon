@@ -25,7 +25,7 @@ class AddEventRequest extends FormRequest
             'sacrament_id' => 'required|exists:lib_sacraments,id',
             'church_id' => 'required|exists:users,id',
             'title' => 'required|string|max:255',
-            'desc' => 'required|string|max:255',
+            'desc' => 'required',
             'date' => 'required',
             'start_time' => 'required',
             'end_time' => 'required',

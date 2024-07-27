@@ -16,8 +16,13 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = ChurchEvent::where('status', 1)->get();
-        return view('MainChurch.events', ['events' => $events]);
+        $events = ChurchEvent::where('status', 1)
+        ->orderBy('created_at', 'desc')
+        ->get();
+        $finished_events = ChurchEvent::where('status', 0)
+        ->orderBy('created_at', 'desc')
+        ->get();
+        return view('MainChurch.events', ['events' => $events, 'finished_events' => $finished_events]);
     }
 
     /**
@@ -64,7 +69,7 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
     }
 
     /**
@@ -72,6 +77,23 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = ChurchEvent::findOrFail($id);
+
+        $event->delete();
+
+        return back()->with('delete', 'Event Deleted');
+    }
+
+    //custome functions
+
+    public function finishEvent(String $id)
+    {
+        $event = ChurchEvent::findOrFail($id);
+
+        $event->status = 0;
+
+        $event->save();
+
+        return back()->with('message', 'Event Finished');
     }
 }

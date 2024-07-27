@@ -25,13 +25,4 @@ class ChurchEvent extends Model
     {
         return $this->belongsTo(LibSacrament::class, 'sacrament_id', 'id');
     }
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->{$model->getKeyName()} = (string) Ulid::generate();
-        });
-    }
 }
