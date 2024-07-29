@@ -6,12 +6,17 @@
                     <img class="h-24 w-24" src="/images/church-default-dp.png" alt="">
                 </div>
                 <div class="flex justify-center mt-3">
+                    @if (Auth::user()->user == 1)
+                    <span class="font-bold text-gray-700">{{Auth::user()->first_name}}</span>
+                    @endif
+                    @if (Auth::user()->user == 0)
                     <span class="font-bold text-gray-700">{{Auth::user()->church_name}}</span>
+                    @endif
                 </div>
             </div>
         </div>
         <div class="w-full md:ml-5 lg:ml-5 mt-3 md:mt-0 lg:mt-0 bg-white rounded-lg p-5 shadow-lg">
-            @if (Auth::user()->main_church)
+            @if (Auth::user()->main_church == 1)
                 <div class="w-full">
                     <div class="flex items-center">
                         <h1 class="font-bold text-2xl text-gray-700">Churches</h1>
@@ -42,6 +47,12 @@
                         </table>
                     </div>
                 </div>
+            @endif
+            @if (Auth::user()->sub_church == 1)
+
+            @endif
+            @if (Auth::user()->user == 1)
+
             @endif
         </div>
     </div>

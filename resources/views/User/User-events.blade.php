@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="w-full md:ml-5 lg:ml-5 mt-3 md:mt-0 lg:mt-0 bg-white rounded-lg p-5 shadow-lg">
-            @if (Auth::user()->sub_church == 1)
+            @if (Auth::user()->user == 1)
                 <div class="w-full max-h-screen overflow-y-auto">
                     <div class="flex items-center sticky top-0 bg-white">
                         <h1 class="font-bold text-2xl text-gray-700">Current Events</h1>

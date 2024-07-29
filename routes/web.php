@@ -5,6 +5,7 @@ use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubChurch\SubChurchEventController;
 use App\Http\Controllers\User\ReservationController;
+use App\Http\Controllers\User\UserEventController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,8 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['user'])->group(function(){
         Route::post('/add-reservation', [ReservationController::class, 'store'])->name('add-sacramental-reservation');
         Route::delete('/delete-reservation/{id}', [ReservationController::class, 'destroy'])->name('cancel-reservation');
+
+        Route::get('/user/events', [UserEventController::class, 'index'])->name('user-events.show');
     });
 
 });

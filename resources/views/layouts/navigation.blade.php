@@ -25,6 +25,11 @@
                             {{ __('Events') }}
                         </x-nav-link>
                     @endif
+                    @if (Auth::user()->user == 1)
+                        <x-nav-link :href="route('user-events.show')" :active="request()->routeIs('user-events.show')">
+                            {{ __('Events') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 

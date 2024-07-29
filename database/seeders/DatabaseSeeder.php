@@ -14,12 +14,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-
-        User::factory()->create();
         $this->call([
             GenderSeeder::class,
             SuffixNameSeeder::class,
             SacramentSeeder::class
         ]);
+        User::factory()->create();
+        User::factory()->subChurchUser()->create();
+        User::factory()->NormalUser()->create();
     }
 }
