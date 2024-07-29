@@ -20,7 +20,7 @@ class EventController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
         $finished_events = ChurchEvent::where('status', 0)
-        ->orderBy('created_at', 'desc')
+        ->orderBy('updated_at', 'desc')
         ->get();
         return view('MainChurch.events', ['events' => $events, 'finished_events' => $finished_events]);
     }

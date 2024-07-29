@@ -26,20 +26,20 @@
                             {{-- form input --}}
                             <div class="flex-col items-center mt-5">
                                 <label class="font-bold" for="church_name">Event Title:</label>
-                                <input name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text">
+                                <input name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Event Description:</label>
-                                <textarea class="rounded-lg border-gray-300 w-full mt-2" name="desc" id="" cols="30" rows="3"></textarea>
+                                <textarea class="rounded-lg border-gray-300 w-full mt-2" name="desc" id="" cols="30" rows="3" required></textarea>
                             </div>
                             <div class="flex-col items-center mt-1">
                                 <label class="font-bold" for="church_name">Event Location:</label>
-                                <input name="location" class="rounded-lg border-gray-300 w-full mt-2" type="text">
+                                <input name="location" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Sacrament:</label>
                                 <Select class="mt-2 w-full rounded-lg border border-gray-300" name="sacrament_id">
-                                    <option value="" selected disabled>Select Sacrament</option>
+                                    <option value="" selected>Select Sacrament</option>
                                     @foreach ($sacraments as $sacrament)
                                     <option value="{{$sacrament->id}}">{{$sacrament->desc}}</option>
                                     @endforeach
@@ -47,15 +47,15 @@
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Event Date:</label>
-                                <input name="date" class="rounded-lg border-gray-300 w-full mt-2" type="date">
+                                <input name="date" class="rounded-lg border-gray-300 w-full mt-2" type="date" required>
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Start Time:</label>
-                                <input name="start_time" class="rounded-lg border-gray-300 w-full mt-2" type="time">
+                                <input name="start_time" class="rounded-lg border-gray-300 w-full mt-2" type="time" required>
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">End Time:</label>
-                                <input name="end_time" class="rounded-lg border-gray-300 w-full mt-2" type="time">
+                                <input name="end_time" class="rounded-lg border-gray-300 w-full mt-2" type="time" required>
                             </div>
                             <div class="w-full mt-5">
                                 <button class="w-full bg-gray-500 text-white rounded-lg px-3 py-2 hover:bg-gray-700" type="submit">Add Event</button>

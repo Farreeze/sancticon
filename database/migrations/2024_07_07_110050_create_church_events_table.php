@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('church_events', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('sacrament_id');
+            $table->unsignedBigInteger('sacrament_id')->nullable();
             $table->foreignId('church_id');
             $table->string('title');
             $table->text('desc');

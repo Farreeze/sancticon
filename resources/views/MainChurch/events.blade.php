@@ -39,8 +39,8 @@
         </div>
         <div class="w-full md:ml-5 lg:ml-5 mt-3 md:mt-0 lg:mt-0 bg-white rounded-lg p-5 shadow-lg">
             @if (Auth::user()->main_church)
-                <div class="w-full">
-                    <div class="flex items-center">
+                <div class="w-full max-h-screen overflow-y-auto">
+                    <div class="flex items-center sticky top-0 bg-white">
                         <h1 class="font-bold text-2xl text-gray-700">Events</h1>
                         <a class="ml-3 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700" href="{{route('add-event-form.show')}}">+ Add Event</a>
                     </div>
@@ -65,6 +65,12 @@
                                             </div>
                                         </div>
                                         <div class="flex flex-col">
+                                            @if ($event->sacrament_id)
+                                                <div class="flex flex-wrap">
+                                                    <span class="text-gray-700 font-bold">Sacrament:</span>
+                                                    <span class="text-gray-700 ml-1">{{$event->sacrament->desc}}</span>
+                                                </div>
+                                            @endif
                                             <div class="flex flex-wrap">
                                                 <span class="text-gray-700 font-bold">Date:</span>
                                                 <span class="text-gray-700 ml-1">{{$event->date}}</span>
@@ -89,8 +95,8 @@
                     </div>
                 </div>
                 <hr class="border-t border-gray-300 my-4">
-                <div class="w-full">
-                    <div class="flex items-center">
+                <div class="w-full max-h-screen overflow-y-auto">
+                    <div class="flex items-center sticky top-0 bg-white">
                         <h1 class="font-bold text-2xl text-gray-700">Finished Events</h1>
                     </div>
                     <div class="w-full mt-5">
@@ -102,6 +108,12 @@
                                             <h1 class="text-gray-700 font-bold text-2xl">{{ $finished_event->title }}</h1>
                                         </div>
                                         <div class="flex flex-col">
+                                            @if ($finished_event->sacrament_id)
+                                                <div class="flex flex-wrap">
+                                                    <span class="text-gray-700 font-bold">Sacrament:</span>
+                                                    <span class="text-gray-700 ml-1">{{$finished_event->sacrament->desc}}</span>
+                                                </div>
+                                            @endif
                                             <div class="flex flex-wrap">
                                                 <span class="text-gray-700 font-bold">Date:</span>
                                                 <span class="text-gray-700 ml-1">{{$finished_event->date}}</span>

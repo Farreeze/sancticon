@@ -22,7 +22,7 @@ class AddEventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sacrament_id' => 'required|exists:lib_sacraments,id',
+            'sacrament_id' => 'nullable|exists:lib_sacraments,id',
             'church_id' => 'required|exists:users,id',
             'title' => 'required|string|max:255',
             'desc' => 'required',
