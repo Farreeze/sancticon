@@ -3,6 +3,7 @@
 use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubChurch\SubChurchEventController;
 use App\Http\Controllers\User\ReservationController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +42,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware(['sub-church'])->group(function(){
-
+        Route::get('/sub-church/events', [SubChurchEventController::class, 'index'])->name('subchurch-events.show');
     });
 
     Route::middleware(['user'])->group(function(){

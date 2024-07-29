@@ -15,9 +15,16 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
-                        {{ __('Events') }}
-                    </x-nav-link>
+                    @if (Auth::user()->main_church == 1)
+                        <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
+                            {{ __('Events') }}
+                        </x-nav-link>
+                    @endif
+                    @if (Auth::user()->sub_church == 1)
+                        <x-nav-link :href="route('subchurch-events.show')" :active="request()->routeIs('subchurch-events.show')">
+                            {{ __('Events') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -73,9 +80,17 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
-                {{ __('Events') }}
-            </x-responsive-nav-link>
+            @if (Auth::user()->main_church == 1)
+                <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
+                    {{ __('Events') }}
+                </x-responsive-nav-link>
+            @endif
+            @if (Auth::user()->sub_church == 1)
+                <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
+                    {{ __('Events') }}
+                </x-responsive-nav-link>
+            @endif
+
         </div>
 
         <!-- Responsive Settings Options -->
