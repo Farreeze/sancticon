@@ -52,7 +52,10 @@
 
             @endif
             @if (Auth::user()->user == 1)
-
+                <div class="w-full text-gray-700 font-bold text-2xl">
+                    <h3>Your Requests</h3>
+                </div>
+                <span class="mt-10">display certificate requests and sacramental reservation here</span>
             @endif
         </div>
     </div>

@@ -15,19 +15,54 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
                     @if (Auth::user()->main_church == 1)
+                        {{-- temporary --}}
+                        <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                            {{ __('Priests') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
                             {{ __('Events') }}
                         </x-nav-link>
+                        {{-- temporary --}}
+                        <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                            {{ __('News and Announcements') }}
+                        </x-nav-link>
+                        {{-- temporary --}}
+                        <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                            {{ __('Certificate Requests') }}
+                        </x-nav-link>
+                        {{-- temporary --}}
+                        <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                            {{ __('Sacramental Reservation') }}
+                        </x-nav-link>
                     @endif
+
                     @if (Auth::user()->sub_church == 1)
                         <x-nav-link :href="route('subchurch-events.show')" :active="request()->routeIs('subchurch-events.show')">
                             {{ __('Events') }}
                         </x-nav-link>
+                        {{-- temporary --}}
+                        <x-nav-link :href="route('subchurch-events.show')" :active="request()->routeIs('temp')">
+                            {{ __('Request Certificate') }}
+                        </x-nav-link>
+                        {{-- temporary --}}
+                        <x-nav-link :href="route('subchurch-events.show')" :active="request()->routeIs('temp')">
+                            {{ __('News and Announcements') }}
+                        </x-nav-link>
                     @endif
+
                     @if (Auth::user()->user == 1)
                         <x-nav-link :href="route('user-events.show')" :active="request()->routeIs('user-events.show')">
                             {{ __('Events') }}
+                        </x-nav-link>
+                        {{-- temporary --}}
+                        <x-nav-link :href="route('user-events.show')" :active="request()->routeIs('temp')">
+                            {{ __('Request Certificate') }}
+                        </x-nav-link>
+                        {{-- temporary --}}
+                        <x-nav-link :href="route('user-events.show')" :active="request()->routeIs('temp')">
+                            {{ __('Sacramental Reservation') }}
                         </x-nav-link>
                     @endif
                 </div>
@@ -38,7 +73,14 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div>
+                                @if (Auth::user()->user == 1)
+                                    <span>{{Auth::user()->first_name}}  {{Auth::user()->last_name}}</span>
+                                @endif
+                                @if (Auth::user()->main_church == 1 || Auth::user()->sub_church == 1)
+                                    <span>{{Auth::user()->church_name}}</span>
+                                @endif
+                            </div>
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -85,14 +127,54 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
             @if (Auth::user()->main_church == 1)
+                {{-- temporary --}}
+                <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                    {{ __('Priests') }}
+                </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
                     {{ __('Events') }}
                 </x-responsive-nav-link>
+                {{-- temporary --}}
+                <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                    {{ __('News and Announcements') }}
+                </x-responsive-nav-link>
+                {{-- temporary --}}
+                <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                    {{ __('Certificate Requets') }}
+                </x-responsive-nav-link>
+                {{-- temporary --}}
+                <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                    {{ __('Sacramental Reservation') }}
+                </x-responsive-nav-link>
             @endif
+
             @if (Auth::user()->sub_church == 1)
                 <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
                     {{ __('Events') }}
+                </x-responsive-nav-link>
+                {{-- temporary --}}
+                <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                    {{ __('Request Certificate') }}
+                </x-responsive-nav-link>
+                {{-- temporary --}}
+                <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                    {{ __('News and Announcements') }}
+                </x-responsive-nav-link>
+            @endif
+
+            @if (Auth::user()->user ==1)
+                <x-responsive-nav-link :href="route('user-events.show')" :active="request()->routeIs('user-events.show')">
+                    {{ __('Events') }}
+                </x-responsive-nav-link>
+                {{-- temporary --}}
+                <x-responsive-nav-link :href="route('user-events.show')" :active="request()->routeIs('temp')">
+                    {{ __('Request Certificate') }}
+                </x-responsive-nav-link>
+                {{-- temporary --}}
+                <x-responsive-nav-link :href="route('user-events.show')" :active="request()->routeIs('temp')">
+                    {{ __('Sacramental Reservation') }}
                 </x-responsive-nav-link>
             @endif
 
