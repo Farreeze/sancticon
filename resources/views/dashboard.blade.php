@@ -20,7 +20,7 @@
                 <div class="w-full">
                     <div class="flex items-center">
                         <h1 class="font-bold text-2xl text-gray-700">Churches</h1>
-                        <a class="ml-3 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700" href="{{route('add-church-form.show')}}">+ Add Church</a>
+                        <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('add-church-form.show')}}">+ Add Church</a>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full border border-gray-300 rounded-lg overflow-hidden mt-5">
@@ -37,7 +37,7 @@
                                     <td class="text-start p-3 border-b border-gray-300">{{$church->church_name}}</td>
                                     <td class="text-start p-3 border-b border-gray-300">{{$church->email}}</td>
                                     <td class="text-start p-3 border-b border-gray-300">
-                                        <a class="bg-gray-500 hover:bg-gray-700 px-2 py-1 rounded-lg text-white" href="{{route('church-profile.show', $church->id)}}">View</a>
+                                        <a class="bg-secondary hover:bg-secondary_hover px-2 py-1 rounded-lg text-white" href="{{route('church-profile.show', $church->id)}}">View</a>
                                         <a class="bg-blue-500 hover:bg-blue-700 px-2 py-1 rounded-lg text-white" href="">Edit</a>
                                         <a class="bg-red-500 hover:bg-red-700 px-2 py-1 rounded-lg text-white" href="">Delete</a>
                                     </td>

@@ -60,8 +60,7 @@
                         <x-nav-link :href="route('user-events.show')" :active="request()->routeIs('temp')">
                             {{ __('Request Certificate') }}
                         </x-nav-link>
-                        {{-- temporary --}}
-                        <x-nav-link :href="route('user-events.show')" :active="request()->routeIs('temp')">
+                        <x-nav-link :href="route('sacramental-reservation-form.show')" :active="request()->routeIs('sacramental-reservation-form.show')">
                             {{ __('Sacramental Reservation') }}
                         </x-nav-link>
                     @endif
@@ -173,7 +172,7 @@
                     {{ __('Request Certificate') }}
                 </x-responsive-nav-link>
                 {{-- temporary --}}
-                <x-responsive-nav-link :href="route('user-events.show')" :active="request()->routeIs('temp')">
+                <x-responsive-nav-link :href="route('sacramental-reservation-form.show')" :active="request()->routeIs('sacramental-reservation-form.show')">
                     {{ __('Sacramental Reservation') }}
                 </x-responsive-nav-link>
             @endif

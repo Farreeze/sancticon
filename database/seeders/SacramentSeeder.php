@@ -14,11 +14,13 @@ class SacramentSeeder extends Seeder
     public function run(): void
     {
         LibSacrament::upsert([
-            ['id' => '1', 'desc' => 'Sacrament1'],
-            ['id' => '2', 'desc' => 'Sacrament2'],
-            ['id' => '3', 'desc' => 'Sacrament3'],
-            ['id' => '4', 'desc' => 'Sacrament4'],
-            ['id' => '5', 'desc' => 'Sacrament5']
+            ['id' => '1', 'desc' => 'BAPTISM'],
+            ['id' => '2', 'desc' => 'CONFIRMATION'],
+            ['id' => '3', 'desc' => 'EUCHARIST'],
+            ['id' => '4', 'desc' => 'CONFESSION'],
+            ['id' => '5', 'desc' => 'ANOINTING OF THE SICK'],
+            ['id' => '6', 'desc' => 'HOLY ORDERS'],
+            ['id' => '7', 'desc' => 'MATRIMONY']
         ],['id']);
     }
 }

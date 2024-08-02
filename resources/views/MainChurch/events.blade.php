@@ -42,7 +42,7 @@
                 <div class="w-full max-h-screen overflow-y-auto">
                     <div class="flex items-center sticky top-0 bg-white">
                         <h1 class="font-bold text-2xl text-gray-700">Events</h1>
-                        <a class="ml-3 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700" href="{{route('add-event-form.show')}}">+ Add Event</a>
+                        <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('add-event-form.show')}}">+ Add Event</a>
                     </div>
                     <div class="w-full mt-5">
                         <div class="flex flex-col">

@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware(['user'])->group(function(){
+        Route::get('/sacramental-reservation-form', [ReservationController::class, 'create'])->name('sacramental-reservation-form.show');
         Route::post('/add-reservation', [ReservationController::class, 'store'])->name('add-sacramental-reservation');
         Route::delete('/delete-reservation/{id}', [ReservationController::class, 'destroy'])->name('cancel-reservation');
 

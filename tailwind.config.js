@@ -15,6 +15,8 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
+                'secondary': '#1f2937',
+                'secondary_hover': '#304057',
                 'positive_btn': '#32a852',
                 'positive_btn_hover': '#26733b',
                 'negative_btn': '#b03525',
