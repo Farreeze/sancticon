@@ -23,10 +23,13 @@ class AddReservationRequest extends FormRequest
     {
         return [
             'user_id' => 'required|exists:users,id',
+            'church_id' => 'required|exists:users,id',
             'sacrament_id' => 'required|exists:lib_sacraments,id',
             'date' => 'required|date',
             'first_name' => 'nullable|string',
-            'second_name' => 'nullable|string'
+            'second_name' => 'nullable|string',
+            'subchurch_approve' => 'nullable|boolean',
+            'status' => 'nullable|boolean'
         ];
     }
 }

@@ -55,7 +55,51 @@
                 <div class="w-full text-gray-700 font-bold text-2xl">
                     <h3>Your Requests</h3>
                 </div>
-                <span class="mt-10">display certificate requests and sacramental reservation here</span>
+                <div class="w-full">
+
+                </div>
+                <div class="w-full mt-5">
+                    <h2 class="font-bold text-gray-700 text-2xl">Sacramental Reservation</h2>
+                    @foreach ($sacramental_reservations as $sacramental_reservation)
+                        <div class="bg-gray-300 mt-3 p-3 rounded-lg">
+                            <div class="flex flex-row justify-between">
+                                <div>
+                                    <div>
+                                        <span>Date:</span>
+                                        <span class="ml-2">{{$sacramental_reservation->date}}</span>
+                                    </div>
+                                    <div>
+                                        <span>Sacrament:</span>
+                                        <span class="ml-2">{{$sacramental_reservation->sacrament->desc}}</span>
+                                    </div>
+                                    <div>
+                                        <span>Church:</span>
+                                        <span class="ml-2">{{$sacramental_reservation->church->church_name}}</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    @if ($sacramental_reservation->status === null)
+                                        <div>
+                                            <p class="px-9 py-2 bg-yellow-500 text-white rounded-lg shadow-md ml-2">Pending</p>
+                                        </div>
+                                        <a class="px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg shadow-md ml-2" href="">Cancel</a>
+                                    @endif
+                                    @if ($sacramental_reservation->status === 0)
+                                        <div>
+                                            <p class="px-9 py-2 bg-red-500 text-white rounded-lg shadow-md ml-2">Rejected</p>
+                                        </div>
+                                    @endif
+                                    @if ($sacramental_reservation->status === 1)
+                                        <div>
+                                            <p class="px-9 py-2 bg-green-500 text-white rounded-lg shadow-md ml-2">Approved</p>
+                                        </div>
+                                        <a class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover text-white rounded-lg shadow-md ml-2" href="">Request Certificate</a>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             @endif
         </div>
     </div>

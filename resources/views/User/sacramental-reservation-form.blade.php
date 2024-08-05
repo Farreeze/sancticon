@@ -10,14 +10,25 @@
                             @csrf
                             {{-- form requirements --}}
                             <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden>
-                            <div class="w-full">
-                                <span class="text-gray-700 ml-1">Sacrament:</span>
-                                <select id="sacrament-select" class="w-full rounded-lg border-gray-300" name="sacrament_id" id="" required>
-                                    <option value="" selected disabled>Select Sacrament</option>
-                                    @foreach ($sacraments as $sacrament)
-                                        <option value="{{ $sacrament->id }}">{{$sacrament->desc}}</option>
-                                    @endforeach
-                                </select>
+                            <div class="w-full flex flex-col">
+                                <div>
+                                    <span class="text-gray-700 ml-1">Church:</span>
+                                    <select class="w-full rounded-lg border-gray-300" name="church_id" id="" required>
+                                        <option value="" selected disabled>Select Church</option>
+                                        @foreach ($churches as $church)
+                                            <option value="{{ $church->id }}">{{$church->church_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mt-3">
+                                    <span class="text-gray-700 ml-1">Sacrament:</span>
+                                    <select id="sacrament-select" class="w-full rounded-lg border-gray-300" name="sacrament_id" id="" required>
+                                        <option value="" selected disabled>Select Sacrament</option>
+                                        @foreach ($sacraments as $sacrament)
+                                            <option value="{{ $sacrament->id }}">{{$sacrament->desc}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div id="participant-section"></div>
                             <div class="w-full mt-3">

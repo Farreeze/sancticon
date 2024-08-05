@@ -58,6 +58,7 @@ class UserFactory extends Factory
             'main_church' => 0,
             'sub_church' => 0,
             'user' => 1,
+            'church_name' => null,
             'first_name' => 'Alieu Farreeze',
             'last_name' => 'Arcilla',
             'middle_name' => 'Nabong',
@@ -65,6 +66,26 @@ class UserFactory extends Factory
             'gender' => 1,
             'address' => 'another test address',
             'email' => 'user@example.com',
+            'mobile_number' => "09123456789",
+            'password' => Hash::make('test'),
+            'remember_token' => Str::random(10),
+        ]);
+    }
+
+    public function NormalUserOne()
+    {
+        return $this->state(fn (array $attributes) => [
+            'main_church' => 0,
+            'sub_church' => 0,
+            'user' => 1,
+            'church_name' => null,
+            'first_name' => 'Clarisa Billie Anne',
+            'last_name' => 'Capili',
+            'middle_name' => 'Manarang',
+            'suffix_name' => null,
+            'gender' => 1,
+            'address' => 'another test address',
+            'email' => 'user1@example.com',
             'mobile_number' => "09123456789",
             'password' => Hash::make('test'),
             'remember_token' => Str::random(10),

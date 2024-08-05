@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         User::factory()->create();
         User::factory()->subChurchUser()->create();
         User::factory()->NormalUser()->create();
+        User::factory()->NormalUserOne()->create();
     }
 }

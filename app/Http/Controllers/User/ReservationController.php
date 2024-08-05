@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\AddReservationRequest;
 use App\Models\LibSacrament;
 use App\Models\SacramentalReservation;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -24,7 +25,12 @@ class ReservationController extends Controller
     public function create()
     {
         $sacraments = LibSacrament::all();
-        return view('User.sacramental-reservation-form', ['sacraments' => $sacraments]);
+
+        $churches = User::where('main_church', 1)
+                ->orWhere('sub_church', 1)
+                ->get();
+
+        return view('User.sacramental-reservation-form', ['sacraments' => $sacraments, 'churches' => $churches]);
     }
 
     /**
@@ -33,6 +39,14 @@ class ReservationController extends Controller
     public function store(AddReservationRequest $request)
     {
         $reservation_data = $request->validated();
+
+        $church_id = $reservation_data['church_id'];
+        $church = User::find($church_id);
+        if ($church->sub_church == 1)
+        {
+            $reservation_data['subchurch_approve'] = 0;
+        }
+
         SacramentalReservation::create($reservation_data);
         return response()->json(['message' => 'Success']);
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubChurch\SubChurchEventController;
 use App\Http\Controllers\User\ReservationController;
 use App\Http\Controllers\User\UserEventController;
+use App\Models\SacramentalReservation;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,16 @@ Route::get('/dashboard', function () {
     {
         $churches = User::where('sub_church', 1)->get();
         return view('dashboard', ['churches' => $churches]);
+    }
+    // if($user->main_church)
+    // {
+    //     $churches = User::where('sub_church', 1)->get();
+    //     return view('dashboard', ['churches' => $churches]);
+    // }
+    if($user->user)
+    {
+        $sacramental_reservations = SacramentalReservation::where('user_id', $user->id)->get();
+        return view('dashboard', ['sacramental_reservations' => $sacramental_reservations]);
     }
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
