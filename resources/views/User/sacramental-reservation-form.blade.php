@@ -6,10 +6,13 @@
                 <div class="p-6 text-gray-600">
                     <h1 class="font-bold text-2xl">Sacramental Reservation Form</h1>
                     <div class="w-full">
-                        <form class="mt-3" action="">
+                        <form class="mt-3" action="{{ route('add-sacramental-reservation') }}" method="POST">
+                            @csrf
+                            {{-- form requirements --}}
+                            <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden>
                             <div class="w-full">
                                 <span class="text-gray-700 ml-1">Sacrament:</span>
-                                <select id="sacrament-select" class="w-full rounded-lg border-gray-300" name="" id="" required>
+                                <select id="sacrament-select" class="w-full rounded-lg border-gray-300" name="sacrament_id" id="" required>
                                     <option value="" selected disabled>Select Sacrament</option>
                                     @foreach ($sacraments as $sacrament)
                                         <option value="{{ $sacrament->id }}">{{$sacrament->desc}}</option>
@@ -21,7 +24,7 @@
                                 <span class="text-gray-700 ml-1">Date:</span>
                                 <input class="w-full rounded-lg border-gray-300" type="date" name="date" id="">
                             </div>
-                            <div class="w-full flex justify-end mt-3">
+                            <div class="w-full flex justify-end mt-5">
                                 <button class="bg-secondary hover:bg-secondary_hover rounded-lg px-4 py-2 text-white w-full" type="submit">Submit Reservation</button>
                             </div>
                         </form>

@@ -12,12 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sacramental_reservations', function (Blueprint $table) {
-            $table->ulid('id')->primary();
-            $table->foreignId('event_id');
+            $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('sacrament_id');
+            $table->date('date');
+            $table->string('first_name')->nullable();
+            $table->string('second_name')->nullable();
             $table->timestamps();
 
-            $table->foreign('event_id')->references('id')->on('church_events');
+            $table->foreign('sacrament_id')->references('id')->on('lib_sacraments');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

@@ -22,8 +22,11 @@ class AddReservationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'event_id' => 'exists:church_events,id',
-            'user_id' => 'exists:users,id'
+            'user_id' => 'required|exists:users,id',
+            'sacrament_id' => 'required|exists:lib_sacraments,id',
+            'date' => 'required|date',
+            'first_name' => 'nullable|string',
+            'second_name' => 'nullable|string'
         ];
     }
 }

@@ -10,16 +10,11 @@ class SacramentalReservation extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'event_id',
-        'user_id'
+        'user_id',
+        'sacrament_id',
+        'date',
+        'first_name',
+        'second_name'
     ];
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->{$model->getKeyName()} = (string) Ulid::generate();
-        });
-    }
 }
