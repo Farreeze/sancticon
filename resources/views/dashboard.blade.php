@@ -1,4 +1,19 @@
 <x-app-layout>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @if (Session::has('delete-reservation'))
+
+    <script>
+        swal("SUCCESS", "{{ Session::get('delete-reservation') }}", 'success',
+        {
+            button:true,
+            button:"OK",
+        });
+    </script>
+
+    @endif
+
     <div class="w-full py-5 px-10 flex flex-col md:flex-row lg:flex-row items-start">
         <div class="w-full md:w-[20%] lg:w-[20%] bg-white rounded-lg shadow-lg">
             <div class="w-full flex flex-col justify-center p-5">
@@ -82,7 +97,11 @@
                                         <div>
                                             <p class="px-9 py-2 bg-yellow-500 text-white rounded-lg shadow-md ml-2">Pending</p>
                                         </div>
-                                        <a class="px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg shadow-md ml-2" href="">Cancel</a>
+                                        <form action="{{ route('cancel-reservation', $sacramental_reservation->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg shadow-md ml-2">Cancel Reservation</button>
+                                        </form>
                                     @endif
                                     @if ($sacramental_reservation->status === 0)
                                         <div>

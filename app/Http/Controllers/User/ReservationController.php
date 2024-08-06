@@ -48,7 +48,7 @@ class ReservationController extends Controller
         }
 
         SacramentalReservation::create($reservation_data);
-        return response()->json(['message' => 'Success']);
+        return back()->with('add-reservation', 'Reservation Submitted');
     }
 
     /**
@@ -84,6 +84,6 @@ class ReservationController extends Controller
 
         $reservation->delete();
 
-        return response()->json(['message' => 'reservation canceled']);
+        return back()->with('delete-reservation', 'Reservation Cancelled');
     }
 }
