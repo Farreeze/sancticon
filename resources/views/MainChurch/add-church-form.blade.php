@@ -19,7 +19,7 @@
                 <div class="p-6 text-gray-600">
                     <h1 class="font-bold text-2xl">Add Church</h1>
                     <div class="w-full">
-                        <form action="{{route('add-church')}}" method="POST">
+                        <form action="{{route('add-church')}}" method="POST" onsubmit="disableButton()">
                             @csrf
                             {{-- form requirements --}}
                             <input type="hidden" name="main_church" id="" value="0">
@@ -28,26 +28,26 @@
                             {{-- form input --}}
                             <div class="flex-col items-center mt-5">
                                 <label class="font-bold" for="church_name">Church Name:</label>
-                                <input name="church_name" class="rounded-lg border-gray-300 w-full mt-2" type="text">
+                                <input name="church_name" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Church Address:</label>
-                                <input name="address" class="rounded-lg border-gray-300 w-full mt-2" type="text">
+                                <input name="address" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Contact Number:</label>
-                                <input name="mobile_number" class="rounded-lg border-gray-300 w-full mt-2" type="text">
+                                <input name="mobile_number" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Church Email:</label>
-                                <input name="email" class="rounded-lg border-gray-300 w-full mt-2" type="text">
+                                <input name="email" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Church Password:</label>
-                                <input name="password" class="rounded-lg border-gray-300 w-full mt-2" type="password">
+                                <input name="password" class="rounded-lg border-gray-300 w-full mt-2" type="password" required>
                             </div>
                             <div class="w-full mt-5">
-                                <button class="w-full bg-gray-500 text-white rounded-lg px-3 py-2 hover:bg-gray-700" type="submit">Add Church</button>
+                                <button id="add-church-btn" class="w-full bg-gray-500 text-white rounded-lg px-3 py-2 hover:bg-gray-700" type="submit">Add Church</button>
                             </div>
                         </form>
                     </div>
@@ -55,4 +55,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function disableButton() {
+            var submitBtn = document.getElementById('add-church-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "Adding church...";
+        }
+    </script>
+
 </x-app-layout>

@@ -17,7 +17,7 @@ class UserEventController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
-        return view('User.User-events', ['events' => $events]);
+        return view('User.user-events', ['events' => $events]);
     }
 
     /**

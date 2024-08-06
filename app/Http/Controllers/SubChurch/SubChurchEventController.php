@@ -17,7 +17,7 @@ class SubChurchEventController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
-        return view('SubChurch.SubChurch-events', ['events' => $events]);
+        return view('SubChurch.subchurch-events', ['events' => $events]);
     }
 
     /**

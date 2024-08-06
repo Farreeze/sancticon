@@ -48,6 +48,10 @@
                         </x-nav-link>
                         {{-- temporary --}}
                         <x-nav-link :href="route('subchurch-events.show')" :active="request()->routeIs('temp')">
+                            {{ __('Sacramental Reservation') }}
+                        </x-nav-link>
+                        {{-- temporary --}}
+                        <x-nav-link :href="route('subchurch-events.show')" :active="request()->routeIs('temp')">
                             {{ __('News and Announcements') }}
                         </x-nav-link>
                     @endif

@@ -74,7 +74,7 @@
 
                 </div>
                 <div class="w-full mt-5">
-                    <h2 class="font-bold text-gray-700 text-2xl">Sacramental Reservation</h2>
+                    <h2 class="font-bold text-gray-700 text-2xl">Sacramental Reservations</h2>
                     @foreach ($sacramental_reservations as $sacramental_reservation)
                         <div class="bg-gray-300 mt-3 p-3 rounded-lg">
                             <div class="flex flex-row justify-between">
@@ -97,10 +97,10 @@
                                         <div>
                                             <p class="px-9 py-2 bg-yellow-500 text-white rounded-lg shadow-md ml-2">Pending</p>
                                         </div>
-                                        <form action="{{ route('cancel-reservation', $sacramental_reservation->id) }}" method="POST">
+                                        <form action="{{ route('cancel-reservation', $sacramental_reservation->id) }}" method="POST" onsubmit="disableButton()">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg shadow-md ml-2">Cancel Reservation</button>
+                                            <button id="delete-btn" class="px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg shadow-md ml-2">Cancel Reservation</button>
                                         </form>
                                     @endif
                                     @if ($sacramental_reservation->status === 0)
@@ -122,4 +122,18 @@
             @endif
         </div>
     </div>
+
+    {{-- main church --}}
+
+    {{-- subchurch --}}
+
+    {{-- user scripts --}}
+    <script>
+        function disableButton() {
+            var submitBtn = document.getElementById('delete-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "Cancelling...";
+        }
+    </script>
+
 </x-app-layout>

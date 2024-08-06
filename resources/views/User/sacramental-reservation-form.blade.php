@@ -20,7 +20,7 @@
                 <div class="p-6 text-gray-600">
                     <h1 class="font-bold text-2xl">Sacramental Reservation Form</h1>
                     <div class="w-full">
-                        <form class="mt-3" action="{{ route('add-sacramental-reservation') }}" method="POST">
+                        <form class="mt-3" action="{{ route('add-sacramental-reservation') }}" method="POST" onsubmit="disableButton()">
                             @csrf
                             {{-- form requirements --}}
                             <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden>
@@ -50,7 +50,7 @@
                                 <input class="w-full rounded-lg border-gray-300" type="date" name="date" id="">
                             </div>
                             <div class="w-full flex justify-end mt-5">
-                                <button class="bg-secondary hover:bg-secondary_hover rounded-lg px-4 py-2 text-white w-full" type="submit">Submit Reservation</button>
+                                <button id="submit-btn" class="bg-secondary hover:bg-secondary_hover rounded-lg px-4 py-2 text-white w-full" type="submit">Submit Reservation</button>
                             </div>
                         </form>
                     </div>
@@ -59,7 +59,14 @@
         </div>
     </div>
 
-    {{-- script --}}
+    <script>
+        function disableButton() {
+            var submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "Submitting...";
+        }
+    </script>
+
     <script>
         document.getElementById('sacrament-select').addEventListener('change', function() {
             var dynamicFields = document.getElementById('participant-section');

@@ -19,7 +19,7 @@
                 <div class="p-6 text-gray-600">
                     <h1 class="font-bold text-2xl">Add Event</h1>
                     <div class="w-full">
-                        <form action="{{ route('add-event') }}" method="POST">
+                        <form action="{{ route('add-event') }}" method="POST" onsubmit="disableButton()">
                             @csrf
                             {{-- form requirements --}}
                             <input type="hidden" name="church_id" id="" value="{{Auth::user()->id}}">
@@ -58,7 +58,7 @@
                                 <input name="end_time" class="rounded-lg border-gray-300 w-full mt-2" type="time" required>
                             </div>
                             <div class="w-full mt-5">
-                                <button class="w-full bg-gray-500 text-white rounded-lg px-3 py-2 hover:bg-gray-700" type="submit">Add Event</button>
+                                <button id="submit-btn" class="w-full bg-gray-500 text-white rounded-lg px-3 py-2 hover:bg-gray-700" type="submit">Add Event</button>
                             </div>
                         </form>
                     </div>
@@ -66,4 +66,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function disableButton() {
+            var submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "Adding event...";
+        }
+    </script>
+
 </x-app-layout>
