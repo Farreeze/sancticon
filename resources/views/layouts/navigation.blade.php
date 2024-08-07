@@ -47,8 +47,8 @@
                             {{ __('Request Certificate') }}
                         </x-nav-link>
                         {{-- temporary --}}
-                        <x-nav-link :href="route('subchurch-events.show')" :active="request()->routeIs('temp')">
-                            {{ __('Sacramental Reservation') }}
+                        <x-nav-link :href="route('subchurch-sacramental-reservation.show')" :active="request()->routeIs('temp')">
+                            {{ __('Sacramental Reservations') }}
                         </x-nav-link>
                         {{-- temporary --}}
                         <x-nav-link :href="route('subchurch-events.show')" :active="request()->routeIs('temp')">
@@ -160,6 +160,10 @@
                 {{-- temporary --}}
                 <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
                     {{ __('Request Certificate') }}
+                </x-responsive-nav-link>
+                {{-- temporary --}}
+                <x-responsive-nav-link :href="route('subchurch-sacramental-reservation.show')" :active="request()->routeIs('temp')">
+                    {{ __('Sacramental Reservations') }}
                 </x-responsive-nav-link>
                 {{-- temporary --}}
                 <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">

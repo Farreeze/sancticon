@@ -26,6 +26,7 @@ class AddReservationRequest extends FormRequest
             'church_id' => 'required|exists:users,id',
             'sacrament_id' => 'required|exists:lib_sacraments,id',
             'date' => 'required|date',
+            'participant_name' => 'nullable|string',
             'first_name' => 'nullable|string',
             'second_name' => 'nullable|string',
             'subchurch_approve' => 'nullable|boolean',

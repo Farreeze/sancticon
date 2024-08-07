@@ -14,11 +14,17 @@ class SacramentalReservation extends Model
         'church_id',
         'sacrament_id',
         'date',
+        'participant_name',
         'first_name',
         'second_name',
         'subchurch_approve',
         'status'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 
     public function sacrament()
     {

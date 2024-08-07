@@ -4,6 +4,7 @@ use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubChurch\SubChurchEventController;
+use App\Http\Controllers\SubChurch\SubChurchSacramentalReservationController;
 use App\Http\Controllers\User\ReservationController;
 use App\Http\Controllers\User\UserEventController;
 use App\Models\SacramentalReservation;
@@ -28,7 +29,9 @@ Route::get('/dashboard', function () {
     // }
     if($user->user)
     {
-        $sacramental_reservations = SacramentalReservation::where('user_id', $user->id)->get();
+        $sacramental_reservations = SacramentalReservation::where('user_id', $user->id)
+                ->orderBy('updated_at', 'desc')
+                ->get();
         return view('dashboard', ['sacramental_reservations' => $sacramental_reservations]);
     }
     return view('dashboard');
@@ -54,6 +57,8 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware(['sub-church'])->group(function(){
+        Route::get('/sub-church/sacramental-reservations', [SubChurchSacramentalReservationController::class, 'index'])->name('subchurch-sacramental-reservation.show');
+        Route::patch('/sub-church/action/{id}', [SubChurchSacramentalReservationController::class, 'update'])->name('subchurch-sr-request.action');
         Route::get('/sub-church/events', [SubChurchEventController::class, 'index'])->name('subchurch-events.show');
     });
 

@@ -85,56 +85,56 @@
                         <h2 class="font-bold text-gray-700 text-2xl">Sacramental Reservations</h2>
                     </div>
                     @foreach ($sacramental_reservations as $sacramental_reservation)
-                        <form action="{{ route('cancel-reservation', $sacramental_reservation->id) }}" method="POST" onsubmit="disableButton({{$sacramental_reservation->id}})">
-                            @csrf
-                            @method('DELETE')
-                            <div class="bg-gray-300 mt-3 p-3 rounded-lg">
-                                <div class="flex flex-row justify-between flex-wrap-reverse">
+                        <div class="bg-gray-300 mt-3 p-3 rounded-lg">
+                            <div class="flex flex-row justify-between flex-wrap-reverse">
+                                <div>
                                     <div>
-                                        <div>
-                                            <span>Date:</span>
-                                            <span class="ml-2">{{$sacramental_reservation->date}}</span>
-                                        </div>
-                                        <div>
-                                            <span>Sacrament:</span>
-                                            <span class="ml-2">{{$sacramental_reservation->sacrament->desc}}</span>
-                                        </div>
-                                        <div>
-                                            <span>Church:</span>
-                                            <span class="ml-2">{{$sacramental_reservation->church->church_name}}</span>
-                                        </div>
+                                        <span>Date:</span>
+                                        <span class="ml-2">{{$sacramental_reservation->date}}</span>
                                     </div>
-                                    <div class="flex items-start">
-                                        @if ($sacramental_reservation->status === null && $sacramental_reservation->subchurch_approve !== 0)
-                                            <div class="mb-2 flex flex-row">
-                                                <div>
-                                                    <p class="px-9 py-2 bg-yellow-500 text-white rounded-lg shadow-md">Pending</p>
-                                                </div>
-                                                <button id="delete-btn-{{$sacramental_reservation->id}}" class="px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg shadow-md ml-2">Cancel</button>
-                                            </div>
-                                        @endif
-                                        @if ($sacramental_reservation->status === 0 || $sacramental_reservation->subchurch_approve === 0)
-                                            <div>
-                                                <p class="px-9 py-2 bg-red-500 text-white rounded-lg shadow-md">Rejected</p>
-                                            </div>
-                                        @endif
-                                        @if ($sacramental_reservation->status === 1)
-                                            <div>
-                                                <p class="px-9 py-2 bg-green-500 text-white rounded-lg shadow-md">Approved</p>
-                                            </div>
-                                        @endif
-                                        @if ($sacramental_reservation->status === 2)
-                                            <div class="mb-2 flex flex-row">
-                                                <div>
-                                                    <p class="px-9 py-2 bg-green-500 text-white rounded-lg shadow-md">Finished</p>
-                                                </div>
-                                                <a class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover text-white rounded-lg shadow-md ml-2" href="">Request Certificate</a>
-                                            </div>
-                                        @endif
+                                    <div>
+                                        <span>Sacrament:</span>
+                                        <span class="ml-2">{{$sacramental_reservation->sacrament->desc}}</span>
+                                    </div>
+                                    <div>
+                                        <span>Church:</span>
+                                        <span class="ml-2">{{$sacramental_reservation->church->church_name}}</span>
                                     </div>
                                 </div>
+                                <div class="flex items-start">
+                                    @if ($sacramental_reservation->status === null && $sacramental_reservation->subchurch_approve !== 0)
+                                        <div class="mb-2 flex flex-row">
+                                            <div>
+                                                <p class="px-9 py-2 bg-yellow-500 text-white rounded-lg shadow-md">Pending</p>
+                                            </div>
+                                            <form action="{{ route('cancel-reservation', $sacramental_reservation->id) }}" method="POST" onsubmit="disableButton()">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button id="delete-btn" class="px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg shadow-md ml-2">Cancel</button>
+                                            </form>
+                                        </div>
+                                    @endif
+                                    @if ($sacramental_reservation->status === 0 || $sacramental_reservation->subchurch_approve === 0)
+                                        <div>
+                                            <p class="px-9 py-2 bg-red-500 text-white rounded-lg shadow-md">Rejected</p>
+                                        </div>
+                                    @endif
+                                    @if ($sacramental_reservation->status === 1)
+                                        <div>
+                                            <p class="px-9 py-2 bg-green-500 text-white rounded-lg shadow-md">Approved</p>
+                                        </div>
+                                    @endif
+                                    @if ($sacramental_reservation->status === 2)
+                                        <div class="mb-2 flex flex-row">
+                                            <div>
+                                                <p class="px-9 py-2 bg-green-500 text-white rounded-lg shadow-md">Finished</p>
+                                            </div>
+                                            <a class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover text-white rounded-lg shadow-md ml-2" href="">Request Certificate</a>
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
-                        </form>
+                        </div>
                     @endforeach
                 </div>
             @endif
@@ -147,8 +147,8 @@
 
     {{-- user scripts --}}
     <script>
-        function disableButton(id) {
-            var submitBtn = document.getElementById('delete-btn-'+id);
+        function disableButton() {
+            var submitBtn = document.getElementById('delete-btn');
             submitBtn.disabled = true;
             submitBtn.innerHTML = "Cancelling...";
         }

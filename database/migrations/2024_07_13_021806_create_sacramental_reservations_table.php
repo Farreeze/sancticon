@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('church_id');
             $table->foreignId('sacrament_id');
             $table->date('date');
+            $table->string('participant_name')->nullable();
             $table->string('first_name')->nullable();
             $table->string('second_name')->nullable();
             $table->boolean('subchurch_approve')->nullable();

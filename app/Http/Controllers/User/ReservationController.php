@@ -40,13 +40,6 @@ class ReservationController extends Controller
     {
         $reservation_data = $request->validated();
 
-        $church_id = $reservation_data['church_id'];
-        $church = User::find($church_id);
-        if ($church->sub_church == 1)
-        {
-            $reservation_data['subchurch_approve'] = 0;
-        }
-
         SacramentalReservation::create($reservation_data);
         return back()->with('add-reservation', 'Reservation Submitted');
     }
