@@ -55,12 +55,12 @@
                                                 <form class="mr-3" id="delete_form" action="{{ route('delete-event', $event->id) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
-                                                    <button class="px-4 py-1 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg" type="submit" onclick="confirmation(event)">Cancel Event</button>
+                                                    <button class="px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg" type="submit" onclick="confirmation(event)">Cancel Event</button>
                                                 </form>
                                                 <form action="{{ route('finish-event', $event->id) }}" method="POST">
                                                     @csrf
                                                     @method('PATCH')
-                                                    <button class="px-4 py-1 bg-positive_btn hover:bg-positive_btn_hover text-white rounded-lg" type="submit">Finish Event</button>
+                                                    <button class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover text-white rounded-lg" type="submit">Finish Event</button>
                                                 </form>
                                             </div>
                                         </div>

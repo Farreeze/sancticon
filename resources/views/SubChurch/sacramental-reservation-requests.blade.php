@@ -85,8 +85,8 @@
                                             </div>
                                             {{-- add buttons --}}
                                             <div class="flex flex-row items-start">
-                                                <Button onclick="confirmation(event, 'approve')" type="submit" class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover rounded-lg shadow-md text-white">Approve</Button>
-                                                <Button onclick="confirmation(event, 'reject')" type="submit" class="ml-3 px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover rounded-lg shadow-md text-white">Reject</Button>
+                                                <Button id="approve-{{$reservation_request->id}}" onclick="confirmation(event, 'approve', 'approve-{{$reservation_request->id}}', 'reject-{{$reservation_request->id}}')" type="submit" class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover rounded-lg shadow-md text-white">Approve</Button>
+                                                <Button id="reject-{{$reservation_request->id}}" onclick="confirmation(event, 'reject','approve-{{$reservation_request->id}}', 'reject-{{$reservation_request->id}}')" type="submit" class="ml-3 px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover rounded-lg shadow-md text-white">Reject</Button>
                                             </div>
                                         </div>
                                     </form>
@@ -153,11 +153,13 @@
     </div>
 
     <script>
-        function confirmation(ev, action) {
+        function confirmation(ev, action, approveBtnId, rejectBtnId) {
         ev.preventDefault(); // Prevent the default form submission
 
         var form = ev.target.closest('form'); // Get the closest form element
         var urlToRedirect = form.getAttribute('action'); // Get the action URL
+        var approveBtn = document.getElementById(approveBtnId);
+        var rejectBtn = document.getElementById(rejectBtnId);
 
         var message = action === 'approve' ?
             "Are you sure you want to approve this reservation?" :
@@ -172,6 +174,13 @@
         })
         .then((willConfirm) => {
             if (willConfirm) {
+                approveBtn.disabled = true;
+                rejectBtn.disabled = true;
+                if(action == "approve"){
+                    approveBtn.textContent = "Processing...";
+                }else if(action == "reject"){
+                    rejectBtn.textContent = "Processing...";
+                }
                 form.querySelector('input[name="action"]').value = action;
                 form.submit(); // Submit the form if confirmed
             }

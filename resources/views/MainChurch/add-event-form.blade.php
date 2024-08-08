@@ -37,7 +37,7 @@
                                 <input name="location" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Sacrament:</label>
+                                <label class="font-bold" for="church_name">Sacrament (Optional):</label>
                                 <Select class="mt-2 w-full rounded-lg border border-gray-300" name="sacrament_id">
                                     <option value="" selected>Select Sacrament</option>
                                     @foreach ($sacraments as $sacrament)

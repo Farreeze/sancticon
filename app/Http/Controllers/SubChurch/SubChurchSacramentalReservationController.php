@@ -23,6 +23,7 @@ class SubChurchSacramentalReservationController extends Controller
 
         $finished_sacramental_reservation_requests = SacramentalReservation::where('church_id', $subchurch_id)
                 ->whereNotNull('subchurch_approve')
+                ->orderBy('updated_at', 'desc')
                 ->get();
 
         return view('SubChurch.sacramental-reservation-requests', ['reservation_requests' => $sacramental_reservation_requests,
@@ -98,14 +99,4 @@ class SubChurchSacramentalReservationController extends Controller
         //
     }
 
-    public function approveRequest(String $id)
-    {
-        $sr_request = SacramentalReservation::find($id);
-
-        $sr_request->subchurch_approve = 1;
-
-        $sr_request->save();
-
-        return back()->with(['approve_message' => 'Reservation Approved!']);
-    }
 }
