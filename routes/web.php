@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
+use App\Http\Controllers\MainChurch\MainChurchSacramentalReservationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubChurch\SubChurchEventController;
 use App\Http\Controllers\SubChurch\SubChurchSacramentalReservationController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\User\ReservationController;
 use App\Http\Controllers\User\UserEventController;
 use App\Models\SacramentalReservation;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,17 +18,20 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $user = auth()->user();
+    $user = Auth::user();
+
     if($user->main_church)
     {
         $churches = User::where('sub_church', 1)->get();
         return view('dashboard', ['churches' => $churches]);
     }
+
     // if($user->main_church)
     // {
     //     $churches = User::where('sub_church', 1)->get();
     //     return view('dashboard', ['churches' => $churches]);
     // }
+
     if($user->user)
     {
         $sacramental_reservations = SacramentalReservation::where('user_id', $user->id)
@@ -34,6 +39,7 @@ Route::get('/dashboard', function () {
                 ->get();
         return view('dashboard', ['sacramental_reservations' => $sacramental_reservations]);
     }
+
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -54,6 +60,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
         Route::patch('/event-finished/{id}', [EventController::class, 'finishEvent'])->name('finish-event');
         Route::delete('/delete-event/{id}', [EventController::class, 'destroy'])->name('delete-event');
+        //sacramental reservation requests
+        Route::get('main-church/sacramental-reservation-requests', [MainChurchSacramentalReservationController::class, 'index'])->name('mainchurch-sr-requests.show');
     });
 
     Route::middleware(['sub-church'])->group(function(){

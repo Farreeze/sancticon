@@ -31,6 +31,8 @@
             </div>
         </div>
         <div class="w-full md:ml-5 lg:ml-5 mt-3 md:mt-0 lg:mt-0 bg-white rounded-lg p-5 shadow-lg">
+
+            {{-- main church dashboard --}}
             @if (Auth::user()->main_church == 1)
                 <div class="w-full">
                     <div class="flex items-center">
@@ -63,6 +65,8 @@
                     </div>
                 </div>
             @endif
+
+            {{-- sub church dashboard --}}
             @if (Auth::user()->sub_church == 1)
 
                 <div class="w-full text-gray-700 font-bold text-2xl">
@@ -73,6 +77,8 @@
                 </div>
 
             @endif
+
+            {{-- user dashboard --}}
             @if (Auth::user()->user == 1)
                 <div class="w-full text-gray-700 font-bold text-2xl">
                     <h3>Your Requests</h3>
@@ -91,17 +97,30 @@
                             <div class="bg-gray-300 mt-3 p-3 rounded-lg">
                                 <div class="flex flex-row justify-between flex-wrap-reverse">
                                     <div>
+                                        <h2 class="font-bold text-lg text-gray-700">{{$sacramental_reservation->sacrament->desc}}</h2>
                                         <div>
                                             <span>Date:</span>
-                                            <span class="ml-2">{{$sacramental_reservation->date}}</span>
+                                            <span class="ml-1">{{$sacramental_reservation->date}}</span>
                                         </div>
-                                        <div>
-                                            <span>Sacrament:</span>
-                                            <span class="ml-2">{{$sacramental_reservation->sacrament->desc}}</span>
-                                        </div>
+                                        @if ($sacramental_reservation->sacrament->id == 1)
+                                            <div>
+                                                <span>Baptismal Candidate:</span>
+                                                <span class="ml-1">{{$sacramental_reservation->participant_name}}</span>
+                                            </div>
+                                        @endif
+                                        @if ($sacramental_reservation->sacrament->id == 7)
+                                            <div>
+                                                <span>Participant 1:</span>
+                                                <span class="ml-1">{{$sacramental_reservation->first_name}}</span>
+                                            </div>
+                                            <div>
+                                                <span>Participant 2:</span>
+                                                <span class="ml-1">{{$sacramental_reservation->second_name}}</span>
+                                            </div>
+                                        @endif
                                         <div>
                                             <span>Church:</span>
-                                            <span class="ml-2">{{$sacramental_reservation->church->church_name}}</span>
+                                            <span class="ml-1">{{$sacramental_reservation->church->church_name}}</span>
                                         </div>
                                     </div>
                                     <div class="flex items-start">

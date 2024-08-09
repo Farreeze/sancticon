@@ -26,7 +26,7 @@ class SubChurchSacramentalReservationController extends Controller
                 ->orderBy('updated_at', 'desc')
                 ->get();
 
-        return view('SubChurch.sacramental-reservation-requests', ['reservation_requests' => $sacramental_reservation_requests,
+        return view('SubChurch.subchurch-sacramental-reservation-requests', ['reservation_requests' => $sacramental_reservation_requests,
          'finished_reservation_requests' => $finished_sacramental_reservation_requests]);
     }
 
