@@ -1,5 +1,19 @@
 <x-app-layout>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @if (Session::has('update_message'))
+
+    <script>
+        swal("SUCCESS", "{{ Session::get('update_message') }}", 'success',
+        {
+            button:true,
+            button:"OK",
+        });
+    </script>
+
+    @endif
+
     <div class="w-full py-5 px-10 flex flex-col md:flex-row lg:flex-row items-start">
         <div class="w-full md:w-[20%] lg:w-[20%] bg-white rounded-lg shadow-lg">
             <div class="w-full flex flex-col justify-center p-5">
@@ -19,9 +33,11 @@
                     </div>
                     <div class="w-full mt-3">
                         @foreach ($sr_requests as $sr_request)
-                            <form class="w-full" action="#" method="POST">
+                            <form id="form" class="w-full" action="{{route('sr_request.action', $sr_request->id)}}" method="POST">
                                 @csrf
                                 @method('PATCH')
+                                {{-- form requirements --}}
+                                <input type="text" name="action" hidden>
                                 <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mb-3">
                                     <div class="flex flex-row flex-wrap justify-between">
                                         <div>
@@ -61,8 +77,8 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <button class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover rounded-lg text-white" type="submit">Approve</button>
-                                            <button class="px-4 py-2 bg-negative_btn hover:bg-negative_btn_btn_hover rounded-lg text-white" type="submit">Reject</button>
+                                            <Button id="approve-{{$sr_request->id}}" onclick="confirmation(event, 'approve', 'approve-{{$sr_request->id}}', 'reject-{{$sr_request->id}}')" type="submit" class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover rounded-lg shadow-md text-white">Approve</Button>
+                                            <Button id="reject-{{$sr_request->id}}" onclick="confirmation(event, 'reject','approve-{{$sr_request->id}}', 'reject-{{$sr_request->id}}')" type="submit" class="ml-3 px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover rounded-lg shadow-md text-white">Reject</Button>
                                         </div>
                                     </div>
                                 </div>
@@ -74,5 +90,41 @@
             @endif
         </div>
     </div>
+
+    <script>
+        function confirmation(ev, action, approveBtnId, rejectBtnId) {
+        ev.preventDefault(); // Prevent the default form submission
+
+        var form = ev.target.closest('form'); // Get the closest form element
+        var urlToRedirect = form.getAttribute('action'); // Get the action URL
+        var approveBtn = document.getElementById(approveBtnId);
+        var rejectBtn = document.getElementById(rejectBtnId);
+
+        var message = action === 'approve' ?
+            "Are you sure you want to approve this reservation?" :
+            "Are you sure you want to reject this reservation?";
+
+        swal({
+            title: message,
+            text: "This action cannot be undone!",
+            icon: action === 'approve' ? 'success' : 'error',
+            buttons: true,
+            dangerMode: action === 'reject',
+        })
+        .then((willConfirm) => {
+            if (willConfirm) {
+                approveBtn.disabled = true;
+                rejectBtn.disabled = true;
+                if(action == "approve"){
+                    approveBtn.textContent = "Processing...";
+                }else if(action == "reject"){
+                    rejectBtn.textContent = "Processing...";
+                }
+                form.querySelector('input[name="action"]').value = action;
+                form.submit(); // Submit the form if confirmed
+            }
+        });
+    }
+    </script>
 
 </x-app-layout>

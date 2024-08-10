@@ -62,6 +62,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('/delete-event/{id}', [EventController::class, 'destroy'])->name('delete-event');
         //sacramental reservation requests
         Route::get('main-church/sacramental-reservation-requests', [MainChurchSacramentalReservationController::class, 'index'])->name('mainchurch-sr-requests.show');
+        Route::patch('/main-church/sacramental-reservation-request/action/{id}', [MainChurchSacramentalReservationController::class, 'update'])->name('sr_request.action');
     });
 
     Route::middleware(['sub-church'])->group(function(){
