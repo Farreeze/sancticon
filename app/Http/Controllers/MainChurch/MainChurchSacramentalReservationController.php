@@ -27,7 +27,16 @@ class MainChurchSacramentalReservationController extends Controller
         })
         ->get();
 
-        return view('MainChurch.mainchurch-sacramental-reservations', ['sr_requests' => $sr_requests]);
+        $approved_sr_requests = SacramentalReservation::where('status', 1)
+                ->orderBy('updated_at', 'desc')
+                ->get();
+
+        $rejected_sr_requests = SacramentalReservation::where('status', 0)
+                ->orderBy('updated_at', 'desc')
+                ->get();
+
+        return view('MainChurch.mainchurch-sacramental-reservations', ['sr_requests' => $sr_requests,
+    'approved_sr_requests' => $approved_sr_requests, 'rejected_sr_requests' => $rejected_sr_requests]);
     }
 
     /**

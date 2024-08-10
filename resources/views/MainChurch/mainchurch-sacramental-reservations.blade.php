@@ -29,7 +29,7 @@
             @if (Auth::user()->main_church)
                 <div class="w-full max-h-screen overflow-y-auto">
                     <div class="flex items-center sticky top-0 bg-white">
-                        <h1 class="font-bold text-2xl text-gray-700">Sacramental Reservations Requests</h1>
+                        <h1 class="font-bold text-2xl text-gray-700">Pending Sacramental Reservations Requests</h1>
                     </div>
                     <div class="w-full mt-3">
                         @foreach ($sr_requests as $sr_request)
@@ -87,6 +87,121 @@
                     </div>
                 </div>
                 <hr class="border-t border-gray-300 my-4">
+                <div class="w-full max-h-screen overflow-y-auto">
+                    <div class="flex items-center sticky top-0 bg-white">
+                        <h1 class="font-bold text-2xl text-gray-700">Approved Sacramental Reservations Requests</h1>
+                    </div>
+                    <div class="w-full mt-3">
+                        @foreach ($approved_sr_requests as $approved_sr_request)
+                            <form action="" method="post">
+                                @csrf
+                                @method('PATCH')
+                                {{-- form requirements --}}
+                                <input type="text" name="action" hidden>
+                                <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mb-3">
+                                    <div class="flex flex-row flex-wrap justify-between">
+                                        <div>
+                                            <div class="flex flex-row items-center">
+                                                <h2 class="font-bold text-lg text-gray-700">{{$approved_sr_request->sacrament->desc}}</h2>
+                                                <p class="ml-3 px-4 py-1 bg-green-500 text-white rounded-lg shadow-md">Approved</p>
+                                            </div>
+                                            <div class="flex mt-1 flex-wrap">
+                                                <span class="font-bold mr-2">Church:</span>
+                                                <p>{{$approved_sr_request->church->church_name}}</p>
+                                            </div>
+                                            <div class="flex flex-wrap">
+                                                <span class="font-bold mr-2">Requested by:</span>
+                                                <p>{{$approved_sr_request->user->first_name}} {{$approved_sr_request->user->last_name}}</p>
+                                            </div>
+                                            @if ($approved_sr_request->participant_name)
+                                                <div class="flex flex-wrap">
+                                                    <span class="font-bold mr-2">Baptismal candidate:</span>
+                                                    <p>{{$approved_sr_request->participant_name}}</p>
+                                                </div>
+                                            @endif
+                                            @if ($approved_sr_request->first_name)
+                                                <div class="flex flex-wrap">
+                                                    <span class="font-bold mr-2">Participant 1:</span>
+                                                    <p>{{$approved_sr_request->first_name}}</p>
+                                                </div>
+                                            @endif
+                                            @if ($approved_sr_request->second_name)
+                                                <div class="flex flex-wrap">
+                                                    <span class="font-bold mr-2">Participant 2:</span>
+                                                    <p>{{$approved_sr_request->second_name}}</p>
+                                                </div>
+                                            @endif
+                                            <div class="flex flex-wrap">
+                                                <span class="font-bold mr-2">Date:</span>
+                                                <p>{{$approved_sr_request->date}}</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <Button class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover rounded-lg shadow-md text-white">Finish</Button>
+                                            <Button class="ml-3 px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover rounded-lg shadow-md text-white">Cancel</Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        @endforeach
+                    </div>
+                </div>
+                <hr class="border-t border-gray-300 my-4">
+                <div class="w-full max-h-screen overflow-y-auto">
+                    <div class="flex items-center sticky top-0 bg-white">
+                        <h1 class="font-bold text-2xl text-gray-700">Rejected Sacramental Reservations Requests</h1>
+                    </div>
+                    <div class="w-full mt-3">
+                        @foreach ($rejected_sr_requests as $rejected_sr_request)
+                            <form action="" method="post">
+                                @csrf
+                                @method('PATCH')
+                                {{-- form requirements --}}
+                                <input type="text" name="action" hidden>
+                                <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mb-3">
+                                    <div class="flex flex-row flex-wrap justify-between">
+                                        <div>
+                                            <div class="flex flex-row items-center">
+                                                <h2 class="font-bold text-lg text-gray-700">{{$rejected_sr_request->sacrament->desc}}</h2>
+                                                <p class="ml-3 px-4 py-1 bg-red-500 text-white rounded-lg shadow-md">Rejected</p>
+                                            </div>
+                                            <div class="flex mt-1 flex-wrap">
+                                                <span class="font-bold mr-2">Church:</span>
+                                                <p>{{$rejected_sr_request->church->church_name}}</p>
+                                            </div>
+                                            <div class="flex flex-wrap">
+                                                <span class="font-bold mr-2">Requested by:</span>
+                                                <p>{{$rejected_sr_request->user->first_name}} {{$rejected_sr_request->user->last_name}}</p>
+                                            </div>
+                                            @if ($rejected_sr_request->participant_name)
+                                                <div class="flex flex-wrap">
+                                                    <span class="font-bold mr-2">Baptismal candidate:</span>
+                                                    <p>{{$rejected_sr_request->participant_name}}</p>
+                                                </div>
+                                            @endif
+                                            @if ($rejected_sr_request->first_name)
+                                                <div class="flex flex-wrap">
+                                                    <span class="font-bold mr-2">Participant 1:</span>
+                                                    <p>{{$rejected_sr_request->first_name}}</p>
+                                                </div>
+                                            @endif
+                                            @if ($rejected_sr_request->second_name)
+                                                <div class="flex flex-wrap">
+                                                    <span class="font-bold mr-2">Participant 2:</span>
+                                                    <p>{{$rejected_sr_request->second_name}}</p>
+                                                </div>
+                                            @endif
+                                            <div class="flex flex-wrap">
+                                                <span class="font-bold mr-2">Date:</span>
+                                                <p>{{$rejected_sr_request->date}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        @endforeach
+                    </div>
+                </div>
             @endif
         </div>
     </div>
