@@ -31,7 +31,8 @@ class MainChurchSacramentalReservationController extends Controller
                 ->orderBy('updated_at', 'desc')
                 ->get();
 
-        $rejected_sr_requests = SacramentalReservation::where('status', 0)
+        $rejected_sr_requests = SacramentalReservation::where('status', 2)
+                ->orWhere('status', 3)
                 ->orderBy('updated_at', 'desc')
                 ->get();
 
@@ -86,6 +87,12 @@ class MainChurchSacramentalReservationController extends Controller
         }else if($action == "reject")
         {
             $sr_request->status = 0;
+        }else if($action == "finish")
+        {
+            $sr_request->status = 2;
+        }else if($action == "cancel")
+        {
+            $sr_request->status = 3;
         }
 
         $sr_request->save();
@@ -96,6 +103,12 @@ class MainChurchSacramentalReservationController extends Controller
         }else if($action == "reject")
         {
             return back()->with(['update_message' => 'Request Rejected']);
+        }else if($action == "finish")
+        {
+            return back()->with(['update_message' => 'Event Finished!']);
+        }else if($action == "cancel")
+        {
+            return back()->with(['update_message' => 'Event Cancelled']);
         }
     }
 
