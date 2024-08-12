@@ -50,7 +50,7 @@
                                 <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mb-3">
                                     <div class="w-full">
                                         <div class="mb-1 flex justify-between flex-wrap">
-                                            <h1 class="text-gray-700 font-bold text-2xl">{{ $event->title }}</h1>
+                                            <h1 class="text-gray-700 font-bold text-xl">{{ $event->title }}</h1>
                                             <div class="flex">
                                                 <form class="mr-3" id="delete_form" action="{{ route('delete-event', $event->id) }}" method="POST">
                                                     @csrf

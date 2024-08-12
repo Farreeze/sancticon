@@ -25,7 +25,7 @@
                             {{ __('Events') }}
                         </x-nav-link>
                         {{-- temporary --}}
-                        <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                        <x-nav-link :href="route('news-and-announcements.show')" :active="request()->routeIs('news-and-announcements.show')">
                             {{ __('News and Announcements') }}
                         </x-nav-link>
                         {{-- temporary --}}

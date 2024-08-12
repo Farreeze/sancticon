@@ -3,6 +3,7 @@
 use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\MainChurch\MainChurchSacramentalReservationController;
+use App\Http\Controllers\MainChurch\NewsAndAnnouncementController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubChurch\SubChurchEventController;
 use App\Http\Controllers\SubChurch\SubChurchSacramentalReservationController;
@@ -60,6 +61,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
         Route::patch('/event-finished/{id}', [EventController::class, 'finishEvent'])->name('finish-event');
         Route::delete('/delete-event/{id}', [EventController::class, 'destroy'])->name('delete-event');
+
+        //new and announcements
+        Route::get('/news-and-announcements', [NewsAndAnnouncementController::class, 'index'])->name('news-and-announcements.show');
+        Route::get('/news-and-announcements-form', [NewsAndAnnouncementController::class, 'create'])->name('news-and-announcements-form.show');
+        Route::post('/add-news-and-announcements', [NewsAndAnnouncementController::class, 'store'])->name('news-and-announcements-form.add');
+        Route::delete('/delete-news-and-announcements/{id}', [NewsAndAnnouncementController::class, 'destroy'])->name('news-and-announcements-form.delete');
+
         //sacramental reservation requests
         Route::get('main-church/sacramental-reservation-requests', [MainChurchSacramentalReservationController::class, 'index'])->name('mainchurch-sr-requests.show');
         Route::patch('/main-church/sacramental-reservation-request/action/{id}', [MainChurchSacramentalReservationController::class, 'update'])->name('sr_request.action');
