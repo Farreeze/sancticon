@@ -15,7 +15,7 @@ class NewsAndAnnouncementController extends Controller
      */
     public function index()
     {
-        $newsAndAnnouncements = NewsAndAnnouncement::all();
+        $newsAndAnnouncements = NewsAndAnnouncement::orderBy('created_at', 'desc')->get();
         return view('MainChurch.news-and-announcements', ['newsAndAnnouncements' => $newsAndAnnouncements]);
     }
 
@@ -36,8 +36,12 @@ class NewsAndAnnouncementController extends Controller
         try{
 
             $request_data = $request->validated();
+            if($request_data['date'] == null)
+            {
+                $request_data['date'] = now();
+            }
             NewsAndAnnouncement::create($request_data);
-            return back()->with('message', 'Event added successfully!');
+            return back()->with('message', 'Submitted Successfully!');
 
         }catch (\Exception $e) {
             Log::error('Error storing news and announcement: ' . $e->getMessage());

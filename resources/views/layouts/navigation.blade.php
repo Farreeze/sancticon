@@ -33,8 +33,8 @@
                             {{ __('Sacramental Reservations') }}
                         </x-nav-link>
                         {{-- temporary --}}
-                        <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
-                            {{ __('Certificate Requests') }}
+                        <x-nav-link :href="route('sacramental-events.show')" :active="request()->routeIs('sacramental-events.show')">
+                            {{ __('Sacramental Events') }}
                         </x-nav-link>
                     @endif
 
@@ -44,15 +44,13 @@
                         </x-nav-link>
                         {{-- temporary --}}
                         <x-nav-link :href="route('subchurch-events.show')" :active="request()->routeIs('temp')">
-                            {{ __('Request Certificate') }}
+                            {{ __('News and Announcements') }}
                         </x-nav-link>
-                        {{-- temporary --}}
                         <x-nav-link :href="route('subchurch-sacramental-reservation.show')" :active="request()->routeIs('temp')">
                             {{ __('Sacramental Reservations') }}
                         </x-nav-link>
-                        {{-- temporary --}}
-                        <x-nav-link :href="route('subchurch-events.show')" :active="request()->routeIs('temp')">
-                            {{ __('News and Announcements') }}
+                        <x-nav-link :href="route('sub-church-sacramental-events.show')" :active="request()->routeIs('sub-church-sacramental-events.show')">
+                            {{ __('Sacramental Events') }}
                         </x-nav-link>
                     @endif
 
@@ -140,7 +138,7 @@
                     {{ __('Events') }}
                 </x-responsive-nav-link>
                 {{-- temporary --}}
-                <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+                <x-responsive-nav-link :href="route('news-and-announcements.show')" :active="request()->routeIs('news-and-announcements.show')">
                     {{ __('News and Announcements') }}
                 </x-responsive-nav-link>
                 {{-- temporary --}}
@@ -148,8 +146,8 @@
                     {{ __('Sacramental Reservations') }}
                 </x-responsive-nav-link>
                 {{-- temporary --}}
-                <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
-                    {{ __('Certificate Requets') }}
+                <x-responsive-nav-link :href="route('sacramental-events.show')" :active="request()->routeIs('sacramental-events.show')">
+                    {{ __('Sacramental Events') }}
                 </x-responsive-nav-link>
             @endif
 
@@ -159,15 +157,13 @@
                 </x-responsive-nav-link>
                 {{-- temporary --}}
                 <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
-                    {{ __('Request Certificate') }}
+                    {{ __('News and Announcements') }}
                 </x-responsive-nav-link>
-                {{-- temporary --}}
                 <x-responsive-nav-link :href="route('subchurch-sacramental-reservation.show')" :active="request()->routeIs('temp')">
                     {{ __('Sacramental Reservations') }}
                 </x-responsive-nav-link>
-                {{-- temporary --}}
-                <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
-                    {{ __('News and Announcements') }}
+                <x-responsive-nav-link :href="route('sub-church-sacramental-events.show')" :active="request()->routeIs('sub-church-sacramental-events.show')">
+                    {{ __('Sacramental Events') }}
                 </x-responsive-nav-link>
             @endif
 

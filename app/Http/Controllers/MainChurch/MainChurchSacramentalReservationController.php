@@ -31,13 +31,13 @@ class MainChurchSacramentalReservationController extends Controller
                 ->orderBy('updated_at', 'desc')
                 ->get();
 
-        $rejected_sr_requests = SacramentalReservation::where('status', 2)
+        $completed_sr_requests = SacramentalReservation::where('status', 2)
                 ->orWhere('status', 3)
                 ->orderBy('updated_at', 'desc')
                 ->get();
 
         return view('MainChurch.mainchurch-sacramental-reservations', ['sr_requests' => $sr_requests,
-    'approved_sr_requests' => $approved_sr_requests, 'rejected_sr_requests' => $rejected_sr_requests]);
+    'approved_sr_requests' => $approved_sr_requests, 'completed_sr_requests' => $completed_sr_requests]);
     }
 
     /**

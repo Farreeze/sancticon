@@ -4,8 +4,10 @@ use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\MainChurch\MainChurchSacramentalReservationController;
 use App\Http\Controllers\MainChurch\NewsAndAnnouncementController;
+use App\Http\Controllers\MainChurch\SacramentalEventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubChurch\SubChurchEventController;
+use App\Http\Controllers\SubChurch\SubChurchSacramentalEventController;
 use App\Http\Controllers\SubChurch\SubChurchSacramentalReservationController;
 use App\Http\Controllers\User\ReservationController;
 use App\Http\Controllers\User\UserEventController;
@@ -71,12 +73,20 @@ Route::middleware('auth')->group(function () {
         //sacramental reservation requests
         Route::get('main-church/sacramental-reservation-requests', [MainChurchSacramentalReservationController::class, 'index'])->name('mainchurch-sr-requests.show');
         Route::patch('/main-church/sacramental-reservation-request/action/{id}', [MainChurchSacramentalReservationController::class, 'update'])->name('sr_request.action');
+
+        //sacramental  events
+        Route::get('/sacramental-events', [SacramentalEventController::class, 'index'])->name('sacramental-events.show');
+        Route::get('/sacramental-events-form', [SacramentalEventController::class, 'create'])->name('sacramental-events-form.show');
+        Route::post('/sacramental-events-add', [SacramentalEventController::class, 'store'])->name('sacramental-events-form.submit');
     });
 
     Route::middleware(['sub-church'])->group(function(){
         Route::get('/sub-church/sacramental-reservations', [SubChurchSacramentalReservationController::class, 'index'])->name('subchurch-sacramental-reservation.show');
         Route::patch('/sub-church/action/{id}', [SubChurchSacramentalReservationController::class, 'update'])->name('subchurch-sr-request.action');
         Route::get('/sub-church/events', [SubChurchEventController::class, 'index'])->name('subchurch-events.show');
+
+        //sacramental events
+        Route::get('/sub-church-sacramental-events', [SubChurchSacramentalEventController::class, 'index'])->name('sub-church-sacramental-events.show');
     });
 
     Route::middleware(['user'])->group(function(){
