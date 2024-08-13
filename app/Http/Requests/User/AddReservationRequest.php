@@ -29,6 +29,7 @@ class AddReservationRequest extends FormRequest
             'participant_name' => 'nullable|string',
             'first_name' => 'nullable|string',
             'second_name' => 'nullable|string',
+            'custom_name' => 'nullable|string',
             'subchurch_approve' => 'nullable|boolean',
             'status' => 'nullable|boolean'
         ];

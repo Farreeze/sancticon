@@ -43,7 +43,13 @@
                                         <p>{{$sacramental_event->date}}</p>
                                     </div>
                                 </div>
-                                <div class="flex flex-wrap mt-2">
+                                @if ($sacramental_event->custom_name)
+                                    <div class="flex flex-wrap mt-2">
+                                        <span class="font-bold mr-2">For:</span>
+                                        <p>{{$sacramental_event->custom_name}}</p>
+                                    </div>
+                                @endif
+                                <div class="flex flex-wrap">
                                     <span class="font-bold mr-2">Church:</span>
                                     <p>{{$sacramental_event->church->church_name}}</p>
                                 </div>

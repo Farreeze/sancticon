@@ -41,6 +41,8 @@ class SacramentalEventController extends Controller
     {
         $reservation_data = $request->validated();
 
+        $reservation_data['status'] = 1;
+
         SacramentalReservation::create($reservation_data);
         return back()->with('add-reservation', 'Reservation Submitted');
     }

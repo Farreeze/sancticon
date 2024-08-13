@@ -17,9 +17,10 @@ return new class extends Migration
             $table->foreignId('church_id');
             $table->foreignId('sacrament_id');
             $table->date('date');
-            $table->string('participant_name')->nullable();
-            $table->string('first_name')->nullable();
-            $table->string('second_name')->nullable();
+            $table->string('participant_name')->nullable(); //baptism
+            $table->string('first_name')->nullable();   //matrimony
+            $table->string('second_name')->nullable();  //matrimony
+            $table->string('custom_name')->nullable();  //custome request (for churches)
             $table->boolean('subchurch_approve')->nullable();
             $table->boolean('status')->nullable();
             $table->timestamps();

@@ -45,7 +45,13 @@
                                                 <h2 class="font-bold text-lg text-gray-700">{{$sr_request->sacrament->desc}}</h2>
                                                 <p class="ml-3 px-4 py-1 bg-yellow-500 text-white rounded-lg shadow-md">Pending</p>
                                             </div>
-                                            <div class="flex mt-1 flex-wrap">
+                                            @if ($sr_request->custom_name)
+                                                <div class="flex mt-1 flex-wrap">
+                                                    <span class="font-bold mr-2">For:</span>
+                                                    <p>{{$sr_request->custom_name}}</p>
+                                                </div>
+                                            @endif
+                                            <div class="flex flex-wrap">
                                                 <span class="font-bold mr-2">Church:</span>
                                                 <p>{{$sr_request->church->church_name}}</p>
                                             </div>
@@ -108,7 +114,13 @@
                                                 <h2 class="font-bold text-lg text-gray-700">{{$approved_sr_request->sacrament->desc}}</h2>
                                                 <p class="ml-3 px-4 py-1 bg-green-500 text-white rounded-lg shadow-md">Approved</p>
                                             </div>
-                                            <div class="flex mt-1 flex-wrap">
+                                            @if ($approved_sr_request->custom_name)
+                                                <div class="flex mt-1 flex-wrap">
+                                                    <span class="font-bold mr-2">For:</span>
+                                                    <p>{{$approved_sr_request->custom_name}}</p>
+                                                </div>
+                                            @endif
+                                            <div class="flex flex-wrap">
                                                 <span class="font-bold mr-2">Church:</span>
                                                 <p>{{$approved_sr_request->church->church_name}}</p>
                                             </div>
@@ -171,7 +183,13 @@
                                             <p class="ml-3 px-4 py-1 bg-red-500 text-white rounded-lg shadow-md">Cancelled</p>
                                             @endif
                                         </div>
-                                        <div class="flex mt-1 flex-wrap">
+                                        @if ($completed_sr_request->custom_name)
+                                            <div class="flex mt-1 flex-wrap">
+                                                <span class="font-bold mr-2">For:</span>
+                                                <p>{{$completed_sr_request->custom_name}}</p>
+                                            </div>
+                                        @endif
+                                        <div class="flex flex-wrap">
                                             <span class="font-bold mr-2">Church:</span>
                                             <p>{{$completed_sr_request->church->church_name}}</p>
                                         </div>
