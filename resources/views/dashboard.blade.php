@@ -69,12 +69,18 @@
             {{-- sub church dashboard --}}
             @if (Auth::user()->sub_church == 1)
 
-                <div class="w-full text-gray-700 font-bold text-2xl">
-                    <h3>Your Requests</h3>
+                <div class="w-full max-h-screen overflow-auto">
+                    <div class="w-full sticky top-0 bg-white">
+                        <h2 class="font-bold text-gray-700 text-2xl">Sacramental Reservations</h2>
+                    </div>
                 </div>
-                <div class="w-full mt-5 max-h-screen overflow-auto">
-                    <span>display requests made by this sub church</span>
-                </div>
+                @foreach ($sacramental_reservations as $sacramental_reservation)
+                    <form action="">
+                        <div class="w-full p-5 bg-gray-300 mt-3 rounded-lg">
+                            <h2 class="font-bold text-lg text-gray-700">{{$sacramental_reservation->sacrament->desc}}</h2>
+                        </div>
+                    </form>
+                @endforeach
 
             @endif
 

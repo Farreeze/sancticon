@@ -48,16 +48,25 @@
 
                                         <div class="flex flex-row justify-between flex-wrap">
                                             <div>
-                                                <div class="flex flex-row items-center">
+                                                <div class="flex flex-row items-center mb-2">
                                                     <h2 class="font-bold text-lg text-gray-700">{{$reservation_request->sacrament->desc}}</h2>
                                                     <p class="ml-3 px-4 py-1 bg-yellow-500 text-white rounded-lg shadow-md">Pending</p>
                                                 </div>
-                                                <div class="flex mt-1 flex-wrap">
+                                                @if ($reservation_request->custom_name)
+                                                    <div class="flex">
+                                                        <span class="font-bold">For:</span>
+                                                        <p class="ml-2">{{$reservation_request->custom_name}}</p>
+                                                    </div>
+                                                @endif
+                                                <div class="flex flex-wrap">
                                                     <span class="font-bold mr-2">Church:</span>
                                                     <p>{{$reservation_request->church->church_name}}</p>
                                                 </div>
                                                 <div class="flex flex-wrap">
                                                     <span class="font-bold mr-2">Requested by:</span>
+                                                    @if ($reservation_request->custom_name)
+                                                        <p>{{$reservation_request->user->church_name}}</p>
+                                                    @endif
                                                     <p>{{$reservation_request->user->first_name}} {{$reservation_request->user->last_name}}</p>
                                                 </div>
                                                 @if ($reservation_request->participant_name)
@@ -98,7 +107,7 @@
                 <hr class="border-t border-gray-300 my-4">
                 <div class="w-full max-h-screen overflow-y-auto mt-3">
                     <div class="flex items-center sticky top-0 bg-white">
-                        <h1 class="font-bold text-2xl text-gray-700">Completed Sacramental Reservation Requests</h1>
+                        <h1 class="font-bold text-2xl text-gray-700">Approved Sacramental Reservation Requests</h1>
                     </div>
                     <div class="w-full mt-5">
                         <div class="flex flex-col">
@@ -107,13 +116,22 @@
                                     <div>
                                         <div class="flex flex-row justify-between">
                                             <div>
-                                                <h2 class="font-bold text-lg text-gray-700">{{$finished_reservation_request->sacrament->desc}}</h2>
-                                                <div class="flex mt-1">
+                                                <h2 class="font-bold text-lg text-gray-700 mb-2">{{$finished_reservation_request->sacrament->desc}}</h2>
+                                                @if ($finished_reservation_request->custom_name)
+                                                    <div class="flex">
+                                                        <span class="font-bold">For:</span>
+                                                        <p class="ml-2">{{$finished_reservation_request->custom_name}}</p>
+                                                    </div>
+                                                @endif
+                                                <div class="flex">
                                                     <span class="font-bold">Church:</span>
                                                     <p class="ml-2">{{$finished_reservation_request->church->church_name}}</p>
                                                 </div>
                                                 <div class="flex">
                                                     <span class="font-bold">Requested by:</span>
+                                                    @if ($finished_reservation_request->custom_name)
+                                                    <p class="ml-2">{{$finished_reservation_request->user->church_name}}</p>
+                                                    @endif
                                                     <p class="ml-2">{{$finished_reservation_request->user->first_name}} {{$finished_reservation_request->user->last_name}}</p>
                                                 </div>
                                                 <div class="flex">

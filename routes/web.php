@@ -29,11 +29,15 @@ Route::get('/dashboard', function () {
         return view('dashboard', ['churches' => $churches]);
     }
 
-    // if($user->main_church)
-    // {
-    //     $churches = User::where('sub_church', 1)->get();
-    //     return view('dashboard', ['churches' => $churches]);
-    // }
+    if($user->sub_church)
+    {
+        $sacramental_reservations = SacramentalReservation::where('user_id', $user->id)
+                ->whereNull('status')
+                ->where('subchurch_approve', 1)
+                ->get();
+
+        return view('dashboard', ['sacramental_reservations' => $sacramental_reservations]);
+    }
 
     if($user->user)
     {
@@ -87,6 +91,8 @@ Route::middleware('auth')->group(function () {
 
         //sacramental events
         Route::get('/sub-church-sacramental-events', [SubChurchSacramentalEventController::class, 'index'])->name('sub-church-sacramental-events.show');
+        Route::get('/sub-church-sacramental-event-form', [SubChurchSacramentalEventController::class, 'create'])->name('sub-church-sacramental-event-form.show');
+        Route::post('/sub-church-sacramental-event-submit', [SubChurchSacramentalEventController::class, 'store'])->name('sub-church-sacramental-event-form.submit');
     });
 
     Route::middleware(['user'])->group(function(){

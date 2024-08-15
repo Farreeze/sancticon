@@ -58,7 +58,7 @@
                                             <div class="flex flex-wrap">
                                                 <span class="font-bold mr-2">Requested by:</span>
                                                 @if ($sr_request->user->main_church == 1 || $sr_request->user->sub_church == 1)
-                                                    <p>{{$sr_request->church->church_name}}</p>
+                                                    <p>{{$sr_request->user->church_name}}</p>
                                                 @endif
                                                 <p>{{$sr_request->user->first_name}} {{$sr_request->user->last_name}}</p>
                                             </div>
@@ -127,7 +127,7 @@
                                             <div class="flex flex-wrap">
                                                 <span class="font-bold mr-2">Requested by:</span>
                                                 @if ($approved_sr_request->user->main_church == 1 || $approved_sr_request->user->sub_church == 1)
-                                                    <p>{{$approved_sr_request->church->church_name}}</p>
+                                                    <p>{{$approved_sr_request->user->church_name}}</p>
                                                 @endif
                                                 <p>{{$approved_sr_request->user->first_name}} {{$approved_sr_request->user->last_name}}</p>
                                             </div>
@@ -196,7 +196,7 @@
                                         <div class="flex flex-wrap">
                                             <span class="font-bold mr-2">Requested by:</span>
                                             @if ($completed_sr_request->user->main_church == 1 || $completed_sr_request->user->sub_church == 1)
-                                                <p>{{$completed_sr_request->church->church_name}}</p>
+                                                <p>{{$completed_sr_request->user->church_name}}</p>
                                             @endif
                                             <p>{{$completed_sr_request->user->first_name}} {{$completed_sr_request->user->last_name}}</p>
                                         </div>
