@@ -4,6 +4,7 @@ use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\MainChurch\MainChurchSacramentalReservationController;
 use App\Http\Controllers\MainChurch\NewsAndAnnouncementController;
+use App\Http\Controllers\MainChurch\PriestController;
 use App\Http\Controllers\MainChurch\SacramentalEventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubChurch\SubChurchEventController;
@@ -61,6 +62,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');
         Route::delete('/delete-church/{id}', [ChurchController::class, 'destroy'])->name('delete-church');
         Route::get('/church-profile/{id}', [ChurchController::class, 'show'])->name('church-profile.show');
+
+        //priests
+        Route::get('/priests', [PriestController::class, 'index'])->name('priests.show');
+
         //events
         Route::get('/events', [EventController::class, 'index'])->name('church-events.show');
         Route::get('/add-event-form', [EventController::class, 'create'])->name('add-event-form.show');

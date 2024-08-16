@@ -17,22 +17,22 @@
                     </x-nav-link>
 
                     @if (Auth::user()->main_church == 1)
-                        {{-- temporary --}}
-                        <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
+
+                        <x-nav-link :href="route('priests.show')" :active="request()->routeIs('priests.show')">
                             {{ __('Priests') }}
                         </x-nav-link>
                         <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
                             {{ __('Events') }}
                         </x-nav-link>
-                        {{-- temporary --}}
+
                         <x-nav-link :href="route('news-and-announcements.show')" :active="request()->routeIs('news-and-announcements.show')">
                             {{ __('News and Announcements') }}
                         </x-nav-link>
-                        {{-- temporary --}}
+
                         <x-nav-link :href="route('mainchurch-sr-requests.show')" :active="request()->routeIs('mainchurch-sr-requests.show')">
                             {{ __('Sacramental Reservations') }}
                         </x-nav-link>
-                        {{-- temporary --}}
+
                         <x-nav-link :href="route('sacramental-events.show')" :active="request()->routeIs('sacramental-events.show')">
                             {{ __('Sacramental Events') }}
                         </x-nav-link>
