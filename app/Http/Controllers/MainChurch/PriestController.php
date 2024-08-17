@@ -105,6 +105,10 @@ class PriestController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $priest = Priest::findOrFail($id);
+
+        $priest->delete();
+
+        return redirect()->route('priests.show')->with('delete-message', 'Failed to delete priest.');
     }
 }

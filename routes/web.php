@@ -71,6 +71,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/priest/{id}', [PriestController::class, 'show'])->name('priest-profile.show');
         Route::get('/priest-edit/{id}', [PriestController::class, 'edit'])->name('edit-priest.show');
         Route::patch('/priest-update/{id}', [PriestController::class, 'update'])->name('priest.update');
+        Route::delete('/priest-delete/{id}', [PriestController::class, 'destroy'])->name('priest.delete');
 
         //events
         Route::get('/events', [EventController::class, 'index'])->name('church-events.show');

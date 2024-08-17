@@ -23,7 +23,7 @@
                     <a class="bg-white hover:bg-gray-300 border border-gray-300 w-full py-2 text-center rounded-lg" href="{{route('edit-priest.show', $priest->id)}}">Edit</a>
                 </div>
                 <div class="flex justify-center mt-2">
-                    <form class="w-full" action="#" method="POST">
+                    <form class="w-full" action="{{ route('priest.delete', $priest->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button class="py-2 w-full rounded-lg bg-negative_btn hover:bg-negative_btn_hover text-white shadow-md" type="submit">Delete</button>
