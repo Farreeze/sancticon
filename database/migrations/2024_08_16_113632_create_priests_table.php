@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('church_id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('middle_name');
+            $table->string('middle_name')->nullable();
             $table->unsignedBigInteger('suffix_name')->nullable();
             $table->string('title');
             $table->string('photo_id')->nullable();

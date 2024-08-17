@@ -12,6 +12,7 @@ use App\Http\Controllers\SubChurch\SubChurchSacramentalEventController;
 use App\Http\Controllers\SubChurch\SubChurchSacramentalReservationController;
 use App\Http\Controllers\User\ReservationController;
 use App\Http\Controllers\User\UserEventController;
+use App\Models\Priest;
 use App\Models\SacramentalReservation;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -65,6 +66,11 @@ Route::middleware('auth')->group(function () {
 
         //priests
         Route::get('/priests', [PriestController::class, 'index'])->name('priests.show');
+        Route::get('/add-priest-form', [PriestController::class, 'create'])->name('add-priest-form.show');
+        Route::post('/add-priest-submit', [PriestController::class, 'store'])->name('add-priest.submit');
+        Route::get('/priest/{id}', [PriestController::class, 'show'])->name('priest-profile.show');
+        Route::get('/priest-edit/{id}', [PriestController::class, 'edit'])->name('edit-priest.show');
+        Route::patch('/priest-update/{id}', [PriestController::class, 'update'])->name('priest.update');
 
         //events
         Route::get('/events', [EventController::class, 'index'])->name('church-events.show');
