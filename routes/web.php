@@ -8,6 +8,8 @@ use App\Http\Controllers\MainChurch\PriestController;
 use App\Http\Controllers\MainChurch\SacramentalEventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubChurch\SubChurchEventController;
+use App\Http\Controllers\SubChurch\SubChurchNewsAndAnnouncementController;
+use App\Http\Controllers\SubChurch\SubChurchPriestController;
 use App\Http\Controllers\SubChurch\SubChurchSacramentalEventController;
 use App\Http\Controllers\SubChurch\SubChurchSacramentalReservationController;
 use App\Http\Controllers\User\ReservationController;
@@ -100,6 +102,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/sub-church/sacramental-reservations', [SubChurchSacramentalReservationController::class, 'index'])->name('subchurch-sacramental-reservation.show');
         Route::patch('/sub-church/action/{id}', [SubChurchSacramentalReservationController::class, 'update'])->name('subchurch-sr-request.action');
         Route::get('/sub-church/events', [SubChurchEventController::class, 'index'])->name('subchurch-events.show');
+
+        //priests
+        Route::get('/sub-church/priests', [SubChurchPriestController::class, 'index'])->name('subchurch-priests.show');
+
+        //news and announcements
+        Route::get('/sub-church/news-and-announcements', [SubChurchNewsAndAnnouncementController::class, 'index'])->name('subchurch-news-and-announcements.show');
 
         //sacramental events
         Route::get('/sub-church-sacramental-events', [SubChurchSacramentalEventController::class, 'index'])->name('sub-church-sacramental-events.show');

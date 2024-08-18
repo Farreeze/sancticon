@@ -86,13 +86,13 @@
 
             {{-- user dashboard --}}
             @if (Auth::user()->user == 1)
-                <div class="w-full text-gray-700 font-bold text-2xl">
+                {{-- <div class="w-full text-gray-700 font-bold text-2xl">
                     <h3>Your Requests</h3>
                 </div>
                 <div class="w-full">
 
-                </div>
-                <div class="w-full mt-5 max-h-screen overflow-auto">
+                </div> --}}
+                <div class="w-full max-h-screen overflow-auto">
                     <div class="w-full sticky top-0 bg-white">
                         <h2 class="font-bold text-gray-700 text-2xl">Sacramental Reservations</h2>
                     </div>
