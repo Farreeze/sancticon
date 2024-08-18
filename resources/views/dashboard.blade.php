@@ -22,7 +22,7 @@
                 </div>
                 <div class="flex justify-center mt-3">
                     @if (Auth::user()->user == 1)
-                    <span class="font-bold text-gray-700">{{Auth::user()->first_name}}</span>
+                    <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
                     @endif
                     @if (Auth::user()->user == 0)
                     <span class="font-bold text-gray-700">{{Auth::user()->church_name}}</span>

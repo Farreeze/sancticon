@@ -14,6 +14,8 @@ use App\Http\Controllers\SubChurch\SubChurchSacramentalEventController;
 use App\Http\Controllers\SubChurch\SubChurchSacramentalReservationController;
 use App\Http\Controllers\User\ReservationController;
 use App\Http\Controllers\User\UserEventController;
+use App\Http\Controllers\User\UserNewsAndAnnouncementsController;
+use App\Http\Controllers\User\UserPriestController;
 use App\Models\Priest;
 use App\Models\SacramentalReservation;
 use App\Models\User;
@@ -121,6 +123,12 @@ Route::middleware('auth')->group(function () {
         Route::delete('/delete-reservation/{id}', [ReservationController::class, 'destroy'])->name('cancel-reservation');
 
         Route::get('/user/events', [UserEventController::class, 'index'])->name('user-events.show');
+
+        //priests
+        Route::get('/sub-church/priests', [UserPriestController::class, 'index'])->name('user-priests.show');
+
+        //news and announcements
+        Route::get('/user/news-and-announcements', [UserNewsAndAnnouncementsController::class, 'index'])->name('user-news-and-announcements.show');
     });
 
 });
