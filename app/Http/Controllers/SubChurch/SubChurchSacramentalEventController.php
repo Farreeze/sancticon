@@ -76,6 +76,10 @@ class SubChurchSacramentalEventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $sacramental_event = SacramentalReservation::findOrFail($id);
+
+        $sacramental_event->delete();
+
+        return back()->with('sub-church-cancel-reservation', 'Reservation Cancelled');
     }
 }

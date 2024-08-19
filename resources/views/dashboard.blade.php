@@ -14,6 +14,18 @@
 
     @endif
 
+    @if (Session::has('sub-church-cancel-reservation'))
+
+    <script>
+        swal("SUCCESS", "{{ Session::get('sub-church-cancel-reservation') }}", 'success',
+        {
+            button:true,
+            button:"OK",
+        });
+    </script>
+
+    @endif
+
     <div class="w-full py-5 px-10 flex flex-col md:flex-row lg:flex-row items-start">
         <div class="w-full md:w-[20%] lg:w-[20%] bg-white rounded-lg shadow-lg">
             <div class="w-full flex flex-col justify-center p-5">
@@ -71,13 +83,44 @@
 
                 <div class="w-full max-h-screen overflow-auto">
                     <div class="w-full sticky top-0 bg-white">
-                        <h2 class="font-bold text-gray-700 text-2xl">Sacramental Reservations</h2>
+                        <h2 class="font-bold text-gray-700 text-2xl">{{Auth::user()->church_name}} Sacramental Reservations</h2>
                     </div>
                 </div>
                 @foreach ($sacramental_reservations as $sacramental_reservation)
-                    <form action="">
-                        <div class="w-full p-5 bg-gray-300 mt-3 rounded-lg">
-                            <h2 class="font-bold text-lg text-gray-700">{{$sacramental_reservation->sacrament->desc}}</h2>
+                    <form action="{{ route('sub-church-sacramental-reservation.delete', $sacramental_reservation->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="w-full p-3 bg-gray-300 mt-3 rounded-lg">
+                            <div class="flex flex-row justify-between flex-wrap items-center">
+                                <h2 class="font-bold text-lg text-gray-700">{{$sacramental_reservation->sacrament->desc}}</h2>
+                                <button class="px-4 py-2 rounded-lg bg-negative_btn hover:bg-negative_btn_hover text-white" type="submit">Cancel</button>
+                            </div>
+                            @if ($sacramental_reservation->custom_name)
+                                <div class="flex flex-row flex-wrap">
+                                    <p class="mr-1 font-bold">For:</p>
+                                    <p>{{ $sacramental_reservation->custom_name }}</p>
+                                </div>
+                            @endif
+                            <div class="flex flex-row flex-wrap">
+                                <p class="mr-1 font-bold">Date:</p>
+                                <p>{{ $sacramental_reservation->date }}</p>
+                            </div>
+                            @if ($sacramental_reservation->sacrament_id == 1)
+                                <div class="flex flex-row flex-wrap">
+                                    <p class="mr-1 font-bold">Baptismal Candidate:</p>
+                                    <p>{{ $sacramental_reservation->participant_name }}</p>
+                                </div>
+                            @endif
+                            @if ($sacramental_reservation->sacrament_id == 7)
+                                <div class="flex flex-row flex-wrap">
+                                    <p class="mr-1 font-bold">Candidates:</p>
+                                    <p>{{ $sacramental_reservation->first_name }} & {{ $sacramental_reservation->second_name }}</p>
+                                </div>
+                            @endif
+                            <div class="flex flex-row flex-wrap">
+                                <p class="mr-1 font-bold">Church:</p>
+                                <p>{{ $sacramental_reservation->church->church_name }}</p>
+                            </div>
                         </div>
                     </form>
                 @endforeach
@@ -153,7 +196,6 @@
                                                 <div>
                                                     <p class="px-9 py-2 bg-green-500 text-white rounded-lg shadow-md">Finished</p>
                                                 </div>
-                                                <a class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover text-white rounded-lg shadow-md ml-2" href="">Request Certificate</a>
                                             </div>
                                         @endif
                                     </div>

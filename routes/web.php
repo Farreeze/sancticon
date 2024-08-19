@@ -13,6 +13,7 @@ use App\Http\Controllers\SubChurch\SubChurchPriestController;
 use App\Http\Controllers\SubChurch\SubChurchSacramentalEventController;
 use App\Http\Controllers\SubChurch\SubChurchSacramentalReservationController;
 use App\Http\Controllers\User\ReservationController;
+use App\Http\Controllers\User\UserCertificateController;
 use App\Http\Controllers\User\UserEventController;
 use App\Http\Controllers\User\UserNewsAndAnnouncementsController;
 use App\Http\Controllers\User\UserPriestController;
@@ -105,6 +106,9 @@ Route::middleware('auth')->group(function () {
         Route::patch('/sub-church/action/{id}', [SubChurchSacramentalReservationController::class, 'update'])->name('subchurch-sr-request.action');
         Route::get('/sub-church/events', [SubChurchEventController::class, 'index'])->name('subchurch-events.show');
 
+        //custom request
+        Route::delete('/sub-church/cancel/{id}', [SubChurchSacramentalEventController::class, 'destroy'])->name('sub-church-sacramental-reservation.delete');
+
         //priests
         Route::get('/sub-church/priests', [SubChurchPriestController::class, 'index'])->name('subchurch-priests.show');
 
@@ -125,10 +129,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/user/events', [UserEventController::class, 'index'])->name('user-events.show');
 
         //priests
-        Route::get('/sub-church/priests', [UserPriestController::class, 'index'])->name('user-priests.show');
+        Route::get('/user/priests', [UserPriestController::class, 'index'])->name('user-priests.show');
 
         //news and announcements
         Route::get('/user/news-and-announcements', [UserNewsAndAnnouncementsController::class, 'index'])->name('user-news-and-announcements.show');
+
+        //certificates
+        Route::get('/user/certificates', [UserCertificateController::class, 'index'])->name('user-certificate.show');
     });
 
 });

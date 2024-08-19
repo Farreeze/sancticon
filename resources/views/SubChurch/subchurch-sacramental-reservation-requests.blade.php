@@ -155,9 +155,8 @@
                                                         <div>
                                                             <p class="px-9 py-2 bg-green-500 text-white rounded-lg shadow-md">Finished</p>
                                                         </div>
-                                                        <a class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover text-white rounded-lg shadow-md ml-2" href="">Request Certificate</a>
                                                     </div>
-                                            @endif
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

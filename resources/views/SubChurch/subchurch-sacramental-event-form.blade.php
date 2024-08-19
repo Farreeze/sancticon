@@ -78,7 +78,7 @@
             if (this.value == '7') {
                 var participant1 = document.createElement('div');
                 participant1.className = 'mt-3';
-                participant1.innerHTML = '<span class="text-gray-700 ml-1">Participant 1 name:</span><input class="w-full rounded-lg border-gray-300" type="text" placeholder="Participant name" name="first_name" value="{{ Auth::user()->first_name }} {{ Auth::user()->middle_name ? Auth::user()->middle_name[0] . '.' : '' }} {{ Auth::user()->last_name }}" required>';
+                participant1.innerHTML = '<span class="text-gray-700 ml-1">Participant 1 name:</span><input class="w-full rounded-lg border-gray-300" type="text" placeholder="Participant name" name="first_name" required>';
 
                 var participant2 = document.createElement('div');
                 participant2.className = 'mt-3';
