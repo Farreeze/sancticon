@@ -136,6 +136,9 @@ Route::middleware('auth')->group(function () {
 
         //certificates
         Route::get('/user/certificates', [UserCertificateController::class, 'index'])->name('user-certificate.show');
+
+        //PDF GENERATION
+        Route::get('/generate/certificate/{id}', [UserCertificateController::class, 'GenerateCertificate'])->name('certificate.generate');
     });
 
 });

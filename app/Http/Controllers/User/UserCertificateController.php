@@ -4,11 +4,33 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\SacramentalReservation;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserCertificateController extends Controller
 {
+
+    public function GenerateCertificate($id)
+    {
+        $data = SacramentalReservation::findOrFail($id);
+
+        if($data->sacrament->desc == "BAPTISM")
+        {
+            $pdf = Pdf::loadView('PdfFormat.baptism_certificate', ['data' => $data]);
+
+            return $pdf->download('baptism_certificate.pdf');
+        }
+
+        if($data->sacrament->desc == "MATRIMONY")
+        {
+            $pdf = Pdf::loadView('PdfFormat.matrimony_certificate', ['data' => $data]);
+
+            return $pdf->download('matrimony_certificate.pdf');
+        }
+
+    }
+
     /**
      * Display a listing of the resource.
      */

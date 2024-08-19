@@ -34,7 +34,7 @@
                         <div class="w-full bg-gray-300 rounded-lg flex flex-col p-3 mb-3">
                             <div class="flex flex-row justify-between flex-wrap items-center">
                                 <h2 class="font-bold text-lg text-gray-700">{{$sacramental_event->sacrament->desc}}</h2>
-                                <a class="px-4 py-2 rounded-lg bg-positive_btn hover:bg-positive_btn_hover text-white" href="#">Download Certificate</a>
+                                <a class="px-4 py-2 rounded-lg bg-positive_btn hover:bg-positive_btn_hover text-white" href="{{ route('certificate.generate', $sacramental_event->id) }}">Download Certificate</a>
                             </div>
                             <div class="flex flex-row flex-wrap">
                                 <p class="mr-1 font-bold">Date:</p>
