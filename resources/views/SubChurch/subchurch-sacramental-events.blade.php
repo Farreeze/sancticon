@@ -27,7 +27,6 @@
             <div class="max-h-screen overflow-y-auto">
                 <div class="flex items-center sticky top-0 bg-white z-10">
                     <h1 class="font-bold text-2xl text-gray-700">Sacramental Calendar</h1>
-                    <a class="px-4 py-2 rounded-lg bg-secondary hover:bg-secondary_hover text-white ml-3" href="{{ route('sub-church-sacramental-event-form.show') }}">+ Request</a>
                 </div>
                 <div class="w-full mt-5 flex flex-col">
                     @foreach ($sacramental_events as $sacramental_event)

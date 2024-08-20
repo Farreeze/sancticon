@@ -19,17 +19,20 @@ class UserCertificateController extends Controller
         {
             $pdf = Pdf::loadView('PdfFormat.baptism_certificate', ['data' => $data]);
 
-            return $pdf->download('baptism_certificate.pdf');
+            return $pdf->download('certificate.pdf');
+
         }else if($data->sacrament->desc == "MATRIMONY")
         {
             $pdf = Pdf::loadView('PdfFormat.matrimony_certificate', ['data' => $data]);
 
-            return $pdf->download('matrimony_certificate.pdf');
+            return $pdf->download('certificate.pdf');
+
         }else
         {
-            $pdf = Pdf::loadView('PdfFormat.certificate', ['data' => $data]);
+            $pdf = Pdf::loadView('PdfFormat.other_certificate', ['data' => $data]);
 
             return $pdf->download('certificate.pdf');
+
         }
 
     }

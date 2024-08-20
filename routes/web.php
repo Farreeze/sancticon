@@ -7,6 +7,7 @@ use App\Http\Controllers\MainChurch\NewsAndAnnouncementController;
 use App\Http\Controllers\MainChurch\PriestController;
 use App\Http\Controllers\MainChurch\SacramentalEventController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubChurch\SubChurchCertificateController;
 use App\Http\Controllers\SubChurch\SubChurchEventController;
 use App\Http\Controllers\SubChurch\SubChurchNewsAndAnnouncementController;
 use App\Http\Controllers\SubChurch\SubChurchPriestController;
@@ -43,7 +44,20 @@ Route::get('/dashboard', function () {
                 ->where('subchurch_approve', 1)
                 ->get();
 
-        return view('dashboard', ['sacramental_reservations' => $sacramental_reservations]);
+        $approved_sacramental_events = SacramentalReservation::where('user_id', $user->id)
+                ->where('status', 1)
+                ->orderBy('updated_at', 'desc')
+                ->get();
+
+        $completed_sacramental_reservations = SacramentalReservation::where('user_id', $user->id)
+                ->whereIn('status', [2, 3])
+                ->orderBy('updated_at', 'desc')
+                ->get();
+
+
+        return view('dashboard', ['sacramental_reservations' => $sacramental_reservations,
+         'completed_sacramental_reservations' => $completed_sacramental_reservations,
+         'approved_sacramental_events' => $approved_sacramental_events]);
     }
 
     if($user->user)
@@ -119,6 +133,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/sub-church-sacramental-events', [SubChurchSacramentalEventController::class, 'index'])->name('sub-church-sacramental-events.show');
         Route::get('/sub-church-sacramental-event-form', [SubChurchSacramentalEventController::class, 'create'])->name('sub-church-sacramental-event-form.show');
         Route::post('/sub-church-sacramental-event-submit', [SubChurchSacramentalEventController::class, 'store'])->name('sub-church-sacramental-event-form.submit');
+
+        //certificate
+        Route::get('/sub-church/certificates', [SubChurchCertificateController::class, 'index'])->name('sub-church-certificates.show');
+
+        //SUBCHURCH PDF GENERATION
+        Route::get('/sub-church/generate/certificate/{id}', [SubChurchCertificateController::class, 'GenerateCertificate'])->name('sub-church-certificate.generate');
     });
 
     Route::middleware(['user'])->group(function(){

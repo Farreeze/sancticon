@@ -82,48 +82,134 @@
             @if (Auth::user()->sub_church == 1)
 
                 <div class="w-full max-h-screen overflow-auto">
-                    <div class="w-full sticky top-0 bg-white">
+                    <div class="flex items-center w-full sticky top-0 bg-white">
                         <h2 class="font-bold text-gray-700 text-2xl">{{Auth::user()->church_name}} Sacramental Reservations</h2>
+                        <a class="px-4 py-2 rounded-lg bg-secondary hover:bg-secondary_hover text-white ml-3" href="{{ route('sub-church-sacramental-event-form.show') }}">+ Request</a>
                     </div>
+                    @foreach ($sacramental_reservations as $sacramental_reservation)
+                        <form action="{{ route('sub-church-sacramental-reservation.delete', $sacramental_reservation->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="w-full p-3 bg-gray-300 mt-3 rounded-lg">
+                                <div class="flex flex-row justify-between flex-wrap items-center">
+                                    <h2 class="font-bold text-lg text-gray-700">{{$sacramental_reservation->sacrament->desc}}</h2>
+                                    <button class="px-4 py-2 rounded-lg bg-negative_btn hover:bg-negative_btn_hover text-white" type="submit">Cancel</button>
+                                </div>
+                                @if ($sacramental_reservation->custom_name)
+                                    <div class="flex flex-row flex-wrap">
+                                        <p class="mr-1 font-bold">For:</p>
+                                        <p>{{ $sacramental_reservation->custom_name }}</p>
+                                    </div>
+                                @endif
+                                <div class="flex flex-row flex-wrap">
+                                    <p class="mr-1 font-bold">Date:</p>
+                                    <p>{{ $sacramental_reservation->date }}</p>
+                                </div>
+                                @if ($sacramental_reservation->sacrament_id == 1)
+                                    <div class="flex flex-row flex-wrap">
+                                        <p class="mr-1 font-bold">Baptismal Candidate:</p>
+                                        <p>{{ $sacramental_reservation->participant_name }}</p>
+                                    </div>
+                                @endif
+                                @if ($sacramental_reservation->sacrament_id == 7)
+                                    <div class="flex flex-row flex-wrap">
+                                        <p class="mr-1 font-bold">Candidates:</p>
+                                        <p>{{ $sacramental_reservation->first_name }} & {{ $sacramental_reservation->second_name }}</p>
+                                    </div>
+                                @endif
+                                <div class="flex flex-row flex-wrap">
+                                    <p class="mr-1 font-bold">Church:</p>
+                                    <p>{{ $sacramental_reservation->church->church_name }}</p>
+                                </div>
+                            </div>
+                        </form>
+                    @endforeach
                 </div>
-                @foreach ($sacramental_reservations as $sacramental_reservation)
-                    <form action="{{ route('sub-church-sacramental-reservation.delete', $sacramental_reservation->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
+                <hr class="border-t border-gray-300 my-4">
+                <div class="w-full max-h-screen overflow-auto">
+                    <div class="w-full sticky top-0 bg-white">
+                        <h2 class="font-bold text-gray-700 text-2xl">Approved Sacramental Events</h2>
+                    </div>
+                    @foreach ($approved_sacramental_events as $approved_sacramental_event)
                         <div class="w-full p-3 bg-gray-300 mt-3 rounded-lg">
                             <div class="flex flex-row justify-between flex-wrap items-center">
-                                <h2 class="font-bold text-lg text-gray-700">{{$sacramental_reservation->sacrament->desc}}</h2>
-                                <button class="px-4 py-2 rounded-lg bg-negative_btn hover:bg-negative_btn_hover text-white" type="submit">Cancel</button>
+                                <h2 class="font-bold text-lg text-gray-700">{{$approved_sacramental_event->sacrament->desc}}</h2>
+                                <p class="px-4 py-2 rounded-lg bg-positive_btn hover:bg-positive_btn_hover text-white">Approved</p>
                             </div>
-                            @if ($sacramental_reservation->custom_name)
+                            @if ($approved_sacramental_event->custom_name)
                                 <div class="flex flex-row flex-wrap">
                                     <p class="mr-1 font-bold">For:</p>
-                                    <p>{{ $sacramental_reservation->custom_name }}</p>
+                                    <p>{{ $approved_sacramental_event->custom_name }}</p>
                                 </div>
                             @endif
                             <div class="flex flex-row flex-wrap">
                                 <p class="mr-1 font-bold">Date:</p>
-                                <p>{{ $sacramental_reservation->date }}</p>
+                                <p>{{ $approved_sacramental_event->date }}</p>
                             </div>
-                            @if ($sacramental_reservation->sacrament_id == 1)
+                            @if ($approved_sacramental_event->sacrament_id == 1)
                                 <div class="flex flex-row flex-wrap">
                                     <p class="mr-1 font-bold">Baptismal Candidate:</p>
-                                    <p>{{ $sacramental_reservation->participant_name }}</p>
+                                    <p>{{ $approved_sacramental_event->participant_name }}</p>
                                 </div>
                             @endif
-                            @if ($sacramental_reservation->sacrament_id == 7)
+                            @if ($approved_sacramental_event->sacrament_id == 7)
                                 <div class="flex flex-row flex-wrap">
                                     <p class="mr-1 font-bold">Candidates:</p>
-                                    <p>{{ $sacramental_reservation->first_name }} & {{ $sacramental_reservation->second_name }}</p>
+                                    <p>{{ $approved_sacramental_event->first_name }} & {{ $approved_sacramental_event->second_name }}</p>
                                 </div>
                             @endif
                             <div class="flex flex-row flex-wrap">
                                 <p class="mr-1 font-bold">Church:</p>
-                                <p>{{ $sacramental_reservation->church->church_name }}</p>
+                                <p>{{ $approved_sacramental_event->church->church_name }}</p>
                             </div>
                         </div>
-                    </form>
-                @endforeach
+                    @endforeach
+                </div>
+                <hr class="border-t border-gray-300 my-4">
+                <div class="w-full max-h-screen overflow-auto">
+                    <div class="w-full sticky top-0 bg-white">
+                        <h2 class="font-bold text-gray-700 text-2xl">Completed Sacramental Events</h2>
+                    </div>
+                    @foreach ($completed_sacramental_reservations as $completed_sacramental_reservation)
+                        <div class="w-full p-3 bg-gray-300 mt-3 rounded-lg">
+                            <div class="flex flex-row justify-between flex-wrap items-center">
+                                <h2 class="font-bold text-lg text-gray-700">{{$completed_sacramental_reservation->sacrament->desc}}</h2>
+                                @if ($completed_sacramental_reservation->status == 2)
+                                    <p class="px-4 py-2 rounded-lg bg-positive_btn text-white">Finished</p>
+                                @endif
+                                @if ($completed_sacramental_reservation->status == 3)
+                                    <p class="px-4 py-2 rounded-lg bg-negative_btn text-white">Cancelled</p>
+                                @endif
+                            </div>
+                            @if ($completed_sacramental_reservation->custom_name)
+                                <div class="flex flex-row flex-wrap">
+                                    <p class="mr-1 font-bold">For:</p>
+                                    <p>{{ $completed_sacramental_reservation->custom_name }}</p>
+                                </div>
+                            @endif
+                            <div class="flex flex-row flex-wrap">
+                                <p class="mr-1 font-bold">Date:</p>
+                                <p>{{ $completed_sacramental_reservation->date }}</p>
+                            </div>
+                            @if ($completed_sacramental_reservation->sacrament_id == 1)
+                                <div class="flex flex-row flex-wrap">
+                                    <p class="mr-1 font-bold">Baptismal Candidate:</p>
+                                    <p>{{ $completed_sacramental_reservation->participant_name }}</p>
+                                </div>
+                            @endif
+                            @if ($completed_sacramental_reservation->sacrament_id == 7)
+                                <div class="flex flex-row flex-wrap">
+                                    <p class="mr-1 font-bold">Candidates:</p>
+                                    <p>{{ $completed_sacramental_reservation->first_name }} & {{ $completed_sacramental_reservation->second_name }}</p>
+                                </div>
+                            @endif
+                            <div class="flex flex-row flex-wrap">
+                                <p class="mr-1 font-bold">Church:</p>
+                                <p>{{ $completed_sacramental_reservation->church->church_name }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
 
             @endif
 

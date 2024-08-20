@@ -54,6 +54,9 @@
                         <x-nav-link :href="route('sub-church-sacramental-events.show')" :active="request()->routeIs('sub-church-sacramental-events.show')">
                             {{ __('Sacramental Events') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('sub-church-certificates.show')" :active="request()->routeIs('sub-church-certificates.show')">
+                            {{ __('Certificates') }}
+                        </x-nav-link>
                     @endif
 
                     @if (Auth::user()->user == 1)
@@ -173,6 +176,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('sub-church-sacramental-events.show')" :active="request()->routeIs('sub-church-sacramental-events.show')">
                     {{ __('Sacramental Events') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('sub-church-certificates.show')" :active="request()->routeIs('sub-church-certificates.show')">
+                    {{ __('Certificates') }}
                 </x-responsive-nav-link>
             @endif
 

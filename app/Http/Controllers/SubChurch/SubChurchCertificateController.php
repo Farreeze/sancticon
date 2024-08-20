@@ -3,16 +3,48 @@
 namespace App\Http\Controllers\SubChurch;
 
 use App\Http\Controllers\Controller;
+use App\Models\SacramentalReservation;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SubChurchCertificateController extends Controller
 {
+
+    public function GenerateCertificate($id)
+    {
+        $data = SacramentalReservation::findOrFail($id);
+
+        if($data->sacrament->desc == "BAPTISM")
+        {
+            $pdf = Pdf::loadView('PdfFormat.baptism_certificate', ['data' => $data]);
+
+            return $pdf->download('baptism_certificate.pdf');
+        }else if($data->sacrament->desc == "MATRIMONY")
+        {
+            $pdf = Pdf::loadView('PdfFormat.matrimony_certificate', ['data' => $data]);
+
+            return $pdf->download('matrimony_certificate.pdf');
+        }else
+        {
+            $pdf = Pdf::loadView('PdfFormat.subchurch_certificate', ['data' => $data]);
+
+            return $pdf->download('certificate.pdf');
+        }
+
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $events = SacramentalReservation::where('user_id', Auth::user()->id)
+                ->where('status', 2)
+                ->orderBy('updated_at', 'desc')
+                ->get();
+
+        return view('SubChurch.subchurch-certificates', ['events'=>$events]);
     }
 
     /**
