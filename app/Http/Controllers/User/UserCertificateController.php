@@ -20,13 +20,16 @@ class UserCertificateController extends Controller
             $pdf = Pdf::loadView('PdfFormat.baptism_certificate', ['data' => $data]);
 
             return $pdf->download('baptism_certificate.pdf');
-        }
-
-        if($data->sacrament->desc == "MATRIMONY")
+        }else if($data->sacrament->desc == "MATRIMONY")
         {
             $pdf = Pdf::loadView('PdfFormat.matrimony_certificate', ['data' => $data]);
 
             return $pdf->download('matrimony_certificate.pdf');
+        }else
+        {
+            $pdf = Pdf::loadView('PdfFormat.certificate', ['data' => $data]);
+
+            return $pdf->download('certificate.pdf');
         }
 
     }
@@ -38,6 +41,7 @@ class UserCertificateController extends Controller
     {
         $sacramental_events = SacramentalReservation::where('user_id', Auth::user()->id)
                 ->where('status', 2)
+                ->orderBy('updated_at', 'desc')
                 ->get();
 
         return view('User.user-certificates', ['sacramental_events'=>$sacramental_events]);

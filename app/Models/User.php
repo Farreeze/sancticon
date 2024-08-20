@@ -55,4 +55,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function suffix()
+    {
+        return $this->belongsTo(libSuffixName::class, 'suffix_name', 'id');
+    }
+
 }

@@ -98,7 +98,7 @@
                 <hr class="border-t border-gray-300 my-4">
                 <div class="w-full max-h-screen overflow-y-auto">
                     <div class="flex items-center sticky top-0 bg-white">
-                        <h1 class="font-bold text-2xl text-gray-700">Approved Sacramental Reservations</h1>
+                        <h1 class="font-bold text-2xl text-gray-700">Approved Sacramental Events</h1>
                     </div>
                     <div class="w-full mt-3">
                         @foreach ($approved_sr_requests as $approved_sr_request)
@@ -167,7 +167,7 @@
                 <hr class="border-t border-gray-300 my-4">
                 <div class="w-full max-h-screen overflow-y-auto">
                     <div class="flex items-center sticky top-0 bg-white">
-                        <h1 class="font-bold text-2xl text-gray-700">Completed Sacramental Reservations</h1>
+                        <h1 class="font-bold text-2xl text-gray-700">Completed Sacramental Events</h1>
                     </div>
                     <div class="w-full mt-3">
                         @foreach ($completed_sr_requests as $completed_sr_request)
