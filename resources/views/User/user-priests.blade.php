@@ -21,7 +21,7 @@
                 <div class="flex items-center sticky top-0 bg-white">
                     <h1 class="font-bold text-2xl text-gray-700">Priests</h1>
                 </div>
-                <div class="w-full mt-3">
+                <div class="w-full mt-5">
                     <div class="flex flex-col">
                         @foreach ($priests as $priest)
                             <div class="w-full bg-gray-300 rounded-lg p-5">

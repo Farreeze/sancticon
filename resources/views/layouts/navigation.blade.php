@@ -69,9 +69,6 @@
                         <x-nav-link :href="route('user-news-and-announcements.show')" :active="request()->routeIs('user-news-and-announcements.show')">
                             {{ __('News and Announcements') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('sacramental-reservation-form.show')" :active="request()->routeIs('sacramental-reservation-form.show')">
-                            {{ __('Sacramental Reservation') }}
-                        </x-nav-link>
                         <x-nav-link :href="route('user-certificate.show')" :active="request()->routeIs('user-certificate.show')">
                             {{ __('Certificates') }}
                         </x-nav-link>
@@ -191,9 +188,6 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('user-news-and-announcements.show')" :active="request()->routeIs('user-news-and-announcements.show')">
                     {{ __('News and Announcements') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('sacramental-reservation-form.show')" :active="request()->routeIs('sacramental-reservation-form.show')">
-                    {{ __('Sacramental Reservation') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('user-certificate.show')" :active="request()->routeIs('user-certificate.show')">
                     {{ __('Certificates') }}

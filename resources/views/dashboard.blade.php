@@ -222,8 +222,9 @@
 
                 </div> --}}
                 <div class="w-full max-h-screen overflow-auto">
-                    <div class="w-full sticky top-0 bg-white">
+                    <div class="w-full flex items-center sticky top-0 bg-white mb-3">
                         <h2 class="font-bold text-gray-700 text-2xl">Sacramental Reservations</h2>
+                        <a class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white ml-3" href="{{route('sacramental-reservation-form.show')}}">+ Request</a>
                     </div>
                     @foreach ($sacramental_reservations as $sacramental_reservation)
                         <form action="{{ route('cancel-reservation', $sacramental_reservation->id) }}" method="POST" onsubmit="disableButton({{$sacramental_reservation->id}})">
