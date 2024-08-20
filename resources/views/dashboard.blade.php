@@ -74,6 +74,13 @@
                                 @endforeach
                             </tbody>
                         </table>
+
+                        @if ($churches->isEmpty())
+                            <div class="w-full flex justify-center">
+                                <img src="/images/no_data.png" alt="">
+                            </div>
+                        @endif
+
                     </div>
                 </div>
             @endif

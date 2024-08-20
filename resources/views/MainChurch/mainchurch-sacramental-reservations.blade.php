@@ -32,6 +32,13 @@
                         <h1 class="font-bold text-2xl text-gray-700">Pending Sacramental Reservations</h1>
                     </div>
                     <div class="w-full mt-3">
+
+                        @if ($sr_requests->isEmpty())
+                            <div class="w-full flex justify-center">
+                                <img src="/images/no_data.png" alt="">
+                            </div>
+                        @endif
+
                         @foreach ($sr_requests as $sr_request)
                             <form id="form" class="w-full" action="{{route('sr_request.action', $sr_request->id)}}" method="POST">
                                 @csrf
@@ -101,6 +108,13 @@
                         <h1 class="font-bold text-2xl text-gray-700">Approved Sacramental Events</h1>
                     </div>
                     <div class="w-full mt-3">
+
+                        @if ($approved_sr_requests->isEmpty())
+                            <div class="w-full flex justify-center">
+                                <img src="/images/no_data.png" alt="">
+                            </div>
+                        @endif
+
                         @foreach ($approved_sr_requests as $approved_sr_request)
                             <form id="form" action="{{route('sr_request.action', $approved_sr_request->id)}}" method="POST">
                                 @csrf
@@ -170,6 +184,13 @@
                         <h1 class="font-bold text-2xl text-gray-700">Completed Sacramental Events</h1>
                     </div>
                     <div class="w-full mt-3">
+
+                        @if ($completed_sr_requests->isEmpty())
+                            <div class="w-full flex justify-center">
+                                <img src="/images/no_data.png" alt="">
+                            </div>
+                        @endif
+
                         @foreach ($completed_sr_requests as $completed_sr_request)
                             <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mb-3">
                                 <div class="flex flex-row flex-wrap justify-between">

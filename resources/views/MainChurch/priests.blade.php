@@ -35,6 +35,12 @@
                     <div class="w-full mt-5">
                         <div class="flex flex-col">
 
+                            @if ($priests->isEmpty())
+                                <div class="w-full flex justify-center">
+                                    <img src="/images/no_data.png" alt="">
+                                </div>
+                            @endif
+
                             {{-- do foreach here --}}
                             @foreach ($priests as $priest)
                                 <div class="mt-3 w-full bg-gray-300 rounded-lg p-5">

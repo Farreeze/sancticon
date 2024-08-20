@@ -31,6 +31,13 @@
                     <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{ route('news-and-announcements-form.show') }}">+ Add</a>
                 </div>
                 <div class="w-full mt-5 flex flex-col">
+
+                    @if ($newsAndAnnouncements->isEmpty())
+                        <div class="w-full flex justify-center">
+                            <img src="/images/no_data.png" alt="">
+                        </div>
+                    @endif
+
                     @foreach ($newsAndAnnouncements as $newsAndAnnouncement)
                         <form action="{{ route('news-and-announcements-form.delete', $newsAndAnnouncement->id) }}" method="POST">
                             @csrf
