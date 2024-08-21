@@ -26,6 +26,14 @@
         </div>
 
         <div>
+            @if (Auth::user()->main_church == 1 || Auth::user()->sub_church == 1)
+                <x-input-label for="phone number" :value="__('Phone Number')" />
+                <x-text-input id="mobile_number" name="mobile_number" type="text" class="mt-1 block w-full" :value="old('name', $user->mobile_number)" required autofocus autocomplete="name" />
+                <x-input-error class="mt-2" :messages="$errors->get('mobile_number')" />
+            @endif
+        </div>
+
+        <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
