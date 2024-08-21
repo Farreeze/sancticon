@@ -23,14 +23,29 @@
                 <x-text-input id="name" name="church_name" type="text" class="mt-1 block w-full" :value="old('name', $user->church_name)" required autofocus autocomplete="name" />
                 <x-input-error class="mt-2" :messages="$errors->get('church_name')" />
             @endif
+            @if (Auth::user()->user == 1)
+                <x-input-label for="first name" :value="__('First Name')" />
+                <x-text-input id="name" name="first_name" type="text" class="mt-1 block w-full" :value="old('name', $user->first_name)" required autofocus autocomplete="name" />
+                <x-input-error class="mt-2" :messages="$errors->get('first_name')" />
+
+                <div class="mt-5">
+                    <x-input-label for="middle name" :value="__('Middle Name')" />
+                    <x-text-input id="name" name="middle_name" type="text" class="mt-1 block w-full" :value="old('name', $user->middle_name)" required autofocus autocomplete="name" />
+                    <x-input-error class="mt-2" :messages="$errors->get('middle_name')" />
+                </div>
+
+                <div class="mt-5">
+                    <x-input-label for="last name" :value="__('Last Name')" />
+                    <x-text-input id="name" name="last_name" type="text" class="mt-1 block w-full" :value="old('name', $user->last_name)" required autofocus autocomplete="name" />
+                    <x-input-error class="mt-2" :messages="$errors->get('last_name')" />
+                </div>
+            @endif
         </div>
 
         <div>
-            @if (Auth::user()->main_church == 1 || Auth::user()->sub_church == 1)
-                <x-input-label for="phone number" :value="__('Phone Number')" />
-                <x-text-input id="mobile_number" name="mobile_number" type="text" class="mt-1 block w-full" :value="old('name', $user->mobile_number)" required autofocus autocomplete="name" />
-                <x-input-error class="mt-2" :messages="$errors->get('mobile_number')" />
-            @endif
+            <x-input-label for="phone number" :value="__('Phone Number')" />
+            <x-text-input id="mobile_number" name="mobile_number" type="text" class="mt-1 block w-full" :value="old('name', $user->mobile_number)" required autofocus autocomplete="name" />
+            <x-input-error class="mt-2" :messages="$errors->get('mobile_number')" />
         </div>
 
         <div>
