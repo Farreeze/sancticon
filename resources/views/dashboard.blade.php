@@ -292,6 +292,13 @@
                                                 </div>
                                             </div>
                                         @endif
+                                        @if ($sacramental_reservation->status === 3)
+                                            <div class="mb-2 flex flex-row">
+                                                <div>
+                                                    <p class="px-9 py-2 bg-red-500 text-white rounded-lg shadow-md">Cancelled</p>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

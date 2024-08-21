@@ -17,11 +17,11 @@ class SubChurchSacramentalReservationController extends Controller
     {
         $subchurch_id = Auth::user()->id;
 
-        $sacramental_reservation_requests = SacramentalReservation::where('user_id', $subchurch_id)
+        $sacramental_reservation_requests = SacramentalReservation::where('church_id', $subchurch_id)
                 ->whereNull('subchurch_approve')
                 ->get();
 
-        $finished_sacramental_reservation_requests = SacramentalReservation::where('user_id', $subchurch_id)
+        $finished_sacramental_reservation_requests = SacramentalReservation::where('church_id', $subchurch_id)
                 ->whereNotNull('subchurch_approve')
                 ->orderBy('updated_at', 'desc')
                 ->get();

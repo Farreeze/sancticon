@@ -27,7 +27,7 @@ class SubChurchCertificateController extends Controller
             return $pdf->download('matrimony_certificate.pdf');
         }else
         {
-            $pdf = Pdf::loadView('PdfFormat.subchurch_certificate', ['data' => $data]);
+            $pdf = Pdf::loadView('PdfFormat.custom_certificate', ['data' => $data]);
 
             return $pdf->download('certificate.pdf');
         }
