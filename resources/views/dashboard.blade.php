@@ -93,6 +93,13 @@
                         <h2 class="font-bold text-gray-700 text-2xl">{{Auth::user()->church_name}} Sacramental Reservations</h2>
                         <a class="px-4 py-2 rounded-lg bg-secondary hover:bg-secondary_hover text-white ml-3" href="{{ route('sub-church-sacramental-event-form.show') }}">+ Request</a>
                     </div>
+
+                    @if ($sacramental_reservations->isEmpty())
+                        <div class="w-full flex justify-center">
+                            <img src="/images/no_data.png" alt="">
+                        </div>
+                    @endif
+
                     @foreach ($sacramental_reservations as $sacramental_reservation)
                         <form action="{{ route('sub-church-sacramental-reservation.delete', $sacramental_reservation->id) }}" method="POST">
                             @csrf
@@ -137,6 +144,13 @@
                     <div class="w-full sticky top-0 bg-white">
                         <h2 class="font-bold text-gray-700 text-2xl">Approved Sacramental Events</h2>
                     </div>
+
+                    @if ($approved_sacramental_events->isEmpty())
+                        <div class="w-full flex justify-center">
+                            <img src="/images/no_data.png" alt="">
+                        </div>
+                    @endif
+
                     @foreach ($approved_sacramental_events as $approved_sacramental_event)
                         <div class="w-full p-3 bg-gray-300 mt-3 rounded-lg">
                             <div class="flex flex-row justify-between flex-wrap items-center">
@@ -177,6 +191,13 @@
                     <div class="w-full sticky top-0 bg-white">
                         <h2 class="font-bold text-gray-700 text-2xl">Completed Sacramental Events</h2>
                     </div>
+
+                    @if ($completed_sacramental_reservations->isEmpty())
+                        <div class="w-full flex justify-center">
+                            <img src="/images/no_data.png" alt="">
+                        </div>
+                    @endif
+
                     @foreach ($completed_sacramental_reservations as $completed_sacramental_reservation)
                         <div class="w-full p-3 bg-gray-300 mt-3 rounded-lg">
                             <div class="flex flex-row justify-between flex-wrap items-center">
@@ -233,6 +254,13 @@
                         <h2 class="font-bold text-gray-700 text-2xl">Sacramental Reservations</h2>
                         <a class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white ml-3" href="{{route('sacramental-reservation-form.show')}}">+ Request</a>
                     </div>
+
+                    @if ($sacramental_reservations->isEmpty())
+                        <div class="w-full flex justify-center">
+                            <img src="/images/no_data.png" alt="">
+                        </div>
+                    @endif
+
                     @foreach ($sacramental_reservations as $sacramental_reservation)
                         <form action="{{ route('cancel-reservation', $sacramental_reservation->id) }}" method="POST" onsubmit="disableButton({{$sacramental_reservation->id}})">
                             @csrf
@@ -240,7 +268,14 @@
                             <div class="bg-gray-300 mt-3 p-3 rounded-lg">
                                 <div class="flex flex-row justify-between flex-wrap-reverse">
                                     <div>
-                                        <h2 class="font-bold text-lg text-gray-700">{{$sacramental_reservation->sacrament->desc}}</h2>
+                                        <div class="flex items-center mb-3">
+                                            <h2 class="font-bold text-lg text-gray-700">{{$sacramental_reservation->sacrament->desc}}</h2>
+                                            @if ($sacramental_reservation->status === null && $sacramental_reservation->subchurch_approve !== 0)
+                                                <div class="ml-3">
+                                                    <p class="px-4 py-1 bg-yellow-500 text-white rounded-lg shadow-md">Pending</p>
+                                                </div>
+                                            @endif
+                                        </div>
                                         <div>
                                             <span>Date:</span>
                                             <span class="ml-1">{{$sacramental_reservation->date}}</span>
@@ -269,9 +304,6 @@
                                     <div class="flex items-start">
                                         @if ($sacramental_reservation->status === null && $sacramental_reservation->subchurch_approve !== 0)
                                             <div class="mb-2 flex flex-row">
-                                                <div>
-                                                    <p class="px-9 py-2 bg-yellow-500 text-white rounded-lg shadow-md">Pending</p>
-                                                </div>
                                                 <button id="delete-btn-{{$sacramental_reservation->id}}" class="px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg shadow-md ml-2">Cancel</button>
                                             </div>
                                         @endif

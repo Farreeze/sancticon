@@ -22,6 +22,13 @@
                     <h1 class="font-bold text-2xl text-gray-700">Certificates</h1>
                 </div>
                 <div class="w-full mt-5 flex flex-col">
+
+                    @if ($events->isEmpty())
+                        <div class="w-full flex justify-center">
+                            <img src="/images/no_data.png" alt="">
+                        </div>
+                    @endif
+
                     @foreach ($events as $event)
                         <div class="w-full bg-gray-300 rounded-lg flex flex-col p-3 mb-3">
                             <div class="flex flex-row justify-between flex-wrap items-center">

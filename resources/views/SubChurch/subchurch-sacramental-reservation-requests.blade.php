@@ -38,6 +38,13 @@
                     </div>
                     <div class="w-full mt-5">
                         <div class="flex flex-col">
+
+                            @if ($reservation_requests->isEmpty())
+                                <div class="w-full flex justify-center">
+                                    <img src="/images/no_data.png" alt="">
+                                </div>
+                            @endif
+
                             @foreach ($reservation_requests as $reservation_request)
                                 <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mb-3">
                                     <form id="form" action="{{route('subchurch-sr-request.action', $reservation_request->id)}}" method="POST">
@@ -111,6 +118,13 @@
                     </div>
                     <div class="w-full mt-5">
                         <div class="flex flex-col">
+
+                            @if ($finished_reservation_requests->isEmpty())
+                                <div class="w-full flex justify-center">
+                                    <img src="/images/no_data.png" alt="">
+                                </div>
+                            @endif
+
                             @foreach ($finished_reservation_requests as $finished_reservation_request)
                                 <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mb-3">
                                     <div>

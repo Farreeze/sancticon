@@ -29,6 +29,13 @@
                     <h1 class="font-bold text-2xl text-gray-700">Sacramental Calendar</h1>
                 </div>
                 <div class="w-full mt-5 flex flex-col">
+
+                    @if ($sacramental_events->isEmpty())
+                        <div class="w-full flex justify-center">
+                            <img src="/images/no_data.png" alt="">
+                        </div>
+                    @endif
+
                     @foreach ($sacramental_events as $sacramental_event)
                         <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mb-3">
                             <div>
