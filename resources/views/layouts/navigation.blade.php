@@ -17,24 +17,23 @@
                     </x-nav-link>
 
                     @if (Auth::user()->main_church == 1)
-
                         <x-nav-link :href="route('priests.show')" :active="request()->routeIs('priests.show')">
                             {{ __('Priests') }}
                         </x-nav-link>
                         <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
                             {{ __('Events') }}
                         </x-nav-link>
-
                         <x-nav-link :href="route('news-and-announcements.show')" :active="request()->routeIs('news-and-announcements.show')">
                             {{ __('News and Announcements') }}
                         </x-nav-link>
-
                         <x-nav-link :href="route('mainchurch-sr-requests.show')" :active="request()->routeIs('mainchurch-sr-requests.show')">
                             {{ __('Sacramental Reservations') }}
                         </x-nav-link>
-
                         <x-nav-link :href="route('sacramental-events.show')" :active="request()->routeIs('sacramental-events.show')">
                             {{ __('Sacramental Events') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('mainchurch-certificates.show')" :active="request()->routeIs('mainchurch-certificates.show')">
+                            {{ __('Certificates') }}
                         </x-nav-link>
                     @endif
 
@@ -137,24 +136,23 @@
             </x-responsive-nav-link>
 
             @if (Auth::user()->main_church == 1)
-                {{-- temporary --}}
                 <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">
                     {{ __('Priests') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
                     {{ __('Events') }}
                 </x-responsive-nav-link>
-                {{-- temporary --}}
                 <x-responsive-nav-link :href="route('news-and-announcements.show')" :active="request()->routeIs('news-and-announcements.show')">
                     {{ __('News and Announcements') }}
                 </x-responsive-nav-link>
-                {{-- temporary --}}
                 <x-responsive-nav-link :href="route('mainchurch-sr-requests.show')" :active="request()->routeIs('mainchurch-sr-requests.show')">
                     {{ __('Sacramental Reservations') }}
                 </x-responsive-nav-link>
-                {{-- temporary --}}
                 <x-responsive-nav-link :href="route('sacramental-events.show')" :active="request()->routeIs('sacramental-events.show')">
                     {{ __('Sacramental Events') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('mainchurch-certificates.show')" :active="request()->routeIs('mainchurch-certificates.show')">
+                    {{ __('Certificates') }}
                 </x-responsive-nav-link>
             @endif
 

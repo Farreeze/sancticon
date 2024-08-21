@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
+use App\Http\Controllers\MainChurch\MainChurchCertificateController;
 use App\Http\Controllers\MainChurch\MainChurchSacramentalReservationController;
 use App\Http\Controllers\MainChurch\NewsAndAnnouncementController;
 use App\Http\Controllers\MainChurch\PriestController;
@@ -113,6 +114,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/sacramental-events', [SacramentalEventController::class, 'index'])->name('sacramental-events.show');
         Route::get('/sacramental-events-form', [SacramentalEventController::class, 'create'])->name('sacramental-events-form.show');
         Route::post('/sacramental-events-add', [SacramentalEventController::class, 'store'])->name('sacramental-events-form.submit');
+
+        //Main church certificates
+        Route::get('/main-church/certificates', [MainChurchCertificateController::class, 'index'])->name('mainchurch-certificates.show');
+        Route::get('/main-church/download/certificate/{id}', [MainChurchCertificateController::class, 'GenerateCertificate'])->name('main-church-certificate.generate');
     });
 
     Route::middleware(['sub-church'])->group(function(){
