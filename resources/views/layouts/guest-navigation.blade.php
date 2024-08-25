@@ -15,6 +15,21 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('temp')">
+                        {{ __('Priests') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('temp')">
+                        {{ __('Events') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('temp')">
+                        {{ __('News and Announcements') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('temp')">
+                        {{ __('About Us') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('temp')">
+                        {{ __('Contact Us') }}
+                    </x-nav-link>
                 </div>
             </div>
 
