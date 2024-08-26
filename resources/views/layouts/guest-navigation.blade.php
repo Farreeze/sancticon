@@ -65,6 +65,26 @@
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 {{ __('Home') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('guest-priests.show')" :active="request()->routeIs('guest-priests.show')">
+                {{ __('Priests') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('guest-events.show')" :active="request()->routeIs('guest-events.show')">
+                {{ __('Events') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('guest-news-and-announcements.show')" :active="request()->routeIs('guest-news-and-announcements.show')">
+                {{ __('News and Announcements') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('guest-gallery.show')" :active="request()->routeIs('guest-gallery.show')">
+                {{ __('Gallery') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('guest-about-us.show')" :active="request()->routeIs('guest-about-us.show')">
+                {{ __('About Us') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('guest-contact-us.show')" :active="request()->routeIs('guest-contact-us.show')">
+                {{ __('Contact Us') }}
+            </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
                 {{ __('Login') }}
             </x-responsive-nav-link>

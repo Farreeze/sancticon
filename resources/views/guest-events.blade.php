@@ -16,6 +16,46 @@
     </head>
     <body class="font-sans text-gray-900 antialiased bg-gray-100">
         @include('layouts.guest-navigation')
-events
+
+        <div class="w-full p-7">
+            <div class="w-full p-5 bg-white rounded-lg shadow-md">
+                <div>
+                    <h2 class="font-bold text-2xl text-gray-700">Events</h2>
+                </div>
+                @foreach ($events as $event)
+                    <div class="mt-3 w-full bg-gray-300 rounded-lg flex flex-col p-5">
+                        <div class="w-full">
+                            <div class="mb-1 flex justify-between flex-wrap">
+                                <h1 class="text-gray-700 font-bold text-2xl">{{ $event->title }}</h1>
+                            </div>
+                            <div class="flex flex-col">
+                                @if ($event->sacrament_id)
+                                    <div class="flex flex-wrap">
+                                        <span class="text-gray-700 font-bold">Sacrament:</span>
+                                        <span class="text-gray-700 ml-1">{{$event->sacrament->desc}}</span>
+                                    </div>
+                                @endif
+                                <div class="flex flex-wrap">
+                                    <span class="text-gray-700 font-bold">Date:</span>
+                                    <span class="text-gray-700 ml-1">{{$event->date}}</span>
+                                </div>
+                                <div class="flex flex-wrap">
+                                    <span class="text-gray-700 font-bold">Time:</span>
+                                    <span class="text-gray-700 ml-1">{{$event->start_time}} - {{$event->end_time}}</span>
+                                </div>
+                                <div class="flex flex-wrap">
+                                    <span class="text-gray-700 font-bold">Location:</span>
+                                    <span class="text-gray-700 ml-1">{{$event->location}}</span>
+                                </div>
+                                <div class="flex flex-wrap">
+                                    <span class="text-gray-700 font-bold">Description:</span>
+                                    <span class="text-gray-700 ml-1">{{$event->desc}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </body>
 </html>

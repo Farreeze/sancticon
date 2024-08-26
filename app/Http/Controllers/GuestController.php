@@ -23,8 +23,8 @@ class GuestController extends Controller
 
     public function ShowNewsAndAnnouncements()
     {
-        $newsNannouncements = NewsAndAnnouncement::all();
-        return view('guest-news-and-announcements', ['newsNannouncements'=>$newsNannouncements]);
+        $newsAndAnnouncements = NewsAndAnnouncement::all();
+        return view('guest-news-and-announcements', ['newsAndAnnouncements'=>$newsAndAnnouncements]);
     }
 
     public function ShowGallery()
