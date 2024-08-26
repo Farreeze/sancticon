@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <img class="h-14" src="/images/icon.png" alt="">
                     </a>
                 </div>
 
@@ -15,19 +15,23 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('temp')">
+                    <x-nav-link :href="route('guest-priests.show')" :active="request()->routeIs('guest-priests.show')">
                         {{ __('Priests') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('temp')">
+                    <x-nav-link :href="route('guest-events.show')" :active="request()->routeIs('guest-events.show')">
                         {{ __('Events') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('temp')">
+                    <x-nav-link :href="route('guest-news-and-announcements.show')" :active="request()->routeIs('guest-news-and-announcements.show')">
                         {{ __('News and Announcements') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('temp')">
+                    {{-- temporary --}}
+                    <x-nav-link :href="route('guest-gallery.show')" :active="request()->routeIs('guest-gallery.show')">
+                        {{ __('Gallery') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('guest-about-us.show')" :active="request()->routeIs('guest-about-us.show')">
                         {{ __('About Us') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('temp')">
+                    <x-nav-link :href="route('guest-contact-us.show')" :active="request()->routeIs('guest-contact-us.show')">
                         {{ __('Contact Us') }}
                     </x-nav-link>
                 </div>

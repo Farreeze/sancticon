@@ -17,9 +17,9 @@
     <body class="font-sans text-gray-900 antialiased bg-gray-100">
         @include('layouts.guest-navigation')
 
-        <div class="w-full h-screen flex flex-col justify-center items-center flex-wrap">
+        <div class="w-full flex flex-col justify-center items-center p-5 md:pt-20 lg:pt-20">
 
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap mt-20">
                 <div class="text-7xl text-gray-700 text-center md:text-end lg:text-end">
                     <p>WELCOME</p>
                     <p>To</p>
@@ -31,10 +31,11 @@
                 </div>
             </div>
 
-            <div class="mt-10 text-gray-700">
+            <div class="mt-10 text-gray-700 text-center">
                 <p class="p-5 text-xl">Welcome to SanctIcon, your portal for exploring the beauty of faith and sacraments.
-                     Our mission is to provide a sacred space for spiritual growth and community connection
+                     Our mission is to provide a sacred space for spiritual growth and community connection.
                 </p>
+                <p class="p-5 text-lg">Explore our sacraments, join us for events, request certificates, and stay updated with the latest news and announcements.</p>
             </div>
 
         </div>

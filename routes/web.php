@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\MainChurch\MainChurchCertificateController;
@@ -169,6 +170,14 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+//guests routes
+Route::get('/guest/priests', [GuestController::class, 'ShowPriests'])->name('guest-priests.show');
+Route::get('/guest/events', [GuestController::class, 'ShowEvents'])->name('guest-events.show');
+Route::get('/guest/news-and-announcements', [GuestController::class, 'ShowNewsAndAnnouncements'])->name('guest-news-and-announcements.show');
+Route::get('/guest/gallery', [GuestController::class, 'ShowGallery'])->name('guest-gallery.show');
+Route::get('/guest/about-us', [GuestController::class, 'ShowAboutUs'])->name('guest-about-us.show');
+Route::get('/guest/contact-us', [GuestController::class, 'ShowContactUs'])->name('guest-contact-us.show');
 
 //TEMPORARY ROUTES
 
