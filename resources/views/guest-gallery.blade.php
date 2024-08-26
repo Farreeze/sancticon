@@ -16,6 +16,26 @@
     </head>
     <body class="font-sans text-gray-900 antialiased bg-gray-100">
         @include('layouts.guest-navigation')
-gallery
+
+        <div class="w-full p-7">
+            <div class="w-full p-5 bg-white rounded-lg shadow-md flex justify-center flex-wrap">
+
+                <div class="w-full text-start">
+                    <h2 class="font-bold text-2xl text-gray-700">Gallery</h2>
+                </div>
+                {{-- item template --}}
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-gray-300 flex flex-col items-center">
+                    <div class="w-full p-3">
+                        <img src="/images/default-dp.png" alt="Profile Picture" class="w-full h-auto" />
+                    </div>
+                    <div class="w-full break-words">
+                        <p>
+                            testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+                        </p>
+                    </div>
+                </div>
+                {{-- template ends here --}}
+            </div>
+        </div>
     </body>
 </html>
