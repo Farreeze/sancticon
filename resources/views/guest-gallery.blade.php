@@ -20,18 +20,70 @@
         <div class="w-full p-7">
             <div class="w-full p-5 bg-white rounded-lg shadow-md flex justify-center flex-wrap">
 
-                <div class="w-full text-start">
+                <div class="w-full text-center">
                     <h2 class="font-bold text-2xl text-gray-700">Gallery</h2>
                 </div>
                 {{-- item template --}}
                 <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-gray-300 flex flex-col items-center">
-                    <div class="w-full p-3">
-                        <img src="/images/default-dp.png" alt="Profile Picture" class="w-full h-auto" />
+                    <div class="w-full p-3 flex justify-center">
+                        <img class="h-44 rounded-lg shadow-sm" src="/images/anointing.jpg" alt="Profile Picture" class="w-full h-auto" />
                     </div>
                     <div class="w-full break-words">
-                        <p>
-                            testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
-                        </p>
+                        <h2 class="w-full text-center font-bold text-gray-700">ANOINTING OF THE SICK</h2>
+                    </div>
+                </div>
+
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-gray-300 flex flex-col items-center">
+                    <div class="w-full p-3 flex justify-center">
+                        <img class="h-44 rounded-lg shadow-sm" src="/images/baptism.jpg" alt="Profile Picture" class="w-full h-auto" />
+                    </div>
+                    <div class="w-full break-words">
+                        <h2 class="w-full text-center font-bold text-gray-700">BAPTISIM</h2>
+                    </div>
+                </div>
+
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-gray-300 flex flex-col items-center">
+                    <div class="w-full p-3 flex justify-center">
+                        <img class="h-44 rounded-lg shadow-sm" src="/images/eucharist.jpg" alt="Profile Picture" class="w-full h-auto" />
+                    </div>
+                    <div class="w-full break-words">
+                        <h2 class="w-full text-center font-bold text-gray-700">EUCHARIST</h2>
+                    </div>
+                </div>
+
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-gray-300 flex flex-col items-center">
+                    <div class="w-full p-3 flex justify-center">
+                        <img class="h-44 rounded-lg shadow-sm" src="/images/confirmation.jpg" alt="Profile Picture" class="w-full h-auto" />
+                    </div>
+                    <div class="w-full break-words">
+                        <h2 class="w-full text-center font-bold text-gray-700">CONFIRMATION</h2>
+                    </div>
+                </div>
+
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-gray-300 flex flex-col items-center">
+                    <div class="w-full p-3 flex justify-center">
+                        <img class="h-44 rounded-lg shadow-sm" src="/images/holyorders.jpg" alt="Profile Picture" class="w-full h-auto" />
+                    </div>
+                    <div class="w-full break-words">
+                        <h2 class="w-full text-center font-bold text-gray-700">HOLY ORDERS</h2>
+                    </div>
+                </div>
+
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-gray-300 flex flex-col items-center">
+                    <div class="w-full p-3 flex justify-center">
+                        <img class="h-44 rounded-lg shadow-sm" src="/images/confession.jpg" alt="Profile Picture" class="w-full h-auto" />
+                    </div>
+                    <div class="w-full break-words">
+                        <h2 class="w-full text-center font-bold text-gray-700">CONFESSION</h2>
+                    </div>
+                </div>
+
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-gray-300 flex flex-col items-center">
+                    <div class="w-full p-3 flex justify-center">
+                        <img class="h-44 rounded-lg shadow-sm" src="/images/matrimony.jpg" alt="Profile Picture" class="w-full h-auto" />
+                    </div>
+                    <div class="w-full break-words">
+                        <h2 class="w-full text-center font-bold text-gray-700">MATRIMONY</h2>
                     </div>
                 </div>
                 {{-- template ends here --}}
