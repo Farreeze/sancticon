@@ -88,6 +88,16 @@
                 </div>
                 {{-- template ends here --}}
             </div>
+            <div class="w-full p-5 bg-white rounded-lg shadow-md flex justify-center flex-wrap mt-3">
+                @foreach ($photos as $photo)
+                    <div class="w-full bg-gray-300 p-5 rounded-lg shadow-md mb-3 flex flex-col sm:flex-row items-start gap-5">
+                        <img class="h-64 rounded-lg" src="/{{$photo->photo_id}}" alt="">
+                        <div class="flex-1 break-words">
+                            <p>{{$photo->caption}}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </body>
 </html>

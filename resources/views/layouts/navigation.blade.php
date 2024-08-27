@@ -23,6 +23,9 @@
                         <x-nav-link :href="route('church-events.show')" :active="request()->routeIs('church-events.show')">
                             {{ __('Events') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('mainchurch-gallery.show')" :active="request()->routeIs('mainchurch-gallery.show')">
+                            {{ __('Gallery') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('news-and-announcements.show')" :active="request()->routeIs('news-and-announcements.show')">
                             {{ __('News and Announcements') }}
                         </x-nav-link>

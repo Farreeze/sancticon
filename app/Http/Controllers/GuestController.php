@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChurchEvent;
+use App\Models\Gallery;
 use App\Models\NewsAndAnnouncement;
 use App\Models\Priest;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class GuestController extends Controller
 
     public function ShowGallery()
     {
-        return view('guest-gallery');
+        $photos = Gallery::orderBy('created_at', 'desc')->get();
+        return view('guest-gallery', ['photos'=>$photos]);
     }
 
     public function ShowAboutUs()
