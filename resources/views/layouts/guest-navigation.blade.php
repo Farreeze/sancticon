@@ -24,9 +24,11 @@
                     <x-nav-link :href="route('guest-news-and-announcements.show')" :active="request()->routeIs('guest-news-and-announcements.show')">
                         {{ __('News and Announcements') }}
                     </x-nav-link>
-                    {{-- temporary --}}
                     <x-nav-link :href="route('guest-gallery.show')" :active="request()->routeIs('guest-gallery.show')">
                         {{ __('Gallery') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('guest-sacraments.show')" :active="request()->routeIs('guest-sacraments.show')">
+                        {{ __('Sacraments') }}
                     </x-nav-link>
                     <x-nav-link :href="route('guest-about-us.show')" :active="request()->routeIs('guest-about-us.show')">
                         {{ __('About Us') }}
@@ -77,6 +79,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('guest-gallery.show')" :active="request()->routeIs('guest-gallery.show')">
                 {{ __('Gallery') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('guest-sacraments.show')" :active="request()->routeIs('guest-sacraments.show')">
+                {{ __('Sacraments') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('guest-about-us.show')" :active="request()->routeIs('guest-about-us.show')">
                 {{ __('About Us') }}

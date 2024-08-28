@@ -184,6 +184,7 @@ Route::get('/guest/news-and-announcements', [GuestController::class, 'ShowNewsAn
 Route::get('/guest/gallery', [GuestController::class, 'ShowGallery'])->name('guest-gallery.show');
 Route::get('/guest/about-us', [GuestController::class, 'ShowAboutUs'])->name('guest-about-us.show');
 Route::get('/guest/contact-us', [GuestController::class, 'ShowContactUs'])->name('guest-contact-us.show');
+Route::get('/guest/sacraments', [GuestController::class, 'ShowSacraments'])->name('guest-sacraments.show');
 
 //TEMPORARY ROUTES
 
