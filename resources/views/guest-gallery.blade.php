@@ -90,11 +90,9 @@
             </div>
             <div class="w-full p-5 bg-white rounded-lg shadow-md flex justify-center flex-wrap mt-3">
                 @foreach ($photos as $photo)
-                    <div class="w-full bg-gray-300 p-5 rounded-lg shadow-md mb-3 flex flex-col sm:flex-row items-start gap-5">
-                        <img class="h-64 rounded-lg" src="/{{$photo->photo_id}}" alt="">
-                        <div class="flex-1 break-words">
-                            <p>{{$photo->caption}}</p>
-                        </div>
+                    <div class="w-full max-w-xs m-5 bg-gray-300 p-5 rounded-lg shadow-md flex flex-col items-center">
+                        <img class="h-48 rounded-lg mb-4" src="/{{$photo->photo_id}}" alt="">
+                        <p class="text-start text-gray-700">{{$photo->caption}}</p>
                     </div>
                 @endforeach
             </div>

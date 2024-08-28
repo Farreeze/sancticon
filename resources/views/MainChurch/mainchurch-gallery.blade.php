@@ -34,8 +34,14 @@
                     <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('mainchurch-gallery-form.show')}}">+ Add</a>
                 </div>
 
+                @if ($photos->isEmpty())
+                        <div class="w-full flex justify-center">
+                            <img src="/images/no_data.png" alt="">
+                        </div>
+                    @endif
+
                 @foreach ($photos as $photo)
-                    <form class="w-full" action="{{route('mainchurch-gallery.destroy', $photo->id)}}" method="POST">
+                    <form class="w-full" action="{{route('mainchurch-gallery.destroy', $photo->id)}}" method="POST" onsubmit="disableButton(this)">
                         @csrf
                         @method('DELETE')
                         <div class="w-full bg-gray-300 p-5 rounded-lg shadow-md mb-3 flex flex-col sm:flex-row items-start gap-5">
@@ -55,5 +61,13 @@
         </div>
 
     </div>
+
+    <script>
+        function disableButton(form) {
+            const button = form.querySelector('button[type="submit"]');
+            button.disabled = true;
+            button.innerHTML = 'Deleting...';
+        }
+    </script>
 
 </x-app-layout>
