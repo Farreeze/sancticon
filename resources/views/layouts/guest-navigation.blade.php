@@ -15,9 +15,6 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('guest-priests.show')" :active="request()->routeIs('guest-priests.show')">
-                        {{ __('Priests') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('guest-events.show')" :active="request()->routeIs('guest-events.show')">
                         {{ __('Events') }}
                     </x-nav-link>
@@ -30,7 +27,7 @@
                     <x-nav-link :href="route('guest-sacraments.show')" :active="request()->routeIs('guest-sacraments.show')">
                         {{ __('Sacraments') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('guest-about-us.show')" :active="request()->routeIs('guest-about-us.show')">
+                    <x-nav-link :href="route('guest-priests.show')" :active="request()->routeIs('guest-priests.show')">
                         {{ __('About Us') }}
                     </x-nav-link>
                     <x-nav-link :href="route('guest-contact-us.show')" :active="request()->routeIs('guest-contact-us.show')">
@@ -67,10 +64,6 @@
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 {{ __('Home') }}
             </x-responsive-nav-link>
-
-            <x-responsive-nav-link :href="route('guest-priests.show')" :active="request()->routeIs('guest-priests.show')">
-                {{ __('Priests') }}
-            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('guest-events.show')" :active="request()->routeIs('guest-events.show')">
                 {{ __('Events') }}
             </x-responsive-nav-link>
@@ -83,13 +76,12 @@
             <x-responsive-nav-link :href="route('guest-sacraments.show')" :active="request()->routeIs('guest-sacraments.show')">
                 {{ __('Sacraments') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('guest-about-us.show')" :active="request()->routeIs('guest-about-us.show')">
+            <x-responsive-nav-link :href="route('guest-priests.show')" :active="request()->routeIs('guest-priests.show')">
                 {{ __('About Us') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('guest-contact-us.show')" :active="request()->routeIs('guest-contact-us.show')">
                 {{ __('Contact Us') }}
             </x-responsive-nav-link>
-
             <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
                 {{ __('Login') }}
             </x-responsive-nav-link>
