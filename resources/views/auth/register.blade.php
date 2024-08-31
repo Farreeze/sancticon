@@ -46,9 +46,21 @@
         </div>
 
         {{-- Address --}}
-        <div class="mt-4">
+        <div class="flex flex-col mt-4 text-gray-700">
             <x-input-label for="Address" :value="__('Address')" />
-            <textarea class="w-full rounded-md border-gray-300 shadow-sm" name="address" id="" cols="30" rows="5"></textarea>
+            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="region" required></select>
+            <input type="hidden" name="region_text" id="region-text">
+
+            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="province" required></select>
+            <input type="hidden" name="province_text" id="province-text">
+
+            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="city" required></select>
+            <input type="hidden" name="city_text" id="city-text">
+
+            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="barangay" required></select>
+            <input type="hidden" name="barangay_text" id="barangay-text">
+
+            <input name="address" type="hidden" id="full-address">
         </div>
 
         {{-- Mobile Number --}}
@@ -98,4 +110,40 @@
             </x-primary-button>
         </div>
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/ph-address-selector.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const regionSelect = document.getElementById('region');
+            const provinceSelect = document.getElementById('province');
+            const citySelect = document.getElementById('city');
+            const barangaySelect = document.getElementById('barangay');
+
+            const fullAddressInput = document.getElementById('full-address');
+
+            function updateFullAddress() {
+                const fullAddress = [
+                    regionSelect.options[regionSelect.selectedIndex]?.text || '',
+                    provinceSelect.options[provinceSelect.selectedIndex]?.text || '',
+                    citySelect.options[citySelect.selectedIndex]?.text || '',
+                    barangaySelect.options[barangaySelect.selectedIndex]?.text || ''
+                ].filter(Boolean).join(', ');
+
+                // Update the hidden input with the full address
+                fullAddressInput.value = fullAddress;
+                console.log(fullAddress);
+            }
+
+            regionSelect.addEventListener('change', updateFullAddress);
+            provinceSelect.addEventListener('change', updateFullAddress);
+            citySelect.addEventListener('change', updateFullAddress);
+            barangaySelect.addEventListener('change', updateFullAddress);
+
+            // Optionally, call updateFullAddress initially to set the full address based on default selections
+            updateFullAddress();
+        });
+
+    </script>
+
 </x-guest-layout>
