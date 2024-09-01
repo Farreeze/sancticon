@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\MainChurch\ActivityLogController;
 use App\Http\Controllers\MainChurch\AdminController;
 use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\User\UserCertificateController;
 use App\Http\Controllers\User\UserEventController;
 use App\Http\Controllers\User\UserNewsAndAnnouncementsController;
 use App\Http\Controllers\User\UserPriestController;
+use App\Models\ActivityLog;
 use App\Models\SacramentalReservation;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -130,6 +132,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/main-church/gallery/form', [GalleryController::class, 'create'])->name('mainchurch-gallery-form.show');
         Route::post('/main-church/gallery/store', [GalleryController::class, 'store'])->name('mainchurch-gallery.store');
         Route::delete('/main-church/gallery/photo/{id}', [GalleryController::class, 'destroy'])->name('mainchurch-gallery.destroy');
+
+        //activity log
+        Route::get('/main-church/activity-log', [ActivityLogController::class, 'index'])->name('activity-log.show');
     });
 
     Route::middleware(['sub-church'])->group(function(){

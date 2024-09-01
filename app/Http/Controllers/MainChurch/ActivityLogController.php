@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
+use App\Models\ActivityLog;
 use Illuminate\Http\Request;
 
 class ActivityLogController extends Controller
@@ -12,7 +13,9 @@ class ActivityLogController extends Controller
      */
     public function index()
     {
-        //
+        $activities = ActivityLog::all();
+
+        return view('MainChurch.activity-log', ['activities'=>$activities]);
     }
 
     /**
