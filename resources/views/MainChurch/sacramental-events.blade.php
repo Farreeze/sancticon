@@ -21,7 +21,7 @@
                 <img class="h-24 w-24" src="/images/church-default-dp.png" alt="Church Logo">
             </div>
             <div class="flex justify-center mt-3">
-                <span class="font-bold text-gray-700">{{ Auth::user()->church_name }}</span>
+                <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
             </div>
         </div>
         <div class="w-full md:w-[80%] lg:w-[80%] md:ml-5 lg:ml-5 mt-3 md:mt-0 lg:mt-0 bg-white rounded-lg p-5 shadow-lg">

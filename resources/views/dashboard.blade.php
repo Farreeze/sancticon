@@ -36,8 +36,14 @@
                     @if (Auth::user()->user == 1)
                     <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
                     @endif
-                    @if (Auth::user()->user == 0)
+                    @if (Auth::user()->sub_church == 1)
                     <span class="font-bold text-gray-700">{{Auth::user()->church_name}}</span>
+                    @endif
+                    @if (Auth::user()->main_church == 1)
+                    <div class="flex flex-col w-full items-center">
+                        <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
+                        <a class="text-center mt-10 px-4 py-2 w-full bg-secondary hover:bg-secondary_hover rounded-lg text-white" href="#">+ Admin</a>
+                    </div>
                     @endif
                 </div>
             </div>
@@ -49,7 +55,7 @@
                 <div class="w-full">
                     <div class="flex items-center">
                         <h1 class="font-bold text-2xl text-gray-700">Churches</h1>
-                        <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('add-church-form.show')}}">+ Add Church</a>
+                        <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('add-church-form.show')}}">+ Church</a>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full border border-gray-300 rounded-lg overflow-hidden mt-5">

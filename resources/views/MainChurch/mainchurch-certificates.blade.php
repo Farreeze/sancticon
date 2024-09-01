@@ -7,12 +7,7 @@
                     <img class="h-24 w-24" src="/images/church-default-dp.png" alt="">
                 </div>
                 <div class="flex justify-center mt-3">
-                    @if (Auth::user()->user == 1)
-                    <span class="font-bold text-gray-700">{{Auth::user()->first_name}}</span>
-                    @endif
-                    @if (Auth::user()->user == 0)
-                    <span class="font-bold text-gray-700">{{Auth::user()->church_name}}</span>
-                    @endif
+                    <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
                 </div>
             </div>
         </div>
