@@ -34,16 +34,16 @@
                 </div>
                 <div class="flex justify-center mt-3">
                     @if (Auth::user()->user == 1)
-                    <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
+                        <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
                     @endif
                     @if (Auth::user()->sub_church == 1)
-                    <span class="font-bold text-gray-700">{{Auth::user()->church_name}}</span>
+                        <span class="font-bold text-gray-700">{{Auth::user()->church_name}}</span>
                     @endif
                     @if (Auth::user()->main_church == 1)
-                    <div class="flex flex-col w-full items-center">
-                        <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
-                        <a class="text-center mt-10 px-4 py-2 w-full bg-secondary hover:bg-secondary_hover rounded-lg text-white" href="#">+ Admin</a>
-                    </div>
+                        <div class="flex flex-col w-full items-center">
+                            <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
+                            <a class="text-center mt-10 px-4 py-2 w-full bg-secondary hover:bg-secondary_hover rounded-lg text-white" href="{{route('add-admin-form.show')}}">+ Admin</a>
+                        </div>
                     @endif
                 </div>
             </div>

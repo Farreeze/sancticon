@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\MainChurch\AdminController;
 use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\MainChurch\GalleryController;
@@ -79,6 +80,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::middleware(['main-church'])->group(function(){
+        //admin
+        Route::get('/add-admin-form', [AdminController::class, 'create'])->name('add-admin-form.show');
+        Route::post('/add-admin', [AdminController::class, 'store'])->name('add-admin');
+
         //churches
         Route::get('/add-church-form', [ChurchController::class, 'create'])->name('add-church-form.show');
         Route::post('/add-church', [ChurchController::class, 'store'])->name('add-church');
