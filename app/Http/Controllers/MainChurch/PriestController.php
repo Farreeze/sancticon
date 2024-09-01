@@ -5,10 +5,12 @@ namespace App\Http\Controllers\MainChurch;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\AddPriestRequest;
 use App\Http\Requests\MainChurch\UpdatePriestRequest;
+use App\Models\ActivityLog;
 use App\Models\libSuffixName;
 use App\Models\Priest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PriestController extends Controller
 {
@@ -55,6 +57,13 @@ class PriestController extends Controller
 
             Priest::create($validated_req);
 
+            $priest_name = trim($validated_req['first_name'] . ' ' . ($validated_req['middle_name'] ?? '') . ' ' . $validated_req['last_name']);
+
+            ActivityLog::create([
+                'user_id' => Auth::id(),
+                'desc' => "Added $priest_name as a priest.",
+            ]);
+
             return back()->with('store-message', 'Priest Added Successfully');
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
@@ -95,7 +104,14 @@ class PriestController extends Controller
 
         $priest = Priest::findOrFail($id);
 
+        $priest_name = trim($priest->first_name . ' ' . ($priest->middle_name ?? '') . ' ' . $priest->last_name);
+
         $priest->update($validated_req);
+
+        ActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Updated $priest_name's profile details.",
+        ]);
 
         return back()->with('update-message', 'Priest Updated Successfully');
     }
@@ -107,8 +123,15 @@ class PriestController extends Controller
     {
         $priest = Priest::findOrFail($id);
 
+        $priest_name = trim($priest->first_name . ' ' . ($priest->middle_name ?? '') . ' ' . $priest->last_name);
+
         $priest->delete();
 
-        return redirect()->route('priests.show')->with('delete-message', 'Failed to delete priest.');
+        ActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Removed $priest_name as a priest.",
+        ]);
+
+        return redirect()->route('priests.show')->with('delete-message', 'Removed Successfully.');
     }
 }

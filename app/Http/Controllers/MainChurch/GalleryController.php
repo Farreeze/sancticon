@@ -4,8 +4,10 @@ namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\AddGalleryRequest;
+use App\Models\ActivityLog;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GalleryController extends Controller
 {
@@ -47,6 +49,11 @@ class GalleryController extends Controller
 
             Gallery::create($validated_req);
 
+            ActivityLog::create([
+                'user_id' => Auth::id(),
+                'desc' => "Uploaded an image to the gallery.",
+            ]);
+
             return back()->with('store-message', 'Photo Added Successfully');
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
@@ -85,6 +92,11 @@ class GalleryController extends Controller
         $photo = Gallery::findOrFail($id);
 
         $photo->delete();
+
+        ActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Deleted an image from the gallery.",
+        ]);
 
         return back()->with('delete-message', 'Deleted Successfully');
     }

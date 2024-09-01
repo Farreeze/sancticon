@@ -4,8 +4,10 @@ namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\AddChurchRequest;
+use App\Models\ActivityLog;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ChurchController extends Controller
 {
@@ -32,6 +34,13 @@ class ChurchController extends Controller
     {
         $church_data = $request->validated();
         User::create($church_data);
+
+        $church_name = $church_data['church_name'];
+
+        ActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Added $church_name as a church",
+        ]);
 
         return back()->with('message', 'Church added successfully!');
     }
@@ -69,7 +78,14 @@ class ChurchController extends Controller
     {
         $church = User::findOrFail($id);
 
+        $church_name = $church->church_name;
+
         $church->delete();
+
+        ActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Deleted $church_name as a church.",
+        ]);
 
         return response()->json(['message' => 'church deleted']);
     }

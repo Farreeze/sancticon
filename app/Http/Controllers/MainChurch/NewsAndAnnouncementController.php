@@ -4,8 +4,10 @@ namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\AddNewsAndAnnouncementRequest;
+use App\Models\ActivityLog;
 use App\Models\NewsAndAnnouncement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class NewsAndAnnouncementController extends Controller
@@ -41,6 +43,12 @@ class NewsAndAnnouncementController extends Controller
                 $request_data['date'] = now();
             }
             NewsAndAnnouncement::create($request_data);
+
+            ActivityLog::create([
+                'user_id' => Auth::id(),
+                'desc' => "Posted an announcement",
+            ]);
+
             return back()->with('message', 'Submitted Successfully!');
 
         }catch (\Exception $e) {

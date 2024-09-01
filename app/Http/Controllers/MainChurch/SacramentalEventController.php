@@ -4,10 +4,12 @@ namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\AddReservationRequest;
+use App\Models\ActivityLog;
 use App\Models\LibSacrament;
 use App\Models\SacramentalReservation;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SacramentalEventController extends Controller
 {
@@ -42,6 +44,13 @@ class SacramentalEventController extends Controller
         $reservation_data = $request->validated();
 
         $reservation_data['status'] = 1;
+
+        $requester = $reservation_data['custom_name'];
+
+        ActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Added a sacramental reservation for $requester.",
+        ]);
 
         SacramentalReservation::create($reservation_data);
         return back()->with('add-reservation', 'Reservation Submitted');

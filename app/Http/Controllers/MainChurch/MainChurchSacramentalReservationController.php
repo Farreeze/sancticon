@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\MchurchSacramentalReservationRequestRequest;
+use App\Models\ActivityLog;
 use App\Models\SacramentalReservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -79,20 +80,46 @@ class MainChurchSacramentalReservationController extends Controller
     {
         $sr_request = SacramentalReservation::find($id);
 
+        $requester = trim($sr_request->user->first_name . ' ' . ($sr_request->user->middle_name ?? '') . ' ' . $sr_request->user->last_name);
+
         $action = $request->input('action');
 
         if($action == "approve")
         {
             $sr_request->status = 1;
+
+            ActivityLog::create([
+                'user_id' => Auth::id(),
+                'desc' => "Approved $requester's sacramental reservation.",
+            ]);
+
         }else if($action == "reject")
         {
             $sr_request->status = 0;
+
+            ActivityLog::create([
+                'user_id' => Auth::id(),
+                'desc' => "Rejected $requester's sacramental reservation.",
+            ]);
+
         }else if($action == "finish")
         {
             $sr_request->status = 2;
+
+            ActivityLog::create([
+                'user_id' => Auth::id(),
+                'desc' => "Finished $requester's sacramental reservation.",
+            ]);
+
         }else if($action == "cancel")
         {
             $sr_request->status = 3;
+
+            ActivityLog::create([
+                'user_id' => Auth::id(),
+                'desc' => "Cancelled $requester's sacramental reservation.",
+            ]);
+
         }
 
         $sr_request->save();

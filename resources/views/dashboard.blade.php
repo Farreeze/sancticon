@@ -72,9 +72,16 @@
                                     <td class="text-start p-3 border-b border-gray-300">{{$church->church_name}}</td>
                                     <td class="text-start p-3 border-b border-gray-300">{{$church->email}}</td>
                                     <td class="text-start p-3 border-b border-gray-300">
-                                        <a class="bg-secondary hover:bg-secondary_hover px-2 py-1 rounded-lg text-white" href="{{route('church-profile.show', $church->id)}}">View</a>
-                                        <a class="bg-blue-500 hover:bg-blue-700 px-2 py-1 rounded-lg text-white" href="">Edit</a>
-                                        <a class="bg-red-500 hover:bg-red-700 px-2 py-1 rounded-lg text-white" href="">Delete</a>
+                                        <div class="flex">
+                                            <a class="bg-secondary hover:bg-secondary_hover px-2 py-1 rounded-lg text-white" href="{{route('church-profile.show', $church->id)}}">View</a>
+                                            <a class="bg-blue-500 hover:bg-blue-700 px-2 py-1 rounded-lg text-white" href="">Edit</a>
+                                             {{-- <a class="bg-red-500 hover:bg-red-700 px-2 py-1 rounded-lg text-white" href="">Delete</a> --}}
+                                            <form action="{{route('delete-church', $church->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="bg-red-500 hover:bg-red-700 px-2 py-1 rounded-lg text-white">Delete</button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                                 @endforeach

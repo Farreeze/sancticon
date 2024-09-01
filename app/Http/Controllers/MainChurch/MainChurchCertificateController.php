@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
+use App\Models\ActivityLog;
 use App\Models\SacramentalReservation;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -14,6 +15,13 @@ class MainChurchCertificateController extends Controller
     public function GenerateCertificate($id)
     {
         $data = SacramentalReservation::findOrFail($id);
+
+        $requester = $data->custom_name;
+
+        ActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Downloaded $requester's certificate.",
+        ]);
 
         if($data->sacrament->desc == "BAPTISM")
         {

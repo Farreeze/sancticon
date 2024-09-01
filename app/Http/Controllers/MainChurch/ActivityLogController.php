@@ -3,14 +3,9 @@
 namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MainChurch\AddAdminRequest;
-use App\Models\ActivityLog;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class AdminController extends Controller
+class ActivityLogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,29 +21,14 @@ class AdminController extends Controller
     public function create()
     {
         //
-        return view('MainChurch.add-admin-form');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(AddAdminRequest $request)
+    public function store(Request $request)
     {
-        $validated_req = $request->validated();
-
-        DB::transaction(function () use ($validated_req) {
-
-            $user = User::create($validated_req);
-
-            $admin_name = trim($validated_req['first_name'] . ' ' . ($validated_req['middle_name'] ?? '') . ' ' . $validated_req['last_name']);
-
-            ActivityLog::create([
-                'user_id' => Auth::id(),
-                'desc' => "Added $admin_name as an admin.",
-            ]);
-        });
-
-        return back()->with('message', 'Admin added successfully!');
+        //
     }
 
     /**

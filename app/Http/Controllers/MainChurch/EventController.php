@@ -4,10 +4,12 @@ namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\AddEventRequest;
+use App\Models\ActivityLog;
 use App\Models\ChurchEvent;
 use App\Models\LibSacrament;
 use Dotenv\Repository\RepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -42,6 +44,12 @@ class EventController extends Controller
         try {
             $event_data = $request->validated();
             ChurchEvent::create($event_data);
+
+            ActivityLog::create([
+                'user_id' => Auth::id(),
+                'desc' => "Added $request->title event",
+            ]);
+
             return back()->with('message', 'Event added successfully!');
         }catch (\Exception $e) {
             return response()->json(['message' => 'something went wrong', 'error' => $e->getMessage()], 500);
@@ -79,7 +87,14 @@ class EventController extends Controller
     {
         $event = ChurchEvent::findOrFail($id);
 
+        $event_title = $event->title;
+
         $event->delete();
+
+        ActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Cancelled $event_title event.",
+        ]);
 
         return back()->with('delete', 'Event Deleted');
     }
@@ -93,6 +108,11 @@ class EventController extends Controller
         $event->status = 0;
 
         $event->save();
+
+        ActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Finished $event->title event.",
+        ]);
 
         return back()->with('message', 'Event Finished');
     }
