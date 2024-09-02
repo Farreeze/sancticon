@@ -27,9 +27,17 @@ class SubChurchSacramentalEventController extends Controller
     {
         $sacraments = LibSacrament::all();
 
-        $churches = User::where('main_church', 1)
-                ->orWhere('sub_church', 1)
-                ->get();
+        $main_church_user = User::where('main_church', 1)->first();
+
+        $churches = collect();
+
+        if ($main_church_user) {
+            $churches->push($main_church_user);
+        }
+
+        $sub_church_users = User::where('sub_church', 1)->get();
+
+        $churches = $churches->merge($sub_church_users);
 
         return view('SubChurch.subchurch-sacramental-event-form', ['sacraments' => $sacraments, 'churches' => $churches]);
     }

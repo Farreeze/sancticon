@@ -13,7 +13,7 @@ class ActivityLogController extends Controller
      */
     public function index()
     {
-        $activities = ActivityLog::all();
+        $activities = ActivityLog::orderBy('created_at', 'desc')->get();
 
         return view('MainChurch.activity-log', ['activities'=>$activities]);
     }
