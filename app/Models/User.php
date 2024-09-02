@@ -27,6 +27,7 @@ class User extends Authenticatable
         'suffix_name',
         'gender',
         'church_name',
+        'fixed_address',
         'address',
         'email',
         'mobile_number',

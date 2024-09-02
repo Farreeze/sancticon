@@ -37,7 +37,7 @@
         {{-- Gender --}}
         <div class="mt-4 text-gray-700">
             <x-input-label for="Gender" :value="__('Gender')" />
-            <select class="w-full rounded-md border-gray-300 shadow-sm" name="gender" id="">
+            <select class="w-full rounded-md border-gray-300 shadow-sm" name="gender" id="" required>
                 <option value="" selected disabled>Select gender</option>
                 @foreach ($genders as $gender)
                     <option value="{{ $gender->id }}">{{ $gender->desc }}</option>
@@ -46,22 +46,34 @@
         </div>
 
         {{-- Address --}}
-        <div class="flex flex-col mt-4 text-gray-700">
+        <div class="mt-4 text-gray-700">
             <x-input-label for="Address" :value="__('Address')" />
-            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="region" required></select>
+            <select class="w-full rounded-md border-gray-300 shadow-sm" name="fixed_address" id="fixed_address_select" required>
+                <option value="" selected disabled>Select Barangay</option>
+                @foreach ($barangays as $barangay)
+                    <option value="{{ $barangay->id }}">{{ $barangay->desc }}</option>
+                @endforeach
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div id="additional_address_div" class="hidden flex-col mt-4 text-gray-700">
+            <x-input-label for="Address" :value="__('Address')" />
+            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="region"></select>
             <input type="hidden" name="region_text" id="region-text">
 
-            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="province" required></select>
+            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="province"></select>
             <input type="hidden" name="province_text" id="province-text">
 
-            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="city" required></select>
+            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="city"></select>
             <input type="hidden" name="city_text" id="city-text">
 
-            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="barangay" required></select>
+            <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="barangay"></select>
             <input type="hidden" name="barangay_text" id="barangay-text">
 
             <input name="address" type="hidden" id="full-address">
         </div>
+
 
         {{-- Mobile Number --}}
         <div class="mt-4">
@@ -145,5 +157,39 @@
         });
 
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const fixedAddressSelect = document.getElementById('fixed_address_select');
+            const additionalAddressDiv = document.getElementById('additional_address_div');
+            const addressFields = additionalAddressDiv.querySelectorAll('select, input[type="hidden"]');
+
+            fixedAddressSelect.addEventListener('change', function () {
+                if (this.value === 'other') {
+                    additionalAddressDiv.classList.remove('hidden');
+                    addressFields.forEach(field => {
+                        field.setAttribute('required', 'required');
+                        if (field.tagName === 'SELECT') {
+                            field.value = ''; // Clear select values
+                        } else if (field.type === 'hidden') {
+                            field.value = ''; // Clear hidden input values
+                        }
+                    });
+                } else {
+                    additionalAddressDiv.classList.add('hidden');
+                    addressFields.forEach(field => {
+                        field.removeAttribute('required');
+                        if (field.tagName === 'SELECT') {
+                            field.value = ''; // Clear select values
+                        } else if (field.type === 'hidden') {
+                            field.value = ''; // Clear hidden input values
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
 
 </x-guest-layout>

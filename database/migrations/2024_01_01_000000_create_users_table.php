@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->unsignedBigInteger('suffix_name')->nullable();
             $table->unsignedBigInteger('gender')->nullable();
-            $table->text('address');
+            $table->unsignedBigInteger('fixed_address')->nullable();
+            $table->text('address')->nullable();
             $table->string('email')->unique();
             $table->string('mobile_number');
             $table->timestamp('email_verified_at')->nullable();
@@ -30,6 +31,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
 
+            $table->foreign('fixed_address')->references('id')->on('lib_barangays');
             $table->foreign('suffix_name')->references('id')->on('lib_suffix_names');
             $table->foreign('gender')->references('id')->on('lib_genders');
         });
