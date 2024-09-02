@@ -28,32 +28,140 @@ class UserFactory extends Factory
             'main_church' => 1,
             'sub_church' => 0,
             'user' => 0,
-            'church_name' => 'main church',
-            'first_name' => 'John',
-            'last_name' => 'Doe',
-            'middle_name' => 'Specter',
-            'address' => 'test address only',
-            'email' => 'main_church@example.com',
+            'church_name' => 'Our Lady Of Lourdes Parish (Tarlac City)',
+            'first_name' => 'Admin',
+            'last_name' => null,
+            'middle_name' => null,
+            'address' => 'Tarlac City',
+            'email' => 'admin@mainchurch.com',
             'mobile_number' => "09123123123",
-            'password' => Hash::make('test'),
+            'password' => Hash::make('admin'),
             'remember_token' => Str::random(10),
         ];
     }
 
-    public function subChurchUser()
+    public function AsturiasChurch()
     {
         return $this->state(fn (array $attributes) => [
             'main_church' => 0,
             'sub_church' => 1,
             'user' => 0,
-            'church_name' => 'sub church',
+            'church_name' => 'Asturias Chapel (Brgy. Asturias)',
             'first_name' => null,
             'middle_name' => null,
             'last_name' => null,
-            'address' => 'another test address',
-            'email' => 'sub_church@example.com',
+            'address' => "Brgy. Asturias",
+            'email' => 'asturiaschapel@subchurch.com',
             'mobile_number' => "09123456789",
-            'password' => Hash::make('test'),
+            'password' => Hash::make('admin'),
+            'remember_token' => Str::random(10),
+        ]);
+    }
+
+    public function BantogChurch()
+    {
+        return $this->state(fn (array $attributes) => [
+            'main_church' => 0,
+            'sub_church' => 1,
+            'user' => 0,
+            'church_name' => 'Sacred Heart of Jesus Chapel (Brgy. Bantog)',
+            'first_name' => null,
+            'middle_name' => null,
+            'last_name' => null,
+            'address' => "Brgy. Bantog",
+            'email' => 'sacredheart@subchurch.com',
+            'mobile_number' => "09123456789",
+            'password' => Hash::make('admin'),
+            'remember_token' => Str::random(10),
+        ]);
+    }
+
+    public function CutCutChurch()
+    {
+        return $this->state(fn (array $attributes) => [
+            'main_church' => 0,
+            'sub_church' => 1,
+            'user' => 0,
+            'church_name' => 'Divine Mercy Shrine and Apostolate Centre (Brgy. Cut-Cut)',
+            'first_name' => null,
+            'middle_name' => null,
+            'last_name' => null,
+            'address' => "Brgy. Cut-Cut",
+            'email' => 'divinemercy@subchurch.com',
+            'mobile_number' => "09123456789",
+            'password' => Hash::make('admin'),
+            'remember_token' => Str::random(10),
+        ]);
+    }
+
+    public function LourdesChurch()
+    {
+        return $this->state(fn (array $attributes) => [
+            'main_church' => 0,
+            'sub_church' => 1,
+            'user' => 0,
+            'church_name' => 'Lourdes Chapel (Brgy. Lourdes)',
+            'first_name' => null,
+            'middle_name' => null,
+            'last_name' => null,
+            'address' => "Brgy. Lourdes",
+            'email' => 'lourdeschapel@subchurch.com',
+            'mobile_number' => "09123456789",
+            'password' => Hash::make('admin'),
+            'remember_token' => Str::random(10),
+        ]);
+    }
+
+    public function BaleteChurch()
+    {
+        return $this->state(fn (array $attributes) => [
+            'main_church' => 0,
+            'sub_church' => 1,
+            'user' => 0,
+            'church_name' => 'San Isidro Labrador Chapel (Brgy. Balete)',
+            'first_name' => null,
+            'middle_name' => null,
+            'last_name' => null,
+            'address' => "Brgy. Balete",
+            'email' => 'sanisidro@subchurch.com',
+            'mobile_number' => "09123456789",
+            'password' => Hash::make('admin'),
+            'remember_token' => Str::random(10),
+        ]);
+    }
+
+    public function DPCHChurch()
+    {
+        return $this->state(fn (array $attributes) => [
+            'main_church' => 0,
+            'sub_church' => 1,
+            'user' => 0,
+            'church_name' => 'Sto. Niño Parish Church (DPCH)',
+            'first_name' => null,
+            'middle_name' => null,
+            'last_name' => null,
+            'address' => "DPCH",
+            'email' => 'stnino@subchurch.com',
+            'mobile_number' => "09123456789",
+            'password' => Hash::make('admin'),
+            'remember_token' => Str::random(10),
+        ]);
+    }
+
+    public function MapalacsiaoChurch()
+    {
+        return $this->state(fn (array $attributes) => [
+            'main_church' => 0,
+            'sub_church' => 1,
+            'user' => 0,
+            'church_name' => 'Immaculate Conception Parish (Mapalacsiao)',
+            'first_name' => null,
+            'middle_name' => null,
+            'last_name' => null,
+            'address' => "Brgy. Mapalacsiao",
+            'email' => 'conceptionparish@subchurch.com',
+            'mobile_number' => "09123456789",
+            'password' => Hash::make('admin'),
             'remember_token' => Str::random(10),
         ]);
     }

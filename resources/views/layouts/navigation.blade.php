@@ -38,6 +38,9 @@
                         <x-nav-link :href="route('mainchurch-certificates.show')" :active="request()->routeIs('mainchurch-certificates.show')">
                             {{ __('Certificates') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('activity-log.show')" :active="request()->routeIs('activity-log.show')">
+                            {{ __('Activity Log') }}
+                        </x-nav-link>
                     @endif
 
                     @if (Auth::user()->sub_church == 1)
@@ -156,6 +159,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('mainchurch-certificates.show')" :active="request()->routeIs('mainchurch-certificates.show')">
                     {{ __('Certificates') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('activity-log.show')" :active="request()->routeIs('activity-log.show')">
+                    {{ __('Activity Log') }}
                 </x-responsive-nav-link>
             @endif
 

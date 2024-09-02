@@ -39,14 +39,20 @@
                     @foreach ($sacramental_events as $sacramental_event)
                         <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mb-3">
                             <div>
-                                <div class="flex justify-between w-full flex-wrap">
+                                <div class="flex justify-between w-full flex-wrap mb-2">
                                     <h2 class="text-gray-700 font-bold text-xl">{{ $sacramental_event->sacrament->desc }}</h2>
                                     <div class="flex flex-wrap text-xl text-gray-700">
                                         <span class="font-bold mr-2">Date:</span>
                                         <p>{{$sacramental_event->date}}</p>
                                     </div>
                                 </div>
-                                <div class="flex flex-wrap mt-2">
+                                @if ($sacramental_event->custom_name)
+                                    <div class="flex flex-wrap">
+                                        <span class="font-bold mr-2">For:</span>
+                                        <p>{{$sacramental_event->custom_name}}</p>
+                                    </div>
+                                @endif
+                                <div class="flex flex-wrap">
                                     <span class="font-bold mr-2">Church:</span>
                                     <p>{{$sacramental_event->church->church_name}}</p>
                                 </div>
@@ -54,8 +60,9 @@
                                     <span class="font-bold mr-2">Requested by:</span>
                                     @if ($sacramental_event->custom_name)
                                         <p>{{$sacramental_event->user->church_name}}</p>
+                                    @else
+                                        <p>{{$sacramental_event->user->first_name}} {{$sacramental_event->user->last_name}}</p>
                                     @endif
-                                    <p>{{$sacramental_event->user->first_name}} {{$sacramental_event->user->last_name}}</p>
                                 </div>
                                 @if ($sacramental_event->participant_name)
                                     <div class="flex flex-wrap">

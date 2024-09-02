@@ -17,10 +17,17 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GenderSeeder::class,
             SuffixNameSeeder::class,
-            SacramentSeeder::class
+            SacramentSeeder::class,
+            BarangaySeeder::class
         ]);
         User::factory()->create();
-        User::factory()->subChurchUser()->create();
+        User::factory()->AsturiasChurch()->create();
+        User::factory()->BantogChurch()->create();
+        User::factory()->CutCutChurch()->create();
+        User::factory()->LourdesChurch()->create();
+        User::factory()->BaleteChurch()->create();
+        User::factory()->DPCHChurch()->create();
+        User::factory()->MapalacsiaoChurch()->create();
         User::factory()->NormalUser()->create();
         User::factory()->NormalUserOne()->create();
     }

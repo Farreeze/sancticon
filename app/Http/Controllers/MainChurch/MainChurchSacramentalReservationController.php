@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\MchurchSacramentalReservationRequestRequest;
 use App\Models\ActivityLog;
 use App\Models\SacramentalReservation;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,10 +17,10 @@ class MainChurchSacramentalReservationController extends Controller
      */
     public function index()
     {
-        $mainchurch_id = Auth::user()->id;
+        $mainchurch_users = User::where('main_church', 1)->pluck('id');
 
-        $sr_requests = SacramentalReservation::where(function($query) use ($mainchurch_id){
-            $query->where('church_id', $mainchurch_id)
+        $sr_requests = SacramentalReservation::where(function($query) use ($mainchurch_users){
+            $query->whereIn('church_id', $mainchurch_users)
             ->whereNull('status');
         })
         ->orWhere(function($query){
