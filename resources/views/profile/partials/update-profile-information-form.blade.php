@@ -39,6 +39,20 @@
                     <x-text-input id="name" name="last_name" type="text" class="mt-1 block w-full" :value="old('name', $user->last_name)" required autofocus autocomplete="name" />
                     <x-input-error class="mt-2" :messages="$errors->get('last_name')" />
                 </div>
+                @if (Auth::user()->fixed_address)
+                    <div class="mt-5">
+                        <x-input-label for="address" :value="__('Address')" />
+                        <x-text-input id="name" name="address" type="text" class="mt-1 block w-full" :value="old('name', $user->fixed_address)" required autofocus autocomplete="name" />
+                        <x-input-error class="mt-2" :messages="$errors->get('address')" />
+                    </div>
+                @endif
+                @if (Auth::user()->address)
+                    <div class="mt-5">
+                        <x-input-label for="address" :value="__('Address')" />
+                        <x-text-input id="name" name="address" type="text" class="mt-1 block w-full" :value="old('name', $user->address)" required autofocus autocomplete="name" />
+                        <x-input-error class="mt-2" :messages="$errors->get('address')" />
+                    </div>
+                @endif
             @endif
         </div>
 
