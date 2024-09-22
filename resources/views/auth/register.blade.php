@@ -6,21 +6,22 @@
         <input type="hidden" name="sub_church" value="0">
         <input type="hidden" name="user" value="1">
         <!-- Name -->
+        <p class="mb-3 text-gray-500">Fields with * are required</p>
         <div>
-            <x-input-label for="First Name" :value="__('First Name')" />
+            <x-input-label for="First Name" :value="__('First Name *')" />
             <x-text-input id="First Name" class="block mt-1 w-full" type="text" name="first_name" :value="old('First Name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('First Name')" class="mt-2" />
         </div>
 
         <div class="mt-4">
-            <x-input-label for="Last Name" :value="__('Last Name')" />
+            <x-input-label for="Last Name" :value="__('Last Name *')" />
             <x-text-input id="Last Name" class="block mt-1 w-full" type="text" name="last_name" :value="old('Last Name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('Last Name')" class="mt-2" />
         </div>
 
         <div class="mt-4">
             <x-input-label for="Middle Name" :value="__('Middle Name')" />
-            <x-text-input id="Middle Name" class="block mt-1 w-full" type="text" name="middle_name" :value="old('Middle Name')" required autofocus autocomplete="name" />
+            <x-text-input id="Middle Name" class="block mt-1 w-full" type="text" name="middle_name" :value="old('Middle Name')" autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('Middle Name')" class="mt-2" />
         </div>
 
@@ -36,7 +37,7 @@
 
         {{-- Gender --}}
         <div class="mt-4 text-gray-700">
-            <x-input-label for="Gender" :value="__('Gender')" />
+            <x-input-label for="Sex" :value="__('Sex *')" />
             <select class="w-full rounded-md border-gray-300 shadow-sm" name="gender" id="" required>
                 <option value="" selected disabled>Select gender</option>
                 @foreach ($genders as $gender)
@@ -47,7 +48,7 @@
 
         {{-- Address --}}
         <div class="mt-4 text-gray-700">
-            <x-input-label for="Address" :value="__('Address')" />
+            <x-input-label for="Address" :value="__('Address *')" />
             <select class="w-full rounded-md border-gray-300 shadow-sm" name="fixed_address" id="fixed_address_select" required>
                 <option value="" selected disabled>Select Barangay</option>
                 @foreach ($barangays as $barangay)
@@ -58,7 +59,7 @@
         </div>
 
         <div id="additional_address_div" class="hidden flex-col mt-4 text-gray-700">
-            <x-input-label for="Address" :value="__('Address')" />
+            <x-input-label for="Address" :value="__('Address *')" />
             <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="region"></select>
             <input type="hidden" name="region_text" id="region-text">
 
@@ -77,21 +78,21 @@
 
         {{-- Mobile Number --}}
         <div class="mt-4">
-            <x-input-label for="Mobile Number" :value="__('Mobile Number')" />
+            <x-input-label for="Mobile Number" :value="__('Mobile Number *')" />
             <x-text-input id="Mobile Number" class="block mt-1 w-full" type="tel" name="mobile_number" :value="old('Mobile Number')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('Mobile Number')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Email *')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Password *')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -103,7 +104,7 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input-label for="password_confirmation" :value="__('Confirm Password *')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"

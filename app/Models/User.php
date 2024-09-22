@@ -62,4 +62,9 @@ class User extends Authenticatable
         return $this->belongsTo(libSuffixName::class, 'suffix_name', 'id');
     }
 
+    public function barangay()
+    {
+        return $this->belongsTo(LibBarangay::class, 'fixed_address', 'id');
+    }
+
 }

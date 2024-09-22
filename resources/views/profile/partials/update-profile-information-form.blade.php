@@ -30,7 +30,7 @@
 
                 <div class="mt-5">
                     <x-input-label for="middle name" :value="__('Middle Name')" />
-                    <x-text-input id="name" name="middle_name" type="text" class="mt-1 block w-full" :value="old('name', $user->middle_name)" required autofocus autocomplete="name" />
+                    <x-text-input id="name" name="middle_name" type="text" class="mt-1 block w-full" :value="old('name', $user->middle_name)" autofocus autocomplete="name" />
                     <x-input-error class="mt-2" :messages="$errors->get('middle_name')" />
                 </div>
 
@@ -39,13 +39,22 @@
                     <x-text-input id="name" name="last_name" type="text" class="mt-1 block w-full" :value="old('name', $user->last_name)" required autofocus autocomplete="name" />
                     <x-input-error class="mt-2" :messages="$errors->get('last_name')" />
                 </div>
+
                 @if (Auth::user()->fixed_address)
                     <div class="mt-5">
-                        <x-input-label for="address" :value="__('Address')" />
-                        <x-text-input id="name" name="address" type="text" class="mt-1 block w-full" :value="old('name', $user->fixed_address)" required autofocus autocomplete="name" />
+                        <x-input-label for="fixed_adddress" :value="__('Address')" />
+                        <select class="rounded-lg border-gray-300 w-full shadow-sm" id="address" name="fixed_address" class="mt-1 block w-full" required>
+                            <option value="" disabled selected>Select Address</option>
+                            @foreach ($barangays as $barangay)
+                                <option value="{{ $barangay->id }}" {{ old('address', $user->fixed_address) == $barangay->id ? 'selected' : '' }}>
+                                    {{ $barangay->desc }}
+                                </option>
+                            @endforeach
+                        </select>
                         <x-input-error class="mt-2" :messages="$errors->get('address')" />
                     </div>
                 @endif
+
                 @if (Auth::user()->address)
                     <div class="mt-5">
                         <x-input-label for="address" :value="__('Address')" />
