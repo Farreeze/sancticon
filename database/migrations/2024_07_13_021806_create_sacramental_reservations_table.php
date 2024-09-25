@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('church_id');
             $table->foreignId('sacrament_id');
             $table->date('date');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->string('participant_name')->nullable(); //baptism
             $table->string('first_name')->nullable();   //matrimony
             $table->string('second_name')->nullable();  //matrimony
