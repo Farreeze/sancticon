@@ -14,6 +14,8 @@ class SacramentalReservation extends Model
         'church_id',
         'sacrament_id',
         'date',
+        'start_time',
+        'end_time',
         'participant_name',
         'first_name',
         'second_name',

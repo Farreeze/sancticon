@@ -26,7 +26,7 @@
                             <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden>
                             <div class="w-full flex flex-col">
                                 <div>
-                                    <span class="text-gray-700 ml-1">Church:</span>
+                                    <span class="text-gray-700 ml-1">Church:*</span>
                                     <select class="w-full rounded-lg border-gray-300" name="church_id" id="" required>
                                         <option value="" selected disabled>Select Church</option>
                                         @foreach ($churches as $church)
@@ -35,7 +35,7 @@
                                     </select>
                                 </div>
                                 <div class="mt-3">
-                                    <span class="text-gray-700 ml-1">Sacrament:</span>
+                                    <span class="text-gray-700 ml-1">Sacrament:*</span>
                                     <select id="sacrament-select" class="w-full rounded-lg border-gray-300" name="sacrament_id" id="" required>
                                         <option value="" selected disabled>Select Sacrament</option>
                                         @foreach ($sacraments as $sacrament)
@@ -46,8 +46,16 @@
                             </div>
                             <div id="participant-section"></div>
                             <div class="w-full mt-3">
-                                <span class="text-gray-700 ml-1">Date:</span>
-                                <input class="w-full rounded-lg border-gray-300" type="date" name="date" id="">
+                                <span class="text-gray-700 ml-1">Date:*</span>
+                                <input class="w-full rounded-lg border-gray-300" type="date" name="date" id="" required>
+                            </div>
+                            <div class="w-full mt-3">
+                                <span class="text-gray-700 ml-1">Start Time:*</span>
+                                <input class="w-full rounded-lg border-gray-300" type="time" name="start_time" id="" required>
+                            </div>
+                            <div class="w-full mt-3">
+                                <span class="text-gray-700 ml-1">End Time:*</span>
+                                <input class="w-full rounded-lg border-gray-300" type="time" name="end_time" id="" required>
                             </div>
                             <div class="w-full flex justify-end mt-5">
                                 <button id="submit-btn" class="bg-secondary hover:bg-secondary_hover rounded-lg px-4 py-2 text-white w-full" type="submit">Submit Reservation</button>

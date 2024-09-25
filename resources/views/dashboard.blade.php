@@ -288,8 +288,16 @@
                                             @endif
                                         </div>
                                         <div>
+                                            <span>Church:</span>
+                                            <span class="ml-1">{{$sacramental_reservation->church->church_name}}</span>
+                                        </div>
+                                        <div>
                                             <span>Date:</span>
                                             <span class="ml-1">{{$sacramental_reservation->date}}</span>
+                                        </div>
+                                        <div>
+                                            <span>Time:</span>
+                                            <span class="ml-1">{{$sacramental_reservation->start_time}} to {{$sacramental_reservation->end_time}}</span>
                                         </div>
                                         @if ($sacramental_reservation->sacrament->id == 1)
                                             <div>
@@ -307,10 +315,6 @@
                                                 <span class="ml-1">{{$sacramental_reservation->second_name}}</span>
                                             </div>
                                         @endif
-                                        <div>
-                                            <span>Church:</span>
-                                            <span class="ml-1">{{$sacramental_reservation->church->church_name}}</span>
-                                        </div>
                                     </div>
                                     <div class="flex items-start">
                                         @if ($sacramental_reservation->status === null && $sacramental_reservation->subchurch_approve !== 0)

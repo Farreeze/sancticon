@@ -93,6 +93,10 @@
                                                 <span class="font-bold mr-2">Date:</span>
                                                 <p>{{$sr_request->date}}</p>
                                             </div>
+                                            <div class="flex flex-wrap">
+                                                <span class="font-bold mr-2">Time:</span>
+                                                <p>{{$sr_request->start_time}} to {{$sr_request->end_time}}</p>
+                                            </div>
                                         </div>
                                         <div>
                                             <Button id="approve-{{$sr_request->id}}" onclick="confirmation(event, 'approve', 'approve-{{$sr_request->id}}', 'reject-{{$sr_request->id}}')" type="submit" class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover rounded-lg shadow-md text-white">Approve</Button>
@@ -171,6 +175,10 @@
                                                 <span class="font-bold mr-2">Date:</span>
                                                 <p>{{$approved_sr_request->date}}</p>
                                             </div>
+                                            <div class="flex flex-wrap">
+                                                <span class="font-bold mr-2">Time:</span>
+                                                <p>{{$approved_sr_request->start_time}} to {{$approved_sr_request->end_time}}</p>
+                                            </div>
                                         </div>
                                         <div>
                                             <Button id="finish-{{$approved_sr_request->id}}" onclick="approvedReqConfirm(event, 'finish', 'finish-{{$approved_sr_request->id}}', 'cancel-{{$approved_sr_request->id}}')" type="submit" class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover rounded-lg shadow-md text-white">Finish</Button>
@@ -247,6 +255,10 @@
                                         <div class="flex flex-wrap">
                                             <span class="font-bold mr-2">Date:</span>
                                             <p>{{$completed_sr_request->date}}</p>
+                                        </div>
+                                        <div class="flex flex-wrap">
+                                            <span class="font-bold mr-2">Time:</span>
+                                            <p>{{$completed_sr_request->start_time}} to {{$completed_sr_request->end_time}}</p>
                                         </div>
                                     </div>
                                 </div>

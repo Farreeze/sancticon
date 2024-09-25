@@ -61,6 +61,10 @@
                                     <p>{{$sacramental_event->church->church_name}}</p>
                                 </div>
                                 <div class="flex flex-wrap">
+                                    <span class="font-bold mr-2">Time:</span>
+                                    <p>{{$sacramental_event->start_time}} to {{$sacramental_event->end_time}}</p>
+                                </div>
+                                <div class="flex flex-wrap">
                                     <span class="font-bold mr-2">Requested by:</span>
                                     @if ($sacramental_event->user->main_church == 1 || $sacramental_event->user->sub_church == 1)
                                         <p>{{$sacramental_event->user->church_name}}</p>
