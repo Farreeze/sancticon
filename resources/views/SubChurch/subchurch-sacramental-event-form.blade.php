@@ -53,6 +53,14 @@
                                 <span class="text-gray-700 ml-1">Date:</span>
                                 <input class="w-full rounded-lg border-gray-300" type="date" name="date" id="">
                             </div>
+                            <div class="w-full mt-3">
+                                <span class="text-gray-700 ml-1">Start Time:*</span>
+                                <input class="w-full rounded-lg border-gray-300" type="time" name="start_time" id="" required>
+                            </div>
+                            <div class="w-full mt-3">
+                                <span class="text-gray-700 ml-1">End Time:*</span>
+                                <input class="w-full rounded-lg border-gray-300" type="time" name="end_time" id="" required>
+                            </div>
                             <div class="w-full flex justify-end mt-5">
                                 <button id="submit-btn" class="bg-secondary hover:bg-secondary_hover rounded-lg px-4 py-2 text-white w-full" type="submit">Submit Reservation</button>
                             </div>

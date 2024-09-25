@@ -130,6 +130,10 @@
                                     <p class="mr-1 font-bold">Date:</p>
                                     <p>{{ $sacramental_reservation->date }}</p>
                                 </div>
+                                <div class="flex flex-row flex-wrap">
+                                    <p class="mr-1 font-bold">Time:</p>
+                                    <p>{{ $sacramental_reservation->start_time }}  to {{ $sacramental_reservation->end_time }}</p>
+                                </div>
                                 @if ($sacramental_reservation->sacrament_id == 1)
                                     <div class="flex flex-row flex-wrap">
                                         <p class="mr-1 font-bold">Baptismal Candidate:</p>
@@ -177,6 +181,10 @@
                             <div class="flex flex-row flex-wrap">
                                 <p class="mr-1 font-bold">Date:</p>
                                 <p>{{ $approved_sacramental_event->date }}</p>
+                            </div>
+                            <div class="flex flex-row flex-wrap">
+                                <p class="mr-1 font-bold">Time:</p>
+                                <p>{{ $approved_sacramental_event->start_time }} to {{ $approved_sacramental_event->end_time }}</p>
                             </div>
                             @if ($approved_sacramental_event->sacrament_id == 1)
                                 <div class="flex flex-row flex-wrap">
@@ -229,6 +237,10 @@
                             <div class="flex flex-row flex-wrap">
                                 <p class="mr-1 font-bold">Date:</p>
                                 <p>{{ $completed_sacramental_reservation->date }}</p>
+                            </div>
+                            <div class="flex flex-row flex-wrap">
+                                <p class="mr-1 font-bold">Time:</p>
+                                <p>{{ $completed_sacramental_reservation->start_time }}  to {{ $completed_sacramental_reservation->end_time }}</p>
                             </div>
                             @if ($completed_sacramental_reservation->sacrament_id == 1)
                                 <div class="flex flex-row flex-wrap">

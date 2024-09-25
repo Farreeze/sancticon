@@ -98,6 +98,10 @@
                                                     <span class="font-bold mr-2">Date:</span>
                                                     <p>{{$reservation_request->date}}</p>
                                                 </div>
+                                                <div class="flex flex-wrap">
+                                                    <span class="font-bold mr-2">Time:</span>
+                                                    <p>{{$reservation_request->start_time}} to {{$reservation_request->end_time}}</p>
+                                                </div>
                                             </div>
                                             {{-- add buttons --}}
                                             <div class="flex flex-row items-start">
@@ -155,6 +159,10 @@
                                                 <div class="flex">
                                                     <span class="font-bold">Date:</span>
                                                     <p class="ml-2">{{$finished_reservation_request->date}}</p>
+                                                </div>
+                                                <div class="flex">
+                                                    <span class="font-bold">Time:</span>
+                                                    <p class="ml-2">{{$finished_reservation_request->start_time}} to {{$finished_reservation_request->end_time}}</p>
                                                 </div>
                                             </div>
                                             <div>
