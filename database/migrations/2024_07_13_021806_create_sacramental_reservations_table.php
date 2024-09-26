@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('second_name')->nullable();  //matrimony
             $table->string('custom_name')->nullable();  //custome request (for churches)
             $table->boolean('subchurch_approve')->nullable();
+            $table->text('feedback')->nullable(); //only when rejected
             $table->boolean('status')->nullable();
             $table->timestamps();
 
