@@ -164,6 +164,12 @@
                                                     <span class="font-bold">Time:</span>
                                                     <p class="ml-2">{{$finished_reservation_request->start_time}} to {{$finished_reservation_request->end_time}}</p>
                                                 </div>
+                                                @if ($finished_reservation_request->feedback)
+                                                    <div class="mt-5">
+                                                        <span class="font-bold">Feedback:</span>
+                                                        <span class="ml-1">{{$finished_reservation_request->feedback}}</span>
+                                                    </div>
+                                                @endif
                                             </div>
                                             <div>
                                                 @if ($finished_reservation_request->subchurch_approve === 0)
@@ -210,6 +216,17 @@
             icon: action === 'approve' ? 'success' : 'error',
             buttons: true,
             dangerMode: action === 'reject',
+
+            content: action === 'reject' ? {
+                element: "input",
+                attributes: {
+                    placeholder: "Rejection feedback",
+                    type: "text",
+                    name: "rejection_reason",
+                    required: "true",
+                },
+            } : null
+
         })
         .then((willConfirm) => {
             if (willConfirm) {
@@ -219,6 +236,16 @@
                     approveBtn.textContent = "Processing...";
                 }else if(action == "reject"){
                     rejectBtn.textContent = "Processing...";
+
+                    const rejectionReason = document.querySelector('input[name="rejection_reason"]').value;
+
+                    const rejectionInput = document.createElement('input');
+                    rejectionInput.type = 'hidden';
+                    rejectionInput.name = 'feedback';
+                    rejectionInput.value = rejectionReason;
+
+                    form.appendChild(rejectionInput);
+
                 }
                 form.querySelector('input[name="action"]').value = action;
                 form.submit(); // Submit the form if confirmed

@@ -22,7 +22,8 @@ class UpdateSacramentalReservationRequestRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'action' => 'required'
+            'action' => 'required',
+            'feedback' => 'nullable'
         ];
     }
 }

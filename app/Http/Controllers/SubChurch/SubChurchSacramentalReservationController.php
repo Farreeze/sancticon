@@ -70,6 +70,7 @@ class SubChurchSacramentalReservationController extends Controller
         $sr_request = SacramentalReservation::find($id);
 
         $action = $request->input('action');
+        $feedback = $request->input('feedback');
 
         if($action == "approve")
         {
@@ -77,6 +78,7 @@ class SubChurchSacramentalReservationController extends Controller
         }else if($action == "reject")
         {
             $sr_request->subchurch_approve = 0;
+            $sr_request->feedback = $feedback;
         }
 
         $sr_request->save();
