@@ -84,6 +84,7 @@ class MainChurchSacramentalReservationController extends Controller
         $requester = trim($sr_request->user->first_name . ' ' . ($sr_request->user->middle_name ?? '') . ' ' . $sr_request->user->last_name);
 
         $action = $request->input('action');
+        $feedback = $request->input('feedback');
 
         if($action == "approve")
         {
@@ -97,6 +98,7 @@ class MainChurchSacramentalReservationController extends Controller
         }else if($action == "reject")
         {
             $sr_request->status = 0;
+            $sr_request->feedback = $feedback;
 
             ActivityLog::create([
                 'user_id' => Auth::id(),

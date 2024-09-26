@@ -283,26 +283,49 @@
             "Are you sure you want to approve this reservation?" :
             "Are you sure you want to reject this reservation?";
 
-        swal({
-            title: message,
-            text: "This action cannot be undone!",
-            icon: action === 'approve' ? 'success' : 'error',
-            buttons: true,
-            dangerMode: action === 'reject',
-        })
-        .then((willConfirm) => {
-            if (willConfirm) {
-                approveBtn.disabled = true;
-                rejectBtn.disabled = true;
-                if(action == "approve"){
-                    approveBtn.textContent = "Processing...";
-                }else if(action == "reject"){
-                    rejectBtn.textContent = "Processing...";
+            swal({
+                title: message,
+                text: "This action cannot be undone!",
+                icon: action === 'approve' ? 'success' : 'error',
+                buttons: true,
+                dangerMode: action === 'reject',
+
+                content: action === 'reject' ? {
+                    element: "input",
+                    attributes: {
+                        placeholder: "Rejection feedback",
+                        type: "text",
+                        name: "rejection_reason",
+                        required: "true",
+                    },
+                } : null
+
+            })
+            .then((willConfirm) => {
+                if (willConfirm) {
+                    approveBtn.disabled = true;
+                    rejectBtn.disabled = true;
+
+                    if(action === "approve"){
+                        approveBtn.textContent = "Processing...";
+                    }else if(action === "reject"){
+                        rejectBtn.textContent = "Processing...";
+
+                        const rejectionReason = document.querySelector('input[name="rejection_reason"]').value;
+
+                        const rejectionInput = document.createElement('input');
+                        rejectionInput.type = 'hidden';
+                        rejectionInput.name = 'feedback';
+                        rejectionInput.value = rejectionReason;
+
+                        form.appendChild(rejectionInput);
+                    }
+
+                    form.querySelector('input[name="action"]').value = action;
+                    form.submit(); // Submit the form if confirmed
                 }
-                form.querySelector('input[name="action"]').value = action;
-                form.submit(); // Submit the form if confirmed
-            }
-        });
+            });
+
     }
 
     function approvedReqConfirm(ev, action, approveBtnId, rejectBtnId) {
