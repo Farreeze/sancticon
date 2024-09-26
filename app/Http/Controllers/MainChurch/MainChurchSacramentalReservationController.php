@@ -117,6 +117,7 @@ class MainChurchSacramentalReservationController extends Controller
         }else if($action == "cancel")
         {
             $sr_request->status = 3;
+            $sr_request->feedback = $feedback;
 
             ActivityLog::create([
                 'user_id' => Auth::id(),

@@ -327,6 +327,12 @@
                                                 <span class="ml-1">{{$sacramental_reservation->second_name}}</span>
                                             </div>
                                         @endif
+                                        @if ($sacramental_reservation->feedback)
+                                            <div class="mt-5">
+                                                <span class="font-bold">Feedback:</span>
+                                                <span class="ml-1">{{$sacramental_reservation->feedback}}</span>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="flex items-start">
                                         @if ($sacramental_reservation->status === null && $sacramental_reservation->subchurch_approve !== 0)

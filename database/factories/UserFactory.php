@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -35,6 +36,7 @@ class UserFactory extends Factory
             'address' => 'Tarlac City',
             'email' => 'admin@mainchurch.com',
             'mobile_number' => "09123123123",
+            'email_verified_at' => Carbon::now(),
             'password' => Hash::make('admin'),
             'remember_token' => Str::random(10),
         ];

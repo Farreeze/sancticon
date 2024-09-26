@@ -346,6 +346,16 @@
             icon: action === 'finish' ? 'success' : 'error',
             buttons: true,
             dangerMode: action === 'cancel',
+
+            content: action === 'cancel' ? {
+                    element: "input",
+                    attributes: {
+                        placeholder: "Cancellation feedback",
+                        type: "text",
+                        name: "rejection_reason",
+                        required: "true",
+                    },
+                } : null
         })
         .then((willConfirm) => {
             if (willConfirm) {
@@ -355,6 +365,15 @@
                     approveBtn.textContent = "Processing...";
                 }else if(action == "cancel"){
                     rejectBtn.textContent = "Processing...";
+
+                    const rejectionReason = document.querySelector('input[name="rejection_reason"]').value;
+
+                    const rejectionInput = document.createElement('input');
+                    rejectionInput.type = 'hidden';
+                    rejectionInput.name = 'feedback';
+                    rejectionInput.value = rejectionReason;
+
+                    form.appendChild(rejectionInput);
                 }
                 form.querySelector('input[name="action"]').value = action;
                 form.submit(); // Submit the form if confirmed
