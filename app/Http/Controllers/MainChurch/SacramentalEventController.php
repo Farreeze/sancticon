@@ -95,4 +95,17 @@ class SacramentalEventController extends Controller
     {
         //
     }
+
+    public function showCalendar()
+{
+    $events = SacramentalReservation::all()->map(function($event) {
+        return [
+            'title' => $event->sacrament->desc,
+            'start' => $event->date,
+        ];
+    });
+
+    return view('MainChurch.sacramental-events-calendar', ['events' => $events]);
+}
+
 }

@@ -27,9 +27,14 @@
         <div class="w-full md:w-[80%] lg:w-[80%] md:ml-5 lg:ml-5 mt-3 md:mt-0 lg:mt-0 bg-white rounded-lg p-5 shadow-lg">
             <div class="max-h-screen overflow-y-auto">
                 <div class="flex items-center sticky top-0 bg-white z-10">
-                    <div class="flex items-center">
-                        <h1 class="font-bold text-2xl text-gray-700 mr-3">Sacramental Calendar</h1>
-                        <a class="px-4 py-2 bg-secondary hover:bg-secondary_hover text-white rounded-lg shadow-sm" href="{{ route('sacramental-events-form.show') }}">+ Sacramental Event</a>
+                    <div class="flex w-full justify-between flex-wrap">
+                        <div class="flex items-center flex-wrap">
+                            <h1 class="font-bold text-2xl text-gray-700 mr-3">Sacramental Calendar</h1>
+                            <a class="px-4 py-2 bg-secondary hover:bg-secondary_hover text-white rounded-lg shadow-sm" href="{{ route('sacramental-events-form.show') }}">+ Sacramental Event</a>
+                        </div>
+                        <div class="flex items-center">
+                            <a href="{{route('sacramental-events-calendar.show')}}" class="px-4 py-2 bg-secondary hover:bg-secondary_hover text-white rounded-lg shadow-sm">Calendar View</a>
+                        </div>
                     </div>
                 </div>
                 <div class="w-full mt-5 flex flex-col">

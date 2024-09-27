@@ -122,6 +122,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/sacramental-events', [SacramentalEventController::class, 'index'])->name('sacramental-events.show');
         Route::get('/sacramental-events-form', [SacramentalEventController::class, 'create'])->name('sacramental-events-form.show');
         Route::post('/sacramental-events-add', [SacramentalEventController::class, 'store'])->name('sacramental-events-form.submit');
+        Route::get('/calendar', [SacramentalEventController::class, 'showCalendar'])->name('sacramental-events-calendar.show');
+
 
         //Main church certificates
         Route::get('/main-church/certificates', [MainChurchCertificateController::class, 'index'])->name('mainchurch-certificates.show');
