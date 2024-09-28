@@ -36,6 +36,13 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $user = Auth::user();
 
+    if($user->superadmin)
+    {
+        $users = User::where('user', 1)->paginate(1);
+
+        return view('dashboard', ['users'=>$users]);
+    }
+
     if($user->main_church)
     {
         $churches = User::where('sub_church', 1)->get();

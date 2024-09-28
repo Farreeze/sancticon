@@ -50,6 +50,35 @@
         </div>
         <div class="w-full md:ml-5 lg:ml-5 mt-3 md:mt-0 lg:mt-0 bg-white rounded-lg p-5 shadow-lg">
 
+            @if (Auth::user()->superadmin == 1)
+                <div class="w-full">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="text-start">
+                                <th class="text-start">Name</th>
+                                <th class="text-start">Email</th>
+                                <th class="text-start">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{-- do foreach here --}}
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td class="text-start">
+                                        {{ $user->first_name }} {{ $user->middle_name ? $user->middle_name : '' }} {{ $user->last_name }}
+                                    </td>
+                                    <td class="text-start">{{$user->email}}</td>
+                                    <td class="text-start">
+                                        <p>test</p>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    {{$users->links('pagination::bootstrap-5')}}
+                </div>
+            @endif
+
             {{-- main church dashboard --}}
             @if (Auth::user()->main_church == 1)
                 <div class="w-full">
@@ -371,6 +400,7 @@
                     @endforeach
                 </div>
             @endif
+
         </div>
     </div>
 
