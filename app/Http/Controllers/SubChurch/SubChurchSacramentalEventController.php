@@ -90,4 +90,16 @@ class SubChurchSacramentalEventController extends Controller
 
         return back()->with('sub-church-cancel-reservation', 'Reservation Cancelled');
     }
+
+    public function showCalendar()
+    {
+        $events = SacramentalReservation::all()->map(function($event) {
+            return [
+                'title' => $event->sacrament->desc,
+                'start' => $event->date,
+            ];
+        });
+
+        return view('SubChurch.subchurch-sacramental-events-calendar', ['events' => $events]);
+    }
 }

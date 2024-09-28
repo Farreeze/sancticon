@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->boolean('superadmin');
             $table->boolean('main_church');
             $table->boolean('sub_church');
             $table->boolean('user');

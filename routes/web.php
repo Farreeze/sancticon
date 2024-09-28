@@ -157,6 +157,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/sub-church-sacramental-events', [SubChurchSacramentalEventController::class, 'index'])->name('sub-church-sacramental-events.show');
         Route::get('/sub-church-sacramental-event-form', [SubChurchSacramentalEventController::class, 'create'])->name('sub-church-sacramental-event-form.show');
         Route::post('/sub-church-sacramental-event-submit', [SubChurchSacramentalEventController::class, 'store'])->name('sub-church-sacramental-event-form.submit');
+        Route::get('/sub-church-sacramental-event-calendar', [SubChurchSacramentalEventController::class, 'showCalendar'])->name('sub-church-sacramental-event-calendar');
 
         //certificate
         Route::get('/sub-church/certificates', [SubChurchCertificateController::class, 'index'])->name('sub-church-certificates.show');

@@ -26,7 +26,10 @@
         <div class="w-full md:w-[80%] lg:w-[80%] md:ml-5 lg:ml-5 mt-3 md:mt-0 lg:mt-0 bg-white rounded-lg p-5 shadow-lg">
             <div class="max-h-screen overflow-y-auto">
                 <div class="flex items-center sticky top-0 bg-white z-10">
-                    <h1 class="font-bold text-2xl text-gray-700">Sacramental Calendar</h1>
+                    <div class="w-full flex justify-between items-center">
+                        <h1 class="font-bold text-2xl text-gray-700">Sacramental Calendar</h1>
+                        <a href="{{route('sub-church-sacramental-event-calendar')}}" class="px-4 py-2 bg-secondary hover:bg-secondary_hover text-white rounded-lg shadow-sm">Calendar View</a>
+                    </div>
                 </div>
                 <div class="w-full mt-5 flex flex-col">
 
