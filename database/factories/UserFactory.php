@@ -26,6 +26,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
+            'superadmin' => 1,
             'main_church' => 1,
             'sub_church' => 0,
             'user' => 0,
@@ -45,6 +46,7 @@ class UserFactory extends Factory
     public function AsturiasChurch()
     {
         return $this->state(fn (array $attributes) => [
+            'superadmin' => 1,
             'main_church' => 0,
             'sub_church' => 1,
             'user' => 0,
@@ -63,6 +65,7 @@ class UserFactory extends Factory
     public function BantogChurch()
     {
         return $this->state(fn (array $attributes) => [
+            'superadmin' => 1,
             'main_church' => 0,
             'sub_church' => 1,
             'user' => 0,
@@ -81,6 +84,7 @@ class UserFactory extends Factory
     public function CutCutChurch()
     {
         return $this->state(fn (array $attributes) => [
+            'superadmin' => 1,
             'main_church' => 0,
             'sub_church' => 1,
             'user' => 0,
@@ -99,6 +103,7 @@ class UserFactory extends Factory
     public function LourdesChurch()
     {
         return $this->state(fn (array $attributes) => [
+            'superadmin' => 1,
             'main_church' => 0,
             'sub_church' => 1,
             'user' => 0,
@@ -117,6 +122,7 @@ class UserFactory extends Factory
     public function BaleteChurch()
     {
         return $this->state(fn (array $attributes) => [
+            'superadmin' => 1,
             'main_church' => 0,
             'sub_church' => 1,
             'user' => 0,
@@ -135,6 +141,7 @@ class UserFactory extends Factory
     public function DPCHChurch()
     {
         return $this->state(fn (array $attributes) => [
+            'superadmin' => 1,
             'main_church' => 0,
             'sub_church' => 1,
             'user' => 0,
@@ -153,6 +160,7 @@ class UserFactory extends Factory
     public function MapalacsiaoChurch()
     {
         return $this->state(fn (array $attributes) => [
+            'superadmin' => 1,
             'main_church' => 0,
             'sub_church' => 1,
             'user' => 0,
@@ -171,6 +179,7 @@ class UserFactory extends Factory
     public function NormalUser()
     {
         return $this->state(fn (array $attributes) => [
+            'superadmin' => 1,
             'main_church' => 0,
             'sub_church' => 0,
             'user' => 1,
@@ -191,6 +200,7 @@ class UserFactory extends Factory
     public function NormalUserOne()
     {
         return $this->state(fn (array $attributes) => [
+            'superadmin' => 1,
             'main_church' => 0,
             'sub_church' => 0,
             'user' => 1,
@@ -202,6 +212,27 @@ class UserFactory extends Factory
             'gender' => 1,
             'address' => 'another test address',
             'email' => 'user1@example.com',
+            'mobile_number' => "09123456789",
+            'password' => Hash::make('test'),
+            'remember_token' => Str::random(10),
+        ]);
+    }
+
+    public function SuperadminUser()
+    {
+        return $this->state(fn (array $attributes) => [
+            'superadmin' => 1,
+            'main_church' => 0,
+            'sub_church' => 0,
+            'user' => 0,
+            'church_name' => null,
+            'first_name' => 'SUPERADMIN',
+            'last_name' => 'SUPERADMIN',
+            'middle_name' => 'SUPERADMIN',
+            'suffix_name' => null,
+            'gender' => 1,
+            'address' => 'SUPERADMIN',
+            'email' => 'superadmin@superadmin.com',
             'mobile_number' => "09123456789",
             'password' => Hash::make('test'),
             'remember_token' => Str::random(10),

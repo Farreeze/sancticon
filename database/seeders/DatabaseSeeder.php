@@ -30,5 +30,6 @@ class DatabaseSeeder extends Seeder
         User::factory()->MapalacsiaoChurch()->create();
         User::factory()->NormalUser()->create();
         User::factory()->NormalUserOne()->create();
+        User::factory()->SuperadminUser()->create();
     }
 }
