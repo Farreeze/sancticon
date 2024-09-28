@@ -33,6 +33,9 @@
                     <img class="h-24 w-24" src="/images/church-default-dp.png" alt="">
                 </div>
                 <div class="flex justify-center mt-3">
+                    @if (Auth::user()->superadmin == 1)
+                        <span class="font-bold text-gray-700">{{Auth::user()->first_name}}</span>
+                    @endif
                     @if (Auth::user()->user == 1)
                         <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
                     @endif
@@ -75,7 +78,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="w-full">
+                    <div class="w-full mt-5">
                         {{$users->links()}}
                     </div>
                 </div>
