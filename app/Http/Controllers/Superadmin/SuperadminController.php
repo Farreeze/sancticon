@@ -71,7 +71,11 @@ class SuperadminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return back()->with('success', 'User deleted successfully.');
     }
 
     public function search(SearchRequest $request)
