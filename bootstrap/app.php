@@ -2,6 +2,7 @@
 
 use App\Http\Middleware\CheckMainChurch;
 use App\Http\Middleware\CheckSubChurch;
+use App\Http\Middleware\CheckSuperadmin;
 use App\Http\Middleware\CheckUser;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -19,6 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'main-church' => CheckMainChurch::class,
             'sub-church' => CheckSubChurch::class,
             'user' => CheckUser::class,
+            'superadmin' => CheckSuperadmin::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

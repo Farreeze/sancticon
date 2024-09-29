@@ -55,29 +55,49 @@
 
             @if (Auth::user()->superadmin == 1)
                 <div class="w-full">
-                    <table class="w-full">
-                        <thead>
-                            <tr class="text-start">
-                                <th class="text-start">Name</th>
-                                <th class="text-start">Email</th>
-                                <th class="text-start">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{-- do foreach here --}}
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td class="text-start">
-                                        {{ $user->first_name }} {{ $user->middle_name ? $user->middle_name : '' }} {{ $user->last_name }}
-                                    </td>
-                                    <td class="text-start">{{$user->email}}</td>
-                                    <td class="text-start">
-                                        <p>test</p>
-                                    </td>
+                    <div class="flex items-center">
+                        <div class="w-full flex justify-between items-center mb-5 flex-wrap">
+                            <h1 class="font-bold text-2xl text-gray-700">Users</h1>
+                            <div>
+                                <form method="GET" action="{{route('user.search')}}">
+                                    @csrf
+                                    <input class="rounded-lg border-gray-300" type="text" name="text" id="" placeholder="Search keyword" required>
+                                    <button class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-white ml-1" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full overflow-auto">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead class="bg-gray-300">
+                                <tr class="text-start">
+                                    <th class="text-start px-4 py-2 border border-gray-300">Name</th>
+                                    <th class="text-start px-4 py-2 border border-gray-300">Email</th>
+                                    <th class="text-start px-4 py-2 border border-gray-300">Action</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($users as $user)
+                                    <tr class="bg-gray-50 hover:bg-gray-100">
+                                        <td class="text-start px-4 py-2 border border-gray-300">
+                                            {{ $user->first_name }} {{ $user->middle_name ?? '' }} {{ $user->last_name }}
+                                        </td>
+                                        <td class="text-start px-4 py-2 border border-gray-300">{{ $user->email }}</td>
+                                        <td class="text-start px-4 py-2 border border-gray-300">
+                                            <div class="flex flex-wrap">
+                                                <a class="bg-gray-800 mx-1 px-2 py-1 text-white rounded-lg hover:bg-gray-700" href="{{route('user-profile.show', $user->id)}}">View</a>
+                                                <a class="bg-yellow-500 mx-1 px-2 py-1 text-white rounded-lg hover:bg-yellow-700" href="{{route('edit-user-profile.show', $user->id)}}">Update</a>
+                                                <form method="POST" action="#">
+                                                    @csrf
+                                                    <button class="bg-red-500 mx-1 px-2 py-1 text-white rounded-lg hover:bg-red-700">Delete</button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="w-full mt-5">
                         {{$users->links()}}
                     </div>

@@ -18,6 +18,7 @@ use App\Http\Controllers\SubChurch\SubChurchNewsAndAnnouncementController;
 use App\Http\Controllers\SubChurch\SubChurchPriestController;
 use App\Http\Controllers\SubChurch\SubChurchSacramentalEventController;
 use App\Http\Controllers\SubChurch\SubChurchSacramentalReservationController;
+use App\Http\Controllers\Superadmin\SuperadminController;
 use App\Http\Controllers\User\ReservationController;
 use App\Http\Controllers\User\UserCertificateController;
 use App\Http\Controllers\User\UserEventController;
@@ -38,7 +39,7 @@ Route::get('/dashboard', function () {
 
     if($user->superadmin)
     {
-        $users = User::where('user', 1)->paginate(1);
+        $users = User::where('user', 1)->paginate(15);
 
         return view('dashboard', ['users'=>$users]);
     }
@@ -191,6 +192,13 @@ Route::middleware('auth')->group(function () {
 
         //PDF GENERATION
         Route::get('/generate/certificate/{id}', [UserCertificateController::class, 'GenerateCertificate'])->name('certificate.generate');
+    });
+
+    Route::middleware(['superadmin'])->group(function(){
+        Route::get('/user-profile/{id}', [SuperadminController::class, 'show'])->name('user-profile.show');
+        Route::get('/edit-user-profile/{id}', [SuperadminController::class, 'edit'])->name('edit-user-profile.show');
+        Route::put('/update-user-profile/{id}', [SuperadminController::class, 'update'])->name('user-profile.update');
+        Route::get('/user/search', [SuperadminController::class, 'search'])->name('user.search');
     });
 
 });
