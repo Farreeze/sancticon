@@ -98,7 +98,8 @@ class SacramentalEventController extends Controller
 
     public function showCalendar()
     {
-        $events = SacramentalReservation::all()->map(function($event) {
+
+        $events = SacramentalReservation::where('status', 1)->get()->map(function($event) {
             return [
                 'title' => $event->sacrament->desc,
                 'start' => $event->date,
