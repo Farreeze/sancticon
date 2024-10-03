@@ -58,8 +58,11 @@
                                 <input name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter title" required>
                             </div>
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Photo:</label>
-                                <input name="image" class="border-gray-300 w-full mt-2" type="file">
+                                <label class="font-bold" for="church_name">Photo: (2MB max)</label>
+                                @if ($errors->has('image'))
+                                    <span class="text-red-600">{{ $errors->first('image') }}</span>
+                                @endif
+                                <input name="image" class="border-gray-300 w-full mt-2" type="file" accept="image/*">
                             </div>
                             <div class="w-full mt-5">
                                 <button id="submit-btn" class="w-full bg-gray-500 text-white rounded-lg px-3 py-2 hover:bg-gray-700" type="submit">Submit</button>

@@ -14,7 +14,6 @@ class BarangaySeeder extends Seeder
     public function run(): void
     {
         LibBarangay::upsert([
-            ['id' => '1', 'desc' => 'Tarlac City'],
             ['id' => '2', 'desc' => 'Asturias'],
             ['id' => '3', 'desc' => 'Bantog'],
             ['id' => '4', 'desc' => 'Cut-cut'],

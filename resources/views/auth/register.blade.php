@@ -39,7 +39,7 @@
         <div class="mt-4 text-gray-700">
             <x-input-label for="Sex" :value="__('Sex *')" />
             <select class="w-full rounded-md border-gray-300 shadow-sm" name="gender" id="" required>
-                <option value="" selected disabled>Select gender</option>
+                <option value="" selected disabled>Select sex</option>
                 @foreach ($genders as $gender)
                     <option value="{{ $gender->id }}">{{ $gender->desc }}</option>
                 @endforeach
