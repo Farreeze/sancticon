@@ -77,6 +77,9 @@
                         <x-nav-link :href="route('user-certificate.show')" :active="request()->routeIs('user-certificate.show')">
                             {{ __('Certificates') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('sacramental-calendar.show')" :active="request()->routeIs('sacramental-calendar.show')">
+                            {{ __('Sacramental Calendar') }}
+                        </x-nav-link>
                     @endif
                 </div>
             </div>
@@ -198,6 +201,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('user-certificate.show')" :active="request()->routeIs('user-certificate.show')">
                     {{ __('Certificates') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('sacramental-calendar.show')" :active="request()->routeIs('sacramental-calendar.show')">
+                    {{ __('Sacramental Calendar') }}
                 </x-responsive-nav-link>
             @endif
 

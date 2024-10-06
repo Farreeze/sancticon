@@ -24,6 +24,7 @@ use App\Http\Controllers\User\UserCertificateController;
 use App\Http\Controllers\User\UserEventController;
 use App\Http\Controllers\User\UserNewsAndAnnouncementsController;
 use App\Http\Controllers\User\UserPriestController;
+use App\Http\Controllers\User\UserSacramentalEventController;
 use App\Models\ActivityLog;
 use App\Models\SacramentalReservation;
 use App\Models\User;
@@ -192,6 +193,9 @@ Route::middleware('auth')->group(function () {
 
         //PDF GENERATION
         Route::get('/generate/certificate/{id}', [UserCertificateController::class, 'GenerateCertificate'])->name('certificate.generate');
+
+        //SACRAMENTAL EVENTS
+        Route::get('/user-sacramental-calendar', [UserSacramentalEventController::class, 'showCalendar'])->name('sacramental-calendar.show');
     });
 
     Route::middleware(['superadmin'])->group(function(){
