@@ -22,7 +22,7 @@ class AddPriestRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'church_id' => 'required',
+            // 'church_id' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'suffix_name' => 'nullable',

@@ -44,7 +44,7 @@
                                     @endforeach
                                 </Select>
                             </div>
-                            <div class="mt-3">
+                            {{-- <div class="mt-3">
                                 <span class="text-gray-700 ml-1 font-bold">Church:</span>
                                 <select class="w-full rounded-lg border-gray-300 mt-2" name="church_id" id="" required>
                                     <option value="" selected disabled>Select Church</option>
@@ -52,7 +52,7 @@
                                         <option value="{{ $church->id }}">{{$church->church_name}}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Title:</label>
                                 <input name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter title" required>
