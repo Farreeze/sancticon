@@ -109,8 +109,8 @@
             @if (Auth::user()->main_church == 1)
                 <div class="w-full">
                     <div class="flex items-center">
-                        <h1 class="font-bold text-2xl text-gray-700">Churches</h1>
-                        <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('add-church-form.show')}}">+ Church</a>
+                        <h1 class="font-bold text-2xl text-gray-700">Chapels</h1>
+                        <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('add-church-form.show')}}">+ Chapel</a>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full border border-gray-300 rounded-lg overflow-hidden mt-5">

@@ -17,7 +17,7 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-600">
-                    <h1 class="font-bold text-2xl">Add Church</h1>
+                    <h1 class="font-bold text-2xl">Add Chapel</h1>
                     <div class="w-full">
                         <form action="{{route('add-church')}}" method="POST" onsubmit="disableButton()">
                             @csrf
