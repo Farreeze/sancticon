@@ -47,7 +47,7 @@
                             <div id="participant-section"></div>
                             <div class="w-full mt-3">
                                 <span class="text-gray-700 ml-1">Date:*</span>
-                                <input class="w-full rounded-lg border-gray-300" type="date" name="date" id="" required>
+                                <input min="<?= date('Y-m-d', strtotime('+1 day')) ?>" class="w-full rounded-lg border-gray-300" type="date" name="date" id="" required>
                             </div>
                             <div class="w-full mt-3">
                                 <span class="text-gray-700 ml-1">Start Time:*</span>

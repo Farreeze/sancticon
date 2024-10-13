@@ -50,7 +50,7 @@
                                     </div>
 
                                     <p class="mt-1 font-bold text-md text-gray-700">{{$priest->title}}</p>
-                                    <p class="mt-1 font-bold text-md text-gray-700">{{$priest->church->church_name}}</p>
+                                    {{-- <p class="mt-1 font-bold text-md text-gray-700">{{$priest->church->church_name}}</p> --}}
                                 </div>
                             </div>
                         @endforeach

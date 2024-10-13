@@ -51,7 +51,7 @@
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Event Date:</label>
-                                <input value="{{$event->date}}" name="date" class="rounded-lg border-gray-300 w-full mt-2" type="date" required>
+                                <input min="<?= date('Y-m-d', strtotime('+1 day')) ?>" value="{{$event->date}}" name="date" class="rounded-lg border-gray-300 w-full mt-2" type="date" required>
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Start Time:</label>
