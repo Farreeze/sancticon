@@ -114,6 +114,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/events', [EventController::class, 'index'])->name('church-events.show');
         Route::get('/add-event-form', [EventController::class, 'create'])->name('add-event-form.show');
         Route::post('/add-event', [EventController::class, 'store'])->name('add-event');
+        Route::get('/event-edit/{id}', [EventController::class, 'edit'])->name('edit-form.show');
+        Route::put('/event-update/{id}', [EventController::class, 'update'])->name('event.update');
         Route::patch('/event-finished/{id}', [EventController::class, 'finishEvent'])->name('finish-event');
         Route::delete('/delete-event/{id}', [EventController::class, 'destroy'])->name('delete-event');
 

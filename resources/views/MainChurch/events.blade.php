@@ -59,6 +59,7 @@
                                         <div class="mb-1 flex justify-between flex-wrap">
                                             <h1 class="text-gray-700 font-bold text-xl">{{ $event->title }}</h1>
                                             <div class="flex">
+                                                <a class="mr-3 px-4 py-2 bg-yellow-600 hover:bg-yellow-700 rounded-lg text-white" href="{{route('edit-form.show', $event->id)}}">Edit</a>
                                                 <form class="mr-3" id="delete_form" action="{{ route('delete-event', $event->id) }}" method="POST">
                                                     @csrf
                                                     @method('delete')

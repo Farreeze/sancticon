@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\AddEventRequest;
+use App\Http\Requests\MainChurch\UpdateEventRequest;
 use App\Models\ActivityLog;
 use App\Models\ChurchEvent;
 use App\Models\LibSacrament;
@@ -69,15 +70,24 @@ class EventController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $event = ChurchEvent::where('id', $id)->first();
+
+        $sacraments = LibSacrament::all();
+
+        return view('MainChurch.edit-event-form', ['event'=>$event, 'sacraments'=>$sacraments]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateEventRequest $request, string $id)
     {
+        $validatedReq = $request->validated();
 
+        $event = ChurchEvent::findOrFail($id);
+        $event->update($validatedReq);
+
+        return back()->with('update-message', 'Event Updated Successfully');
     }
 
     /**
