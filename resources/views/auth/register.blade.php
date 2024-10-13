@@ -4,6 +4,7 @@
         {{-- form requirements --}}
         <input type="hidden" name="main_church" value="0">
         <input type="hidden" name="sub_church" value="0">
+        <input type="hidden" name="superadmin" value="0">
         <input type="hidden" name="user" value="1">
         <!-- Name -->
         <p class="mb-3 text-gray-500">Fields with * are required</p>
@@ -58,7 +59,7 @@
             </select>
         </div>
 
-        <div id="additional_address_div" class="hidden flex-col mt-4 text-gray-700">
+        {{-- <div id="additional_address_div" class="hidden flex-col mt-4 text-gray-700">
             <x-input-label for="Address" :value="__('Address *')" />
             <select class="mt-2 w-full rounded-md border-gray-300 shadow-sm" id="region"></select>
             <input type="hidden" name="region_text" id="region-text">
@@ -73,6 +74,11 @@
             <input type="hidden" name="barangay_text" id="barangay-text">
 
             <input name="address" type="hidden" id="full-address">
+        </div> --}}
+
+        <div id="additional_address_div" class="hidden flex-col mt-4 text-gray-700">
+            <x-input-label for="Address" :value="__('Address *')" />
+            <textarea placeholder="Region, Province, City, Barangay, House No." name="address" cols="30" rows="4" class="w-full rounded-md border-gray-300 shadow-sm mt-2"></textarea>
         </div>
 
 
@@ -123,10 +129,27 @@
             </x-primary-button>
         </div>
     </form>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/js/ph-address-selector.js"></script>
 
     <script>
+        const fixedAddressSelect = document.getElementById('fixed_address_select');
+        const additionalAddressDiv = document.getElementById('additional_address_div');
+        const additionalTextarea = document.getElementById('additional_address_textarea');
+
+        fixedAddressSelect.addEventListener('change', function () {
+            if (this.value === 'other') {
+                additionalAddressDiv.classList.remove('hidden');
+                additionalTextarea.setAttribute('required', 'required');
+            } else {
+                additionalAddressDiv.classList.add('hidden');
+                additionalTextarea.removeAttribute('required');
+            }
+        });
+    </script>
+
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/ph-address-selector.js"></script> --}}
+
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const regionSelect = document.getElementById('region');
             const provinceSelect = document.getElementById('province');
@@ -157,9 +180,9 @@
             updateFullAddress();
         });
 
-    </script>
+    </script> --}}
 
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function () {
             const fixedAddressSelect = document.getElementById('fixed_address_select');
             const additionalAddressDiv = document.getElementById('additional_address_div');
@@ -189,7 +212,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
 
 

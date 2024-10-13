@@ -38,6 +38,7 @@ class RegisteredUserController extends Controller
         $validatedData = $request->validate([
             'main_church' => ['boolean'],
             'sub_church' => ['boolean'],
+            'superadmin' => ['boolean'],
             'user' => ['boolean'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
@@ -59,6 +60,7 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'main_church' => $validatedData['main_church'],
             'sub_church' => $validatedData['sub_church'],
+            'superadmin' => $validatedData['superadmin'],
             'user' => $validatedData['user'],
             'first_name' => $validatedData['first_name'],
             'last_name' => $validatedData['last_name'],
