@@ -25,8 +25,8 @@
                 </div>
 
                 <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 class="text-gray-700 font-bold text-xl w-full text-center">ANOINTING OF THE SICK</h2>
-                    <p class="mt-1">
+                    <h2 id="anointingofthesick" class="text-gray-700 font-bold text-xl w-full text-center">ANOINTING OF THE SICK</h2>
+                    <p class="mt-3 text-center p-10 text-lg">
                         Anointing of the Sick is a Catholic sacrament for those seriously ill or
                          near death. It involves a priest anointing the person with blessed oil,
                           offering prayers for healing, strength, and peace. It provides spiritual
@@ -35,8 +35,8 @@
                 </div>
 
                 <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 class="text-gray-700 font-bold text-xl w-full text-center">BAPTISM</h2>
-                    <p class="mt-1">
+                    <h2 id="baptism" class="text-gray-700 font-bold text-xl w-full text-center">BAPTISM</h2>
+                    <p class="mt-3 text-center p-10 text-lg">
                         Baptism is a sacrament of the Catholic Church that uses water
                          to wash away original sin and initiate a person into the Christian
                           faith. It signifies spiritual rebirth and the beginning of a lifelong
@@ -45,8 +45,8 @@
                 </div>
 
                 <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 class="text-gray-700 font-bold text-xl w-full text-center">EUCHARIST</h2>
-                    <p class="mt-1">
+                    <h2 id="eucharist" class="text-gray-700 font-bold text-xl w-full text-center">EUCHARIST</h2>
+                    <p class="mt-3 text-center p-10 text-lg">
                         Eucharist is a Catholic sacrament where bread and wine are consecrated
                          and received as the body and blood of Christ. It commemorates the Last
                           Supper and provides spiritual nourishment, uniting believers with Christ
@@ -55,8 +55,8 @@
                 </div>
 
                 <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 class="text-gray-700 font-bold text-xl w-full text-center">CONFIRMATION</h2>
-                    <p class="mt-1">
+                    <h2 id="confirmation" class="text-gray-700 font-bold text-xl w-full text-center">CONFIRMATION</h2>
+                    <p class="mt-3 text-center p-10 text-lg">
                         Confirmation is a Catholic sacrament that strengthens
                          and deepens the grace received at Baptism. It involves
                           the anointing with chrism oil and the laying on of hands
@@ -66,8 +66,8 @@
                 </div>
 
                 <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 class="text-gray-700 font-bold text-xl w-full text-center">HOLY ORDERS</h2>
-                    <p class="mt-1">
+                    <h2 id="holyorders" class="text-gray-700 font-bold text-xl w-full text-center">HOLY ORDERS</h2>
+                    <p class="mt-3 text-center p-10 text-lg">
                         Holy Orders is a Catholic sacrament through which men are ordained
                          as deacons, priests, or bishops. It involves the laying on of
                           hands and a consecratory prayer, conferring the authority and
@@ -76,8 +76,8 @@
                 </div>
 
                 <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 class="text-gray-700 font-bold text-xl w-full text-center">CONFESSION</h2>
-                    <p class="mt-1">
+                    <h2 id="confession" class="text-gray-700 font-bold text-xl w-full text-center">CONFESSION</h2>
+                    <p class="mt-3 text-center p-10 text-lg">
                         Confession, or the Sacrament of Reconciliation, is a Catholic
                          sacrament where a person confesses their sins to a priest,
                           receives absolution, and is forgiven. It restores the penitent's
@@ -87,8 +87,8 @@
                 </div>
 
                 <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 class="text-gray-700 font-bold text-xl w-full text-center">MATRIMONY</h2>
-                    <p class="mt-1">
+                    <h2 id="matrimony" class="text-gray-700 font-bold text-xl w-full text-center">MATRIMONY</h2>
+                    <p class="mt-3 text-center p-10 text-lg">
                         Matrimony is a Catholic sacrament that unites a man and
                          woman in a lifelong, faithful, and loving marriage. It involves
                           mutual consent and commitment, and is a sign of Christ's love
