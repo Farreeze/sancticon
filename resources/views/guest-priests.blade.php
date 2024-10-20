@@ -14,13 +14,13 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased bg-gray-100">
+    <body class="font-sans text-gray-900 antialiased bg-no-repeat bg-cover bg-center min-h-screen" style="background-image: url('/images/bg/bg1.jpg');">
         @include('layouts.guest-navigation')
 
         <div class="w-full p-7">
-            <div class="w-full p-5 bg-white rounded-lg shadow-md">
+            <div class="w-full p-5 bg-white bg-opacity-40 rounded-lg shadow-md">
                 <div>
-                    <h2 class="font-bold text-2xl text-gray-700">Priests</h2>
+                    <h2 class="font-bold text-2xl text-white">Priests</h2>
                 </div>
                 @foreach ($priests as $priest)
                     <div class="mt-3 w-full bg-gray-300 rounded-lg p-5">
@@ -33,16 +33,16 @@
                             @endif
 
                             <div class="flex">
-                                <p class="text-lg text-gray-700 font-bold mr-1">{{ $priest->first_name }}</p>
-                                <p class="text-lg text-gray-700 font-bold mr-1">{{ $priest->middle_name }}</p>
-                                <p class="text-lg text-gray-700 font-bold mr-1">{{ $priest->last_name }}</p>
+                                <p class="text-lg text-white font-bold mr-1">{{ $priest->first_name }}</p>
+                                <p class="text-lg text-white font-bold mr-1">{{ $priest->middle_name }}</p>
+                                <p class="text-lg text-white font-bold mr-1">{{ $priest->last_name }}</p>
                                 @if ($priest->suffix_name != 10 && $priest->suffix_name != null)
-                                    <p class="text-lg text-gray-700 font-bold mr-1">{{ $priest->suffix->desc }}</p>
+                                    <p class="text-lg text-white font-bold mr-1">{{ $priest->suffix->desc }}</p>
                                 @endif
                             </div>
 
-                            <p class="mt-1 font-bold text-md text-gray-700">{{$priest->title}}</p>
-                            {{-- <p class="mt-1 font-bold text-md text-gray-700">{{$priest->church->church_name}}</p> --}}
+                            <p class="mt-1 font-bold text-md text-white">{{$priest->title}}</p>
+                            {{-- <p class="mt-1 font-bold text-md text-white">{{$priest->church->church_name}}</p> --}}
                         </div>
                     </div>
                 @endforeach

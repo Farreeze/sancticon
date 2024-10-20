@@ -14,17 +14,18 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <body class="font-sans text-gray-900 antialiased bg-no-repeat bg-cover bg-center" style="background-image: url('/images/bg/bg1.jpg');">
         @include('layouts.guest-navigation')
 
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+
             <div>
                 <a href="/">
-                    <img class="h-32" src="/images/icon.png" alt="">
+                    <img class="h-62" src="/images/icon.png" alt="">
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg mb-3">
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white opacity-80 shadow-md overflow-hidden sm:rounded-lg mb-3">
                 {{ $slot }}
             </div>
         </div>

@@ -14,23 +14,23 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased bg-gray-100">
+    <body class="font-sans text-gray-900 antialiased bg-no-repeat bg-cover bg-center min-h-screen" style="background-image: url('/images/bg/bg1.jpg');">
         @include('layouts.guest-navigation')
 
         <div class="w-full p-7">
-            <div class="w-full p-5 bg-white rounded-lg shadow-md">
+            <div class="w-full p-5 bg-white bg-opacity-40 rounded-lg shadow-md">
                 <div>
-                    <h2 class="w-full text-center font-bold text-2xl text-gray-700">Contact Us</h2>
+                    <h2 class="w-full text-center font-bold text-2xl text-white">Contact Us</h2>
                 </div>
 
                 <div class="w-full flex flex-col items-center">
                     @foreach ($churches as $church)
-                        <div class="w-full bg-gray-300 rounded-lg shadow-md p-5 mt-3 text-center">
-                            <h2 class="text-gray-700 font-bold text-2xl">{{$church->church_name}}</h2>
-                            <p class="font-bold text-lg text-gray-700 mt-5">Church Email</p>
-                            <p>{{$church->email}}</p>
-                            <p class="font-bold text-lg text-gray-700 mt-3">Church Phone</p>
-                            <p>{{$church->mobile_number}}</p>
+                        <div class="w-full bg-white bg-opacity-20 rounded-lg shadow-md p-5 mt-3 text-center">
+                            <h2 class="text-white font-bold text-2xl">{{$church->church_name}}</h2>
+                            <p class="font-bold text-lg text-white mt-5">Church Email</p>
+                            <p class="text-white">{{$church->email}}</p>
+                            <p class="font-bold text-lg text-white mt-3">Church Phone</p>
+                            <p class="text-white">{{$church->mobile_number}}</p>
                         </div>
                     @endforeach
                 </div>

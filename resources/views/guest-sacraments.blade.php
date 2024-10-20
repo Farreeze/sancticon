@@ -14,19 +14,19 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased bg-gray-100">
+    <body class="font-sans text-gray-900 antialiased bg-no-repeat bg-cover bg-center min-h-screen" style="background-image: url('/images/bg/bg1.jpg');">
         @include('layouts.guest-navigation')
 
         <div class="w-full p-7">
 
-            <div class="w-full p-5 bg-white rounded-lg shadow-md">
+            <div class="w-full p-5 bg-white bg-opacity-40 rounded-lg shadow-md">
                 <div>
-                    <h2 class="w-full text-center font-bold text-2xl text-gray-700">Sacraments</h2>
+                    <h2 class="w-full text-center font-bold text-2xl text-white">Sacraments</h2>
                 </div>
 
-                <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 id="anointingofthesick" class="text-gray-700 font-bold text-xl w-full text-center">ANOINTING OF THE SICK</h2>
-                    <p class="mt-3 text-center p-10 text-lg">
+                <div class="w-full rounded-lg shadow-md bg-white bg-opacity-20 mt-5">
+                    <h2 id="anointingofthesick" class="text-white font-bold text-xl w-full text-center">ANOINTING OF THE SICK</h2>
+                    <p class="mt-3 text-center p-10 text-lg text-white">
                         Anointing of the Sick is a Catholic sacrament for those seriously ill or
                          near death. It involves a priest anointing the person with blessed oil,
                           offering prayers for healing, strength, and peace. It provides spiritual
@@ -34,9 +34,9 @@
                     </p>
                 </div>
 
-                <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 id="baptism" class="text-gray-700 font-bold text-xl w-full text-center">BAPTISM</h2>
-                    <p class="mt-3 text-center p-10 text-lg">
+                <div class="w-full rounded-lg shadow-md bg-white bg-opacity-20 mt-5">
+                    <h2 id="baptism" class="text-white font-bold text-xl w-full text-center">BAPTISM</h2>
+                    <p class="mt-3 text-center p-10 text-lg text-white">
                         Baptism is a sacrament of the Catholic Church that uses water
                          to wash away original sin and initiate a person into the Christian
                           faith. It signifies spiritual rebirth and the beginning of a lifelong
@@ -44,9 +44,9 @@
                     </p>
                 </div>
 
-                <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 id="eucharist" class="text-gray-700 font-bold text-xl w-full text-center">EUCHARIST</h2>
-                    <p class="mt-3 text-center p-10 text-lg">
+                <div class="w-full rounded-lg shadow-md bg-white bg-opacity-20 mt-5">
+                    <h2 id="eucharist" class="text-white font-bold text-xl w-full text-center">EUCHARIST</h2>
+                    <p class="mt-3 text-center p-10 text-lg text-white">
                         Eucharist is a Catholic sacrament where bread and wine are consecrated
                          and received as the body and blood of Christ. It commemorates the Last
                           Supper and provides spiritual nourishment, uniting believers with Christ
@@ -54,9 +54,9 @@
                     </p>
                 </div>
 
-                <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 id="confirmation" class="text-gray-700 font-bold text-xl w-full text-center">CONFIRMATION</h2>
-                    <p class="mt-3 text-center p-10 text-lg">
+                <div class="w-full rounded-lg shadow-md bg-white bg-opacity-20 mt-5">
+                    <h2 id="confirmation" class="text-white font-bold text-xl w-full text-center">CONFIRMATION</h2>
+                    <p class="mt-3 text-center p-10 text-lg text-white">
                         Confirmation is a Catholic sacrament that strengthens
                          and deepens the grace received at Baptism. It involves
                           the anointing with chrism oil and the laying on of hands
@@ -65,9 +65,9 @@
                     </p>
                 </div>
 
-                <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 id="holyorders" class="text-gray-700 font-bold text-xl w-full text-center">HOLY ORDERS</h2>
-                    <p class="mt-3 text-center p-10 text-lg">
+                <div class="w-full rounded-lg shadow-md bg-white bg-opacity-20 mt-5">
+                    <h2 id="holyorders" class="text-white font-bold text-xl w-full text-center">HOLY ORDERS</h2>
+                    <p class="mt-3 text-center p-10 text-lg text-white">
                         Holy Orders is a Catholic sacrament through which men are ordained
                          as deacons, priests, or bishops. It involves the laying on of
                           hands and a consecratory prayer, conferring the authority and
@@ -75,9 +75,9 @@
                     </p>
                 </div>
 
-                <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 id="confession" class="text-gray-700 font-bold text-xl w-full text-center">CONFESSION</h2>
-                    <p class="mt-3 text-center p-10 text-lg">
+                <div class="w-full rounded-lg shadow-md bg-white bg-opacity-20 mt-5">
+                    <h2 id="confession" class="text-white font-bold text-xl w-full text-center">CONFESSION</h2>
+                    <p class="mt-3 text-center p-10 text-lg text-white">
                         Confession, or the Sacrament of Reconciliation, is a Catholic
                          sacrament where a person confesses their sins to a priest,
                           receives absolution, and is forgiven. It restores the penitent's
@@ -86,9 +86,9 @@
                     </p>
                 </div>
 
-                <div class="w-full rounded-lg shadow-md bg-gray-300 p-5 mt-5">
-                    <h2 id="matrimony" class="text-gray-700 font-bold text-xl w-full text-center">MATRIMONY</h2>
-                    <p class="mt-3 text-center p-10 text-lg">
+                <div class="w-full rounded-lg shadow-md bg-white bg-opacity-20 mt-5">
+                    <h2 id="matrimony" class="text-white font-bold text-xl w-full text-center">MATRIMONY</h2>
+                    <p class="mt-3 text-center p-10 text-lg text-white">
                         Matrimony is a Catholic sacrament that unites a man and
                          woman in a lifelong, faithful, and loving marriage. It involves
                           mutual consent and commitment, and is a sign of Christ's love
