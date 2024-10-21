@@ -25,6 +25,7 @@ class AddAdminRequest extends FormRequest
             'main_church' => 'required|in:1',
             'sub_church' => 'required|in:0',
             'user' => 'required|in:0',
+            'superadmin' => 'required|in:0',
             'church_name' => 'required|string|max:255',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',

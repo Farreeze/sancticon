@@ -25,6 +25,7 @@
                             <input type="hidden" name="main_church" id="" value="1">
                             <input type="hidden" name="sub_church" id="" value="0">
                             <input type="hidden" name="user" id="" value="0">
+                            <input type="hidden" name="superadmin" id="" value="0">
                             {{-- form input --}}
                             <div class="flex-col items-center mt-5">
                                 <label class="font-bold" for="church_name">Church Name:</label>
