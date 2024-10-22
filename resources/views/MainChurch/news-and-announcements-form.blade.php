@@ -25,11 +25,11 @@
                             <input type="hidden" name="church_id" id="" value="{{Auth::user()->id}}">
                             {{-- form input --}}
                             <div class="flex-col items-center mt-5">
-                                <label class="font-bold" for="church_name">Title:</label>
+                                <label class="font-bold" for="church_name">Title:*</label>
                                 <input name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Description:</label>
+                                <label class="font-bold" for="church_name">Description:*</label>
                                 <textarea class="rounded-lg border-gray-300 w-full mt-2" name="desc" id="" cols="30" rows="3" required></textarea>
                             </div>
                             <div class="flex-col items-center mt-5">

@@ -25,15 +25,15 @@
                             <input type="hidden" name="church_id" id="" value="{{Auth::user()->id}}">
                             {{-- form input --}}
                             <div class="flex-col items-center mt-5">
-                                <label class="font-bold" for="church_name">Event Title:</label>
+                                <label class="font-bold" for="church_name">Event Title:*</label>
                                 <input name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Event Description:</label>
+                                <label class="font-bold" for="church_name">Event Description:*</label>
                                 <textarea class="rounded-lg border-gray-300 w-full mt-2" name="desc" id="" cols="30" rows="3" required></textarea>
                             </div>
                             <div class="flex-col items-center mt-1">
-                                <label class="font-bold" for="church_name">Event Location:</label>
+                                <label class="font-bold" for="church_name">Event Location:*</label>
                                 <input name="location" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
@@ -46,15 +46,15 @@
                                 </Select>
                             </div>
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Event Date:</label>
+                                <label class="font-bold" for="church_name">Event Date:*</label>
                                 <input min="<?= date('Y-m-d', strtotime('+1 day')) ?>" name="date" class="rounded-lg border-gray-300 w-full mt-2" type="date" required>
                             </div>
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Start Time:</label>
+                                <label class="font-bold" for="church_name">Start Time:*</label>
                                 <input name="start_time" class="rounded-lg border-gray-300 w-full mt-2" type="time" required>
                             </div>
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">End Time:</label>
+                                <label class="font-bold" for="church_name">End Time:*</label>
                                 <input name="end_time" class="rounded-lg border-gray-300 w-full mt-2" type="time" required>
                             </div>
                             <div class="w-full mt-5">

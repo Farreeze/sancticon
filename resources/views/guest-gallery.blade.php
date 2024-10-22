@@ -102,7 +102,7 @@
                 </div>
                 {{-- template ends here --}}
             </div>
-            <div class="w-full p-5 bg-white opacity-40 rounded-lg shadow-md flex justify-center flex-wrap mt-3">
+            <div class="w-full p-5 rounded-lg shadow-md flex justify-center flex-wrap mt-3">
                 @foreach ($photos as $photo)
                     <div class="w-full max-w-xs m-5 bg-white bg-opacity-20 p-5 rounded-lg shadow-md flex flex-col items-center">
                         <img class="h-48 rounded-lg mb-4" src="/{{$photo->photo_id}}" alt="">

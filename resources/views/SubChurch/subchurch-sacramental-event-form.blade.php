@@ -26,20 +26,22 @@
                             <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden>
                             <div class="w-full flex flex-col">
                                 <div>
-                                    <span class="text-gray-700 ml-1">Request for:</span>
+                                    <span class="text-gray-700 ml-1">Request for:*</span>
                                     <input class="w-full rounded-lg border-gray-300" type="text" placeholder="Name" name="custom_name" required>
                                 </div>
                                 <div class="mt-3">
-                                    <span class="text-gray-700 ml-1">Church:</span>
-                                    <select class="w-full rounded-lg border-gray-300" name="church_id" id="" required>
+                                    <span class="text-gray-700 ml-1">Church:*</span>
+                                    <input type="hidden" value="1" name="church_id">
+                                    <input class="w-full rounded-lg border-gray-300" type="text" value="Our Lady Of Lourdes Parish (Tarlac City)" readonly>
+                                    {{-- <select class="w-full rounded-lg border-gray-300" name="church_id" id="" required>
                                         <option value="" selected disabled>Select Church</option>
                                         @foreach ($churches as $church)
                                             <option value="{{ $church->id }}">{{$church->church_name}}</option>
                                         @endforeach
-                                    </select>
+                                    </select> --}}
                                 </div>
                                 <div class="mt-3">
-                                    <span class="text-gray-700 ml-1">Sacrament:</span>
+                                    <span class="text-gray-700 ml-1">Sacrament:*</span>
                                     <select id="sacrament-select" class="w-full rounded-lg border-gray-300" name="sacrament_id" id="" required>
                                         <option value="" selected disabled>Select Sacrament</option>
                                         @foreach ($sacraments as $sacrament)
@@ -50,7 +52,7 @@
                             </div>
                             <div id="participant-section"></div>
                             <div class="w-full mt-3">
-                                <span class="text-gray-700 ml-1">Date:</span>
+                                <span class="text-gray-700 ml-1">Date:*</span>
                                 <input min="<?= date('Y-m-d', strtotime('+1 day')) ?>" class="w-full rounded-lg border-gray-300" type="date" name="date" id="">
                             </div>
                             <div class="w-full mt-3">

@@ -28,39 +28,39 @@
                             <input type="hidden" name="superadmin" id="" value="0">
                             {{-- form input --}}
                             <div class="flex-col items-center mt-5">
-                                <label class="font-bold" for="church_name">Church Name:</label>
+                                <label class="font-bold" for="church_name">Church Name:*</label>
                                 <input value="{{Auth::user()->church_name}}" name="church_name" class="rounded-lg border-gray-300 w-full mt-2" type="text" readonly>
                             </div>
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Church Address:</label>
+                                <label class="font-bold" for="church_name">Church Address:*</label>
                                 <input value="{{Auth::user()->address}}" name="address" class="rounded-lg border-gray-300 w-full mt-2" type="text" readonly>
                             </div>
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Contact Number:</label>
+                                <label class="font-bold" for="church_name">Contact Number:*</label>
                                 <input value="{{Auth::user()->mobile_number}}" name="mobile_number" class="rounded-lg border-gray-300 w-full mt-2" type="text" readonly>
                             </div>
 
                             <div class="flex-col items-center mt-5">
-                                <label class="font-bold" for="church_name">First Name:</label>
+                                <label class="font-bold" for="church_name">First Name:*</label>
                                 <input name="first_name" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter first name" required>
                             </div>
 
                             <div class="flex-col items-center mt-5">
-                                <label class="font-bold" for="church_name">Last Name:</label>
+                                <label class="font-bold" for="church_name">Last Name:*</label>
                                 <input name="last_name" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter last name" required>
                             </div>
 
                             <div class="flex-col items-center mt-5">
-                                <label class="font-bold" for="church_name">Middle Name:</label>
-                                <input name="middle_name" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter middle name" required>
+                                <label class="font-bold" for="church_name">Middle Name:*</label>
+                                <input name="middle_name" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter middle name">
                             </div>
 
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Email:</label>
+                                <label class="font-bold" for="church_name">Email:*</label>
                                 <input name="email" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Password:</label>
+                                <label class="font-bold" for="church_name">Password:*</label>
                                 <input name="password" class="rounded-lg border-gray-300 w-full mt-2" type="password" required>
                             </div>
                             <div class="w-full mt-5">

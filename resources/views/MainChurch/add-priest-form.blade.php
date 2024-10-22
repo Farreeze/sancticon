@@ -24,7 +24,7 @@
                             @csrf
                             {{-- form input --}}
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">First Name:</label>
+                                <label class="font-bold" for="church_name">First Name:*</label>
                                 <input name="first_name" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter first name" required>
                             </div>
                             <div class="flex-col items-center mt-3">
@@ -32,7 +32,7 @@
                                 <input name="middle_name" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter middle name">
                             </div>
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Last Name:</label>
+                                <label class="font-bold" for="church_name">Last Name:*</label>
                                 <input name="last_name" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter last name" required>
                             </div>
                             <div class="flex-col items-center mt-3">
@@ -54,7 +54,7 @@
                                 </select>
                             </div> --}}
                             <div class="flex-col items-center mt-3">
-                                <label class="font-bold" for="church_name">Title:</label>
+                                <label class="font-bold" for="church_name">Title:*</label>
                                 <input name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter title" required>
                             </div>
                             <div class="flex-col items-center mt-3">
