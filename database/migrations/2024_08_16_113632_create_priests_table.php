@@ -18,12 +18,13 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('middle_name')->nullable();
             $table->unsignedBigInteger('suffix_name')->nullable();
-            $table->string('title');
+            $table->unsignedBigInteger('priest_title');
             $table->string('photo_id')->nullable();
             $table->timestamps();
 
             // $table->foreign('church_id')->references('id')->on('users');
             $table->foreign('suffix_name')->references('id')->on('lib_suffix_names');
+            $table->foreign('priest_title')->references('id')->on('lib_priest_titles');
         });
     }
 

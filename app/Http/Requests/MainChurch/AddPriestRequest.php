@@ -26,9 +26,9 @@ class AddPriestRequest extends FormRequest
             'first_name' => 'required',
             'last_name' => 'required',
             'suffix_name' => 'nullable',
+            'priest_title'=>'required',
             'middle_name' => 'nullable',
-            'image' => 'nullable|file|image|max:2048',
-            'title' => 'required',
+            'image' => 'nullable|file|image|max:2048'
         ];
     }
 }

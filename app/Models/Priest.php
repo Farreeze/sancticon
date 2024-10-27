@@ -15,7 +15,7 @@ class Priest extends Model
         'last_name',
         'middle_name',
         'suffix_name',
-        'title',
+        'priest_title',
         'photo_id',
     ];
 
@@ -27,5 +27,10 @@ class Priest extends Model
     public function suffix()
     {
         return $this->belongsTo(libSuffixName::class, 'suffix_name', 'id');
+    }
+
+    public function title()
+    {
+        return $this->belongsTo(LibPriestTitle::class, 'priest_title', 'id');
     }
 }

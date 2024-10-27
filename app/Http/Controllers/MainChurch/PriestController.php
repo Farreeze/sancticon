@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\AddPriestRequest;
 use App\Http\Requests\MainChurch\UpdatePriestRequest;
 use App\Models\ActivityLog;
+use App\Models\LibPriestTitle;
 use App\Models\libSuffixName;
 use App\Models\Priest;
 use App\Models\User;
@@ -28,12 +29,13 @@ class PriestController extends Controller
      */
     public function create()
     {
+        $priest_titles = LibPriestTitle::all();
         $suffix_names = libSuffixName::all();
         $churches = User::where('sub_church', 1)
                 ->orWhere('main_church', 1)
                 ->get();
 
-        return view('MainChurch.add-priest-form', ['suffix_names'=>$suffix_names, 'churches'=>$churches]);
+        return view('MainChurch.add-priest-form', ['suffix_names'=>$suffix_names, 'churches'=>$churches, 'priest_titles'=>$priest_titles]);
     }
 
     /**

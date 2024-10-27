@@ -62,7 +62,7 @@
                                                 @endif
                                             </div>
                                         </a>
-                                        <p class="mt-1 font-bold text-md text-gray-700">{{$priest->title}}</p>
+                                        <p class="text-lg text-gray-700 font-bold mr-1">{{ $priest->title->desc }}</p>
                                         {{-- <p class="mt-1 font-bold text-md text-gray-700">{{$priest->church->church_name}}</p> --}}
                                     </div>
                                 </div>

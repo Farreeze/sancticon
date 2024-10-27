@@ -23,7 +23,7 @@
                     <h2 class="font-bold text-2xl text-white">Priests</h2>
                 </div>
                 @foreach ($priests as $priest)
-                    <div class="mt-3 w-full bg-gray-300 rounded-lg p-5">
+                    <div class="mt-3 w-full bg-white bg-opacity-20 rounded-lg p-5">
                         <div class="flex flex-col items-center">
 
                             @if (!$priest->photo_id)
@@ -41,7 +41,7 @@
                                 @endif
                             </div>
 
-                            <p class="mt-1 font-bold text-md text-white">{{$priest->title}}</p>
+                            <p class="mt-1 font-bold text-md text-white">{{$priest->title->desc}}</p>
                             {{-- <p class="mt-1 font-bold text-md text-white">{{$priest->church->church_name}}</p> --}}
                         </div>
                     </div>

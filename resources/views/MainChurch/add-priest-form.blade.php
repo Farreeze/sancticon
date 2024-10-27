@@ -55,7 +55,12 @@
                             </div> --}}
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Title:*</label>
-                                <input name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter title" required>
+                                <Select class="mt-2 w-full rounded-lg border border-gray-300" name="priest_title" required>
+                                    <option value="" selected>Select Title</option>
+                                    @foreach ($priest_titles as $priest_title)
+                                    <option value="{{$priest_title->id}}">{{$priest_title->desc}}</option>
+                                    @endforeach
+                                </Select>
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Photo: (2MB max)</label>
