@@ -32,9 +32,14 @@
                                 <label class="font-bold" for="church_name">Event Description:*</label>
                                 <textarea class="rounded-lg border-gray-300 w-full mt-2" name="desc" id="" cols="30" rows="3" required></textarea>
                             </div>
-                            <div class="flex-col items-center mt-1">
-                                <label class="font-bold" for="church_name">Event Location:*</label>
-                                <input name="location" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
+                            <div class="flex-col items-center mt-3">
+                                <label class="font-bold" for="church_name">Location:*</label>
+                                <Select class="mt-2 w-full rounded-lg border border-gray-300" name="location" required>
+                                    <option value="" selected>Select Church</option>
+                                    @foreach ($locations as $location)
+                                    <option value="{{$location->id}}">{{$location->desc}}</option>
+                                    @endforeach
+                                </Select>
                             </div>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Sacrament (Optional):</label>

@@ -24,7 +24,7 @@
                 </div>
                 {{-- foreach here --}}
                 @foreach ($newsAndAnnouncements as $newsAndAnnouncement)
-                    <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mt-3">
+                    <div class="w-full bg-white bg-opacity-20 rounded-lg flex flex-col p-5 mt-3">
                         <div>
                             <div class="flex flex-row justify-between items-center">
                                 <h2 class="text-white font-bold text-xl">{{ $newsAndAnnouncement->title }}</h2>

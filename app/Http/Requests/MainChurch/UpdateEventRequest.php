@@ -29,7 +29,7 @@ class UpdateEventRequest extends FormRequest
             'date' => 'required',
             'start_time' => 'required',
             'end_time' => 'required',
-            'location' => 'required|string|max:255'
+            'location' => 'required'
         ];
     }
 }

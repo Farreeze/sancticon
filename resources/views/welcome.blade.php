@@ -26,7 +26,7 @@
                     <p>SanctiCon</p>
                 </div>
                 <div class="flex items-center">
-                    <div class="border-l-2 border-gray-300 h-52 mx-2"></div>
+                    <div class="border-l-2 border-gray-300 h-52 mx-4"></div>
                     <img class="w-3/4" src="/images/icon.png" alt="">
                 </div>
             </div>

@@ -25,4 +25,9 @@ class ChurchEvent extends Model
     {
         return $this->belongsTo(LibSacrament::class, 'sacrament_id', 'id');
     }
+
+    public function getLocation()
+    {
+        return $this->belongsTo(LibChurch::class, 'location', 'id');
+    }
 }

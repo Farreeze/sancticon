@@ -23,7 +23,7 @@
                     <h2 class="font-bold text-2xl text-white">Events</h2>
                 </div>
                 @foreach ($events as $event)
-                    <div class="mt-3 w-full bg-gray-300 rounded-lg flex flex-col p-5">
+                    <div class="mt-3 w-full bg-white bg-opacity-20 rounded-lg flex flex-col p-5">
                         <div class="w-full">
                             <div class="mb-1 flex justify-between flex-wrap">
                                 <h1 class="text-white font-bold text-2xl">{{ $event->title }}</h1>
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="flex flex-wrap">
                                     <span class="text-white font-bold">Location:</span>
-                                    <span class="text-white ml-1">{{$event->location}}</span>
+                                    <span class="text-white ml-1">{{$event->getLocation->desc}}</span>
                                 </div>
                                 <div class="flex flex-wrap">
                                     <span class="text-white font-bold">Description:</span>

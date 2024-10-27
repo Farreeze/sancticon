@@ -21,10 +21,11 @@ return new class extends Migration
             $table->time('start_time');
             $table->time('end_time');
             $table->boolean('status')->default(1); // 1 == active
-            $table->string('location');
+            $table->foreignId('location');
             $table->timestamps();
 
             $table->foreign('sacrament_id')->references('id')->on('lib_sacraments');
+            $table->foreign('location')->references('id')->on('lib_churches');
             $table->foreign('church_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

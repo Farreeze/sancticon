@@ -54,7 +54,7 @@
                                             </div>
                                             <div class="flex flex-wrap">
                                                 <span class="text-gray-700 font-bold">Location:</span>
-                                                <span class="text-gray-700 ml-1">{{$event->location}}</span>
+                                                <span class="text-gray-700 ml-1">{{$event->getLocation->desc}}</span>
                                             </div>
                                             <div class="flex flex-wrap">
                                                 <span class="text-gray-700 font-bold">Description:</span>

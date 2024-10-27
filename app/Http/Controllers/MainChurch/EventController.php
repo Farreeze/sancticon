@@ -7,6 +7,7 @@ use App\Http\Requests\MainChurch\AddEventRequest;
 use App\Http\Requests\MainChurch\UpdateEventRequest;
 use App\Models\ActivityLog;
 use App\Models\ChurchEvent;
+use App\Models\LibChurch;
 use App\Models\LibSacrament;
 use Dotenv\Repository\RepositoryInterface;
 use Illuminate\Http\Request;
@@ -33,8 +34,9 @@ class EventController extends Controller
      */
     public function create()
     {
+        $locations = LibChurch::all();
         $sacraments = LibSacrament::all();
-        return view('MainChurch.add-event-form', ['sacraments' => $sacraments]);
+        return view('MainChurch.add-event-form', ['sacraments' => $sacraments, 'locations'=>$locations]);
     }
 
     /**
@@ -71,10 +73,10 @@ class EventController extends Controller
     public function edit(string $id)
     {
         $event = ChurchEvent::where('id', $id)->first();
-
+        $locations = LibChurch::all();
         $sacraments = LibSacrament::all();
 
-        return view('MainChurch.edit-event-form', ['event'=>$event, 'sacraments'=>$sacraments]);
+        return view('MainChurch.edit-event-form', ['event'=>$event, 'sacraments'=>$sacraments, 'locations'=>$locations]);
     }
 
     /**
