@@ -23,9 +23,14 @@
                         </div>
                     @endif
                     @foreach ($activities as $activity)
-                        <div class="w-full bg-gray-300 rounded-lg flex flex-col p-5 mb-3">
-                            <h2 class="text-gray-700 font-bold">{{$activity->user->first_name}} {{$activity->user->middle_name}} {{$activity->user->last_name}}</h2>
-                            <p class="text-gray-700">{{$activity->desc}}</p>
+                        <div class="w-full bg-gray-300 rounded-lg flex justify-between p-5 mb-3">
+                            <div class="flex flex-col">
+                                <h2 class="text-gray-700 font-bold">{{$activity->user->first_name}} {{$activity->user->middle_name}} {{$activity->user->last_name}}</h2>
+                                <p class="text-gray-700">{{$activity->desc}}</p>
+                            </div>
+                            <div>
+                                <h2 class="text-gray-700 font-bold">{{$activity->created_at}}</h2>
+                            </div>
                         </div>
                     @endforeach
                 </div>
