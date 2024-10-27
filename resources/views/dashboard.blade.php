@@ -2,6 +2,18 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    @if (Session::has('superadmindelete'))
+
+    <script>
+        swal("SUCCESS", "{{ Session::get('superadmindelete') }}", 'success',
+        {
+            button:true,
+            button:"OK",
+        });
+    </script>
+
+    @endif
+
     @if (Session::has('delete-reservation'))
 
     <script>
@@ -87,11 +99,12 @@
                                             <div class="flex flex-wrap">
                                                 <a class="bg-gray-800 mx-1 px-2 py-1 text-white rounded-lg hover:bg-gray-700" href="{{route('user-profile.show', $user->id)}}">View</a>
                                                 <a class="bg-yellow-500 mx-1 px-2 py-1 text-white rounded-lg hover:bg-yellow-700" href="{{route('edit-user-profile.show', $user->id)}}">Update</a>
-                                                <form method="POST" action="{{route('superadmin-user.delete', $user->id)}}">
+                                                <a class="bg-red-500 mx-1 px-2 py-1 text-white rounded-lg hover:bg-red-700" href="{{route('user-profile-delete.show', $user->id)}}">Delete</a>
+                                                {{-- <form method="POST" action="{{route('superadmin-user.delete', $user->id)}}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="bg-red-500 mx-1 px-2 py-1 text-white rounded-lg hover:bg-red-700">Delete</button>
-                                                </form>
+                                                </form> --}}
                                             </div>
                                         </td>
                                     </tr>

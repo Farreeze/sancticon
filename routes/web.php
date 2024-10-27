@@ -205,6 +205,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit-user-profile/{id}', [SuperadminController::class, 'edit'])->name('edit-user-profile.show');
         Route::put('/update-user-profile/{id}', [SuperadminController::class, 'update'])->name('user-profile.update');
         Route::get('/user/search', [SuperadminController::class, 'search'])->name('user.search');
+        Route::get('/user-profile-delete/{id}', [SuperadminController::class, 'confirmDelete'])->name('user-profile-delete.show');
         Route::delete('/superadmin/user/{id}', [SuperadminController::class, 'destroy'])->name('superadmin-user.delete');
     });
 

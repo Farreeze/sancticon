@@ -83,7 +83,7 @@
         function disableButton() {
             var submitBtn = document.getElementById('submit-btn');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = "Adding event...";
+            submitBtn.innerHTML = "Updating event...";
         }
     </script>
 

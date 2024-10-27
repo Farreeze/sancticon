@@ -66,6 +66,13 @@ class SuperadminController extends Controller
         return redirect()->route('user-profile.show', $user->id);
     }
 
+    public function confirmDelete(string $id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('Superadmin.confirm-deletion', ['user'=>$user]);
+    }
+
     /**
      * Remove the specified resource from storage.
      */
@@ -75,7 +82,7 @@ class SuperadminController extends Controller
 
         $user->delete();
 
-        return back()->with('success', 'User deleted successfully.');
+        return redirect()->route('dashboard')->with(['superadmindelete'=>'Successfully deleted']);
     }
 
     public function search(SearchRequest $request)
