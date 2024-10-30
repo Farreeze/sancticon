@@ -35,6 +35,9 @@
                         <x-nav-link :href="route('sacramental-events.show')" :active="request()->routeIs('sacramental-events.show')">
                             {{ __('Sacramental Events') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('sacramental-events-record.show')" :active="request()->routeIs('sacramental-events-record.show')">
+                            {{ __('Sacramental Event Records') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('mainchurch-certificates.show')" :active="request()->routeIs('mainchurch-certificates.show')">
                             {{ __('Certificates') }}
                         </x-nav-link>
@@ -159,6 +162,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('sacramental-events.show')" :active="request()->routeIs('sacramental-events.show')">
                     {{ __('Sacramental Events') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('sacramental-events-record.show')" :active="request()->routeIs('sacramental-events-record.show')">
+                    {{ __('Sacramental Event Records') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('mainchurch-certificates.show')" :active="request()->routeIs('mainchurch-certificates.show')">
                     {{ __('Certificates') }}

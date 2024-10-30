@@ -128,13 +128,14 @@ Route::middleware('auth')->group(function () {
         //sacramental reservation requests
         Route::get('main-church/sacramental-reservation-requests', [MainChurchSacramentalReservationController::class, 'index'])->name('mainchurch-sr-requests.show');
         Route::patch('/main-church/sacramental-reservation-request/action/{id}', [MainChurchSacramentalReservationController::class, 'update'])->name('sr_request.action');
+        Route::get('/sacramental-events-record', [MainChurchSacramentalReservationController::class, 'showSrRecords'])->name('sacramental-events-record.show');
+
 
         //sacramental  events
         Route::get('/sacramental-events', [SacramentalEventController::class, 'index'])->name('sacramental-events.show');
         Route::get('/sacramental-events-form', [SacramentalEventController::class, 'create'])->name('sacramental-events-form.show');
         Route::post('/sacramental-events-add', [SacramentalEventController::class, 'store'])->name('sacramental-events-form.submit');
         Route::get('/calendar', [SacramentalEventController::class, 'showCalendar'])->name('sacramental-events-calendar.show');
-
 
         //Main church certificates
         Route::get('/main-church/certificates', [MainChurchCertificateController::class, 'index'])->name('mainchurch-certificates.show');

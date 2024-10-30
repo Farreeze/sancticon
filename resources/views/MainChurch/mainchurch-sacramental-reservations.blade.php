@@ -190,7 +190,7 @@
                         @endforeach
                     </div>
                 </div>
-                <hr class="border-t border-gray-300 my-4">
+                {{-- <hr class="border-t border-gray-300 my-4">
                 <div class="w-full max-h-screen overflow-y-auto">
                     <div class="flex items-center sticky top-0 bg-white">
                         <h1 class="font-bold text-2xl text-gray-700">Completed Sacramental Events</h1>
@@ -265,7 +265,7 @@
                             </div>
                         @endforeach
                     </div>
-                </div>
+                </div> --}}
             @endif
         </div>
     </div>

@@ -150,4 +150,16 @@ class MainChurchSacramentalReservationController extends Controller
     {
         //
     }
+
+    public function showSrRecords()
+    {
+
+        $completed_sr_requests = SacramentalReservation::where('status', 2)
+                ->orWhere('status', 3)
+                ->orderBy('updated_at', 'desc')
+                ->get();
+
+        return view('MainChurch.sacramental-events-record', ['sr_requests'=>$completed_sr_requests]);
+
+    }
 }
