@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Superadmin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Superadmin\SAUpdateProfileRequest;
 use App\Http\Requests\Superadmin\SearchRequest;
+use App\Models\SuperadminActivityLog;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SuperadminController extends Controller
 {
@@ -82,6 +84,12 @@ class SuperadminController extends Controller
 
         $user->delete();
 
+        SuperadminActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Deleted",
+            'name' => trim("{$user->first_name} {$user->middle_name} {$user->last_name} {$user->suffix}")
+        ]);
+
         return redirect()->route('dashboard')->with(['superadmindelete'=>'Successfully deleted']);
     }
 
@@ -104,6 +112,12 @@ class SuperadminController extends Controller
 
         // Return the view with the paginated users
         return view('dashboard', ['users' => $users]);
+    }
+
+    public function viewActivityLog(){
+        $activities = SuperadminActivityLog::orderBy('created_at', 'desc')->get();
+
+        return view('Superadmin.superadmin-activity-log', ['activities'=>$activities]);
     }
 
 }

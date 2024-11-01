@@ -210,6 +210,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/user/search', [SuperadminController::class, 'search'])->name('user.search');
         Route::get('/user-profile-delete/{id}', [SuperadminController::class, 'confirmDelete'])->name('user-profile-delete.show');
         Route::delete('/superadmin/user/{id}', [SuperadminController::class, 'destroy'])->name('superadmin-user.delete');
+
+        Route::get('superadmin/activity-log', [SuperadminController::class, 'viewActivityLog'])->name('superadmin-activitylog.view');
     });
 
 });

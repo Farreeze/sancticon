@@ -16,6 +16,12 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    @if (Auth::user()->superadmin == 1)
+                        <x-nav-link :href="route('superadmin-activitylog.view')" :active="request()->routeIs('superadmin-activitylog.view')">
+                            {{ __('Activity Log') }}
+                        </x-nav-link>
+                    @endif
+
                     @if (Auth::user()->main_church == 1)
                         <x-nav-link :href="route('priests.show')" :active="request()->routeIs('priests.show')">
                             {{ __('Priests') }}
