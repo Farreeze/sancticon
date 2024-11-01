@@ -32,7 +32,7 @@
                     <div class="w-full flex justify-between items-center mb-5 flex-wrap">
                         <h1 class="font-bold text-2xl text-gray-700">Sacramental Event Records</h1>
                         <div>
-                            <form method="GET" action="#">
+                            <form method="GET" action="{{route('mainchurch-user.search')}}">
                                 @csrf
                                 <input class="rounded-lg border-gray-300" type="text" name="text" id="" placeholder="Search keyword" required>
                                 <button class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-white ml-1" type="submit">Search</button>
@@ -66,6 +66,12 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @if ($sr_requests->isEmpty())
+                        <div class="w-full flex justify-center flex-col items-center">
+                            <img src="/images/no_data.png" alt="">
+                            <h2 class="text-lg font-bold text-gray-700">NO RECORDS</h2>
+                        </div>
+                    @endif
                 </div>
                 <div class="w-full mt-5">
                     {{-- {{$users->links()}} --}}

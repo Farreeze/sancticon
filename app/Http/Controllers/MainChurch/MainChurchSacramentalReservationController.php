@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\MchurchSacramentalReservationRequestRequest;
+use App\Http\Requests\MainChurch\SrSearchRequest;
 use App\Models\ActivityLog;
 use App\Models\SacramentalReservation;
 use App\Models\User;
@@ -161,5 +162,24 @@ class MainChurchSacramentalReservationController extends Controller
 
         return view('MainChurch.sacramental-events-record', ['sr_requests'=>$completed_sr_requests]);
 
+    }
+
+    public function search(SrSearchRequest $request)
+    {
+
+        $validReq = $request->validated();
+
+        $searchInput = $validReq['text'];
+
+        $completed_sr_requests = SacramentalReservation::whereIn('status', [2, 3])
+        ->whereHas('user', function ($query) use ($searchInput) {
+            $query->where('first_name', 'like', "%{$searchInput}%")
+                ->orWhere('middle_name', 'like', "%{$searchInput}%")
+                ->orWhere('last_name', 'like', "%{$searchInput}%");
+        })
+        ->orderBy('updated_at', 'desc')
+        ->get();
+
+        return view('MainChurch.sacramental-events-record', ['sr_requests' => $completed_sr_requests]);
     }
 }

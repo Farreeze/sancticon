@@ -149,6 +149,8 @@ Route::middleware('auth')->group(function () {
 
         //activity log
         Route::get('/main-church/activity-log', [ActivityLogController::class, 'index'])->name('activity-log.show');
+
+        Route::get('/main-church/user/search', [MainChurchSacramentalReservationController::class, 'search'])->name('mainchurch-user.search');
     });
 
     Route::middleware(['sub-church'])->group(function(){
