@@ -17,6 +17,9 @@
                     </x-nav-link>
 
                     @if (Auth::user()->superadmin == 1)
+                        <x-nav-link :href="route('deleted-users.show')" :active="request()->routeIs('deleted-users.show')">
+                            {{ __('Deleted Users') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('superadmin-activitylog.view')" :active="request()->routeIs('superadmin-activitylog.view')">
                             {{ __('Activity Log') }}
                         </x-nav-link>
@@ -152,6 +155,15 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            @if (Auth::user()->superadmin ==1)
+                <x-responsive-nav-link :href="route('deleted-users.show')" :active="request()->routeIs('deleted-users.show')">
+                    {{ __('Deleted Users') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('superadmin-activitylog.view')" :active="request()->routeIs('superadmin-activitylog.view')">
+                    {{ __('Activity Log') }}
+                </x-responsive-nav-link>
+            @endif
 
             @if (Auth::user()->main_church == 1)
                 <x-responsive-nav-link :href="route('church-events.show')" :active="request()->routeIs('temp')">

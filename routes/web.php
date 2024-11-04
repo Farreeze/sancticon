@@ -212,6 +212,9 @@ Route::middleware('auth')->group(function () {
         Route::delete('/superadmin/user/{id}', [SuperadminController::class, 'destroy'])->name('superadmin-user.delete');
 
         Route::get('superadmin/activity-log', [SuperadminController::class, 'viewActivityLog'])->name('superadmin-activitylog.view');
+
+        Route::get('superadmin/deleted-users', [SuperadminController::class, 'viewDeletedUsers'])->name('deleted-users.show');
+        Route::get('superadmin/restore-user/{id}', [SuperadminController::class, 'restoreUser'])->name('deleted-user.restore');
     });
 
 });

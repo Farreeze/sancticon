@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Superadmin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Superadmin\RestoreUserRequest;
 use App\Http\Requests\Superadmin\SAUpdateProfileRequest;
 use App\Http\Requests\Superadmin\SearchRequest;
 use App\Models\SuperadminActivityLog;
@@ -118,6 +119,21 @@ class SuperadminController extends Controller
         $activities = SuperadminActivityLog::orderBy('created_at', 'desc')->get();
 
         return view('Superadmin.superadmin-activity-log', ['activities'=>$activities]);
+    }
+
+    public function viewDeletedUsers(){
+        $users = User::onlyTrashed()->paginate(20);;
+
+        return view('Superadmin.deleted-users', ['users'=>$users]);
+    }
+
+    public function restoreUser($id)
+    {
+        $user = User::withTrashed()->findOrFail($id);
+
+        $user->restore();
+
+        return back()->with(['message'=>'User has been restored']);
     }
 
 }
