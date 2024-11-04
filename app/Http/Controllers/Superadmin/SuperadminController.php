@@ -133,6 +133,12 @@ class SuperadminController extends Controller
 
         $user->restore();
 
+        SuperadminActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Restored",
+            'name' => trim("{$user->first_name} {$user->middle_name} {$user->last_name} {$user->suffix}")
+        ]);
+
         return back()->with(['message'=>'User has been restored']);
     }
 
