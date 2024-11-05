@@ -355,6 +355,14 @@
                         name: "rejection_reason",
                         required: "true",
                     },
+                } : action === 'finish' ? {
+                    element: "input",
+                    attributes: {
+                        placeholder: "Enter priest name",
+                        type: "text",
+                        name: "priest_name",
+                        required: "true",
+                    }
                 } : null
         })
         .then((willConfirm) => {
@@ -363,6 +371,14 @@
                 rejectBtn.disabled = true;
                 if(action == "finish"){
                     approveBtn.textContent = "Processing...";
+                    const priestName = document.querySelector('input[name="priest_name"]').value;
+
+                    const priestInput = document.createElement('input');
+                    priestInput.type = 'hidden';
+                    priestInput.name = 'priest_name';
+                    priestInput.value = priestName;
+
+                    form.appendChild(priestInput);
                 }else if(action == "cancel"){
                     rejectBtn.textContent = "Processing...";
 

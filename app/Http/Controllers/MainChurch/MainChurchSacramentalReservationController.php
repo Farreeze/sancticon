@@ -86,6 +86,7 @@ class MainChurchSacramentalReservationController extends Controller
 
         $action = $request->input('action');
         $feedback = $request->input('feedback');
+        $priest_name = $request->input('priest_name');
 
         if($action == "approve")
         {
@@ -109,6 +110,7 @@ class MainChurchSacramentalReservationController extends Controller
         }else if($action == "finish")
         {
             $sr_request->status = 2;
+            $sr_request->priest_name = $priest_name;
 
             ActivityLog::create([
                 'user_id' => Auth::id(),

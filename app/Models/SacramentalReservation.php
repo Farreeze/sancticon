@@ -22,6 +22,7 @@ class SacramentalReservation extends Model
         'custom_name',
         'subchurch_approve',
         'feedback',
+        'priest_name',
         'status'
     ];
 

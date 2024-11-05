@@ -23,7 +23,8 @@ class MchurchSacramentalReservationRequestRequest extends FormRequest
     {
         return [
             'action' => 'required',
-            'feedback' => 'nullable'
+            'feedback' => 'nullable',
+            'priest_name'=>'nullable'
         ];
     }
 }

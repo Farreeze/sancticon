@@ -105,9 +105,11 @@
 
         <div class="certificate-signature">
             <div class="signature-block">
+                {{$data->priest_name}}
                 <div class="signature-line">Priest's Name</div>
             </div>
             <div class="signature-block">
+                {{$data->church->church_name}}
                 <div class="signature-line">Church Name</div>
             </div>
         </div>
