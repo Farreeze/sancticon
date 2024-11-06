@@ -27,6 +27,18 @@ class UserCertificateController extends Controller
 
             return $pdf->download('certificate.pdf');
 
+        }else if($data->sacrament->desc == "EUCHARIST")
+        {
+            $pdf = Pdf::loadView('PdfFormat.eucharist_certificate', ['data' => $data]);
+
+            return $pdf->download('certificate.pdf');
+
+        }else if($data->sacrament->desc == "CONFIRMATION")
+        {
+            $pdf = Pdf::loadView('PdfFormat.confirmation_certificate', ['data' => $data]);
+
+            return $pdf->download('certificate.pdf');
+
         }else
         {
             $pdf = Pdf::loadView('PdfFormat.other_certificate', ['data' => $data]);

@@ -81,10 +81,10 @@
 </head>
 <body>
     <div class="certificate-container">
-        <div class="certificate-title">Certificate of Sacrament</div>
+        <div class="certificate-title">MARRIAGE</div>
 
         <div class="certificate-body">
-            This is to certify that
+            This certifies that
         </div>
 
         <div class="certificate-recipient">
@@ -95,7 +95,8 @@
         </div>
 
         <div class="certificate-description">
-            have successfully received the sacrament of {{$data->sacrament->desc}}.<br>
+            were united in marriage on {{$data->date}}<br><br>
+            at {{$data->church->church_name}} <br><br><br>
             Date of Sacrament: {{$data->date}}
         </div>
 

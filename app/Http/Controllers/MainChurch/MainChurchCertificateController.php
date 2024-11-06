@@ -33,6 +33,18 @@ class MainChurchCertificateController extends Controller
             $pdf = Pdf::loadView('PdfFormat.matrimony_certificate', ['data' => $data]);
 
             return $pdf->download('matrimony_certificate.pdf');
+        }else if($data->sacrament->desc == "EUCHARIST")
+        {
+            $pdf = Pdf::loadView('PdfFormat.eucharist_certificate', ['data' => $data]);
+
+            return $pdf->download('certificate.pdf');
+
+        }else if($data->sacrament->desc == "CONFIRMATION")
+        {
+            $pdf = Pdf::loadView('PdfFormat.confirmation_certificate', ['data' => $data]);
+
+            return $pdf->download('certificate.pdf');
+
         }else
         {
             $pdf = Pdf::loadView('PdfFormat.custom_certificate', ['data' => $data]);

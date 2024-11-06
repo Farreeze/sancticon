@@ -81,17 +81,29 @@
 </head>
 <body>
     <div class="certificate-container">
-        <div class="certificate-title">Certificate of Baptism</div>
+        <div class="certificate-title">Confirmation Certificate</div>
 
         <div class="certificate-body">
-            This Certifies That
+            This is to Certify That
         </div>
 
-        <div class="certificate-recipient">{{$data->participant_name}}</div>
+        <div class="certificate-recipient">
+            {{$data->user->first_name}}
+            @if ($data->user->middle_name)
+                {{$data->user->middle_name}}
+            @endif
+            {{$data->user->last_name}}
+            @if ($data->user->suffix_name)
+                {{$data->user->suffix->desc}}
+            @endif
+        </div>
 
         <div class="certificate-description">
-            was <br><br>
-            Baptized in the name of the Father, and of the Son, and of the Holy Spirit<br><br><br>
+            Was sealed with the gift of the<br><br>
+            HOLY SPIRIT<br><br>
+            and was<br><br>
+            CONFIRMED<br><br><br>
+            on<br><br>
             {{$data->date}}
         </div>
 

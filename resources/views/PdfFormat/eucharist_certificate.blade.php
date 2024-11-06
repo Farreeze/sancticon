@@ -81,25 +81,33 @@
 </head>
 <body>
     <div class="certificate-container">
-        <div class="certificate-title">Certificate of Baptism</div>
+        <div class="certificate-title">Certificate of First Communion</div>
 
         <div class="certificate-body">
             This Certifies That
         </div>
 
-        <div class="certificate-recipient">{{$data->participant_name}}</div>
+        <div class="certificate-recipient">
+            {{$data->user->first_name}}
+            @if ($data->user->middle_name)
+                {{$data->user->middle_name}}
+            @endif
+            {{$data->user->last_name}}
+            @if ($data->user->suffix_name)
+                {{$data->user->suffix->desc}}
+            @endif
+        </div>
 
         <div class="certificate-description">
-            was <br><br>
-            Baptized in the name of the Father, and of the Son, and of the Holy Spirit<br><br><br>
+            Has received First Holy Communion<br><br><br>
             {{$data->date}}
         </div>
 
         <div class="certificate-signature">
-            <div class="signature-block">
+            {{-- <div class="signature-block">
                 {{$data->priest_name}}
                 <div class="signature-line">Priest's Name</div>
-            </div>
+            </div> --}}
             <div class="signature-block">
                 {{$data->church->church_name}}
                 <div class="signature-line">Church Name</div>
