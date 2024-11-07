@@ -19,12 +19,13 @@
                 <div class="p-6 text-gray-600">
                     <h1 class="font-bold text-2xl">Add News and Announcement Form</h1>
                     <div class="w-full">
+                        <p class="mt-3 text-gray-500">Fields with * are required</p>
                         <form action="{{ route('news-and-announcements-form.add') }}" method="POST" onsubmit="disableButton()">
                             @csrf
                             {{-- form requirements --}}
                             <input type="hidden" name="church_id" id="" value="{{Auth::user()->id}}">
                             {{-- form input --}}
-                            <div class="flex-col items-center mt-5">
+                            <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Title:*</label>
                                 <input name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>

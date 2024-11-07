@@ -82,7 +82,11 @@ class MainChurchSacramentalReservationController extends Controller
     {
         $sr_request = SacramentalReservation::find($id);
 
-        $requester = trim($sr_request->user->first_name . ' ' . ($sr_request->user->middle_name ?? '') . ' ' . $sr_request->user->last_name);
+        if ($sr_request->custom_name){
+            $requester = $sr_request->custom_name;
+        }else{
+            $requester = trim($sr_request->user->first_name . ' ' . ($sr_request->user->middle_name ?? '') . ' ' . $sr_request->user->last_name);
+        }
 
         $action = $request->input('action');
         $feedback = $request->input('feedback');

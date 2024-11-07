@@ -87,16 +87,22 @@
             This is to Certify That
         </div>
 
-        <div class="certificate-recipient">
-            {{$data->user->first_name}}
-            @if ($data->user->middle_name)
-                {{$data->user->middle_name}}
-            @endif
-            {{$data->user->last_name}}
-            @if ($data->user->suffix_name)
-                {{$data->user->suffix->desc}}
-            @endif
-        </div>
+        @if ($data->custom_name)
+            <div class="certificate-recipient">
+                {{$data->custom_name}}
+            </div>
+        @else
+            <div class="certificate-recipient">
+                {{$data->user->first_name}}
+                @if ($data->user->middle_name)
+                    {{$data->user->middle_name}}
+                @endif
+                {{$data->user->last_name}}
+                @if ($data->user->suffix_name)
+                    {{$data->user->suffix->desc}}
+                @endif
+            </div>
+        @endif
 
         <div class="certificate-description">
             Was sealed with the gift of the<br><br>

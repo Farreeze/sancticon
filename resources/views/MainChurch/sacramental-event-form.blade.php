@@ -20,6 +20,7 @@
                 <div class="p-6 text-gray-600">
                     <h1 class="font-bold text-2xl">Sacramental Reservation Form</h1>
                     <div class="w-full">
+                        <p class="mt-3 text-gray-500">Fields with * are required</p>
                         <form class="mt-3" action="{{ route('sacramental-events-form.submit') }}" method="POST" onsubmit="disableButton()">
                             @csrf
                             {{-- form requirements --}}

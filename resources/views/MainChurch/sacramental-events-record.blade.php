@@ -53,12 +53,16 @@
                         <tbody>
                             @foreach ($sr_requests as $sr_request)
                                 <tr class="bg-gray-50 hover:bg-gray-100">
-                                    <td class="text-start px-4 py-2 border border-gray-300">
-                                        {{$sr_request->user->first_name}}
-                                        {{$sr_request->user->middle_name ?? ''}}
-                                        {{$sr_request->user->last_name}}
-                                        {{$sr_request->suffix->desc ?? '' }}
-                                    </td>
+                                    @if ($sr_request->custom_name)
+                                    <td class="text-start px-4 py-2 border border-gray-300">{{$sr_request->custom_name}}</td>
+                                    @else
+                                        <td class="text-start px-4 py-2 border border-gray-300">
+                                            {{$sr_request->user->first_name}}
+                                            {{$sr_request->user->middle_name ?? ''}}
+                                            {{$sr_request->user->last_name}}
+                                            {{$sr_request->suffix->desc ?? '' }}
+                                        </td>
+                                    @endif
                                     <td class="text-start px-4 py-2 border border-gray-300">{{$sr_request->sacrament->desc}}</td>
                                     <td class="text-start px-4 py-2 border border-gray-300">{{$sr_request->created_at}}</td>
                                     <td class="text-start px-4 py-2 border border-gray-300">{{$sr_request->updated_at}}</td>

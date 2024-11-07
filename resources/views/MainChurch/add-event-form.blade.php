@@ -19,6 +19,7 @@
                 <div class="p-6 text-gray-600">
                     <h1 class="font-bold text-2xl">Add Event</h1>
                     <div class="w-full">
+                        <p class="mt-3 text-gray-500">Fields with * are required</p>
                         <form action="{{ route('add-event') }}" method="POST" onsubmit="disableButton()">
                             @csrf
                             {{-- form requirements --}}

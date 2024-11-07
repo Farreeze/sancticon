@@ -18,11 +18,12 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-600">
-                    <h1 class="font-bold text-2xl mb-5">Add Priest</h1>
+                    <h1 class="font-bold text-2xl mb-3">Add Priest</h1>
                     <div class="w-full">
                         <form action="{{route('add-priest.submit')}}" method="POST" onsubmit="disableButton()" enctype="multipart/form-data">
                             @csrf
                             {{-- form input --}}
+                            <p class="mb-3 text-gray-500">Fields with * are required</p>
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">First Name:*</label>
                                 <input name="first_name" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter first name" required>

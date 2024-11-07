@@ -27,6 +27,7 @@
                             <input type="hidden" name="user" id="" value="0">
                             <input type="hidden" name="superadmin" id="" value="0">
                             {{-- form input --}}
+                            <p class="mt-3 text-gray-500">Fields with * are required</p>
                             <div class="flex-col items-center mt-5">
                                 <label class="font-bold" for="church_name">Church Name:*</label>
                                 <input value="{{Auth::user()->church_name}}" name="church_name" class="rounded-lg border-gray-300 w-full mt-2" type="text" readonly>

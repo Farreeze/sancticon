@@ -36,6 +36,7 @@
                     <div class="flex items-center sticky top-0 bg-white">
                         <h1 class="font-bold text-2xl text-gray-700">Sacramental Reservation Requests</h1>
                     </div>
+                    <p class="text-gray-500">ⓘ Requests from User Accounts are stored here.</p>
                     <div class="w-full mt-5">
                         <div class="flex flex-col">
 

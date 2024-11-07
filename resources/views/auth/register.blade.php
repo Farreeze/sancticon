@@ -97,6 +97,9 @@
         </div>
 
         <!-- Password -->
+
+        <p class=" mt-4 text-gray-500">The password must include at least one special character, one uppercase letter, one lowercase letter, and one number.</p>
+
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password *')" />
 

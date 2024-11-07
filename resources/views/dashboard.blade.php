@@ -172,6 +172,7 @@
                         <h2 class="font-bold text-gray-700 text-2xl">{{Auth::user()->church_name}} Sacramental Reservations</h2>
                         <a class="px-4 py-2 rounded-lg bg-secondary hover:bg-secondary_hover text-white ml-3" href="{{ route('sub-church-sacramental-event-form.show') }}">+ Request</a>
                     </div>
+                    <p class="text-gray-500">ⓘ Walk-In requests are stored here.</p>
 
                     @if ($sacramental_reservations->isEmpty())
                         <div class="w-full flex justify-center">
