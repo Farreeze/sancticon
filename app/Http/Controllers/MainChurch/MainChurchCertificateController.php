@@ -25,29 +25,29 @@ class MainChurchCertificateController extends Controller
 
         if($data->sacrament->desc == "BAPTISM")
         {
-            $pdf = Pdf::loadView('PdfFormat.baptism_certificate', ['data' => $data]);
+            $pdf = Pdf::loadView('PdfFormat.baptism_certificate', ['data' => $data])->setPaper('a4', 'landscape');
 
             return $pdf->download('baptism_certificate.pdf');
         }else if($data->sacrament->desc == "MATRIMONY")
         {
-            $pdf = Pdf::loadView('PdfFormat.matrimony_certificate', ['data' => $data]);
+            $pdf = Pdf::loadView('PdfFormat.matrimony_certificate', ['data' => $data])->setPaper('a4', 'landscape');
 
             return $pdf->download('matrimony_certificate.pdf');
         }else if($data->sacrament->desc == "EUCHARIST")
         {
-            $pdf = Pdf::loadView('PdfFormat.eucharist_certificate', ['data' => $data]);
+            $pdf = Pdf::loadView('PdfFormat.eucharist_certificate', ['data' => $data])->setPaper('a4', 'landscape');
 
             return $pdf->download('certificate.pdf');
 
         }else if($data->sacrament->desc == "CONFIRMATION")
         {
-            $pdf = Pdf::loadView('PdfFormat.confirmation_certificate', ['data' => $data]);
+            $pdf = Pdf::loadView('PdfFormat.confirmation_certificate', ['data' => $data])->setPaper('a4', 'landscape');
 
             return $pdf->download('certificate.pdf');
 
         }else
         {
-            $pdf = Pdf::loadView('PdfFormat.custom_certificate', ['data' => $data]);
+            $pdf = Pdf::loadView('PdfFormat.custom_certificate', ['data' => $data])->setPaper('a4', 'landscape');
 
             return $pdf->download('certificate.pdf');
         }

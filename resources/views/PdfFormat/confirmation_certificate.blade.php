@@ -13,47 +13,50 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 100vw;
             height: 100vh;
             background-color: #f9f9f9;
         }
 
         .certificate-container {
-            width: 80%;
-            padding: 40px;
-            border: 10px solid #4a5568; /* Darker gray border */
+            width: 100%; /* Full width for landscape */
+            max-width: 90%; /* Optional for padding on sides */
+            height: 60vh; /* Reduced height for landscape */
+            padding: 20px; /* Reduced padding */
+            border: 10px solid #4a5568;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
         .certificate-title {
-            font-size: 36px;
+            font-size: 30px; /* Slightly smaller title */
             font-weight: bold;
-            color: #2d3748; /* Dark gray text */
-            margin-bottom: 20px;
+            color: #2d3748;
+            margin-bottom: 15px;
         }
 
         .certificate-body {
-            font-size: 18px;
+            font-size: 16px; /* Slightly smaller body text */
             color: #4a5568;
-            margin-bottom: 40px;
-            line-height: 1.6;
+            margin-bottom: 30px;
+            line-height: 1.4; /* Tighter line height */
         }
 
         .certificate-recipient {
-            font-size: 24px;
+            font-size: 22px; /* Slightly smaller recipient name */
             font-weight: bold;
-            color: #2c5282; /* Dark blue text */
-            margin: 20px 0;
+            color: #2c5282;
+            margin: 15px 0;
         }
 
         .certificate-description {
-            font-size: 18px;
+            font-size: 16px; /* Slightly smaller description */
             color: #2d3748;
         }
 
         .certificate-signature {
-            margin-top: 50px;
+            margin-top: 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -65,22 +68,23 @@
         }
 
         .signature-line {
-            margin-top: 60px;
+            margin-top: 50px;
             border-top: 1px solid #2d3748;
-            padding-top: 10px;
-            font-size: 18px;
+            padding-top: 8px;
+            font-size: 16px;
             color: #4a5568;
         }
 
         .certificate-footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #a0aec0; /* Light gray text */
+            margin-top: 15px;
+            font-size: 12px; /* Smaller footer text */
+            color: #a0aec0;
         }
     </style>
 </head>
 <body>
     <div class="certificate-container">
+        <br><br>
         <div class="certificate-title">Confirmation Certificate</div>
 
         <div class="certificate-body">
@@ -108,7 +112,7 @@
             Was sealed with the gift of the<br><br>
             HOLY SPIRIT<br><br>
             and was<br><br>
-            CONFIRMED<br><br><br>
+            CONFIRMED<br><br>
             on<br><br>
             {{$data->date}}
         </div>
