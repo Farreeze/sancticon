@@ -15,16 +15,6 @@
     @endif
 
     <div class="w-full py-5 px-10 flex flex-col md:flex-row lg:flex-row items-start">
-        <div class="w-full md:w-[20%] lg:w-[20%] bg-white rounded-lg shadow-lg">
-            <div class="w-full flex flex-col justify-center p-5">
-                <div class="flex justify-center">
-                    <img class="h-24 w-24" src="/images/church-default-dp.png" alt="">
-                </div>
-                <div class="flex justify-center mt-3">
-                    <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
-                </div>
-            </div>
-        </div>
         <div class="w-full md:ml-5 lg:ml-5 mt-3 md:mt-0 lg:mt-0 bg-white rounded-lg p-5 shadow-lg">
             @if (Auth::user()->main_church)
             <div class="w-full">
@@ -45,6 +35,7 @@
                         <thead class="bg-gray-300">
                             <tr class="text-start">
                                 <th class="text-start px-4 py-2 border border-gray-300">Name</th>
+                                <th class="text-start px-4 py-2 border border-gray-300">Participant</th>
                                 <th class="text-start px-4 py-2 border border-gray-300">Sacrament</th>
                                 <th class="text-start px-4 py-2 border border-gray-300">Date Created</th>
                                 <th class="text-start px-4 py-2 border border-gray-300">Date Completed</th>
@@ -62,6 +53,15 @@
                                             {{$sr_request->user->last_name}}
                                             {{$sr_request->suffix->desc ?? '' }}
                                         </td>
+                                    @endif
+                                    @if ($sr_request->participant_name)
+                                    <td class="text-start px-4 py-2 border border-gray-300">{{$sr_request->participant_name}}</td>
+                                    @endif
+                                    @if ($sr_request->first_name && $sr_request->second_name)
+                                    <td class="text-start px-4 py-2 border border-gray-300">{{$sr_request->first_name}} and {{$sr_request->second_name}}</td>
+                                    @endif
+                                    @if (!$sr_request->participant_name && !$sr_request->first_name && !$sr_request->second_name)
+                                    <td class="text-start px-4 py-2 border border-gray-300">NA</td>
                                     @endif
                                     <td class="text-start px-4 py-2 border border-gray-300">{{$sr_request->sacrament->desc}}</td>
                                     <td class="text-start px-4 py-2 border border-gray-300">{{$sr_request->created_at}}</td>
