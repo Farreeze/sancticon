@@ -31,8 +31,17 @@
                                 </div>
                                 <div class="mt-3">
                                     <span class="text-gray-700 ml-1">Church:*</span>
-                                    <input type="hidden" value="1" name="church_id">
-                                    <input class="w-full rounded-lg border-gray-300" type="text" value="Our Lady Of Lourdes Parish (Tarlac City)" readonly>
+
+
+                                    {{-- <input type="hidden" value="1" name="church_id">
+                                    <input class="w-full rounded-lg border-gray-300" type="text" value="Our Lady Of Lourdes Parish (Tarlac City)" readonly> --}}
+
+                                    <select class="w-full rounded-lg border-gray-300" name="church_id" id="" required>
+                                        <option value="" selected disabled>Select Church</option>
+                                        <option value="1">Our Lady Of Lourdes Parish (Tarlac City)</option>
+                                        <option value="{{Auth::user()->id}}">{{Auth::user()->church_name}}</option>
+                                    </select>
+
                                     {{-- <select class="w-full rounded-lg border-gray-300" name="church_id" id="" required>
                                         <option value="" selected disabled>Select Church</option>
                                         @foreach ($churches as $church)
