@@ -29,6 +29,7 @@
                 <div class="flex items-center sticky top-0 bg-white z-10">
                     <h1 class="font-bold text-2xl text-gray-700">Certificates</h1>
                 </div>
+                <p class="text-gray-500">ⓘ Only sacramental events added or requested by you will appear in this section.</p>
                 <div class="w-full mt-5 flex flex-col">
 
                     @if ($sacramental_events->isEmpty())

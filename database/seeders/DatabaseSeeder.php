@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             SacramentSeeder::class,
             BarangaySeeder::class,
             PriestTitleSeeder::class,
-            ChurchSeeder::class
+            ChurchSeeder::class,
+            RequirementSeeder::class
         ]);
         User::factory()->create();
         User::factory()->AsturiasChurch()->create();

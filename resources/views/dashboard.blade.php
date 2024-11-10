@@ -58,6 +58,7 @@
                         <div class="flex flex-col w-full items-center">
                             <span class="font-bold text-gray-700">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
                             <a class="text-center mt-10 px-4 py-2 w-full bg-secondary hover:bg-secondary_hover rounded-lg text-white" href="{{route('add-admin-form.show')}}">+ Admin</a>
+                            <a class="text-center mt-2 px-4 py-2 w-full bg-secondary hover:bg-secondary_hover rounded-lg text-white" href="{{route('sacrament-requirement.view')}}">Sacrament Requirements</a>
                         </div>
                     @endif
                 </div>
@@ -125,6 +126,7 @@
                         <h1 class="font-bold text-2xl text-gray-700">Chapels</h1>
                         <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('add-church-form.show')}}">+ Chapel</a>
                     </div>
+                    <p class="text-gray-500 mt-2">ⓘ Occupied Dates can be seen within the Sacramental Calendar.</p>
                     <div class="overflow-x-auto">
                         <table class="w-full border border-gray-300 rounded-lg overflow-hidden mt-5">
                             <thead class="bg-gray-100">
@@ -172,7 +174,7 @@
                         <h2 class="font-bold text-gray-700 text-2xl">{{Auth::user()->church_name}} Sacramental Reservations</h2>
                         <a class="px-4 py-2 rounded-lg bg-secondary hover:bg-secondary_hover text-white ml-3" href="{{ route('sub-church-sacramental-event-form.show') }}">+ Request</a>
                     </div>
-                    <p class="text-gray-500">ⓘ Walk-In requests are stored here.</p>
+                    <p class="text-gray-500">ⓘ Walk-In requests are displayed here.</p>
 
                     @if ($sacramental_reservations->isEmpty())
                         <div class="w-full flex justify-center">
@@ -346,7 +348,7 @@
                         <h2 class="font-bold text-gray-700 text-2xl">Sacramental Reservations</h2>
                         <a class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white ml-3" href="{{route('sacramental-reservation-form.show')}}">+ Request</a>
                     </div>
-
+                    <p class="text-gray-500">ⓘ Occupied Dates can be seen within the Sacramental Calendar.</p>
                     @if ($sacramental_reservations->isEmpty())
                         <div class="w-full flex justify-center">
                             <img src="/images/no_data.png" alt="">

@@ -20,21 +20,22 @@
         <div class="w-full p-7">
             <div class="w-full p-5 bg-white bg-opacity-40 rounded-lg shadow-md">
                 <div>
-                    <h2 class="w-full text-center font-bold text-2xl text-white">Contact Us</h2>
+                    <h2 class="w-full text-center font-bold text-2xl text-black">Contact Us</h2>
                 </div>
 
                 <div class="w-full flex flex-col items-center">
                     @foreach ($churches as $church)
-                        <div class="w-full bg-white bg-opacity-20 rounded-lg shadow-md p-5 mt-3 text-center">
-                            <h2 class="text-white font-bold text-2xl">{{$church->church_name}}</h2>
-                            <p class="font-bold text-lg text-white mt-5">Church Email</p>
-                            <p class="text-white">{{$church->email}}</p>
-                            <p class="font-bold text-lg text-white mt-3">Church Phone</p>
-                            <p class="text-white">{{$church->mobile_number}}</p>
+                        <div class="w-full bg-white bg-opacity-40 rounded-lg shadow-md p-5 mt-3 text-center">
+                            <h2 class="text-black font-bold text-2xl">{{$church->church_name}}</h2>
+                            <p class="font-bold text-lg text-black mt-5">Church Email</p>
+                            <p class="text-black">{{$church->email}}</p>
+                            <p class="font-bold text-lg text-black mt-3">Church Phone</p>
+                            <p class="text-black">{{$church->mobile_number}}</p>
                         </div>
                     @endforeach
                 </div>
             </div>
         </div>
+
     </body>
 </html>

@@ -25,7 +25,7 @@
                         {{ __('Gallery') }}
                     </x-nav-link>
                     <x-nav-link class="text-white hover:text-gray-300" :href="route('guest-sacraments.show')" :active="request()->routeIs('guest-sacraments.show')">
-                        {{ __('Sacraments') }}
+                        {{ __('Sacraments Offered') }}
                     </x-nav-link>
                     <x-nav-link class="text-white hover:text-gray-300" :href="route('guest-priests.show')" :active="request()->routeIs('guest-priests.show')">
                         {{ __('About Us') }}
@@ -74,7 +74,7 @@
                 {{ __('Gallery') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link class="text-white hover:text-gray-300" :href="route('guest-sacraments.show')" :active="request()->routeIs('guest-sacraments.show')">
-                {{ __('Sacraments') }}
+                {{ __('Sacraments Offered') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link class="text-white hover:text-gray-300" :href="route('guest-priests.show')" :active="request()->routeIs('guest-priests.show')">
                 {{ __('About Us') }}

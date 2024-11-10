@@ -20,36 +20,37 @@
         <div class="w-full p-7">
             <div class="w-full p-5 bg-white bg-opacity-40 rounded-lg shadow-md">
                 <div>
-                    <h2 class="font-bold text-2xl text-white">Events</h2>
+                    <h2 class="font-bold text-2xl text-black">Events</h2>
                 </div>
+
                 @foreach ($events as $event)
-                    <div class="mt-3 w-full bg-white bg-opacity-20 rounded-lg flex flex-col p-5">
+                    <div class="mt-3 w-full bg-white bg-opacity-40 rounded-lg flex flex-col p-5">
                         <div class="w-full">
                             <div class="mb-1 flex justify-between flex-wrap">
-                                <h1 class="text-white font-bold text-2xl">{{ $event->title }}</h1>
+                                <h1 class="text-black font-bold text-2xl">{{ $event->title }}</h1>
                             </div>
                             <div class="flex flex-col">
                                 @if ($event->sacrament_id)
                                     <div class="flex flex-wrap">
-                                        <span class="text-white font-bold">Sacrament:</span>
-                                        <span class="text-white ml-1">{{$event->sacrament->desc}}</span>
+                                        <span class="text-black font-bold">Sacrament:</span>
+                                        <span class="text-black ml-1">{{ $event->sacrament->desc }}</span>
                                     </div>
                                 @endif
                                 <div class="flex flex-wrap">
-                                    <span class="text-white font-bold">Date:</span>
-                                    <span class="text-white ml-1">{{$event->date}}</span>
+                                    <span class="text-black font-bold">Date:</span>
+                                    <span class="text-black ml-1">{{ $event->date }}</span>
                                 </div>
                                 <div class="flex flex-wrap">
-                                    <span class="text-white font-bold">Time:</span>
-                                    <span class="text-white ml-1">{{$event->start_time}} - {{$event->end_time}}</span>
+                                    <span class="text-black font-bold">Time:</span>
+                                    <span class="text-black ml-1">{{ $event->start_time }} - {{ $event->end_time }}</span>
                                 </div>
                                 <div class="flex flex-wrap">
-                                    <span class="text-white font-bold">Location:</span>
-                                    <span class="text-white ml-1">{{$event->getLocation->desc}}</span>
+                                    <span class="text-black font-bold">Location:</span>
+                                    <span class="text-black ml-1">{{ $event->getLocation->desc }}</span>
                                 </div>
                                 <div class="flex flex-wrap">
-                                    <span class="text-white font-bold">Description:</span>
-                                    <span class="text-white ml-1">{{$event->desc}}</span>
+                                    <span class="text-black font-bold">Description:</span>
+                                    <span class="text-black ml-1">{{ $event->desc }}</span>
                                 </div>
                             </div>
                         </div>
@@ -57,5 +58,6 @@
                 @endforeach
             </div>
         </div>
+
     </body>
 </html>

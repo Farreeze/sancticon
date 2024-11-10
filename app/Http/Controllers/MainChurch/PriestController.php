@@ -12,6 +12,7 @@ use App\Models\Priest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class PriestController extends Controller
 {
@@ -88,13 +89,13 @@ class PriestController extends Controller
     public function edit(string $id)
     {
         $priest = Priest::find($id);
-
+        $priest_titles = LibPriestTitle::all();
         $suffix_names = libSuffixName::all();
         $churches = User::where('sub_church', 1)
                 ->orWhere('main_church', 1)
                 ->get();
 
-        return view('MainChurch.edit-priest-form', ['priest'=>$priest, 'suffix_names'=>$suffix_names, 'churches'=>$churches]);
+        return view('MainChurch.edit-priest-form', ['priest'=>$priest, 'suffix_names'=>$suffix_names, 'churches'=>$churches, 'priest_titles'=>$priest_titles]);
     }
 
     /**
@@ -102,20 +103,28 @@ class PriestController extends Controller
      */
     public function update(UpdatePriestRequest $request, string $id)
     {
-        $validated_req = $request->validated();
+        try {
+            $validated_req = $request->validated();
+            $priest = Priest::findOrFail($id);
 
-        $priest = Priest::findOrFail($id);
+            $priest_name = trim($priest->first_name . ' ' . ($priest->middle_name ?? '') . ' ' . $priest->last_name);
+            $priest->update($validated_req);
 
-        $priest_name = trim($priest->first_name . ' ' . ($priest->middle_name ?? '') . ' ' . $priest->last_name);
+            ActivityLog::create([
+                'user_id' => Auth::id(),
+                'desc' => "Updated $priest_name's profile details.",
+            ]);
 
-        $priest->update($validated_req);
+            return back()->with('update-message', 'Priest Updated Successfully');
+        } catch (\Exception $e) {
+            Log::error('Update failed: ' . $e->getMessage());
 
-        ActivityLog::create([
-            'user_id' => Auth::id(),
-            'desc' => "Updated $priest_name's profile details.",
-        ]);
-
-        return back()->with('update-message', 'Priest Updated Successfully');
+            // Return a JSON response with the error message
+            return response()->json([
+                'error' => 'An error occurred while updating the priest profile.',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 
     /**

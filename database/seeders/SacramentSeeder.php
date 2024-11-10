@@ -19,7 +19,7 @@ class SacramentSeeder extends Seeder
             ['id' => '3', 'desc' => 'EUCHARIST'],
             ['id' => '4', 'desc' => 'CONFESSION'],
             ['id' => '5', 'desc' => 'ANOINTING OF THE SICK'],
-            ['id' => '6', 'desc' => 'HOLY ORDERS'],
+            ['id' => '6', 'desc' => 'FUNERAL (Sacrament of Eucharist)'],
             ['id' => '7', 'desc' => 'MATRIMONY']
         ],['id']);
     }

@@ -19,97 +19,100 @@
 
         <div class="w-full p-7">
             <div class="w-full p-5 bg-white bg-opacity-40 rounded-lg shadow-md flex justify-center flex-wrap">
-
                 <div class="w-full text-center">
-                    <h2 class="font-bold text-2xl text-white">Gallery</h2>
+                    <h2 class="font-bold text-2xl text-black">Gallery</h2>
                 </div>
-                {{-- item template --}}
-                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-20 flex flex-col items-center">
+
+                {{-- Item Template --}}
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-40 flex flex-col items-center">
                     <div class="w-full p-3 flex justify-center">
                         <a href="{{route('guest-sacraments.show')}}#anointingofthesick">
                             <img class="h-44 rounded-lg shadow-sm" src="/images/anointing.jpg" alt="Profile Picture" class="w-full h-auto" />
                         </a>
                     </div>
                     <div class="w-full break-words">
-                        <h2 class="w-full text-center font-bold text-white">ANOINTING OF THE SICK</h2>
+                        <h2 class="w-full text-center font-bold text-black">ANOINTING OF THE SICK</h2>
                     </div>
                 </div>
 
-                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-20 flex flex-col items-center">
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-40 flex flex-col items-center">
                     <div class="w-full p-3 flex justify-center">
                         <a href="{{route('guest-sacraments.show')}}#baptism">
                             <img class="h-44 rounded-lg shadow-sm" src="/images/baptism.jpg" alt="Profile Picture" class="w-full h-auto" />
                         </a>
                     </div>
                     <div class="w-full break-words">
-                        <h2 class="w-full text-center font-bold text-white">BAPTISIM</h2>
+                        <h2 class="w-full text-center font-bold text-black">BAPTISM</h2>
                     </div>
                 </div>
 
-                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-20 flex flex-col items-center">
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-40 flex flex-col items-center">
                     <div class="w-full p-3 flex justify-center">
                         <a href="{{route('guest-sacraments.show')}}#eucharist">
                             <img class="h-44 rounded-lg shadow-sm" src="/images/eucharist.jpg" alt="Profile Picture" class="w-full h-auto" />
                         </a>
                     </div>
                     <div class="w-full break-words">
-                        <h2 class="w-full text-center font-bold text-white">EUCHARIST</h2>
+                        <h2 class="w-full text-center font-bold text-black">EUCHARIST</h2>
                     </div>
                 </div>
 
-                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-20 flex flex-col items-center">
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-40 flex flex-col items-center">
                     <div class="w-full p-3 flex justify-center">
                         <a href="{{route('guest-sacraments.show')}}#confirmation">
                             <img class="h-44 rounded-lg shadow-sm" src="/images/confirmation.jpg" alt="Profile Picture" class="w-full h-auto" />
                         </a>
                     </div>
                     <div class="w-full break-words">
-                        <h2 class="w-full text-center font-bold text-white">CONFIRMATION</h2>
+                        <h2 class="w-full text-center font-bold text-black">CONFIRMATION</h2>
                     </div>
                 </div>
 
-                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-20 flex flex-col items-center">
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-40 flex flex-col items-center">
                     <div class="w-full p-3 flex justify-center">
                         <a href="{{route('guest-sacraments.show')}}#holyorders">
                             <img class="h-44 rounded-lg shadow-sm" src="/images/holyorders.jpg" alt="Profile Picture" class="w-full h-auto" />
                         </a>
                     </div>
                     <div class="w-full break-words">
-                        <h2 class="w-full text-center font-bold text-white">HOLY ORDERS</h2>
+                        <h2 class="w-full text-center font-bold text-black">HOLY ORDERS</h2>
                     </div>
                 </div>
 
-                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-20 flex flex-col items-center">
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-40 flex flex-col items-center">
                     <div class="w-full p-3 flex justify-center">
                         <a href="{{route('guest-sacraments.show')}}#confession">
                             <img class="h-44 rounded-lg shadow-sm" src="/images/confession.jpg" alt="Profile Picture" class="w-full h-auto" />
                         </a>
                     </div>
                     <div class="w-full break-words">
-                        <h2 class="w-full text-center font-bold text-white">CONFESSION</h2>
+                        <h2 class="w-full text-center font-bold text-black">CONFESSION</h2>
                     </div>
                 </div>
 
-                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-20 flex flex-col items-center">
+                <div class="rounded-lg shadow-md w-64 m-5 p-5 bg-white bg-opacity-40 flex flex-col items-center">
                     <div class="w-full p-3 flex justify-center">
                         <a href="{{route('guest-sacraments.show')}}#matrimony">
                             <img class="h-44 rounded-lg shadow-sm" src="/images/matrimony.jpg" alt="Profile Picture" class="w-full h-auto" />
                         </a>
                     </div>
                     <div class="w-full break-words">
-                        <h2 class="w-full text-center font-bold text-white">MATRIMONY</h2>
+                        <h2 class="w-full text-center font-bold text-black">MATRIMONY</h2>
                     </div>
                 </div>
-                {{-- template ends here --}}
+                {{-- Template ends here --}}
+
             </div>
+
             <div class="w-full p-5 rounded-lg shadow-md flex justify-center flex-wrap mt-3">
                 @foreach ($photos as $photo)
-                    <div class="w-full max-w-xs m-5 bg-white bg-opacity-20 p-5 rounded-lg shadow-md flex flex-col items-center">
+                    <div class="w-full max-w-xs m-5 bg-white bg-opacity-60 p-5 rounded-lg shadow-md flex flex-col items-center">
                         <img class="h-48 rounded-lg mb-4" src="/{{$photo->photo_id}}" alt="">
-                        <p class="text-start text-white">{{$photo->caption}}</p>
+                        <p class="text-start text-black">{{$photo->caption}}</p>
                     </div>
                 @endforeach
             </div>
         </div>
+
     </body>
 </html>

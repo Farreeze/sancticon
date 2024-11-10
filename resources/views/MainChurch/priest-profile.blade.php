@@ -14,11 +14,11 @@
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <p class="text-lg text-gray-700">{{ $priest->title }}</p>
+                    <p class="text-lg text-gray-700">{{ $priest->title->desc }}</p>
                 </div>
-                <div class="flex justify-center">
+                {{-- <div class="flex justify-center">
                     <p class="text-lg text-gray-700">{{ $priest->church->church_name }}</p>
-                </div>
+                </div> --}}
                 <div class="flex justify-center mt-10">
                     <a class="bg-white hover:bg-gray-300 border border-gray-300 w-full py-2 text-center rounded-lg" href="{{route('edit-priest.show', $priest->id)}}">Edit</a>
                 </div>

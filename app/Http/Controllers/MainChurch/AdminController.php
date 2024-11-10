@@ -4,7 +4,9 @@ namespace App\Http\Controllers\MainChurch;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\AddAdminRequest;
+use App\Http\Requests\MainChurch\UpdateSacramentReqRequest;
 use App\Models\ActivityLog;
+use App\Models\SacramentRequirement;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -81,5 +83,30 @@ class AdminController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function viewSacramentRequirements()
+    {
+        $sacrament_requirements = SacramentRequirement::all();
+
+        return view('MainChurch.mainchurch-sacrament-req', ['sacrament_requirements' => $sacrament_requirements]);
+    }
+
+    public function editSacramentRequirement($id)
+    {
+        $sacrament_req = SacramentRequirement::findOrFail($id);
+
+        return view('MainChurch.edit-sacrament-req-form', ['sacrament_req' => $sacrament_req]);
+    }
+
+    public function updateSacramentRequirement(UpdateSacramentReqRequest $request, $id)
+    {
+        $valid_req = $request->validated();
+
+        $sacrament_req = SacramentRequirement::findOrFail($id);
+
+        $sacrament_req->update($valid_req);
+
+        return redirect()->route('sacrament-requirement.view')->with('update-message', 'Requirement updated successfully!');
     }
 }

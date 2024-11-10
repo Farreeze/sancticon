@@ -20,10 +20,10 @@
         <div class="w-full p-7">
             <div class="w-full p-5 bg-white bg-opacity-40 rounded-lg shadow-md">
                 <div>
-                    <h2 class="font-bold text-2xl text-white">Priests</h2>
+                    <h2 class="font-bold text-2xl text-black">Priests</h2>
                 </div>
                 @foreach ($priests as $priest)
-                    <div class="mt-3 w-full bg-white bg-opacity-20 rounded-lg p-5">
+                    <div class="mt-3 w-full bg-white bg-opacity-40 rounded-lg p-5">
                         <div class="flex flex-col items-center">
 
                             @if (!$priest->photo_id)
@@ -33,20 +33,21 @@
                             @endif
 
                             <div class="flex">
-                                <p class="text-lg text-white font-bold mr-1">{{ $priest->first_name }}</p>
-                                <p class="text-lg text-white font-bold mr-1">{{ $priest->middle_name }}</p>
-                                <p class="text-lg text-white font-bold mr-1">{{ $priest->last_name }}</p>
+                                <p class="text-lg text-black font-bold mr-1">{{ $priest->first_name }}</p>
+                                <p class="text-lg text-black font-bold mr-1">{{ $priest->middle_name }}</p>
+                                <p class="text-lg text-black font-bold mr-1">{{ $priest->last_name }}</p>
                                 @if ($priest->suffix_name != 10 && $priest->suffix_name != null)
-                                    <p class="text-lg text-white font-bold mr-1">{{ $priest->suffix->desc }}</p>
+                                    <p class="text-lg text-black font-bold mr-1">{{ $priest->suffix->desc }}</p>
                                 @endif
                             </div>
 
-                            <p class="mt-1 font-bold text-md text-white">{{$priest->title->desc}}</p>
-                            {{-- <p class="mt-1 font-bold text-md text-white">{{$priest->church->church_name}}</p> --}}
+                            <p class="mt-1 font-bold text-md text-black">{{$priest->title->desc}}</p>
+                            {{-- <p class="mt-1 font-bold text-md text-black">{{$priest->church->church_name}}</p> --}}
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
+
     </body>
 </html>

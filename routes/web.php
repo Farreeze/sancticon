@@ -94,6 +94,9 @@ Route::middleware('auth')->group(function () {
         //admin
         Route::get('/add-admin-form', [AdminController::class, 'create'])->name('add-admin-form.show');
         Route::post('/add-admin', [AdminController::class, 'store'])->name('add-admin');
+        Route::get('/sacrament-requirements', [AdminController::class, 'viewSacramentRequirements'])->name('sacrament-requirement.view');
+        Route::get('/sacrament-requirement-edit/{id}',[AdminController::class, 'editSacramentRequirement'])->name('sacrament-requiement.edit');
+        Route::patch('/sacrament-requirement-update/{id}', [AdminController::class, 'updateSacramentRequirement'])->name('sacrament-requiement.update');
 
         //churches
         Route::get('/add-church-form', [ChurchController::class, 'create'])->name('add-church-form.show');
@@ -229,6 +232,8 @@ Route::get('/guest/gallery', [GuestController::class, 'ShowGallery'])->name('gue
 Route::get('/guest/about-us', [GuestController::class, 'ShowAboutUs'])->name('guest-about-us.show');
 Route::get('/guest/contact-us', [GuestController::class, 'ShowContactUs'])->name('guest-contact-us.show');
 Route::get('/guest/sacraments', [GuestController::class, 'ShowSacraments'])->name('guest-sacraments.show');
+
+Route::get('/sacrament/requirements/{id}', [GuestController::class, 'viewSacramentReq'])->name('guest-baptism-req.show');
 
 //TEMPORARY ROUTES
 

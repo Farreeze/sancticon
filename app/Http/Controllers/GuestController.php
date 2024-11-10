@@ -6,6 +6,7 @@ use App\Models\ChurchEvent;
 use App\Models\Gallery;
 use App\Models\NewsAndAnnouncement;
 use App\Models\Priest;
+use App\Models\SacramentRequirement;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -53,4 +54,10 @@ class GuestController extends Controller
 
         return view('guest-contact-us', ['churches'=>$churches]);
     }
+
+    function viewSacramentReq($id){
+        $sacrament_req = SacramentRequirement::findOrFail($id);
+        return view('guest-sacrament-req', ['sacrament_req'=>$sacrament_req]);
+    }
+
 }

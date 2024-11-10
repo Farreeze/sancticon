@@ -50,18 +50,18 @@
                                 </Select>
                             </div>
                             <div class="mt-3">
-                                <span class="text-gray-700 ml-1 font-bold">Church:</span>
-                                <select class="w-full rounded-lg border-gray-300 mt-2" name="church_id" id="" required>
-                                    <option value="{{$priest->church_id}}" selected>{{$priest->church->church_name}}</option>
-                                    @foreach ($churches as $church)
-                                        <option value="{{ $church->id }}">{{$church->church_name}}</option>
+                                <span class="text-gray-700 ml-1 font-bold">Title:</span>
+                                <select class="w-full rounded-lg border-gray-300 mt-2" name="priest_title" id="priest_title" required>
+                                    <option value="{{$priest->title->id}}" selected>{{$priest->title->desc}}</option>
+                                    @foreach ($priest_titles as $priest_title)
+                                        <option value="{{ $priest_title->id }}">{{$priest_title->desc}}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="flex-col items-center mt-3">
+                            {{-- <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Title:</label>
-                                <input value="{{$priest->title}}" name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter title" required>
-                            </div>
+                                <input value="{{$priest->title->desc}}" name="title" class="rounded-lg border-gray-300 w-full mt-2" type="text" placeholder="Enter title" required>
+                            </div> --}}
                             <div class="w-full mt-5">
                                 <button id="submit-btn" class="w-full bg-gray-500 text-white rounded-lg px-3 py-2 hover:bg-gray-700" type="submit">Save</button>
                             </div>
