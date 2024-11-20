@@ -48,12 +48,12 @@
                                     <div class="flex flex-wrap">
                                         <a class="bg-green-800 mx-1 px-2 py-1 text-white rounded-lg hover:bg-green-700" href="{{route('deleted-user.restore', $user->id)}}">Restore</a>
                                         {{-- <a class="bg-yellow-500 mx-1 px-2 py-1 text-white rounded-lg hover:bg-yellow-700" href="{{route('edit-user-profile.show', $user->id)}}">Update</a>
-                                        <a class="bg-red-500 mx-1 px-2 py-1 text-white rounded-lg hover:bg-red-700" href="{{route('user-profile-delete.show', $user->id)}}">Delete</a>
-                                        <form method="POST" action="{{route('superadmin-user.delete', $user->id)}}">
+                                        <a class="bg-red-500 mx-1 px-2 py-1 text-white rounded-lg hover:bg-red-700" href="{{route('user-profile-delete.show', $user->id)}}">Delete</a> --}}
+                                        <form method="POST" action="{{route('superadmin-user.perma.delete', $user->id)}}">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="bg-red-500 mx-1 px-2 py-1 text-white rounded-lg hover:bg-red-700">Delete</button>
-                                        </form> --}}
+                                            <button class="bg-red-800 mx-1 px-2 py-1 text-white rounded-lg hover:bg-red-700">Permanent Delete</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

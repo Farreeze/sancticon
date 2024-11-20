@@ -77,6 +77,13 @@
                                                     @endif
                                                     <p>{{$reservation_request->user->first_name}} {{$reservation_request->user->last_name}}</p>
                                                 </div>
+                                                <div class="flex flex-wrap">
+                                                    <span class="font-bold mr-2">Contact:</span>
+                                                    @if ($reservation_request->custom_number)
+                                                        <p>{{$reservation_request->custom_number}}</p>
+                                                    @endif
+                                                        <p>{{$reservation_request->user->mobile_number}}</p>
+                                                </div>
                                                 @if ($reservation_request->participant_name)
                                                     <div class="flex flex-wrap">
                                                         <span class="font-bold mr-2">Baptismal candidate:</span>
@@ -152,6 +159,13 @@
                                                     <p class="ml-2">{{$finished_reservation_request->user->church_name}}</p>
                                                     @endif
                                                     <p class="ml-2">{{$finished_reservation_request->user->first_name}} {{$finished_reservation_request->user->last_name}}</p>
+                                                </div>
+                                                <div class="flex">
+                                                    <span class="font-bold">Contact:</span>
+                                                    @if ($finished_reservation_request->custom_number)
+                                                    <p class="ml-2">{{$finished_reservation_request->custom_number}}</p>
+                                                    @endif
+                                                    <p class="ml-2">{{$finished_reservation_request->user->mobile_number}}</p>
                                                 </div>
                                                 <div class="flex">
                                                     <span class="font-bold">Baptismal candidate:</span>

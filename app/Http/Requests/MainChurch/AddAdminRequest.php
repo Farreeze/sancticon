@@ -3,6 +3,7 @@
 namespace App\Http\Requests\MainChurch;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules;
 
 class AddAdminRequest extends FormRequest
 {
@@ -33,7 +34,7 @@ class AddAdminRequest extends FormRequest
             'address' => 'required|string|max:255',
             'mobile_number' => 'required|numeric|digits:11',
             'email' => 'required|string|max:255',
-            'password' => 'required|string|max:255',
+            'password' => ['required', 'confirmed', Rules\Password::defaults()]
         ];
     }
 }

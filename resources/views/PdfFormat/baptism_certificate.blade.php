@@ -7,7 +7,7 @@
     <title>Certificate</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Garamond', 'Georgia', 'Times New Roman', serif;
             margin: 0;
             padding: 0;
             display: flex;

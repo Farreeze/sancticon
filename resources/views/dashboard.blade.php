@@ -124,7 +124,7 @@
                 <div class="w-full">
                     <div class="flex items-center">
                         <h1 class="font-bold text-2xl text-gray-700">Chapels</h1>
-                        <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('add-church-form.show')}}">+ Chapel</a>
+                        {{-- <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('add-church-form.show')}}">+ Chapel</a> --}}
                     </div>
                     <p class="text-gray-500 mt-2">ⓘ Occupied Dates can be seen within the Sacramental Calendar.</p>
                     <div class="overflow-x-auto">

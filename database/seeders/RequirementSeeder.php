@@ -48,6 +48,16 @@ class RequirementSeeder extends Seeder
             For a Catholic funeral, the family should coordinate with the parish to arrange the funeral Mass, during which the Sacrament of the Eucharist may be offered. The parish may require a copy of the deceased’s baptism certificate. The dress code is respectful and somber, with attendees typically wearing dark-colored attire—such as suits or dress shirts for men, and modest dresses or blouses with skirts or slacks for women.
             EOT
             ],
+
+            ['id' => '8', 'sacrament_desc' => 'Holy Orders', 'desc' => <<<EOT
+            No Requirement
+            EOT
+            ],
+
+            ['id' => '9', 'sacrament_desc' => 'Confession', 'desc' => <<<EOT
+            No Requirement
+            EOT
+            ],
             ],['id']);
     }
 }

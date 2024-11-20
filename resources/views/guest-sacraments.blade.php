@@ -62,14 +62,18 @@
                     </div>
 
                     <div class="w-72 rounded-lg shadow-md bg-white bg-opacity-40 mt-5 pt-3 mx-3">
-                        <h2 id="holyorders" class="text-black font-bold text-xl w-full text-center">Holy Orders</h2>
+                        <a href="{{route('guest-baptism-req.show', 8)}}">
+                            <h2 id="holyorders" class="text-black font-bold text-xl w-full text-center">Holy Orders</h2>
+                        </a>
                         <p class="mt-3 text-center p-10 text-lg text-black">
                             Holy Orders is a Catholic sacrament through which men are ordained as deacons, priests, or bishops. It involves the laying on of hands and a consecratory prayer, conferring the authority and grace to perform sacred duties and serve the Church.
                         </p>
                     </div>
 
                     <div class="w-72 rounded-lg shadow-md bg-white bg-opacity-40 mt-5 pt-3 mx-3">
-                        <h2 id="confession" class="text-black font-bold text-xl w-full text-center">Confession</h2>
+                        <a href="{{route('guest-baptism-req.show', 9)}}">
+                            <h2 id="confession" class="text-black font-bold text-xl w-full text-center">Confession</h2>
+                        </a>
                         <p class="mt-3 text-center p-10 text-lg text-black">
                             Confession, or the Sacrament of Reconciliation, is a Catholic sacrament where a person confesses their sins to a priest, receives absolution, and is forgiven. It restores the penitent's relationship with God and the Church, providing spiritual healing and grace.
                         </p>

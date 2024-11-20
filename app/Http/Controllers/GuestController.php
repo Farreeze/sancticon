@@ -20,7 +20,8 @@ class GuestController extends Controller
 
     public function ShowEvents()
     {
-        $events = ChurchEvent::all();
+        $events = ChurchEvent::where('status', 1)->get();
+
         return view('guest-events', ['events'=>$events]);
     }
 

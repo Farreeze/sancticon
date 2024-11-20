@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('first_name')->nullable();   //matrimony
             $table->string('second_name')->nullable();  //matrimony
             $table->string('custom_name')->nullable();  //custome request (for churches)
+            $table->string('custom_number')->nullable();
             $table->boolean('subchurch_approve')->nullable();
             $table->text('feedback')->nullable(); //only when rejected
             $table->string('priest_name')->nullable();
@@ -31,7 +32,7 @@ return new class extends Migration
 
             $table->foreign('church_id')->references('id')->on('users');
             $table->foreign('sacrament_id')->references('id')->on('lib_sacraments');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -90,6 +90,12 @@ class NewsAndAnnouncementController extends Controller
     {
         $row = NewsAndAnnouncement::find($id);
         $row->delete();
+
+        ActivityLog::create([
+            'user_id' => Auth::id(),
+            'desc' => "Deleted an announcement",
+        ]);
+
         return back()->with('message', 'Successfully Deleted');
     }
 }

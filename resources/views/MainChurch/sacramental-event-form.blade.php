@@ -31,6 +31,10 @@
                                     <input class="w-full rounded-lg border-gray-300" type="text" placeholder="Name" name="custom_name" required>
                                 </div>
                                 <div class="mt-3">
+                                    <span class="text-gray-700 ml-1">Contact:*</span>
+                                    <input class="w-full rounded-lg border-gray-300" type="number" placeholder="Contact Number" name="custom_number" required>
+                                </div>
+                                <div class="mt-3">
                                     <span class="text-gray-700 ml-1">Church:*</span>
                                     <select class="w-full rounded-lg border-gray-300" name="church_id" id="" required>
                                         <option value="" selected disabled>Select Church</option>

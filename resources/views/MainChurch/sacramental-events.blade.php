@@ -77,6 +77,14 @@
                                         <p>{{$sacramental_event->user->first_name}} {{$sacramental_event->user->last_name}}</p>
                                     @endif
                                 </div>
+                                <div class="flex flex-wrap">
+                                    <span class="font-bold mr-2">Contact:</span>
+                                    @if ($sacramental_event->custom_number)
+                                        <p>{{$sacramental_event->custom_number}}</p>
+                                    @else
+                                        <p>{{$sacramental_event->user->mobile_number}}</p>
+                                    @endif
+                                </div>
                                 @if ($sacramental_event->participant_name)
                                     <div class="flex flex-wrap">
                                         <span class="font-bold mr-2">Baptismal candidate:</span>

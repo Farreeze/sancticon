@@ -71,6 +71,14 @@
                                                 @endif
 
                                             </div>
+                                            <div class="flex flex-wrap">
+                                                <span class="font-bold mr-2">Contact:</span>
+                                                @if ($sr_request->custom_number)
+                                                    <p>{{$sr_request->custom_number}}</p>
+                                                @else
+                                                    <p>{{$sr_request->user->mobile_number}}</p>
+                                                @endif
+                                            </div>
                                             @if ($sr_request->participant_name)
                                                 <div class="flex flex-wrap">
                                                     <span class="font-bold mr-2">Baptismal candidate:</span>
@@ -152,6 +160,14 @@
                                                     <p>{{$approved_sr_request->user->first_name}} {{$approved_sr_request->user->last_name}}</p>
                                                 @endif
 
+                                            </div>
+                                            <div class="flex flex-wrap">
+                                                <span class="font-bold mr-2">Contact:</span>
+                                                @if ($approved_sr_request->custom_number)
+                                                    <p>{{$approved_sr_request->custom_number}}</p>
+                                                @else
+                                                    <p>{{$approved_sr_request->user->mobile_number}}</p>
+                                                @endif
                                             </div>
                                             @if ($approved_sr_request->participant_name)
                                                 <div class="flex flex-wrap">

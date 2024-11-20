@@ -218,6 +218,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('superadmin/deleted-users', [SuperadminController::class, 'viewDeletedUsers'])->name('deleted-users.show');
         Route::get('superadmin/restore-user/{id}', [SuperadminController::class, 'restoreUser'])->name('deleted-user.restore');
+
+        Route::delete('/superadmin/user/perma-del/{id}', [SuperadminController::class, 'permaDelete'])->name('superadmin-user.perma.delete');
     });
 
 });

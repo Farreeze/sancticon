@@ -142,4 +142,12 @@ class SuperadminController extends Controller
         return back()->with(['message'=>'User has been restored']);
     }
 
+    public function permaDelete($id)
+    {
+        $user = User::withTrashed()->findOrFail($id);
+        $user->forceDelete();
+
+        return back()->with(['message'=>'User has been permanently deleted']);
+    }
+
 }

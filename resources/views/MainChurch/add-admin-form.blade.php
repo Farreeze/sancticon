@@ -61,8 +61,10 @@
                                 <input name="email" class="rounded-lg border-gray-300 w-full mt-2" type="text" required>
                             </div>
                             <div class="flex-col items-center mt-3">
+                                <p class=" mt-4 text-gray-500">The password must include at least one special character, one uppercase letter, one lowercase letter, and one number.</p>
                                 <label class="font-bold" for="church_name">Password:*</label>
                                 <input name="password" class="rounded-lg border-gray-300 w-full mt-2" type="password" required>
+                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
                             <div class="w-full mt-5">
                                 <button id="add-church-btn" class="w-full bg-gray-500 text-white rounded-lg px-3 py-2 hover:bg-gray-700" type="submit">Add Admin</button>
