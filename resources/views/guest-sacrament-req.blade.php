@@ -23,7 +23,7 @@
                 <div class="space-y-4 text-gray-700">
                     <div>
                         <h3 class="font-medium text-lg">Requirements:</h3>
-                        <p class="mt-2">{{$sacrament_req->desc}}</p>
+                        <p class="mt-2" style="white-space: pre-line;">{{$sacrament_req->desc}}</p>
                     </div>
                 </div>
             </div>
