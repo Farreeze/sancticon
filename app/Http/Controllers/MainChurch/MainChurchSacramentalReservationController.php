@@ -108,6 +108,7 @@ class MainChurchSacramentalReservationController extends Controller
 
             ActivityLog::create([
                 'user_id' => Auth::id(),
+                'remarks' => $feedback,
                 'desc' => "Rejected $requester's sacramental reservation.",
             ]);
 
@@ -128,6 +129,7 @@ class MainChurchSacramentalReservationController extends Controller
 
             ActivityLog::create([
                 'user_id' => Auth::id(),
+                'remarks' => $feedback,
                 'desc' => "Cancelled $requester's sacramental reservation.",
             ]);
 

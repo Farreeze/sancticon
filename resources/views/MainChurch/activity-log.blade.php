@@ -27,6 +27,12 @@
                             <div class="flex flex-col">
                                 <h2 class="text-gray-700 font-bold">{{$activity->user->first_name}} {{$activity->user->middle_name}} {{$activity->user->last_name}}</h2>
                                 <p class="text-gray-700">{{$activity->desc}}</p>
+                                @if ($activity->remarks)
+                                    <div class="flex flex-col mt-3">
+                                        <p class="text-gray-700 font-bold">Remarks:</p>
+                                        <p class="text-gray-700">{{$activity->remarks}}</p>
+                                    </div>
+                                @endif
                             </div>
                             <div>
                                 <h2 class="text-gray-700 font-bold">{{$activity->created_at}}</h2>

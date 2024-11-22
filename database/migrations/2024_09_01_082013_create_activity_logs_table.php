@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('desc');
+            $table->text('remarks')->nullable();
             $table->string('name')->nullable();
             $table->timestamps();
 
