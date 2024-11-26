@@ -30,31 +30,34 @@
             <div class="max-h-screen overflow-y-auto">
 
                 <div class="flex items-center sticky top-0 bg-white z-10 mb-3">
-                    <h1 class="font-bold text-2xl text-gray-700">Gallery</h1>
-                    <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('mainchurch-gallery-form.show')}}">+ Add</a>
+                    <h1 class="font-bold text-2xl text-gray-700">Albums</h1>
+                    <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('mainchurch-album.create')}}">+ Create Album</a>
                 </div>
 
-                @if ($photos->isEmpty())
-                        <div class="w-full flex justify-center">
-                            <img src="/images/no_data.png" alt="">
-                        </div>
-                    @endif
+                @if ($albums->isEmpty())
+                    <div class="w-full flex justify-center">
+                        <img src="/images/no_data.png" alt="">
+                    </div>
+                @endif
 
-                @foreach ($photos as $photo)
-                    <form class="w-full" action="{{route('mainchurch-gallery.destroy', $photo->id)}}" method="POST" onsubmit="disableButton(this)">
-                        @csrf
-                        @method('DELETE')
-                        <div class="w-full bg-gray-300 p-5 rounded-lg shadow-md mb-3 flex flex-col sm:flex-row items-start gap-5">
-                            <img class="h-64 rounded-lg" src="/{{$photo->photo_id}}" alt="">
-                            <div class="flex-1 break-words">
-                                <p>{{$photo->caption}}</p>
+                <div class="w-full flex flex-wrap flex-col md:flex-row lg:flex-row items-start">
+                    @foreach ($albums as $album)
+                        <div class="w-72 bg-gray-300 rounded-lg m-1 md:m-3 lg:m-3 p-5 flex flex-col shadow-md">
+                            <div class="w-full flex justify-center items-center shadow-md">
+                                <img class="w-full h-48 object-cover rounded-lg" src="{{ $album->photos->first() ? '/'.$album->photos->first()->photo_id : '/images/no-image.jpg' }}" alt="Album Thumbnail">
                             </div>
-                            <div>
-                                <button class="px-4 py-2 bg-negative_btn hover:bg-negative_btn_hover text-white rounded-lg" type="submit">Delete</button>
+                            <div class="w-full flex justify-center items-center mt-3">
+                                <h1 class="text-lg font-bold text-gray-700">{{$album->album_title}}</h1>
+                            </div>
+                            <div class="w-full flex justify-center items-center mt-3">
+                                <a class="w-full text-center px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('mainchurch-album.select', $album->id)}}">View Album</a>
+                            </div>
+                            <div class="w-full flex justify-center items-center mt-1">
+                                <a href="{{route('mainchurch-album.confirm-del', $album->id)}}" class="bg-red-500 w-full text-center py-2 text-white rounded-lg hover:bg-red-700">Delete</a>
                             </div>
                         </div>
-                    </form>
-                @endforeach
+                    @endforeach
+                </div>
 
             </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChurchAlbum;
 use App\Models\ChurchEvent;
 use App\Models\Gallery;
 use App\Models\NewsAndAnnouncement;
@@ -33,8 +34,21 @@ class GuestController extends Controller
 
     public function ShowGallery()
     {
-        $photos = Gallery::orderBy('created_at', 'desc')->get();
-        return view('guest-gallery', ['photos'=>$photos]);
+        $albums = ChurchAlbum::with(['photos' => function ($query) {
+            $query->orderBy('created_at', 'asc'); // Get photos ordered by creation date
+        }])->orderBy('created_at', 'desc')->get();
+
+        return view('guest-gallery', ['albums' => $albums]);
+    }
+
+    public function showAlbum(string $id)
+    {
+        $album = ChurchAlbum::findOrFail($id);
+
+        $photos = Gallery::where('album_id', $album->id)
+                ->orderBy('created_at', 'desc')->get();
+
+        return view('guest-album', ['album'=>$album, 'photos'=>$photos]);
     }
 
     public function ShowSacraments()

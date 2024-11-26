@@ -23,6 +23,8 @@
                         <p class="mt-3 text-gray-500">Fields with * are required</p>
                         <form action="{{route('mainchurch-gallery.store')}}" method="POST" onsubmit="disableButton()" enctype="multipart/form-data">
                             @csrf
+                            {{-- form requirements --}}
+                            <input type="hidden" name="album_id" id="" value="{{$album_id}}">
                             {{-- form input --}}
                             <div class="flex-col items-center mt-3">
                                 <label class="font-bold" for="church_name">Photo:*</label>

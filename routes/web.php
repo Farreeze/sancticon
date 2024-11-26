@@ -3,6 +3,7 @@
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\MainChurch\ActivityLogController;
 use App\Http\Controllers\MainChurch\AdminController;
+use App\Http\Controllers\MainChurch\AlbumController;
 use App\Http\Controllers\MainChurch\ChurchController;
 use App\Http\Controllers\MainChurch\EventController;
 use App\Http\Controllers\MainChurch\GalleryController;
@@ -145,8 +146,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/main-church/download/certificate/{id}', [MainChurchCertificateController::class, 'GenerateCertificate'])->name('main-church-certificate.generate');
 
         //Main church gallery
+        Route::get('/main-church/create-album', [AlbumController::class, 'create'])->name('mainchurch-album.create');
+        Route::post('/main-church/store-album', [AlbumController::class, 'store'])->name('mainchurch-album.store');
+        Route::get('/main-church/album/{id}', [AlbumController::class, 'show'])->name('mainchurch-album.select');
+        Route::get('/main-church/confirm-delete-album/{id}', [AlbumController::class, 'confirmDelete'])->name('mainchurch-album.confirm-del');
+        Route::delete('/main-church/delete-album/{id}', [AlbumController::class, 'destroy'])->name('mainchurch-album.destroy');
+
         Route::get('/main-church/gallery', [GalleryController::class, 'index'])->name('mainchurch-gallery.show');
-        Route::get('/main-church/gallery/form', [GalleryController::class, 'create'])->name('mainchurch-gallery-form.show');
+        Route::get('/main-church/gallery/form/{id}', [GalleryController::class, 'create'])->name('mainchurch-gallery-form.show');
         Route::post('/main-church/gallery/store', [GalleryController::class, 'store'])->name('mainchurch-gallery.store');
         Route::delete('/main-church/gallery/photo/{id}', [GalleryController::class, 'destroy'])->name('mainchurch-gallery.destroy');
 
@@ -231,6 +238,7 @@ Route::get('/guest/priests', [GuestController::class, 'ShowPriests'])->name('gue
 Route::get('/guest/events', [GuestController::class, 'ShowEvents'])->name('guest-events.show');
 Route::get('/guest/news-and-announcements', [GuestController::class, 'ShowNewsAndAnnouncements'])->name('guest-news-and-announcements.show');
 Route::get('/guest/gallery', [GuestController::class, 'ShowGallery'])->name('guest-gallery.show');
+Route::get('/guest/album/{id}', [GuestController::class, 'showAlbum'])->name('guest-album.show');
 Route::get('/guest/about-us', [GuestController::class, 'ShowAboutUs'])->name('guest-about-us.show');
 Route::get('/guest/contact-us', [GuestController::class, 'ShowContactUs'])->name('guest-contact-us.show');
 Route::get('/guest/sacraments', [GuestController::class, 'ShowSacraments'])->name('guest-sacraments.show');

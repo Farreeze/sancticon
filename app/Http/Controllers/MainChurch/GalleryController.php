@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MainChurch;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainChurch\AddGalleryRequest;
 use App\Models\ActivityLog;
+use App\Models\ChurchAlbum;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,16 +17,21 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $photos = Gallery::orderBy('created_at', 'desc')->get();
-        return view('MainChurch.mainchurch-gallery', ['photos'=>$photos]);
+        $albums = ChurchAlbum::with(['photos' => function ($query) {
+            $query->orderBy('created_at', 'asc'); // Get photos ordered by creation date
+        }])->orderBy('created_at', 'desc')->get();
+
+        return view('MainChurch.mainchurch-gallery', ['albums' => $albums]);
     }
+
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        return view('MainChurch.add-gallery-form');
+        $album = $id;
+        return view('MainChurch.add-gallery-form', ['album_id'=>$album]);
     }
 
     /**

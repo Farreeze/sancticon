@@ -20,7 +20,7 @@
         <div class="w-full p-7">
             <div class="w-full p-5 bg-white bg-opacity-40 rounded-lg shadow-md flex justify-center flex-wrap">
                 <div class="w-full text-center">
-                    <h2 class="font-bold text-2xl text-black">Gallery</h2>
+                    <h2 class="font-bold text-2xl text-black">SACRAMENTS</h2>
                 </div>
 
                 {{-- Item Template --}}
@@ -104,11 +104,21 @@
 
             </div>
 
-            <div class="w-full p-5 rounded-lg shadow-md flex justify-center flex-wrap mt-3">
-                @foreach ($photos as $photo)
-                    <div class="w-full max-w-xs m-5 bg-white bg-opacity-60 p-5 rounded-lg shadow-md flex flex-col items-center">
-                        <img class="h-48 rounded-lg mb-4" src="/{{$photo->photo_id}}" alt="">
-                        <p class="text-start text-black">{{$photo->caption}}</p>
+            <div class="w-full bg-white bg-opacity-40 p-5 rounded-lg shadow-md flex justify-center flex-wrap mt-3">
+                <div class="w-full text-center">
+                    <h2 class="font-bold text-2xl text-black mb-3">ALBUMS</h2>
+                </div>
+                @foreach ($albums as $album)
+                    <div class="w-72 bg-white bg-opacity-40 rounded-lg m-1 md:m-3 lg:m-3 p-5 flex flex-col shadow-md">
+                        <div class="w-full flex justify-center items-center shadow-md">
+                            <img class="w-full h-48 object-cover rounded-lg" src="{{ $album->photos->first() ? '/'.$album->photos->first()->photo_id : '/images/no-image.jpg' }}" alt="Album Thumbnail">
+                        </div>
+                        <div class="w-full flex justify-center items-center mt-3">
+                            <h1 class="text-lg font-bold">{{$album->album_title}}</h1>
+                        </div>
+                        <div class="w-full flex justify-center items-center mt-3">
+                            <a class="w-full text-center px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('guest-album.show', $album->id)}}">View Album</a>
+                        </div>
                     </div>
                 @endforeach
             </div>

@@ -5,13 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gallery extends Model
+class ChurchAlbum extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'album_id',
-        'photo_id',
-        'caption'
+        'album_title'
     ];
+
+    public function photos()
+    {
+        return $this->hasMany(Gallery::class, 'album_id');
+    }
+
 }
