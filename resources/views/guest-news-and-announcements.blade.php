@@ -25,7 +25,7 @@
 
                 {{-- Foreach here --}}
                 @foreach ($newsAndAnnouncements as $newsAndAnnouncement)
-                    <div class="w-full bg-white bg-opacity-40 rounded-lg flex flex-col p-5 mt-3">
+                    <div class="w-full bg-white bg-opacity-40 rounded-lg flex flex-col p-5 mt-3 text-lg">
                         <div>
                             <div class="flex flex-row justify-between items-center">
                                 <h2 class="text-black font-bold text-xl">{{ $newsAndAnnouncement->title }}</h2>

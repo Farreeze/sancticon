@@ -44,11 +44,28 @@ class ReservationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(AddReservationRequest $request)
     {
         $reservation_data = $request->validated();
 
+        // Store files in the 'public' disk to ensure they are publicly accessible
+        if ($request->hasFile('file_one')) {
+            $reservation_data['file_one'] = $request->file('file_one')->store('reservations', 'public');
+        }
+        if ($request->hasFile('file_two')) {
+            $reservation_data['file_two'] = $request->file('file_two')->store('reservations', 'public');
+        }
+        if ($request->hasFile('file_three')) {
+            $reservation_data['file_three'] = $request->file('file_three')->store('reservations', 'public');
+        }
+        if ($request->hasFile('file_four')) {
+            $reservation_data['file_four'] = $request->file('file_four')->store('reservations', 'public');
+        }
+
+        // Create the reservation record
         SacramentalReservation::create($reservation_data);
+
         return back()->with('add-reservation', 'Reservation Submitted');
     }
 

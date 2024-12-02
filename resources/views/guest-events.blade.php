@@ -29,7 +29,7 @@
                             <div class="mb-1 flex justify-between flex-wrap">
                                 <h1 class="text-black font-bold text-2xl">{{ $event->title }}</h1>
                             </div>
-                            <div class="flex flex-col">
+                            <div class="flex flex-col text-lg">
                                 @if ($event->sacrament_id)
                                     <div class="flex flex-wrap">
                                         <span class="text-black font-bold">Sacrament:</span>

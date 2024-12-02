@@ -39,6 +39,7 @@
                                 <th class="text-start px-4 py-2 border border-gray-300">Sacrament</th>
                                 <th class="text-start px-4 py-2 border border-gray-300">Date Created</th>
                                 <th class="text-start px-4 py-2 border border-gray-300">Date Completed</th>
+                                <th class="text-center px-4 py-2 border border-gray-300">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,6 +67,9 @@
                                     <td class="text-start px-4 py-2 border border-gray-300">{{$sr_request->sacrament->desc}}</td>
                                     <td class="text-start px-4 py-2 border border-gray-300">{{$sr_request->created_at}}</td>
                                     <td class="text-start px-4 py-2 border border-gray-300">{{$sr_request->updated_at}}</td>
+                                    <td class="text-center px-4 py-2 border border-gray-300">
+                                        <a class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg text-center" href="{{route('sacramental-event-documents.show', $sr_request->id)}}">View Documents</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

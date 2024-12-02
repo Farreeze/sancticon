@@ -20,7 +20,7 @@
                 <div class="p-6 text-gray-600">
                     <h1 class="font-bold text-2xl">Sacramental Reservation Form</h1>
                     <div class="w-full">
-                        <form class="mt-3" action="{{ route('add-sacramental-reservation') }}" method="POST" onsubmit="disableButton()">
+                        <form class="mt-3" action="{{ route('add-sacramental-reservation') }}" method="POST" onsubmit="disableButton()" enctype="multipart/form-data">
                             @csrf
                             {{-- form requirements --}}
                             <input name="user_id" type="text" value="{{Auth::user()->id}}" hidden>
@@ -80,6 +80,11 @@
             var dynamicFields = document.getElementById('participant-section');
             dynamicFields.innerHTML = '';
             if (this.value == '7') {
+
+                var noteMessage = document.createElement('div');
+                noteMessage.className = 'mt-3 text-gray-600';
+                noteMessage.innerHTML = '<p>Please rename the documents, e.g., cenomar.pdf.</p>';
+
                 var participant1 = document.createElement('div');
                 participant1.className = 'mt-3';
                 participant1.innerHTML = '<span class="text-gray-700 ml-1">Participant 1 name:</span><input class="w-full rounded-lg border-gray-300" type="text" placeholder="Participant name" name="first_name" value="{{ Auth::user()->first_name }} {{ Auth::user()->middle_name ? Auth::user()->middle_name[0] . '.' : '' }} {{ Auth::user()->last_name }}" required>';
@@ -88,14 +93,80 @@
                 participant2.className = 'mt-3';
                 participant2.innerHTML = '<span class="text-gray-700 ml-1">Participant 2 name:</span><input class="w-full rounded-lg border-gray-300" type="text" placeholder="Participant name" name="second_name" required>';
 
+                var fileInput1 = document.createElement('div');
+                fileInput1.className = 'mt-1';
+                fileInput1.innerHTML = '<span class="text-gray-700 ml-1">Cenomar:</span><input class="w-full border-gray-300" type="file" name="file_one" accept=".pdf, .doc, .docx" required>';
+
+                var fileInput2 = document.createElement('div');
+                fileInput2.className = 'mt-3';
+                fileInput2.innerHTML = '<span class="text-gray-700 ml-1">Birth Certificate:</span><input class="w-full border-gray-300" type="file" name="file_two" accept=".pdf, .doc, .docx" required>';
+
+                var fileInput3 = document.createElement('div');
+                fileInput3.className = 'mt-3';
+                fileInput3.innerHTML = '<span class="text-gray-700 ml-1">Baptismal Certificate:</span><input class="w-full border-gray-300" type="file" name="file_three" accept=".pdf, .doc, .docx" required>';
+
+                var fileInput4 = document.createElement('div');
+                fileInput4.className = 'mt-3';
+                fileInput4.innerHTML = '<span class="text-gray-700 ml-1">Confirmation Certificate:</span><input class="w-full border-gray-300" type="file" name="file_four" accept=".pdf, .doc, .docx" required>';
+
                 dynamicFields.appendChild(participant1);
                 dynamicFields.appendChild(participant2);
+                dynamicFields.appendChild(noteMessage);
+                dynamicFields.appendChild(fileInput1);
+                dynamicFields.appendChild(fileInput2);
+                dynamicFields.appendChild(fileInput3);
+                dynamicFields.appendChild(fileInput4);
+
             } else if (this.value == '1') {
                 var participant = document.createElement('div');
                 participant.className = 'mt-3';
                 participant.innerHTML = '<span class="text-gray-700 ml-1">Participant name:</span><input class="w-full rounded-lg border-gray-300" type="text" placeholder="Participant name" name="participant_name" required>';
 
+                var noteMessage = document.createElement('div');
+                noteMessage.className = 'mt-3 text-gray-600';
+                noteMessage.innerHTML = '<p>Please rename the documents, e.g., birth_certificate.pdf.</p>';
+
+                var fileInput1 = document.createElement('div');
+                fileInput1.className = 'mt-3';
+                fileInput1.innerHTML = '<span class="text-gray-700 ml-1">Birth Certificate:</span><input class="w-full border-gray-300" type="file" name="file_one" accept=".pdf, .doc, .docx" required>';
+
+                var fileInput2 = document.createElement('div');
+                fileInput2.className = 'mt-3';
+                fileInput2.innerHTML = '<span class="text-gray-700 ml-1">Confirmation Certificate:</span><input class="w-full border-gray-300" type="file" name="file_two" accept=".pdf, .doc, .docx" required>';
+
                 dynamicFields.appendChild(participant);
+                dynamicFields.appendChild(noteMessage);
+                dynamicFields.appendChild(fileInput1);
+                dynamicFields.appendChild(fileInput2);
+            } else if (this.value == '6') {
+
+                var noteMessage = document.createElement('div');
+                noteMessage.className = 'mt-3 text-gray-600';
+                noteMessage.innerHTML = '<p>Please rename the documents, e.g., birth_certificate.pdf.</p>';
+
+                var participant = document.createElement('div');
+                participant.className = 'mt-3';
+                participant.innerHTML = '<span class="text-gray-700 ml-1">Participant name:</span><input class="w-full rounded-lg border-gray-300" type="text" placeholder="Participant name" name="participant_name" required>';
+
+                var fileInput1 = document.createElement('div');
+                fileInput1.className = 'mt-3';
+                fileInput1.innerHTML = '<span class="text-gray-700 ml-1">Death Certificate:</span><input class="w-full border-gray-300" type="file" name="file_one" accept=".pdf, .doc, .docx" required>';
+
+                dynamicFields.appendChild(participant);
+                dynamicFields.appendChild(noteMessage);
+                dynamicFields.appendChild(fileInput1);
+            } else if (this.value == '3') {
+
+                var noteMessage = document.createElement('div');
+                noteMessage.className = 'mt-3 text-gray-600';
+                noteMessage.innerHTML = '<p>Please rename the documents, e.g., birth_certificate.pdf.</p>';
+
+                var fileInput1 = document.createElement('div');
+                fileInput1.className = 'mt-3';
+                fileInput1.innerHTML = '<span class="text-gray-700 ml-1">Baptismal Certificate:</span><input class="w-full border-gray-300" type="file" name="file_one" accept=".pdf, .doc, .docx" required>';
+
+                dynamicFields.appendChild(noteMessage);
+                dynamicFields.appendChild(fileInput1);
             }
         });
     </script>

@@ -33,6 +33,10 @@ class AddReservationRequest extends FormRequest
             'second_name' => 'nullable|string',
             'custom_name' => 'nullable|string',
             'custom_number' => 'nullable|string',
+            'file_one' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+            'file_two' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+            'file_three' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+            'file_four' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
             'subchurch_approve' => 'nullable|boolean',
             'status' => 'nullable|boolean'
         ];

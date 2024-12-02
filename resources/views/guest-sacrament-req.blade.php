@@ -22,8 +22,8 @@
                 <h2 class="text-center font-semibold text-2xl text-gray-800 mb-4">{{$sacrament_req->sacrament_desc}} Requirements</h2>
                 <div class="space-y-4 text-gray-700">
                     <div>
-                        <h3 class="font-medium text-lg">Requirements:</h3>
-                        <p class="mt-2" style="white-space: pre-line;">{{$sacrament_req->desc}}</p>
+                        <h3 class="font-medium text-xl">Requirements:</h3>
+                        <p class="mt-2 text-lg" style="white-space: pre-line;">{{$sacrament_req->desc}}</p>
                     </div>
                 </div>
             </div>

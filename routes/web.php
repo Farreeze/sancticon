@@ -133,6 +133,7 @@ Route::middleware('auth')->group(function () {
         Route::get('main-church/sacramental-reservation-requests', [MainChurchSacramentalReservationController::class, 'index'])->name('mainchurch-sr-requests.show');
         Route::patch('/main-church/sacramental-reservation-request/action/{id}', [MainChurchSacramentalReservationController::class, 'update'])->name('sr_request.action');
         Route::get('/sacramental-events-record', [MainChurchSacramentalReservationController::class, 'showSrRecords'])->name('sacramental-events-record.show');
+        Route::get('/sacramental-event-doc/{id}', [MainChurchSacramentalReservationController::class, 'viewDocs'])->name('sacramental-event-documents.show');
 
 
         //sacramental  events

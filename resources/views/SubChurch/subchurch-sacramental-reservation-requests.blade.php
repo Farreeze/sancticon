@@ -110,6 +110,50 @@
                                                     <span class="font-bold mr-2">Time:</span>
                                                     <p>{{$reservation_request->start_time}} to {{$reservation_request->end_time}}</p>
                                                 </div>
+                                                @if ($reservation_request->sacrament->id == 7)
+                                                    <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                        @if ($reservation_request->file_one)
+                                                        <a href="{{ asset('storage/' . $reservation_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Cenomar</a>
+                                                        @endif
+
+                                                        @if ($reservation_request->file_two)
+                                                            <a href="{{ asset('storage/' . $reservation_request->file_two) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Birth Certificate</a>
+                                                        @endif
+
+                                                        @if ($reservation_request->file_three)
+                                                            <a href="{{ asset('storage/' . $reservation_request->file_three) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Baptismal Certificate</a>
+                                                        @endif
+
+                                                        @if ($reservation_request->file_four)
+                                                            <a href="{{ asset('storage/' . $reservation_request->file_four) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Confirmation Certificate</a>
+                                                        @endif
+                                                    </div>
+                                                @endif
+                                                @if ($reservation_request->sacrament->id == 1)
+                                                    <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                        @if ($reservation_request->file_one)
+                                                        <a href="{{ asset('storage/' . $reservation_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Birth Certificate</a>
+                                                        @endif
+
+                                                        @if ($reservation_request->file_two)
+                                                            <a href="{{ asset('storage/' . $reservation_request->file_two) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Confirmation Certificate</a>
+                                                        @endif
+                                                    </div>
+                                                @endif
+                                                @if ($reservation_request->sacrament->id == 6)
+                                                    <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                        @if ($reservation_request->file_one)
+                                                        <a href="{{ asset('storage/' . $reservation_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Death Certificate</a>
+                                                        @endif
+                                                    </div>
+                                                @endif
+                                                @if ($reservation_request->sacrament->id == 3)
+                                                    <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                        @if ($reservation_request->file_one)
+                                                        <a href="{{ asset('storage/' . $reservation_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Bapstismal Certificate</a>
+                                                        @endif
+                                                    </div>
+                                                @endif
                                             </div>
                                             {{-- add buttons --}}
                                             <div class="flex flex-row items-start">
@@ -142,45 +186,45 @@
                                     <div>
                                         <div class="flex flex-row justify-between">
                                             <div>
-                                                <h2 class="font-bold text-lg text-gray-700 mb-2">{{$finished_reservation_request->sacrament->desc}}</h2>
+                                                <h2 class="font-bold text-xl text-gray-700 mb-2">{{$finished_reservation_request->sacrament->desc}}</h2>
                                                 @if ($finished_reservation_request->custom_name)
-                                                    <div class="flex">
+                                                    <div class="flex text-lg">
                                                         <span class="font-bold">For:</span>
                                                         <p class="ml-2">{{$finished_reservation_request->custom_name}}</p>
                                                     </div>
                                                 @endif
-                                                <div class="flex">
+                                                <div class="flex text-lg">
                                                     <span class="font-bold">Church:</span>
                                                     <p class="ml-2">{{$finished_reservation_request->church->church_name}}</p>
                                                 </div>
-                                                <div class="flex">
+                                                <div class="flex text-lg">
                                                     <span class="font-bold">Requested by:</span>
                                                     @if ($finished_reservation_request->custom_name)
                                                     <p class="ml-2">{{$finished_reservation_request->user->church_name}}</p>
                                                     @endif
                                                     <p class="ml-2">{{$finished_reservation_request->user->first_name}} {{$finished_reservation_request->user->last_name}}</p>
                                                 </div>
-                                                <div class="flex">
+                                                <div class="flex text-lg">
                                                     <span class="font-bold">Contact:</span>
                                                     @if ($finished_reservation_request->custom_number)
                                                     <p class="ml-2">{{$finished_reservation_request->custom_number}}</p>
                                                     @endif
                                                     <p class="ml-2">{{$finished_reservation_request->user->mobile_number}}</p>
                                                 </div>
-                                                <div class="flex">
+                                                <div class="flex text-lg">
                                                     <span class="font-bold">Baptismal candidate:</span>
                                                     <p class="ml-2">{{$finished_reservation_request->participant_name}}</p>
                                                 </div>
-                                                <div class="flex">
+                                                <div class="flex text-lg">
                                                     <span class="font-bold">Date:</span>
                                                     <p class="ml-2">{{$finished_reservation_request->date}}</p>
                                                 </div>
-                                                <div class="flex">
+                                                <div class="flex text-lg">
                                                     <span class="font-bold">Time:</span>
                                                     <p class="ml-2">{{$finished_reservation_request->start_time}} to {{$finished_reservation_request->end_time}}</p>
                                                 </div>
                                                 @if ($finished_reservation_request->feedback)
-                                                    <div class="mt-5">
+                                                    <div class="mt-5 text-lg">
                                                         <span class="font-bold">Feedback:</span>
                                                         <span class="ml-1">{{$finished_reservation_request->feedback}}</span>
                                                     </div>

@@ -190,4 +190,11 @@ class MainChurchSacramentalReservationController extends Controller
 
         return view('MainChurch.sacramental-events-record', ['sr_requests' => $completed_sr_requests]);
     }
+
+    public function viewDocs($id)
+    {
+        $event = SacramentalReservation::findOrFail($id);
+
+        return view('MainChurch.sacramental-event-details', ['event'=>$event]);
+    }
 }

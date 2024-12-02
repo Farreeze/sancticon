@@ -49,20 +49,20 @@
                                     <div class="flex flex-row flex-wrap justify-between">
                                         <div>
                                             <div class="flex flex-row items-center">
-                                                <h2 class="font-bold text-lg text-gray-700">{{$sr_request->sacrament->desc}}</h2>
+                                                <h2 class="font-bold text-xl text-gray-700">{{$sr_request->sacrament->desc}}</h2>
                                                 <p class="ml-3 px-4 py-1 bg-yellow-500 text-white rounded-lg shadow-md">Pending</p>
                                             </div>
                                             @if ($sr_request->custom_name)
-                                                <div class="flex mt-1 flex-wrap">
+                                                <div class="flex mt-1 flex-wrap text-lg">
                                                     <span class="font-bold mr-2">For:</span>
                                                     <p>{{$sr_request->custom_name}}</p>
                                                 </div>
                                             @endif
-                                            <div class="flex flex-wrap">
+                                            <div class="flex flex-wrap text-lg">
                                                 <span class="font-bold mr-2">Church:</span>
                                                 <p>{{$sr_request->church->church_name}}</p>
                                             </div>
-                                            <div class="flex flex-wrap">
+                                            <div class="flex flex-wrap text-lg">
                                                 <span class="font-bold mr-2">Requested by:</span>
                                                 @if ($sr_request->user->main_church == 1 || $sr_request->user->sub_church == 1)
                                                     <p>{{$sr_request->user->church_name}}</p>
@@ -71,7 +71,7 @@
                                                 @endif
 
                                             </div>
-                                            <div class="flex flex-wrap">
+                                            <div class="flex flex-wrap text-lg">
                                                 <span class="font-bold mr-2">Contact:</span>
                                                 @if ($sr_request->custom_number)
                                                     <p>{{$sr_request->custom_number}}</p>
@@ -80,31 +80,75 @@
                                                 @endif
                                             </div>
                                             @if ($sr_request->participant_name)
-                                                <div class="flex flex-wrap">
+                                                <div class="flex flex-wrap text-lg">
                                                     <span class="font-bold mr-2">Baptismal candidate:</span>
                                                     <p>{{$sr_request->participant_name}}</p>
                                                 </div>
                                             @endif
                                             @if ($sr_request->first_name)
-                                                <div class="flex flex-wrap">
+                                                <div class="flex flex-wrap text-lg">
                                                     <span class="font-bold mr-2">Participant 1:</span>
                                                     <p>{{$sr_request->first_name}}</p>
                                                 </div>
                                             @endif
                                             @if ($sr_request->second_name)
-                                                <div class="flex flex-wrap">
+                                                <div class="flex flex-wrap text-lg">
                                                     <span class="font-bold mr-2">Participant 2:</span>
                                                     <p>{{$sr_request->second_name}}</p>
                                                 </div>
                                             @endif
-                                            <div class="flex flex-wrap">
+                                            <div class="flex flex-wrap text-lg">
                                                 <span class="font-bold mr-2">Date:</span>
                                                 <p>{{$sr_request->date}}</p>
                                             </div>
-                                            <div class="flex flex-wrap">
+                                            <div class="flex flex-wrap text-lg">
                                                 <span class="font-bold mr-2">Time:</span>
                                                 <p>{{$sr_request->start_time}} to {{$sr_request->end_time}}</p>
                                             </div>
+                                            @if ($sr_request->sacrament->id == 7)
+                                                <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                    @if ($sr_request->file_one)
+                                                    <a href="{{ asset('storage/' . $sr_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Cenomar</a>
+                                                    @endif
+
+                                                    @if ($sr_request->file_two)
+                                                        <a href="{{ asset('storage/' . $sr_request->file_two) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Birth Certificate</a>
+                                                    @endif
+
+                                                    @if ($sr_request->file_three)
+                                                        <a href="{{ asset('storage/' . $sr_request->file_three) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Baptismal Certificate</a>
+                                                    @endif
+
+                                                    @if ($sr_request->file_four)
+                                                        <a href="{{ asset('storage/' . $sr_request->file_four) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Confirmation Certificate</a>
+                                                    @endif
+                                                </div>
+                                            @endif
+                                            @if ($sr_request->sacrament->id == 1)
+                                                <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                    @if ($sr_request->file_one)
+                                                    <a href="{{ asset('storage/' . $sr_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Birth Certificate</a>
+                                                    @endif
+
+                                                    @if ($sr_request->file_two)
+                                                        <a href="{{ asset('storage/' . $sr_request->file_two) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Confirmation Certificate</a>
+                                                    @endif
+                                                </div>
+                                            @endif
+                                            @if ($sr_request->sacrament->id == 6)
+                                                <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                    @if ($sr_request->file_one)
+                                                    <a href="{{ asset('storage/' . $sr_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Death Certificate</a>
+                                                    @endif
+                                                </div>
+                                            @endif
+                                            @if ($sr_request->sacrament->id == 3)
+                                                <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                    @if ($sr_request->file_one)
+                                                    <a href="{{ asset('storage/' . $sr_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Bapstismal Certificate</a>
+                                                    @endif
+                                                </div>
+                                            @endif
                                         </div>
                                         <div>
                                             <Button id="approve-{{$sr_request->id}}" onclick="confirmation(event, 'approve', 'approve-{{$sr_request->id}}', 'reject-{{$sr_request->id}}')" type="submit" class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover rounded-lg shadow-md text-white">Approve</Button>
@@ -139,20 +183,20 @@
                                     <div class="flex flex-row flex-wrap justify-between">
                                         <div>
                                             <div class="flex flex-row items-center">
-                                                <h2 class="font-bold text-lg text-gray-700">{{$approved_sr_request->sacrament->desc}}</h2>
+                                                <h2 class="font-bold text-xl text-gray-700">{{$approved_sr_request->sacrament->desc}}</h2>
                                                 <p class="ml-3 px-4 py-1 bg-green-500 text-white rounded-lg shadow-md">Approved</p>
                                             </div>
                                             @if ($approved_sr_request->custom_name)
-                                                <div class="flex mt-1 flex-wrap">
+                                                <div class="flex mt-1 flex-wrap text-lg">
                                                     <span class="font-bold mr-2">For:</span>
                                                     <p>{{$approved_sr_request->custom_name}}</p>
                                                 </div>
                                             @endif
-                                            <div class="flex flex-wrap">
+                                            <div class="flex flex-wrap text-lg">
                                                 <span class="font-bold mr-2">Church:</span>
                                                 <p>{{$approved_sr_request->church->church_name}}</p>
                                             </div>
-                                            <div class="flex flex-wrap">
+                                            <div class="flex flex-wrap text-lg">
                                                 <span class="font-bold mr-2">Requested by:</span>
                                                 @if ($approved_sr_request->user->main_church == 1 || $approved_sr_request->user->sub_church == 1)
                                                     <p>{{$approved_sr_request->user->church_name}}</p>
@@ -161,7 +205,7 @@
                                                 @endif
 
                                             </div>
-                                            <div class="flex flex-wrap">
+                                            <div class="flex flex-wrap text-lg">
                                                 <span class="font-bold mr-2">Contact:</span>
                                                 @if ($approved_sr_request->custom_number)
                                                     <p>{{$approved_sr_request->custom_number}}</p>
@@ -170,31 +214,75 @@
                                                 @endif
                                             </div>
                                             @if ($approved_sr_request->participant_name)
-                                                <div class="flex flex-wrap">
+                                                <div class="flex flex-wrap text-lg">
                                                     <span class="font-bold mr-2">Baptismal candidate:</span>
                                                     <p>{{$approved_sr_request->participant_name}}</p>
                                                 </div>
                                             @endif
                                             @if ($approved_sr_request->first_name)
-                                                <div class="flex flex-wrap">
+                                                <div class="flex flex-wrap text-lg">
                                                     <span class="font-bold mr-2">Participant 1:</span>
                                                     <p>{{$approved_sr_request->first_name}}</p>
                                                 </div>
                                             @endif
                                             @if ($approved_sr_request->second_name)
-                                                <div class="flex flex-wrap">
+                                                <div class="flex flex-wrap text-lg">
                                                     <span class="font-bold mr-2">Participant 2:</span>
                                                     <p>{{$approved_sr_request->second_name}}</p>
                                                 </div>
                                             @endif
-                                            <div class="flex flex-wrap">
+                                            <div class="flex flex-wrap text-lg">
                                                 <span class="font-bold mr-2">Date:</span>
                                                 <p>{{$approved_sr_request->date}}</p>
                                             </div>
-                                            <div class="flex flex-wrap">
+                                            <div class="flex flex-wrap text-lg">
                                                 <span class="font-bold mr-2">Time:</span>
                                                 <p>{{$approved_sr_request->start_time}} to {{$approved_sr_request->end_time}}</p>
                                             </div>
+                                            @if ($approved_sr_request->sacrament->id == 7)
+                                                <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                    @if ($approved_sr_request->file_one)
+                                                    <a href="{{ asset('storage/' . $approved_sr_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Cenomar</a>
+                                                    @endif
+
+                                                    @if ($approved_sr_request->file_two)
+                                                        <a href="{{ asset('storage/' . $approved_sr_request->file_two) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Birth Certificate</a>
+                                                    @endif
+
+                                                    @if ($approved_sr_request->file_three)
+                                                        <a href="{{ asset('storage/' . $approved_sr_request->file_three) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Baptismal Certificate</a>
+                                                    @endif
+
+                                                    @if ($approved_sr_request->file_four)
+                                                        <a href="{{ asset('storage/' . $approved_sr_request->file_four) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Confirmation Certificate</a>
+                                                    @endif
+                                                </div>
+                                            @endif
+                                            @if ($approved_sr_request->sacrament->id == 1)
+                                                <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                    @if ($approved_sr_request->file_one)
+                                                    <a href="{{ asset('storage/' . $approved_sr_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Birth Certificate</a>
+                                                    @endif
+
+                                                    @if ($approved_sr_request->file_two)
+                                                        <a href="{{ asset('storage/' . $approved_sr_request->file_two) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Confirmation Certificate</a>
+                                                    @endif
+                                                </div>
+                                            @endif
+                                            @if ($approved_sr_request->sacrament->id == 6)
+                                                <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                    @if ($approved_sr_request->file_one)
+                                                    <a href="{{ asset('storage/' . $approved_sr_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Death Certificate</a>
+                                                    @endif
+                                                </div>
+                                            @endif
+                                            @if ($approved_sr_request->sacrament->id == 3)
+                                                <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                    @if ($approved_sr_request->file_one)
+                                                    <a href="{{ asset('storage/' . $approved_sr_request->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Bapstismal Certificate</a>
+                                                    @endif
+                                                </div>
+                                            @endif
                                         </div>
                                         <div>
                                             <Button id="finish-{{$approved_sr_request->id}}" onclick="approvedReqConfirm(event, 'finish', 'finish-{{$approved_sr_request->id}}', 'cancel-{{$approved_sr_request->id}}')" type="submit" class="px-4 py-2 bg-positive_btn hover:bg-positive_btn_hover rounded-lg shadow-md text-white">Finish</Button>

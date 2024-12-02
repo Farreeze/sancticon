@@ -363,45 +363,89 @@
                                 <div class="flex flex-row justify-between flex-wrap-reverse">
                                     <div>
                                         <div class="flex items-center mb-3">
-                                            <h2 class="font-bold text-lg text-gray-700">{{$sacramental_reservation->sacrament->desc}}</h2>
+                                            <h2 class="font-bold text-xl text-gray-700">{{$sacramental_reservation->sacrament->desc}}</h2>
                                             @if ($sacramental_reservation->status === null && $sacramental_reservation->subchurch_approve !== 0)
                                                 <div class="ml-3">
                                                     <p class="px-4 py-1 bg-yellow-500 text-white rounded-lg shadow-md">Pending</p>
                                                 </div>
                                             @endif
                                         </div>
-                                        <div>
+                                        <div class="text-lg">
                                             <span>Church:</span>
                                             <span class="ml-1">{{$sacramental_reservation->church->church_name}}</span>
                                         </div>
-                                        <div>
+                                        <div class="text-lg">
                                             <span>Date:</span>
                                             <span class="ml-1">{{$sacramental_reservation->date}}</span>
                                         </div>
-                                        <div>
+                                        <div class="text-lg">
                                             <span>Time:</span>
                                             <span class="ml-1">{{$sacramental_reservation->start_time}} to {{$sacramental_reservation->end_time}}</span>
                                         </div>
                                         @if ($sacramental_reservation->sacrament->id == 1)
-                                            <div>
+                                            <div class="text-lg">
                                                 <span>Baptismal Candidate:</span>
                                                 <span class="ml-1">{{$sacramental_reservation->participant_name}}</span>
                                             </div>
                                         @endif
                                         @if ($sacramental_reservation->sacrament->id == 7)
-                                            <div>
+                                            <div class="text-lg">
                                                 <span>Participant 1:</span>
                                                 <span class="ml-1">{{$sacramental_reservation->first_name}}</span>
                                             </div>
-                                            <div>
+                                            <div class="text-lg">
                                                 <span>Participant 2:</span>
                                                 <span class="ml-1">{{$sacramental_reservation->second_name}}</span>
                                             </div>
                                         @endif
                                         @if ($sacramental_reservation->feedback)
-                                            <div class="mt-5">
+                                            <div class="mt-5 text-lg">
                                                 <span class="font-bold">Feedback:</span>
                                                 <span class="ml-1">{{$sacramental_reservation->feedback}}</span>
+                                            </div>
+                                        @endif
+                                        @if ($sacramental_reservation->sacrament->id == 7)
+                                            <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                @if ($sacramental_reservation->file_one)
+                                                <a href="{{ asset('storage/' . $sacramental_reservation->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Cenomar</a>
+                                                @endif
+
+                                                @if ($sacramental_reservation->file_two)
+                                                    <a href="{{ asset('storage/' . $sacramental_reservation->file_two) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Birth Certificate</a>
+                                                @endif
+
+                                                @if ($sacramental_reservation->file_three)
+                                                    <a href="{{ asset('storage/' . $sacramental_reservation->file_three) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Baptismal Certificate</a>
+                                                @endif
+
+                                                @if ($sacramental_reservation->file_four)
+                                                    <a href="{{ asset('storage/' . $sacramental_reservation->file_four) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Confirmation Certificate</a>
+                                                @endif
+                                            </div>
+                                        @endif
+                                        @if ($sacramental_reservation->sacrament->id == 1)
+                                            <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                @if ($sacramental_reservation->file_one)
+                                                <a href="{{ asset('storage/' . $sacramental_reservation->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Birth Certificate</a>
+                                                @endif
+
+                                                @if ($sacramental_reservation->file_two)
+                                                    <a href="{{ asset('storage/' . $sacramental_reservation->file_two) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Confirmation Certificate</a>
+                                                @endif
+                                            </div>
+                                        @endif
+                                        @if ($sacramental_reservation->sacrament->id == 6)
+                                            <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                @if ($sacramental_reservation->file_one)
+                                                <a href="{{ asset('storage/' . $sacramental_reservation->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Death Certificate</a>
+                                                @endif
+                                            </div>
+                                        @endif
+                                        @if ($sacramental_reservation->sacrament->id == 3)
+                                            <div class="mt-3 flex flex-col md:flex-row lg:flex-row">
+                                                @if ($sacramental_reservation->file_one)
+                                                <a href="{{ asset('storage/' . $sacramental_reservation->file_one) }}" class="bg-secondary hover:bg-secondary_hover px-4 py-2 rounded-lg text-white m-1" target="_blank">View Bapstismal Certificate</a>
+                                                @endif
                                             </div>
                                         @endif
                                     </div>

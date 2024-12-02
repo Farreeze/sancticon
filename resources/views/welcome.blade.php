@@ -32,10 +32,10 @@
             </div>
 
             <div class="mt-10 text-white text-center">
-                <p class="p-5 text-xl">Welcome to SanctiCon, your portal for exploring the beauty of faith and sacraments.
+                <p class="p-5 text-2xl">Welcome to SanctiCon, your portal for exploring the beauty of faith and sacraments.
                      Our mission is to provide a sacred space for spiritual growth and community connection.
                 </p>
-                <p class="p-5 text-lg text-white">Explore our sacraments, join us for events, request certificates, and stay updated with the latest news and announcements.</p>
+                <p class="p-5 text-xl text-white">Explore our sacraments, join us for events, request certificates, and stay updated with the latest news and announcements.</p>
             </div>
 
         </div>
