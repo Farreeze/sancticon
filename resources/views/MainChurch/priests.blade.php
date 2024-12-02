@@ -44,6 +44,9 @@
                             {{-- do foreach here --}}
                             @foreach ($priests as $priest)
                                 <div class="mt-3 w-full bg-gray-300 rounded-lg p-5">
+                                    <div class="mb-5 md:mb-0 lg:mb-0 w-full flex justify-end">
+                                        <a class="ml-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary_hover" href="{{route('priest-profile.show', $priest->id)}}">View Profile</a>
+                                    </div>
                                     <div class="flex flex-col items-center">
 
                                         @if (!$priest->photo_id)
